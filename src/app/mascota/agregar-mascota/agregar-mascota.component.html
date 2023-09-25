@@ -63,14 +63,14 @@
             <div class="dos">
                 <label for="estado" class="acento-verde-texto enunciado">Estado</label>
                 <br>
-                <select formControlName="estado" class="lacento-verde-texto selectenunciado" id="estado">
+                <select formControlName="estado" class="acento-verde-texto selectenunciado" id="estado">
                     <option value="Sin estado">Sin estado</option>
                     <option value="hospitalizado">hospitalizado</option>
                     <option value="curado">curado</option>
                 </select>
             </div>
         </div>
-        <button type="submit"
+        <button [routerLink]="['/mascotas/all']"
             class="creacional2 no-bordes boton-redondo acento-verde-fondo letra-poppins textoBlanco texto-negrilla">
             Agregar Mascota
         </button>

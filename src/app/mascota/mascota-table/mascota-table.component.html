@@ -76,8 +76,8 @@
             <div class="dropdown acento-transparente">
               <button class="dropbtn acento-transparente"></button>
               <div class="dropdown-content acento-transparente">
-                <a href="#" data-value="opcion7" [routerLink]="['/mascota/delete', mascota.id]">Eliminar</a>
-                <a href="#" data-value="opcion8" [routerLink]="['/mascota/update', mascota.id]">Modificar</a>
+                <a href="#" data-value="opcion7" [routerLink]="['/mascotas/delete', mascota.id]">Eliminar</a>
+                <a href="#" data-value="opcion8" [routerLink]="['/mascotas/modificar', mascota.id]">Modificar</a>
               </div>
             </div>
           </td>
@@ -88,7 +88,7 @@
     </div>
 
     <div class="boton-crear">
-      <a [routerLink]="['/mascota/add']">
+      <a [routerLink]="['/mascotas/add']">
         <button class="acentro-verde-oscuro-fondo texto-negrilla textoBlanco">Añadir</button>
       </a>
     </div>
