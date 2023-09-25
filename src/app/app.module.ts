@@ -7,6 +7,7 @@ import { MascotaTableComponent } from './mascota/mascota-table/mascota-table.com
 import { HeaderComponent } from './mascota/header/header.component';
 import { ModificarMascotaComponent } from './mascota/modificar-mascota/modificar-mascota.component';
 import { AgregarMascotaComponent } from './mascota/agregar-mascota/agregar-mascota.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AgregarMascotaComponent } from './mascota/agregar-mascota/agregar-masco
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

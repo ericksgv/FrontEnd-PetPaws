@@ -15,7 +15,7 @@ const routes: Routes = [
     component: AgregarMascotaComponent,
   },
   {
-    path: 'mascotas/modificar',
+    path: 'mascotas/modificar/:id', 
     component: ModificarMascotaComponent,
   }
 ];

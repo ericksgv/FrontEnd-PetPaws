@@ -1,79 +1,69 @@
+<!-- modificar-mascota.component.html -->
 <app-header [titleColor]="'acento-verde-oscuro-texto'" [backgroundColor]="'acento-transparente'"></app-header>
 <section class="contenido-modificar-cliente">
-
-    <section class="contenedor-img-modificar-entidad">
-    </section>
-    <section class="contenedor-img-modificar-mascota">
-        <!-- Contenedor para la imagen del perro -->
-        <div class="contenedor-imagen-perro">
-           
+  <section class="contenedor-img-modificar-entidad">
+    <!-- Contenido relacionado con la imagen de la mascota en Angular -->
+  </section>
+  <section class="contenedor-img-modificar-mascota">
+    <!-- Contenedor para la imagen del perro (puedes agregar lógica para mostrar la imagen aquí) -->
+    <div class="contenedor-imagen-perro">
+      <!-- Aquí puedes agregar la lógica para mostrar la imagen de la mascota -->
+    </div>
+    <!-- Contenedor para el label -->
+    <div class="contenedor-label">
+      <label for="nombre" class="acento-verde-texto enunciado">URL de Foto</label><br>
+      <input *ngIf="mascota" [(ngModel)]="mascota.foto" name="foto" type="text" class="labelenunciado" id="nombre" placeholder="URL" required>
+      <!-- Puedes agregar manejo de errores si es necesario -->
+    </div>
+  </section>
+  <!-- Sección con los textos y campos -->
+  <section class="contenedor-campos-modificar-entidad">
+    <div class="seccion-input-contenido-dashboard">
+      <h2 class="title-creacional subrayado acento-verde-oscuro-texto">Editar Datos de Mascota</h2>
+      <form (ngSubmit)="actualizarMascota()" #form="ngForm">
+        <div class="columna">
+          <div class="uno" *ngIf="mascota">
+            <label for="nombre" class="acento-verde-texto enunciado">Nombre</label><br>
+            <input [(ngModel)]="mascota.nombre" name="nombre" type="text" class="labelenunciado" id="nombre" placeholder="Nombre" required>
+            <!-- Puedes agregar manejo de errores si es necesario -->
+          </div>
+          <div class="dos" *ngIf="mascota">
+            <label for="edad" class="acento-verde-texto enunciado">Edad</label><br>
+            <input [(ngModel)]="mascota.edad" name="edad" type="number" class="labelenunciado" id="edad" placeholder="Edad" min="0" step="1" required>
+            <!-- Puedes agregar manejo de errores si es necesario -->
+          </div>
         </div>
-        <!-- Contenedor para el label -->
-        <div class="contenedor-label">
-            <label for="nombre" class="acento-verde-texto enunciado">URL de Foto </label><br>
-            <input th:field="*{nombre}" type="text" class="labelenunciado" id="nombre" placeholder="URL" required>
-            <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" class="text-danger"></span>
+        <div class="columna">
+          <div class="uno" *ngIf="mascota">
+            <label for="raza" class="acento-verde-texto enunciado">Raza</label><br>
+            <input [(ngModel)]="mascota.raza" name="raza" type="text" class="labelenunciado" id="raza" placeholder="Raza" required>
+            <!-- Puedes agregar manejo de errores si es necesario -->
+          </div>
+          <div class="dos" *ngIf="mascota">
+            <label for="peso" class="acento-verde-texto enunciado">Peso</label><br>
+            <input [(ngModel)]="mascota.peso" name="peso" type="number" class="labelenunciado" id="peso" placeholder="Peso" min="0.01" required>
+            <!-- Puedes agregar manejo de errores si es necesario -->
+          </div>
         </div>
-    </section>
-    
-
-    <!--Seccion con los textos y campos-->
-    <section class="contenedor-campos-modificar-entidad">
-        <div class="seccion-input-contenido-dashboard">
-            <h2 class="title-creacional subrayado acento-verde-oscuro-texto">Editar Datos de Mascota</h2>
-            <form th:object="${mascota}" th:action="@{/mascota/update/{id}(id=${mascota.id})}" th:method="post">
-                <div class="columna">
-                    <div class="uno">
-                        <label for="nombre" class="acento-verde-texto enunciado">Nombre</label><br>
-                        <input th:field="*{nombre}" type="text" class="labelenunciado"
-                            id="nombre" placeholder="Nombre" required>
-                        <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" class="text-danger"></span>
-                    </div>
-                    <div class="dos">
-                        <label for="edad" class="acento-verde-texto enunciado">Edad</label><br>
-                        <input th:field="*{edad}" type="number" class="labelenunciado"
-                            id="edad" placeholder="Edad" min="0" step="1" required>
-                        <span th:if="${#fields.hasErrors('edad')}" th:errors="*{edad}" class="text-danger"></span>
-                    </div>
-                </div>
-                <div class="columna">
-                    <div class="uno">
-                        <label for="raza" class="acento-verde-texto enunciado">Raza</label><br>
-                        <input th:field="*{raza}" type="text" class="labelenunciado"
-                            id="raza" placeholder="Raza" required>
-                    </div>
-                    <div class="dos">
-                        <label for="peso" class="acento-verde-texto enunciado">Peso</label><br>
-                        <input th:field="*{peso}" type="number" class="labelenunciado"
-                            id="peso" placeholder="Peso" min="0.01" required>
-                        <span th:if="${#fields.hasErrors('peso')}" th:errors="*{peso}" class="text-danger"></span>
-                    </div>
-                </div>
-                <div class="columna">
-                    <div class="uno">
-                        <label for="estado" class="acento-verde-texto enunciado">Estado</label><br>
-                        <select th:field="*{estado}" class="lacento-verde-texto selectenunciado"
-                            id="estado" required>
-                            <option value="Sin estado">Sin estado</option>
-                            <option value="hospitalizado">Hospitalizado</option>
-                            <option value="curado">Curado</option>
-                        </select>
-                    </div>
-
-                    <div class="dos">
-                        <label for="enfermedad"
-                            class="acento-verde-texto enunciado">Enfermedad</label><br>
-                        <input th:field="*{enfermedad}" type="number"
-                            class="labelenunciado" id="enfermedad"
-                            placeholder="Enfermedad" required>
-                        <span th:if="${#fields.hasErrors('enfermedad')}" th:errors="*{enfermedad}"
-                            class="text-danger"></span>
-                    </div>
-                </div>
-                <input type="hidden" th:field="*{duenio.id}" id="duenioId" />
-                <button class="buton" [routerLink]="['/mascotas/all']">Actualizar Mascota</button>
-            </form>
+        <div class="columna">
+          <div class="uno" *ngIf="mascota">
+            <label for="estado" class="acento-verde-texto enunciado">Estado</label><br>
+            <select [(ngModel)]="mascota.estado" name="estado" class="lacento-verde-texto selectenunciado" id="estado" required>
+              <option value="Sin estado">Sin estado</option>
+              <option value="hospitalizado">Hospitalizado</option>
+              <option value="curado">Curado</option>
+            </select>
+          </div>
+          <div class="dos" *ngIf="mascota">
+            <label for="enfermedad" class="acento-verde-texto enunciado">Enfermedad</label><br>
+            <input [(ngModel)]="mascota.enfermedad" name="enfermedad" type="number" class="labelenunciado" id="enfermedad" placeholder="Enfermedad" required>
+            <!-- Puedes agregar manejo de errores si es necesario -->
+          </div>
         </div>
-    </section>
-
+        <input *ngIf="mascota" type="hidden" [(ngModel)]="mascota.duenio.id" name="duenioId" />
+        <!-- Más campos aquí... -->
+        <button type="submit" class="buton">Actualizar Mascota</button>
+      </form>
+    </div>
+  </section>
 </section>

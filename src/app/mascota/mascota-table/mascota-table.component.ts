@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Mascota } from 'src/app/model/mascota';
-
+import { MascotaService } from '../Service/mascotaservice.service';
+import { Router } from '@angular/router'; // Importa Router
 
 @Component({
   selector: 'app-mascota-table',
@@ -10,36 +11,26 @@ import { Mascota } from 'src/app/model/mascota';
 export class MascotaTableComponent {
   mascotas: Mascota[] = [];
 
-  constructor() {
-    this.crearMascotasFalsas();
+  constructor(private mascotaService: MascotaService, private router: Router) {
+    this.mascotas = this.mascotaService.getMascotas();
   }
 
-  private crearMascotasFalsas() {
-    const estados = ['Sin estado', 'Hospitalizado', 'Curado'];
+  eliminarMascota(id: number) {
+    this.mascotaService.eliminarMascota(id);
+  }
 
-    for (let i = 1; i <= 10; i++) {
-      const mascota: Mascota = {
-        id: i,
-        nombre: `Perro${i}`,
-        raza: `Raza${i}`,
-        edad: Math.floor(Math.random() * 10) + 1, // Edad aleatoria entre 1 y 10 años
-        peso: Math.floor(Math.random() * 30) + 1, // Peso aleatorio entre 1 y 30 kg
-        foto: 'https://static.fundacion-affinity.org/cdn/farfuture/PVbbIC-0M9y4fPbbCsdvAD8bcjjtbFc0NSP3lRwlWcE/mtime:1643275542/sites/default/files/los-10-sonidos-principales-del-perro.jpg', // URL de la imagen
-        enfermedad: 'Ninguna',
-        estado: estados[Math.floor(Math.random() * estados.length)], // Estado aleatorio
-        duenio: {
-          id: i,
-          nombre: `Propietario${i}`,
-          cedula: 0,
-          correo: '',
-          celular: 0,
-          mascotas: []
-        },
-        tratamientos: [], // Puedes dejarlo vacío o agregar tratamientos falsos si lo deseas
-      };
-
-      this.mascotas.push(mascota);
+  // Función para redirigir a la página de modificación
+  modificarMascota(id: number) {
+    // Busca la mascota por ID en la lista
+    const mascota = this.mascotas.find(m => m.id === id);
+    if (mascota) {
+      // Si la mascota se encuentra, redirige a la página de modificación
+      this.router.navigate(['/mascotas/modificar', id]);
+    } else {
+      // Si la mascota no se encuentra, redirige a la lista de mascotas
+      this.router.navigate(['/mascotas/all']);
     }
   }
 }
+
 
