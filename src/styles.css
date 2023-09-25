@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: raleway_f;
+    src: url(./fonts/raleway-regular.woff2);
+}
+@font-face {
+    font-family: raleway_f;
+    src: url(./fonts/raleway-black.woff2);
+    font-weight: 900;
+}
+
+body {
+    font-family: raleway_f, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.55;
+}
+
+.acento-amarillo-claro-fondo{
+    background-color:#F2EBD2;
+}
+

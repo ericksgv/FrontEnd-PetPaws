@@ -1,0 +1,77 @@
+<div class="wave-container"></div>
+<img class="waveimage" src="./assets/crearmascota/crearmascotaicono.png" alt="perro">
+<img class="waveimage2" src="./assets/crearmascota/devolverse.svg" alt="devolverse">
+<section class="container-wave2 creacional">
+    <h1 class="title-creacional subrayado">Añadir Mascota</h1>
+    <form>  <!--[formGroup]="mascotaForm" (ngSubmit)="onSubmit()">-->
+        <div class="columna">
+            <div class="uno">
+                <label for="duenoId" class="acento-verde-texto enunciado">Dueño</label>
+                <br>
+                <select id="duenoId" formControlName="duenoId" class="labelenunciado">
+                    <option class="labelenunciado">Cedula, nombre</option>
+                    <!--<option *ngFor="let usuario of usuarios" [value]="usuario.id">
+                        {{ usuario.nombre + ' (ID: ' + usuario.cedula + ')' }}
+                    </option>-->
+                </select>
+                <input type="hidden" id="duenioId"
+                    class="letra-poppins campo-input-dashboard form-control">
+            </div>
+            <div class="dos">
+                <label for="nombre" class="acento-verde-texto enunciado">Nombre</label>
+                <br>
+                <input type="text" formControlName="nombre" class="acento-verde-texto labelenunciado" id="nombre"
+                    placeholder="Nombre Mascota">
+            </div>
+        </div>
+        <div class="columna">
+            <div class="uno">
+                <label for="edad" class="acento-verde-texto enunciado">Edad</label>
+                <br>
+                <input type="text" formControlName="edad" class="lacento-verde-texto labelenunciado" id="edad"
+                    placeholder="edad">
+            </div>
+            <div class="dos">
+                <label for="foto" class="acento-verde-texto enunciado">Foto</label>
+                <br>
+                <input type="text" formControlName="foto" class="lacento-verde-texto labelenunciado" id="foto"
+                    placeholder="foto">
+            </div>
+        </div>
+        <div class="columna">
+            <div class="uno">
+                <label for="raza" class="acento-verde-texto enunciado">Raza</label>
+                <br>
+                <input type="text" formControlName="raza" class="lacento-verde-texto labelenunciado" id="raza"
+                    placeholder="Raza">
+            </div>
+            <div class="dos">
+                <label for="enfermedad" class="acento-verde-texto enunciado">Enfermedad</label>
+                <br>
+                <input type="text" formControlName="enfermedad" class="lacento-verde-texto labelenunciado" id="enfermedad"
+                    placeholder="enfermedad">
+            </div>
+        </div>
+        <div class="columna">
+            <div class="uno">
+                <label for="peso" class="acento-verde-texto enunciado">Peso</label>
+                <br>
+                <input type="number" formControlName="peso" class="lacento-verde-texto labelenunciado" id="peso"
+                    placeholder="Peso" min="0.01" step="0.01">
+            </div>
+            <div class="dos">
+                <label for="estado" class="acento-verde-texto enunciado">Estado</label>
+                <br>
+                <select formControlName="estado" class="lacento-verde-texto selectenunciado" id="estado">
+                    <option value="Sin estado">Sin estado</option>
+                    <option value="hospitalizado">hospitalizado</option>
+                    <option value="curado">curado</option>
+                </select>
+            </div>
+        </div>
+        <button type="submit"
+            class="creacional2 no-bordes boton-redondo acento-verde-fondo letra-poppins textoBlanco texto-negrilla">
+            Agregar Mascota
+        </button>
+    </form>
+</section>

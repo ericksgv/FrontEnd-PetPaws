@@ -1,0 +1,178 @@
+/* Colores */
+
+
+.subrayado{
+    text-decoration: underline;
+}
+
+.letra-poppins{
+    font-family: 'Poppins', sans-serif;
+}
+
+.no-bordes{
+    border: none;
+}
+
+.acento-verde-fondo{
+    background-color: #44561E;
+    
+}
+
+.boton-redondo{
+    border-radius: 20px;
+    margin-top: 6%;    
+}
+
+button {
+    padding: 2vh 4vh;
+    border: none;
+    cursor: pointer;
+    margin-left: 5vh;
+    border-radius: 50px;
+}
+
+.textoBlanco{
+    color: white;
+}
+
+.texto-negrilla{
+    font-weight: bolder;
+}
+
+
+/*Estructura Wave*/
+.wave-container {
+    position: absolute;
+    top: -5vh;
+    right: 0;
+    width: 50%;
+    height: 120vh; 
+    padding: 0%;
+    margin: 0;
+    background-image: url('src/assets/crearmascota/wave.svg');
+    z-index: 0; 
+}
+
+.container-wave2 {
+    position: relative;
+    z-index: 10; 
+    height:80vh;
+}
+
+svg {
+    width: 100%;
+    height: auto;  
+}
+
+form{
+    height: 80%;
+}
+
+.creacional{
+    margin-left: 50%;
+}
+
+.creacional2{
+    margin-left: 40%;
+    margin-top: 10vh;
+}
+
+.title-creacional{
+    margin-left: 40%;
+    color: #2D2D2D;
+    font-size: 40px;
+}
+
+.columna {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 6vh;
+    
+}
+
+@media (max-width: 768px) {
+    .columna {
+        flex-direction: column;
+    }
+}
+
+.uno,
+.dos {
+    flex: 1; /* Para que ocupen el mismo espacio */
+    margin-right: 10px; /* Puedes ajustar este valor para controlar el espacio entre ellos */
+
+}
+.uno{
+    margin-left: 10vh;
+    margin-right: 5vh;
+}
+.dos{
+    margin-right: 10vh;
+    margin-left: 5vh;
+}
+
+.enunciado{
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.labelenunciado{
+    width: 100%;
+    border-radius: 50px;
+    border: solid 1px #2D2D2D;
+    background: #F2EBD2;
+    margin: 0;
+    font-size: 20px;
+    border-radius: 1vh;
+    height: 28%;
+    padding: 1vh;
+}
+
+.selectenunciado{
+    height: 50%;
+    width: 100%;
+    border-radius: 50px;
+    border: solid 1px #2D2D2D;
+    background: #F2EBD2;
+    margin: 0;
+    font-size: 20px;
+    border-radius: 1vh;
+    padding: 1vh;
+}
+
+/* Estilo del select2 */
+.select2-container--default .select2-selection--single {
+    border-radius: 1vh; /* Ajusta el valor según el grado de redondez que desees */
+    background: #F2EBD2; /* Cambia el color de fondo a #F2EBD2 */
+    height: 5vh;
+    border: solid 1px #2D2D2D;
+}
+
+/* Estilo de la flecha desplegable */
+.select2-container--default .select2-selection__arrow {
+    border-left: none; /* Elimina la flecha izquierda */
+    border-radius: 50px;  /* Ajusta el valor para redondear solo el lado derecho */
+    background: #F2EBD2;
+    height: 5vh;
+}
+
+/* Estilo del texto seleccionado */
+.select2-container--default .select2-selection__rendered {
+    padding: 1vh; /* Ajusta el espaciado del texto seleccionado */
+    color: #333; /* Cambia el color del texto seleccionado */
+    height: 5vh;
+    font-size: 20px;
+}
+
+.waveimage{
+    position: absolute;
+    top: 50%;
+    left: 10%;
+}
+
+.waveimage2{
+    position: absolute;
+    top: 25%;
+    left: 5%;
+}
