@@ -1,0 +1,44 @@
+@import "src/styles.css";
+
+.layout-contacto{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+
+  background-color: white;
+}
+
+.parte-mapa{
+  flex: 5;
+  /*background-image: url("https://upload.wikimedia.org/wikipedia/commons/a/a9/Long_and_Loop_Street_map.svg");*/
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.parte-mapa img{
+  transform: scale(0.9, 0.9);
+  align-content: center;
+  padding-left: 10%;
+}
+
+.parte-informacion-contacto{
+  flex: 5;
+}
+
+.titulo-secundario{
+  font-family: Recoleta, serif;
+  font-size: 3rem;
+  text-align: center;
+}
+
+.titulo-terciario{
+  font-family: Recoleta, serif;
+  font-size: 2rem;
+  text-align: left;
+}
+
+.texto-contacto{
+  font-family: 'Work Sans', sans-serif;
+  color: #2D2D2D;
+  font-size: 1.5rem;
+}
