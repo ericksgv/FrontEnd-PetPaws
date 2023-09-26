@@ -23,6 +23,7 @@ export class MascotaTableComponent {
     this.mascotas = this.mascotaService.getMascotas();
   }
   
+  
 
   // Función para redirigir a la página de modificación
   modificarMascota(id: number) {

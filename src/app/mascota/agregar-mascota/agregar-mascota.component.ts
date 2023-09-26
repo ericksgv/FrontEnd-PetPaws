@@ -29,10 +29,10 @@ export class AgregarMascotaComponent {
   }
 
   agregarMascota() {
-    if (this.mascotaForm.valid) {  // Verificar si el formulario es válido
-      const nuevaMascota = this.mascotaForm.value;  // Obtener los datos del formulario
-      this.mascotaService.agregarMascota(nuevaMascota);  // Llamar al servicio para agregar la mascota
-      this.router.navigate(['/mascotas/all']);  // Redirigir después de agregar la mascota
-    }
+    const nuevaMascota = this.mascotaForm.value;
+
+    this.mascotaService.agregarMascota(nuevaMascota);
+
+    this.router.navigate(['/mascotas/all']);
   }
 }
