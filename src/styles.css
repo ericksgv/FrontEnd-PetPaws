@@ -2,30 +2,30 @@
 
 /* ------------------------- Recoleta -------------------------*/
 @font-face {
-  font-family: 'Recoleta';
-  src:    url('src/fonts/Recoleta/Recoleta-SemiBold.woff2') format('woff2'),
-  url('src/fonts/Recoleta/Recoleta-SemiBold.woff') format('woff'),
-  url("src/fonts/Recoleta/Recoleta-SemiBold.ttf");
+  font-family: Recoleta;
+  src:    url('assets/fonts/Recoleta/Recoleta-SemiBold.woff2') format('woff2'),
+  url('assets/fonts/Recoleta/Recoleta-SemiBold.woff') format('woff'),
+  url("assets/fonts/Recoleta/Recoleta-SemiBold.ttf") format('truetype');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Recoleta';
-  src: url('src/fonts/Recoleta/Recoleta-Bold.woff2') format('woff2'),
-  url('src/fonts/Recoleta/Recoleta-Bold.woff') format('woff'),
-  url("src/fonts/Recoleta/Recoleta-Bold.ttf");
+  font-family: Recoleta;
+  src: url('assets/fonts/Recoleta/Recoleta-Bold.woff2') format('woff2'),
+  url('assets/fonts/Recoleta/Recoleta-Bold.woff') format('woff'),
+  url("assets/fonts/Recoleta/Recoleta-Bold.ttf") format('truetype');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Recoleta';
-  src:    url('src/fonts/Recoleta/Recoleta-Regular.woff2') format('woff2'),
-  url('src/fonts/Recoleta/Recoleta-Regular.woff') format('woff'),
-  url("src/fonts/Recoleta/Recoleta-Regular.ttf");
+  font-family: Recoleta;
+  src:    url('assets/fonts/Recoleta/Recoleta-Regular.woff2') format('woff2'),
+  url('assets/fonts/Recoleta/Recoleta-Regular.woff') format('woff'),
+  url("assets/fonts/Recoleta/Recoleta-Regular.ttf") format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -41,16 +41,39 @@
 
 @font-face {
     font-family: raleway_f;
-    src: url(./fonts/raleway-regular.woff2);
+    src: url(assets/fonts/raleway-regular.woff2);
 }
 @font-face {
     font-family: raleway_f;
-    src: url(./fonts/raleway-black.woff2);
+    src: url(assets/fonts/raleway-black.woff2);
     font-weight: 900;
 }
 
+.recoleta{
+  font-family: Recoleta, serif;
+}
+
+.recoleta-semibold{
+  font-family: Recoleta, serif;
+}
+
+
+.recoleta-bold{
+  font-family: Recoleta, serif;
+  font-weight: bold;
+}
+
+.worksans{
+  font-family: 'Work Sans', sans-serif;
+}
+
+.worksans-bold{
+  font-family: 'Work Sans', sans-serif;
+  font-weight: bold;
+}
+
 body {
-    font-family: 'Recoleta', serif;
+    font-family: raleway_f, serif;
     margin: 0;
     padding: 0;
     line-height: 1.55;

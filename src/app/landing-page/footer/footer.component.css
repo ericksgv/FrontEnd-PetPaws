@@ -1,0 +1,109 @@
+@import "src/styles.css";
+
+/*FOOTER*/
+footer {
+  background-color: #DDA45A;
+  font-family: 'fonts/Recoleta-Bold.woff';
+  height: 85vh;
+  max-width: 99%;
+  min-width: 100%;
+  bottom: 0;
+  margin: auto;
+  position: relative;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  padding: 5vh 5vh;
+}
+
+.left-title,
+.right-title {
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 48px;
+}
+
+.footer-middle {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  justify-content: space-between;
+}
+
+.left-section,
+.right-section {
+  flex-basis: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.left-section h2,
+.right-section h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-size: 2vw;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  font-size: 1.5vw;
+  text-align: center;
+  font-family: 'Work Sans', sans-serif;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+.image-section {
+  flex-basis: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.social-media {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2vh;
+  margin-bottom: 5vh;
+}
+
+.social-media svg {
+  max-width: 50px;
+  height: auto;
+  margin: 0 10px;
+}
+
+.social-media svg:first-child {
+  position: absolute;
+  left: 87vh;
+  margin-top: 0;
+}
+
+.social-media svg:last-child {
+  position: absolute;
+  right: 87vh;
+  margin-top: 0;
+}
+
+p{
+  font-size: 2vw;
+}
