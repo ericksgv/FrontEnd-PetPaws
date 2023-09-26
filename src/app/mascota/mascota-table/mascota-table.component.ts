@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+ import { Component } from '@angular/core';
 import { Mascota } from 'src/app/model/mascota';
 import { MascotaService } from '../Service/mascotaservice.service';
 import { Router } from '@angular/router'; // Importa Router
@@ -22,8 +22,8 @@ export class MascotaTableComponent {
     // Actualiza la lista de mascotas después de eliminar
     this.mascotas = this.mascotaService.getMascotas();
   }
-  
-  
+
+
 
   // Función para redirigir a la página de modificación
   modificarMascota(id: number) {

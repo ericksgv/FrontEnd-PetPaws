@@ -1,4 +1,44 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* ------------------------- Recoleta -------------------------*/
+@font-face {
+  font-family: 'Recoleta';
+  src:    url('src/fonts/Recoleta/Recoleta-SemiBold.woff2') format('woff2'),
+  url('src/fonts/Recoleta/Recoleta-SemiBold.woff') format('woff'),
+  url("src/fonts/Recoleta/Recoleta-SemiBold.ttf");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Recoleta';
+  src: url('src/fonts/Recoleta/Recoleta-Bold.woff2') format('woff2'),
+  url('src/fonts/Recoleta/Recoleta-Bold.woff') format('woff'),
+  url("src/fonts/Recoleta/Recoleta-Bold.ttf");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Recoleta';
+  src:    url('src/fonts/Recoleta/Recoleta-Regular.woff2') format('woff2'),
+  url('src/fonts/Recoleta/Recoleta-Regular.woff') format('woff'),
+  url("src/fonts/Recoleta/Recoleta-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ------------------------- Work sans -------------------------*/
+/* font-family: 'Work Sans', sans-serif; */
+/*
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+*/
+
 @font-face {
     font-family: raleway_f;
     src: url(./fonts/raleway-regular.woff2);
@@ -10,11 +50,122 @@
 }
 
 body {
-    font-family: raleway_f, sans-serif;
+    font-family: 'Recoleta', serif;
     margin: 0;
     padding: 0;
     line-height: 1.55;
 }
+
+/* ------------------------- Colores -------------------------*/
+/*Principales*/
+.amarillo-principal-fondo{
+  background-color: #E7B10A;
+}
+
+.amarillo-principal-acento{
+  color: #E7B10A;
+}
+
+.naranja-principal-fondo{
+  background-color: #DC6A35;
+}
+
+.naranja-principal-acento{
+  color: #DC6A35;
+}
+
+.verde-principal-fondo{
+  background-color: #A0BF30;
+}
+
+.verde-principal-acento{
+  color: #A0BF30;
+}
+
+/*Neutros*/
+
+.negro-acento{
+  color: black;
+}
+
+.blanco-acento{
+  color: white;
+}
+
+.gris-neutro-acento{
+  color: #2D2D2D;
+}
+
+
+/*Colores de fondo*/
+
+.beige-fondo{
+  background-color: #F2EBD2;
+}
+
+.amarilloPastel-fondo{
+  background-color: #F1D79D;
+}
+
+.naranjaPastel-fondo{
+  background-color: #DDA45A;
+}
+
+.blanco-fondo{
+  background-color: white;
+}
+
+.verdeOlivaPastel-fondo{
+  background-color: #AAC074;
+}
+
+.cafePastel-fondo{
+  background-color: #D4B8A0;
+}
+
+/*Secundarios*/
+.verde-secundario-acento{
+  color: #4C894F;
+}
+
+.verde-secundario-fondo{
+  background-color: #4C894F;
+}
+
+.verdeOlivaPastel-acento{
+  color: #AAC074;
+}
+
+.naranjaIntenso-acento{
+  color: #DD4429;
+}
+
+.naranjaIntenso-fondo{
+  background-color: #DD4429;
+}
+
+.cafeChocolate-acento{
+  color: #80563D;
+}
+
+.cafeChocolate-fondo{
+  background-color: #80563D;
+}
+
+/* Colores para tipos de usuario */
+.acento-clientes{
+  color: #E7B10A;
+}
+
+.acento-veterinarios{
+  color: #A0BF30;
+}
+
+.acento-administrador{
+  color: #DC6A35;
+}
+
+/* ------------------------- Colores -------------------------*/
 
 .acento-amarillo-claro-fondo{
     background-color:#F2EBD2;
