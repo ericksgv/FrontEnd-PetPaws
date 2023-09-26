@@ -17,6 +17,7 @@ import { AboutUsComponent } from './landing-page/about-us/about-us.component';
 import { ContactoComponent } from './landing-page/contacto/contacto.component';
 import { FooterComponent } from './landing-page/footer/footer.component';
 import { DropdownMenuComponent } from './dropdown-menu/dropdown-menu.component';
+import {NgOptimizedImage} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -35,12 +36,13 @@ import { DropdownMenuComponent } from './dropdown-menu/dropdown-menu.component';
     FooterComponent,
     DropdownMenuComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        NgOptimizedImage
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,85 @@
+@import "src/styles.css";
+
+/*INFO BASICA*/
+/* Estilo para la sección */
+.info-basica {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: #F2EBD2;
+}
+
+/* Estilo para la imagen en la esquina inferior izquierda */
+.imagePerroPrincipal {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  max-width: 50%; /* Ajusta el ancho máximo de la imagen según tus necesidades */
+}
+
+.imagehuellasposicionarriba{
+  position: absolute;
+  bottom: 65%;
+  left: 18%;
+  max-width: 30%;
+  transform: rotate(-15deg);
+}
+
+.imagehuellasposicionabajo{
+  position: absolute;
+  bottom: 2%;
+  left: 41%;
+  max-width: 30%;
+  transform: rotate(75.758deg);
+}
+
+.imagehuesoposicion{
+  position: absolute;
+  bottom: 52%;
+  left: 4.2%;
+  max-width: 50%;
+}
+
+.imagepelotaposicion{
+  position: absolute;
+  bottom: 32%;
+  left: 47%;
+  max-width: 50%;
+}
+
+.imagelineaposicion{
+  position: absolute;
+  bottom: 59%;
+  left: 37%;
+  max-width: 50%;
+}
+
+/* Estilo para el texto en la esquina inferior derecha */
+.textIntroductorio {
+  position: absolute;
+  top:15%;
+  right: 0;
+  width: 30%;
+  text-align: right;
+  padding-right: 27vh;
+  margin: 0;
+  padding-top: 0;
+  font-size: 70px;
+
+  font-family: Recoleta, serif;
+  color: #DD4429;
+  font-weight: bold;
+}
+
+.textIntroductorio2 {
+  position: absolute;
+  top:60%;
+  right: 0;
+  width: 30%; /* Ajusta el ancho máximo del texto según tus necesidades */
+  height: auto;
+  text-align: right; /* Alinea el texto a la derecha */
+  padding-right: 27vh; /* Añade relleno para separar el texto del borde */
+  font-size: 25px;
+
+  font-family: 'Work Sans', sans-serif;
+}
