@@ -57,6 +57,10 @@ export class MascotaService {
   getMascotaPorId(id: number): Mascota | undefined {
     return this.mascotas.find((mascota) => mascota.id === id);
   }
+
+  agregarMascota(mascota: Mascota): void {
+    this.mascotas.push(mascota);
+  }
   
 }
 
