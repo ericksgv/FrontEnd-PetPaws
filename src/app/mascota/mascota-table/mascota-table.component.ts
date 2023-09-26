@@ -16,8 +16,13 @@ export class MascotaTableComponent {
   }
 
   eliminarMascota(id: number) {
+    this.router.navigate(['/mascotas/all']);
+    // Llama al servicio para eliminar la mascota por su ID
     this.mascotaService.eliminarMascota(id);
+    // Actualiza la lista de mascotas después de eliminar
+    this.mascotas = this.mascotaService.getMascotas();
   }
+  
 
   // Función para redirigir a la página de modificación
   modificarMascota(id: number) {

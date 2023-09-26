@@ -76,7 +76,7 @@
             <div class="dropdown acento-transparente">
               <button class="dropbtn acento-transparente"></button>
               <div class="dropdown-content acento-transparente">
-                <a href="#" (click)="eliminarMascota(mascota.id)">Eliminar</a>
+                <a href="#" [routerLink]="['/mascotas/all']" (click)="eliminarMascota(mascota.id)">Eliminar</a>
                 <a href="#" data-value="opcion8" [routerLink]="['/mascotas/modificar', mascota.id]">Modificar</a>
               </div>
             </div>
