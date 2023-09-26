@@ -1,0 +1,53 @@
+@import "src/styles.css";
+
+.seccion-aboutus{
+  padding-top: 5%;
+  height: 100vh;
+  width: 100vw;
+  background-color: #F1D79D;
+}
+
+.titulo-seccion{
+  font-family: Recoleta, serif;
+  font-size: 4.5rem;
+}
+
+.cutout-highlight{
+  background-color: #F2EBD2;
+  padding-right: 5%;
+}
+
+.numero-grande{
+  font-family: Recoleta, serif;
+  font-size: 4rem;
+  color: #DC6A35;
+  text-decoration: underline;
+}
+
+.subtexto{
+  font-family: Recoleta, serif;
+  color: #2D2D2D;
+  font-size: 2rem;
+}
+
+.frase-final{
+  font-family: Recoleta, serif;
+  color: black;
+  font-size: 2.5rem;
+  text-align: center;
+
+  padding-top: 5%;
+}
+
+table{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+td{
+  text-align: center;
+  padding-right: 5%;
+  padding-left: 5%;
+}
+
+
