@@ -59,6 +59,7 @@ export class MascotaService {
   }
 
   agregarMascota(mascota: Mascota): void {
+    mascota.id = this.mascotas.length + 1;
     this.mascotas.push(mascota);
   }
   
