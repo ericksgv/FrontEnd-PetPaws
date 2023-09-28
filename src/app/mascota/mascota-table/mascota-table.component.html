@@ -1,0 +1,96 @@
+<app-header [titleColor]="'acento-verde-claro-texto'" [backgroundColor]="'acento-amarillo-claro-fondo'"></app-header>
+<div class="contorno acento-amarillo-claro-fondo">
+  <div class="cuadro-estatico acento-verde-semi-claro-fondo">
+    <div class="rectangulo"></div>
+    <h1>Lista de Mascotas</h1>
+    <div class="grupo-elementos">
+      <label for="campoBusqueda" class="busqueda">
+        <input type="text" id="campoBusqueda" name="campoBusqueda" placeholder="Busca cédulas, nombres, correos...">
+      </label>
+      <div class="boton-derecha ">
+        <button>Busqueda Avanzada</button>
+      </div>
+    </div>
+    <div class="tres-botones texto-negrilla textoNegro">
+      <button class="acentro-verde-oscuro-fondo texto-negrilla textoBlanco .filtro-btn"
+        data-atributo="nombre">Nombre</button>
+      <button class="acentro-verde-oscuro-fondo texto-negrilla textoBlanco .filtro-btn"
+        data-atributo="edad">Edad</button>
+      <button class="acentro-verde-oscuro-fondo texto-negrilla textoBlanco .filtro-btn"
+        data-atributo="raza">Raza</button>
+      <button class="acentro-verde-oscuro-fondo texto-negrilla textoBlanco .filtro-btn"
+        data-atributo="peso">Peso</button>
+      <button class="acentro-verde-oscuro-fondo texto-negrilla textoBlanco .filtro-btn"
+        data-atributo="estado">Estado</button>
+    </div>
+    <div class="tres-botones texto-negrilla textoNegro">
+      <div class="margenizquierdo"></div>
+      <div class="boton-contenedor">
+        <div class="mitad-izquierda acentro-verde-oscuro-fondo">
+          <!-- Lista desplegable izquierda -->
+          <select class="acentro-verde-oscuro-fondo textoBlanco texto-negrilla">
+            <option value="opcion1">Edad</option>
+            <option value="opcion2">Opción 2</option>
+            <option value="opcion3">Opción 3</option>
+          </select>
+        </div>
+        <div class="mitad-derecha">
+          <!-- Lista desplegable derecha -->
+          <select class="acento-amarillo-claro-fondo texto-negrilla no-border">
+            <option value="opcion4">Ascendente</option>
+            <option value="opcion5">Opción 5</option>
+            <option value="opcion6">Opción 6</option>
+          </select>
+        </div>
+      </div>
+      <div class="margenizquierdo"></div>
+      <button class="acentro-verde-oscuro-fondo texto-negrilla">15</button>
+    </div>
+  </div>
+
+  <section class="cuadro-estatico2">
+    <table class="tabla-general2">
+      <thead>
+        <tr class="texto-negrilla textoNegro letra-normal-grande encabezados-tabla acento-verde-semi-claro-fondo">
+          <th scope="col"></th><!-- box -->
+          <th scope="col">Nombre</th>
+          <th scope="col">Edad</th>
+          <th scope="col">Raza</th>
+          <th scope="col">Peso</th>
+          <th scope="col">Estado</th>
+          <th scope="col"></th><!-- Opciones -->
+        </tr>
+      </thead>
+      <tbody id="tableBody" class="tbody2">
+        <tr *ngFor="let mascota of mascotas; let i = index">
+          <td class="custom-checkbox-cell">
+            <input type="checkbox" class="custom-checkbox" [id]="'checkbox-' + i">
+            <label [for]="'checkbox-' + i" class="custom-checkbox-label"></label>
+          </td>
+          <th>{{ mascota.nombre }}</th>
+          <td>{{ mascota.edad }}</td>
+          <td class="ancho-razas">{{ mascota.raza }}</td>
+          <td>{{ mascota.peso }}</td>
+          <td>{{ mascota.estado }}</td>
+          <td class="acciones-cell acento-transparente ">
+            <div class="dropdown acento-transparente">
+              <button class="dropbtn acento-transparente"></button>
+              <div class="dropdown-content acento-transparente">
+                <a href="#" [routerLink]="['/mascotas/all']" (click)="eliminarMascota(mascota.id)">Eliminar</a>
+                <a href="#" data-value="opcion8" [routerLink]="['/mascotas/modificar', mascota.id]">Modificar</a>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div id="pagination" class="pagination">
+    </div>
+
+    <div class="boton-crear">
+      <a>
+        <button [routerLink]="['/mascotas/add']" class="acentro-verde-oscuro-fondo texto-negrilla textoBlanco">Añadir</button>
+      </a>
+    </div>
+  </section>
+</div>
