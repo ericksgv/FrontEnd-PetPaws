@@ -62,7 +62,7 @@
         </tr>
       </thead>
       <tbody id="tableBody" class="tbody2">
-        <tr *ngFor="let mascota of mascotas; let i = index">
+        <tr *ngFor="let mascota of mascotas.slice(calcularIndicesPagina().inicio, calcularIndicesPagina().fin); let i = index">
           <td class="custom-checkbox-cell">
             <input type="checkbox" class="custom-checkbox" [id]="'checkbox-' + i">
             <label [for]="'checkbox-' + i" class="custom-checkbox-label"></label>
@@ -84,12 +84,37 @@
         </tr>
       </tbody>
     </table>
-    <div id="pagination" class="pagination">
+    
+    <!-- Agregar la sección de paginación -->
+    <div class="pagination">
+      <button [disabled]="paginaActual === 1" (click)="cambiarPagina(paginaActual - 1)" class="pagination-button">Anterior</button>
+    
+      <button *ngIf="rangoPaginas[0] > 1" (click)="cambiarPagina(1)" class="pagination-button">1</button>
+    
+      <span *ngIf="rangoPaginas[0] > 2">...</span>
+    
+      <button *ngFor="let pagina of rangoPaginas" (click)="cambiarPagina(pagina)" class="pagination-button" [ngClass]="{'current-page': paginaActual === pagina}">
+        {{ pagina }}
+      </button>
+    
+      <span *ngIf="rangoPaginas[rangoPaginas.length - 1] < paginas.length - 1">...</span>
+    
+      <button *ngIf="rangoPaginas[rangoPaginas.length - 1] < paginas.length" (click)="cambiarPagina(paginas.length)" class="pagination-button">{{ paginas.length }}</button>
+    
+      <button [disabled]="paginaActual === paginas.length" (click)="cambiarPagina(paginaActual + 1)" class="pagination-button">Siguiente</button>
     </div>
+    
+    
+    
+    
+    
+    
+
 
     <div class="boton-crear">
       <a>
-        <button [routerLink]="['/mascotas/add']" class="acentro-verde-oscuro-fondo texto-negrilla textoBlanco">Añadir</button>
+        <button [routerLink]="['/mascotas/add']"
+          class="acentro-verde-oscuro-fondo texto-negrilla textoBlanco">Añadir</button>
       </a>
     </div>
   </section>

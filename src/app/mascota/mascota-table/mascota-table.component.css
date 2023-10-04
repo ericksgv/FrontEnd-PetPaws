@@ -299,5 +299,30 @@ button {
     min-width: 15vh; 
 }
 
+.pagination {
+    margin-top: 5vh;
+    text-align: center;
+}
 
+.pagination-button {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 10px;
+    background-color: #f1d69d00;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.pagination-button:hover {
+    background-color: #F2EBD2;
+    color: #333;
+}
+
+.pagination-button.current-page {
+    background-color: #4C894F;
+    color: #FFF; 
+}
 

@@ -11,6 +11,6 @@ export interface Mascota {
     enfermedad: string;
     estado: string;
     duenio: Usuario;
-    tratamientos: Tratamiento[];
+    tratamientos?: Tratamiento[];
   }
   

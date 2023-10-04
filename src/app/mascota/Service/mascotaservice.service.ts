@@ -1,67 +1,34 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Mascota } from 'src/app/model/mascota';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MascotaService {
-  private mascotas: Mascota[] = [];
+  private apiUrl = 'http://localhost:8090/mascota';
 
-  constructor() {
-    this.crearMascotasFalsas();
+  constructor(private http: HttpClient) {}
+
+  getMascotas(): Observable<Mascota[]> {
+    return this.http.get<Mascota[]>(`${this.apiUrl}/all`);
   }
 
-  private crearMascotasFalsas() {
-    const estados = ['Sin estado', 'Hospitalizado', 'Curado'];
-
-    for (let i = 1; i <= 10; i++) {
-      const mascota: Mascota = {
-        id: i,
-        nombre: `Perro${i}`,
-        raza: `Raza${i}`,
-        edad: Math.floor(Math.random() * 10) + 1,
-        peso: Math.floor(Math.random() * 30) + 1,
-        foto: 'https://static.fundacion-affinity.org/cdn/farfuture/PVbbIC-0M9y4fPbbCsdvAD8bcjjtbFc0NSP3lRwlWcE/mtime:1643275542/sites/default/files/los-10-sonidos-principales-del-perro.jpg',
-        enfermedad: 'Ninguna',
-        estado: estados[Math.floor(Math.random() * estados.length)],
-        duenio: {
-          id: i,
-          nombre: `Propietario${i}`,
-          cedula: 0,
-          correo: '',
-          celular: 0,
-          mascotas: [],
-        },
-        tratamientos: [],
-      };
-
-      this.mascotas.push(mascota);
-    }
+  eliminarMascota(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/delete/${id}`);
   }
 
-  getMascotas(): Mascota[] {
-    return this.mascotas;
+  modificarMascota(id: number, nuevaMascota: Mascota): Observable<void> {
+    return this.http.put<void>(`${this.apiUrl}/update/${id}`, nuevaMascota);
   }
 
-  eliminarMascota(id: number) {
-    this.mascotas = this.mascotas.filter((mascota) => mascota.id !== id);
+  getMascotaPorId(id: number): Observable<Mascota | undefined> {
+    return this.http.get<Mascota | undefined>(`${this.apiUrl}/find/${id}`);
   }
 
-  modificarMascota(id: number, nuevaMascota: Mascota) {
-    const index = this.mascotas.findIndex((mascota) => mascota.id === id);
-    if (index !== -1) {
-      this.mascotas[index] = nuevaMascota;
-    }
+  agregarMascota(mascota: Mascota): Observable<void> {
+    return this.http.post<void>(`${this.apiUrl}/agregar`, mascota);
   }
-
-  getMascotaPorId(id: number): Mascota | undefined {
-    return this.mascotas.find((mascota) => mascota.id === id);
-  }
-
-  agregarMascota(mascota: Mascota): void {
-    mascota.id = this.mascotas.length + 1;
-    this.mascotas.push(mascota);
-  }
-  
 }
 
