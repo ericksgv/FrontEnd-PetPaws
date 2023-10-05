@@ -1,0 +1,157 @@
+#imagenLoginClientes{
+    overflow: hidden;
+    background-image: url("/assets/paginasLogin/imgPrincipalClientes.png");
+    background-size: cover;
+    background-position: center right;
+}
+
+.error{
+    color: red;
+}
+
+.contenedor-imagen-pagina-login{
+    flex: 7;
+}
+
+.contenedor-texto-pagina-login{
+    margin: 2%;
+    flex: 3;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+
+}
+
+.div-superior-texto-login{
+    width: 100%;
+    height: 30%;
+    margin-top: 0vh;
+    text-align: center;
+}
+
+.campo-input-login {
+    width: 70%;
+    height: 6vh;
+    margin-bottom: 1vh;
+    border-radius: 10px;
+    border: 2px solid #000;
+    background: #F1D79D;
+    padding-left: 8vh; /* Espacio para la imagen */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="58" height="54" viewBox="0 0 58 54" fill="none"><rect width="58" height="54" fill="%23F1D79D"/><path d="M48.3327 49.5H43.4994V45C43.4994 41.272 40.2535 38.25 36.2493 38.25H21.7493C17.7453 38.25 14.4993 41.272 14.4993 45V49.5H9.66602V45C9.66602 38.7869 15.0759 33.75 21.7493 33.75H36.2493C42.9227 33.75 48.3327 38.7869 48.3327 45V49.5ZM28.9993 29.25C20.9912 29.25 14.4993 23.2058 14.4993 15.75C14.4993 8.29415 20.9912 2.25 28.9993 2.25C37.0075 2.25 43.4994 8.29415 43.4994 15.75C43.4994 23.2058 37.0075 29.25 28.9993 29.25ZM28.9993 24.75C34.338 24.75 38.666 20.7206 38.666 15.75C38.666 10.7794 34.338 6.75 28.9993 6.75C23.6606 6.75 19.3327 10.7794 19.3327 15.75C19.3327 20.7206 23.6606 24.75 28.9993 24.75Z" fill="black" fill-opacity="0.5"/></svg>'); /* Imagen SVG en formato de datos URI */
+    background-size: 4.5vh 4.5vh; /* Tamaño de la imagen */
+    background-repeat: no-repeat;
+    background-position: 2vh center; /* Posición de la imagen */
+}
+
+.campo-password-login {
+    width: 70%;
+    height: 6vh;
+    margin-bottom: 1vh;
+    border-radius: 10px;
+    margin-top: 1vh;
+    border: 2px solid #000;
+    background: #F1D79D;
+    padding-left: 8vh; /* Espacio para la imagen */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 45 45" fill="none"><path d="M29.5312 2.8125C27.5549 2.81205 25.6059 3.27455 23.8405 4.16293C22.0751 5.05132 20.5423 6.3409 19.365 7.92832C18.1877 9.51574 17.3986 11.3569 17.0609 13.3042C16.7233 15.2515 16.8465 17.2508 17.4206 19.1419L2.8125 33.75V42.1875H11.25L25.8581 27.5794C27.5989 28.1078 29.4332 28.2547 31.2359 28.0101C33.0386 27.7655 34.7674 27.1351 36.3044 26.1619C37.8415 25.1888 39.1507 23.8957 40.1428 22.3708C41.1349 20.8459 41.7866 19.125 42.0535 17.3255C42.3204 15.5259 42.1962 13.69 41.6894 11.9428C41.1825 10.1956 40.305 8.57817 39.1165 7.20079C37.9281 5.82341 36.4567 4.71842 34.8025 3.96114C33.1484 3.20386 31.3505 2.81208 29.5312 2.8125ZM29.5312 25.3125C28.5631 25.312 27.6002 25.1689 26.6737 24.8878L25.0608 24.3984L23.8697 25.5895L19.3964 30.0628L17.4572 28.125L15.4688 30.1134L17.408 32.0527L15.1777 34.283L13.2384 32.3438L11.25 34.3322L13.1892 36.2714L10.0856 39.375H5.625V34.9144L19.4091 21.1303L20.6016 19.9392L20.1122 18.3262C19.5111 16.3448 19.5502 14.2243 20.2238 12.2664C20.8974 10.3084 22.1712 8.61276 23.8641 7.42054C25.557 6.22832 27.5827 5.60027 29.6532 5.62575C31.7236 5.65122 33.7333 6.32891 35.3963 7.56242C37.0594 8.79593 38.2911 10.5224 38.9163 12.4964C39.5415 14.4703 39.5284 16.5911 38.8788 18.5571C38.2292 20.5232 36.9761 22.2343 35.2979 23.4471C33.6197 24.6599 31.6018 25.3127 29.5312 25.3125Z" fill="black" fill-opacity="0.5"/><path d="M30.9375 16.875C32.4908 16.875 33.75 15.6158 33.75 14.0625C33.75 12.5092 32.4908 11.25 30.9375 11.25C29.3842 11.25 28.125 12.5092 28.125 14.0625C28.125 15.6158 29.3842 16.875 30.9375 16.875Z" fill="black" fill-opacity="0.5"/></svg>'); /* Imagen SVG en formato de datos URI */
+    background-size: 4.5vh 4.5vh; /* Tamaño de la imagen */
+    background-repeat: no-repeat;
+    background-position: 2vh center; /* Posición de la imagen */
+}
+
+
+
+.boton-login-ingresar{
+    width: 35%;
+    height: 4.7vh;
+}
+
+.espacio-blanco-texto-login{
+    width: 100%;
+    height: 10%;
+}
+
+.div-inferior-texto-login{
+    width: 100%;
+    text-align: center;
+}
+
+.boton-login-otras-cuentas{
+    width: 80%;
+    height: 5vh;
+}
+
+.registro-mensaje {
+    color: #000;
+    text-decoration: underline;
+    font-family: Raleway;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 0vh;
+}
+
+.tituloCentrado{
+    text-align: center;
+}
+
+.acento-amarillo-texto{
+    color: #E7B10A;
+
+}
+
+.titulo-login{
+    font-size: 2.5rem;
+    text-decoration: none;
+}
+
+.texto-negrilla{
+    font-weight: bold;
+}
+
+.boton-redondo{
+    border-radius: 20px;
+    margin-top: 6%;
+    margin-bottom: 33%;
+    
+}
+
+.boton-login-ingresar{
+    width: 35%;
+    height: 4.7vh;
+}
+
+.acento-amarillo-fondo{
+    background-color: #E7B10A;
+}
+
+.acento-naranja-claro-fondo{
+    background-color: #DC6A35;
+}
+
+.boton-redondo2{
+    border-radius: 20px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    
+}
+
+.boton-redondo2:hover{
+    transform: scale(1.1); 
+    color: white; 
+}
+
+.boton-login-otras-cuentas{
+    width: 80%;
+    height: 5vh;
+}
+
+.pagina-login-Layout{
+
+    display: flex;
+    height: 100vh;
+    background-color: #F2EBD2;
+}
+
+.acento-verde-claro-fondo{
+    background-color: #A0BF30;
+}
+

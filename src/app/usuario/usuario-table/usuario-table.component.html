@@ -1,0 +1,113 @@
+<!-- app-usuario-table.component.html -->
+
+<app-header [titleColor]="'amarillo-principal-acento'" [backgroundColor]="'acento-amarillo-claro-fondo'"></app-header>
+<div class="acento-amarillo-semi-claro-fondo">
+  <div class="cuadro-estatico acento-verde-semi-claro-fondo">
+    <div class="rectangulo"></div>
+    <h1>Lista de Usuarios</h1>
+    <div class="grupo-elementos">
+      <label for="campoBusqueda" class="busqueda">
+        <input type="text" id="campoBusqueda" name="campoBusqueda" placeholder="Busca cédulas, nombres, correos...">
+      </label>
+      <div class="boton-derecha">
+        <button>Busqueda Avanzada</button>
+      </div>
+    </div>
+    
+    <div class="tres-botones texto-negrilla textoNegro">
+        <button class="acentro-amarillo-fondo texto-negrilla  .filtro-btn"
+          data-atributo="cedula">Cédula</button>
+        <button class="acentro-amarillo-fondo texto-negrilla  .filtro-btn"
+          data-atributo="nombre">Nombre</button>
+        <button class="acentro-amarillo-fondo texto-negrilla  .filtro-btn"
+          data-atributo="correo">Correo</button>
+        <button class="acentro-amarillo-fondo texto-negrilla  .filtro-btn"
+          data-atributo="celular">Celular</button>
+      </div>
+      <div class="tres-botones texto-negrilla textoNegro">
+        <div class="margenizquierdo"></div>
+        <div class="boton-contenedor">
+          <div class="mitad-izquierda acentro-amarillo-fondo">
+            <!-- Lista desplegable izquierda -->
+            <select class="acentro-amarillo-fondo no-border texto-negrilla">
+              <option value="opcion1">Edad</option>
+              <option value="opcion2">Opción 2</option>
+              <option value="opcion3">Opción 3</option>
+            </select>
+          </div>
+          <div class="mitad-derecha">
+            <!-- Lista desplegable derecha -->
+            <select class="acento-amarillo-claro-fondo texto-negrilla no-border">
+              <option value="opcion4">Ascendente</option>
+              <option value="opcion5">Opción 5</option>
+              <option value="opcion6">Opción 6</option>
+            </select>
+          </div>
+        </div>
+        <div class="margenizquierdo"></div>
+        <button class="acentro-amarillo-fondo texto-negrilla">15</button>
+      </div>
+    </div>
+
+  <section class="cuadro-estatico2">
+    <table class="tabla-general2">
+      <thead>
+        <tr class="texto-negrilla textoNegro letra-normal-grande encabezados-tabla acento-verde-semi-claro-fondo">
+          <th scope="col"></th>
+          <th scope="col">Cédula</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Correo</th>
+          <th scope="col">Celular</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody id="tableBody" class="tbody2">
+        <tr *ngFor="let usuario of usuarios.slice(calcularIndicesPagina().inicio, calcularIndicesPagina().fin); let i = index">
+          <td class="custom-checkbox-cell">
+            <input type="checkbox" class="custom-checkbox" [id]="'checkbox-' + i">
+            <label [for]="'checkbox-' + i" class="custom-checkbox-label"></label>
+          </td>
+          <th>{{ usuario.cedula }}</th>
+          <td>{{ usuario.nombre }}</td>
+          <td>{{ usuario.correo }}</td>
+          <td>{{ usuario.celular }}</td>
+          <td class="acciones-cell acento-transparente">
+            <div class="dropdown acento-transparente">
+              <button class="dropbtn acento-transparente"></button>
+              <div class="dropdown-content acento-transparente">
+                <a href="#" [routerLink]="['/usuario/all']" (click)="eliminarUsuario(usuario.id)">Eliminar</a>
+                <a href="#" data-value="opcion8" [routerLink]="['/usuario/update', usuario.cedula]">Modificar</a>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <!-- Agregar la sección de paginación -->
+    <div class="pagination">
+      <button [disabled]="paginaActual === 1" (click)="cambiarPagina(paginaActual - 1)" class="pagination-button">Anterior</button>
+    
+      <button *ngIf="rangoPaginas[0] > 1" (click)="cambiarPagina(1)" class="pagination-button">1</button>
+    
+      <span *ngIf="rangoPaginas[0] > 2">...</span>
+    
+      <button *ngFor="let pagina of rangoPaginas" (click)="cambiarPagina(pagina)" class="pagination-button" [ngClass]="{'current-page': paginaActual === pagina}">
+        {{ pagina }}
+      </button>
+    
+      <span *ngIf="rangoPaginas[rangoPaginas.length - 1] < paginas.length - 1">...</span>
+    
+      <button *ngIf="rangoPaginas[rangoPaginas.length - 1] < paginas.length" (click)="cambiarPagina(paginas.length)" class="pagination-button">{{ paginas.length }}</button>
+    
+      <button [disabled]="paginaActual === paginas.length" (click)="cambiarPagina(paginaActual + 1)" class="pagination-button">Siguiente</button>
+    </div>
+
+    <div class="boton-crear">
+      <a>
+        <button [routerLink]="['/usuario/all']"
+          class="acentro-amarillo-fondo texto-negrilla">Añadir</button>
+      </a>
+    </div>
+  </section>
+</div>

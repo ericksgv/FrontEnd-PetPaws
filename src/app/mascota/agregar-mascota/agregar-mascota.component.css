@@ -1,5 +1,7 @@
 /* Colores */
-
+.completo{
+    background-color: #F2EBD2;
+}
 
 .subrayado{
     text-decoration: underline;
@@ -56,7 +58,7 @@ button {
 .container-wave2 {
     position: relative;
     z-index: 10; 
-    height:80vh;
+    height:100vh;
 }
 
 svg {
@@ -168,12 +170,13 @@ form{
 
 .waveimage{
     position: absolute;
-    top: 50%;
-    left: 10%;
+    top: 40%;
+    left: 7%;
 }
 
 .waveimage2{
     position: absolute;
     top: 25%;
     left: 5%;
+
 }

@@ -1,0 +1,48 @@
+<div class="completo">
+
+    <app-header [titleColor]="'acento-verde-oscuro-texto'" [backgroundColor]="'amarillo-claro-background'"></app-header>
+    <section class="contenido-modificar-cliente">
+      <section class="contenedor-img-modificar-entidad">
+    
+      </section>
+      <section class="contenedor-img-modificar-mascota">  
+        <div class="contenedor-imagen-perro ">   
+        </div>
+      </section>
+      
+      <section class="contenedor-campos-modificar-entidad">
+        <div class="seccion-input-contenido-dashboard">
+          <h2 class="title-creacional subrayado negro-acento">Editar Datos de Cliente</h2>
+          <form [formGroup]="usuarioForm" (ngSubmit)="modificarUsuario()" #form="ngForm">
+            <div class="columna">
+                <div class="uno">
+                    <label for="cedula" class="acento-verde-texto enunciado">Cedula*</label>
+                    <br>
+                    <input type="number" formControlName="cedula" class="lacento-verde-texto labelenunciado" id="cedula" placeholder="cedula">
+                </div>
+                <div class="dos">
+                    <label for="nombre" class="acento-verde-texto enunciado">Nombre*</label>
+                    <br>
+                    <input type="text" formControlName="nombre" class="acento-verde-texto labelenunciado" id="nombre" placeholder="nombre usuario">
+                </div>
+            </div>
+            <div class="columna">
+                <div class="uno">
+                    <label for="correo" class="acento-verde-texto enunciado">Correo*</label>
+                    <br>
+                    <input type="text" formControlName="correo" class="lacento-verde-texto labelenunciado" id="correo" placeholder="correo">
+                </div>
+                <div class="dos">
+                    <label for="celular" class="acento-verde-texto enunciado">Celular*</label>
+                    <br>
+                    <input type="text" formControlName="celular" class="lacento-verde-texto labelenunciado" id="celular" placeholder="celular">
+                </div>
+            </div>
+            <button type="submit" class="buton">
+                Modificar Usuario
+            </button>
+          </form>
+        </div>
+      </section>
+    </section>
+    </div>

@@ -19,7 +19,12 @@ import { FooterComponent } from './landing-page/footer/footer.component';
 import { DropdownMenuComponent } from './dropdown-menu/dropdown-menu.component';
 import {NgOptimizedImage} from "@angular/common";
 import {HttpClientModule} from "@angular/common/http";
+import { ModificarUsuarioComponent } from './usuario/modificar-usuario/modificar-usuario.component';
 import { AgregarUsuarioComponent } from './usuario/agregar-usuario/agregar-usuario.component';
+import { UsuarioTableComponent } from './usuario/usuario-table/usuario-table.component';
+import { SesionUsuarioComponent } from './iniciar-sesion/sesion-usuario/sesion-usuario.component';
+import { SesionAdministradorComponent } from './iniciar-sesion/sesion-administrador/sesion-administrador.component';
+import { SesionVeterinarioComponent } from './iniciar-sesion/sesion-veterinario/sesion-veterinario.component';
 
 @NgModule({
   declarations: [
@@ -36,8 +41,13 @@ import { AgregarUsuarioComponent } from './usuario/agregar-usuario/agregar-usuar
     AboutUsComponent,
     ContactoComponent,
     FooterComponent,
+    ModificarUsuarioComponent,
     DropdownMenuComponent,
-    AgregarUsuarioComponent
+    AgregarUsuarioComponent,
+    UsuarioTableComponent,
+    SesionUsuarioComponent,
+    SesionAdministradorComponent,
+    SesionVeterinarioComponent,
   ],
     imports: [
         BrowserModule,
