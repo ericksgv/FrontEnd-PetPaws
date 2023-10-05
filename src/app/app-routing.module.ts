@@ -6,6 +6,7 @@ import { AgregarMascotaComponent } from './mascota/agregar-mascota/agregar-masco
 import { ModificarMascotaComponent } from './mascota/modificar-mascota/modificar-mascota.component';
 import { DropdownMenuComponent} from "./dropdown-menu/dropdown-menu.component";
 import { LandingPageComponent} from "./landing-page/landing-page.component";
+import { AgregarUsuarioComponent } from './usuario/agregar-usuario/agregar-usuario.component';
 
 const routes: Routes = [
 
@@ -31,8 +32,10 @@ const routes: Routes = [
     path: 'mascotas/modificar/:id',
     component: ModificarMascotaComponent,
   },
-
-
+  {
+    path: 'usuario/add',
+    component: AgregarUsuarioComponent,
+  },
 
 ];
 

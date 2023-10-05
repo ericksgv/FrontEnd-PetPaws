@@ -1,26 +1,35 @@
 /* Colores */
+.amarillo-principal-acento {
+    color: #E7B10A;
+}
 
+.amarillo-principal-acento-background {
+    background-color: #E7B10A;
+}
 
-.subrayado{
+.amarillo-claro-background {
+    background-color: #F2EBD2;
+}
+.subrayado {
     text-decoration: underline;
 }
 
-.letra-poppins{
+.letra-poppins {
     font-family: 'Poppins', sans-serif;
 }
 
-.no-bordes{
+.no-bordes {
     border: none;
 }
 
-.acento-verde-fondo{
+.acento-verde-fondo {
     background-color: #44561E;
-    
+
 }
 
-.boton-redondo{
+.boton-redondo {
     border-radius: 20px;
-    margin-top: 6%;    
+    margin-top: 6%;
 }
 
 button {
@@ -31,11 +40,11 @@ button {
     border-radius: 50px;
 }
 
-.textoBlanco{
+.textoBlanco {
     color: white;
 }
 
-.texto-negrilla{
+.texto-negrilla {
     font-weight: bolder;
 }
 
@@ -46,40 +55,42 @@ button {
     top: -5vh;
     right: 0;
     width: 55%;
-    height: 130vh; 
+    height: 105vh;
     padding: 0%;
     margin: 0;
-    background-image: url('src/assets/crearmascota/wave.svg');
-    z-index: 0; 
+    background-image: url('src/assets/crearusuario/wave.svg');
+    z-index: 0;
 }
 
 .container-wave2 {
     position: relative;
-    z-index: 10; 
-    height:80vh;
+    z-index: 10;
+    height: 80vh;
 }
 
 svg {
     width: 100%;
-    height: auto;  
+    height: auto;
 }
 
-form{
+form {
     height: 80%;
 }
 
-.creacional{
+.creacional {
     margin-left: 50%;
 }
-
-.creacional2{
+.margin-abajo {
+    margin-bottom: 10vh;
+}
+.creacional2 {
     margin-left: 40%;
     margin-top: 10vh;
     margin-bottom: 10vh;
 }
 
-.title-creacional{
-    margin-left: 40%;
+.title-creacional {
+    margin-left: 25%;
     color: #2D2D2D;
     font-size: 40px;
 }
@@ -89,7 +100,7 @@ form{
     justify-content: space-between;
     flex-wrap: wrap;
     margin-top: 6vh;
-    
+
 }
 
 @media (max-width: 768px) {
@@ -100,25 +111,26 @@ form{
 
 .uno,
 .dos {
-    flex: 1; /* Para que ocupen el mismo espacio */
-    margin-right: 10px; /* Puedes ajustar este valor para controlar el espacio entre ellos */
-
+    flex: 1;
+    margin-right: 10px;
 }
-.uno{
+
+.uno {
     margin-left: 10vh;
     margin-right: 5vh;
 }
-.dos{
+
+.dos {
     margin-right: 10vh;
     margin-left: 5vh;
 }
 
-.enunciado{
+.enunciado {
     font-size: 30px;
     font-weight: 500;
 }
 
-.labelenunciado{
+.labelenunciado {
     width: 100%;
     border-radius: 50px;
     border: solid 1px #2D2D2D;
@@ -130,7 +142,7 @@ form{
     padding: 1vh;
 }
 
-.selectenunciado{
+.selectenunciado {
     height: 50%;
     width: 100%;
     border-radius: 50px;
@@ -144,35 +156,42 @@ form{
 
 /* Estilo del select2 */
 .select2-container--default .select2-selection--single {
-    border-radius: 1vh; /* Ajusta el valor según el grado de redondez que desees */
-    background: #F2EBD2; /* Cambia el color de fondo a #F2EBD2 */
+    border-radius: 1vh;
+    /* Ajusta el valor según el grado de redondez que desees */
+    background: #F2EBD2;
+    /* Cambia el color de fondo a #F2EBD2 */
     height: 5vh;
     border: solid 1px #2D2D2D;
 }
 
 /* Estilo de la flecha desplegable */
 .select2-container--default .select2-selection__arrow {
-    border-left: none; /* Elimina la flecha izquierda */
-    border-radius: 50px;  /* Ajusta el valor para redondear solo el lado derecho */
+    border-left: none;
+    /* Elimina la flecha izquierda */
+    border-radius: 50px;
+    /* Ajusta el valor para redondear solo el lado derecho */
     background: #F2EBD2;
     height: 5vh;
 }
 
 /* Estilo del texto seleccionado */
 .select2-container--default .select2-selection__rendered {
-    padding: 1vh; /* Ajusta el espaciado del texto seleccionado */
-    color: #333; /* Cambia el color del texto seleccionado */
+    padding: 1vh;
+    /* Ajusta el espaciado del texto seleccionado */
+    color: #333;
+    /* Cambia el color del texto seleccionado */
     height: 5vh;
     font-size: 20px;
 }
 
-.waveimage{
+.waveimage {
     position: absolute;
-    top: 50%;
-    left: 10%;
+    top: 30%;
+    left: 15%;
+    height: 60vh;
 }
 
-.waveimage2{
+.waveimage2 {
     position: absolute;
     top: 25%;
     left: 5%;

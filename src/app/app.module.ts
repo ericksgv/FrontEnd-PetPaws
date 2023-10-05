@@ -19,6 +19,7 @@ import { FooterComponent } from './landing-page/footer/footer.component';
 import { DropdownMenuComponent } from './dropdown-menu/dropdown-menu.component';
 import {NgOptimizedImage} from "@angular/common";
 import {HttpClientModule} from "@angular/common/http";
+import { AgregarUsuarioComponent } from './usuario/agregar-usuario/agregar-usuario.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {HttpClientModule} from "@angular/common/http";
     AboutUsComponent,
     ContactoComponent,
     FooterComponent,
-    DropdownMenuComponent
+    DropdownMenuComponent,
+    AgregarUsuarioComponent
   ],
     imports: [
         BrowserModule,

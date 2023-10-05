@@ -1,0 +1,36 @@
+<app-header [titleColor]="'amarillo-principal-acento'" [backgroundColor]="'cafePastel-fondo'"></app-header>
+<div class="wave-container amarillo-claro-background "></div>
+<img class="waveimage amarillo-claro-background" src="./assets/crearusuario/crearusuarioicono.svg" alt="personas">
+<img class="waveimage2 amarillo-claro-background" src="./assets/crearmascota/devolverse.svg" alt="devolverse">
+<section class="container-wave2 creacional ">
+    <h1 class="title-creacional subrayado margin-abajo">Añadir Nuevo Cliente</h1>
+    <form class ="margin-abajo" [formGroup]="usuarioForm" (ngSubmit)="agregarUsuario()">
+        <div class="columna">
+            <div class="uno">
+                <label for="cedula" class="acento-verde-texto enunciado">Cedula*</label>
+                <br>
+                <input type="text" formControlName="cedula" class="lacento-verde-texto labelenunciado" id="cedula" placeholder="cedula">
+            </div>
+            <div class="dos">
+                <label for="nombre" class="acento-verde-texto enunciado">Nombre*</label>
+                <br>
+                <input type="text" formControlName="nombre" class="acento-verde-texto labelenunciado" id="nombre" placeholder="nombre usuario">
+            </div>
+        </div>
+        <div class="columna">
+            <div class="uno">
+                <label for="correo" class="acento-verde-texto enunciado">Correo*</label>
+                <br>
+                <input type="text" formControlName="correo" class="lacento-verde-texto labelenunciado" id="correo" placeholder="correo">
+            </div>
+            <div class="dos">
+                <label for="celular" class="acento-verde-texto enunciado">Celular*</label>
+                <br>
+                <input type="text" formControlName="celular" class="lacento-verde-texto labelenunciado" id="celular" placeholder="celular">
+            </div>
+        </div>
+        <button type="submit" class="creacional2 no-bordes boton-redondo amarillo-principal-acento-background letra-poppins textoBlanco texto-negrilla">
+            Agregar Usuario
+        </button>
+    </form>
+</section>
