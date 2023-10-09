@@ -2,8 +2,56 @@
   width: 100%;
   min-height: 100vh;
   overflow-x: hidden;
-  padding: 15vh 2% 2%;
+  padding: 15vh 2% 2% 2%;
 
   background-color: #F2EBD2;
 
+}
+
+.titulo-nombre-cliente{
+  text-align: center;
+
+  font-family: Recoleta, serif;
+  font-size: 2rem;
+  color: #2D2D2D;
+
+}
+
+/* ------------------------ */
+
+.contenedor-cartas{
+  width: 100%;
+  padding: 5%;
+  display: flex;
+}
+
+.seccion-titulo-carta{
+  display: flex;
+  justify-content: center;
+}
+
+.titulo-carta{
+  background-color: #F2EBD2;
+  color: #2D2D2D;
+  font-family: Recoleta, serif;
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+
+.carta-datos{
+  flex: 4;
+  padding: 3%;
+
+  background-color: #F1D79D;
+  margin-right: 2.5%;
+}
+
+.carta-mascotas{
+  flex: 4;
+  padding: 3%;
+
+  background-color: #AAC074;
+  margin-left: 2.5%;
 }
