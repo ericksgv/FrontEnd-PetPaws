@@ -8,6 +8,7 @@ import { Usuario } from 'src/app/model/usuario';  // Asegúrate de importar el m
 })
 export class UsuarioService {
   private apiUrl = 'http://localhost:8090/usuario';  // Ajusta la URL según tu backend
+  private cedulaUsuarioActual: number = -1
 
   constructor(private http: HttpClient) {}
 
@@ -32,8 +33,13 @@ export class UsuarioService {
     return this.http.post<void>(`${this.apiUrl}/agregar`, usuario);
   }
 
+  getCedulaUsuarioActual() : number {
+    return this.cedulaUsuarioActual
+  }
 
-
+  setCedulaUsuarioActual(nuevaCedula : number): void{
+    this.cedulaUsuarioActual = nuevaCedula
+  }
 
 
 }

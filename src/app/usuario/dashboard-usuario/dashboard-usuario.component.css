@@ -1,0 +1,9 @@
+.contenedor-pagina{
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  padding: 15vh 2% 2%;
+
+  background-color: #F2EBD2;
+
+}
