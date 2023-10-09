@@ -25,6 +25,8 @@ import { UsuarioTableComponent } from './usuario/usuario-table/usuario-table.com
 import { SesionUsuarioComponent } from './iniciar-sesion/sesion-usuario/sesion-usuario.component';
 import { SesionAdministradorComponent } from './iniciar-sesion/sesion-administrador/sesion-administrador.component';
 import { SesionVeterinarioComponent } from './iniciar-sesion/sesion-veterinario/sesion-veterinario.component';
+import { TopBarLandingPageComponent } from './top-bar/top-bar-landing-page/top-bar-landing-page.component';
+
 
 @NgModule({
   declarations: [
@@ -48,6 +50,7 @@ import { SesionVeterinarioComponent } from './iniciar-sesion/sesion-veterinario/
     SesionUsuarioComponent,
     SesionAdministradorComponent,
     SesionVeterinarioComponent,
+    TopBarLandingPageComponent,
   ],
     imports: [
         BrowserModule,

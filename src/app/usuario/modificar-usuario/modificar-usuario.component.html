@@ -3,22 +3,22 @@
     <app-header [titleColor]="'acento-verde-oscuro-texto'" [backgroundColor]="'amarillo-claro-background'"></app-header>
     <section class="contenido-modificar-cliente">
       <section class="contenedor-img-modificar-entidad">
-    
+
       </section>
-      <section class="contenedor-img-modificar-mascota">  
-        <div class="contenedor-imagen-perro ">   
+      <section class="contenedor-img-modificar-mascota">
+        <div class="contenedor-imagen-perro ">
         </div>
       </section>
-      
+
       <section class="contenedor-campos-modificar-entidad">
         <div class="seccion-input-contenido-dashboard">
           <h2 class="title-creacional subrayado negro-acento">Editar Datos de Cliente</h2>
           <form [formGroup]="usuarioForm" (ngSubmit)="modificarUsuario()" #form="ngForm">
             <div class="columna">
-                <div class="uno">
+                <div class="uno" >
                     <label for="cedula" class="acento-verde-texto enunciado">Cedula*</label>
                     <br>
-                    <input type="number" formControlName="cedula" class="lacento-verde-texto labelenunciado" id="cedula" placeholder="cedula">
+                    <input  type="number" formControlName="cedula" class="lacento-verde-texto labelenunciado" id="cedula" placeholder="cedula">
                 </div>
                 <div class="dos">
                     <label for="nombre" class="acento-verde-texto enunciado">Nombre*</label>

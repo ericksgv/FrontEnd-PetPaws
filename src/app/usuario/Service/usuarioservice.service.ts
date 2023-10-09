@@ -15,22 +15,26 @@ export class UsuarioService {
     return this.http.get<Usuario[]>(`${this.apiUrl}/all`);
   }
 
-  eliminarUsuario(id: number): Observable<void> {
-    console.log(id);
-    return this.http.delete<void>(`${this.apiUrl}/delete/${id}`);
+  eliminarUsuario(cedula: number): Observable<void> {
+    console.log(cedula);
+    return this.http.delete<void>(`${this.apiUrl}/delete/${cedula}`);
+  }
+
+  modificarUsuario(cedula: number, usuario: Usuario): Observable<void> {
+    return this.http.put<void>(`${this.apiUrl}/update${cedula}`, usuario);
+  }
+
+  getUsuarioPorCedula(cedula: number): Observable<Usuario | undefined> {
+    return this.http.get<Usuario | undefined>(`${this.apiUrl}/find/${cedula}`);
   }
 
   agregarUsuario(usuario: Usuario): Observable<void> {
     return this.http.post<void>(`${this.apiUrl}/agregar`, usuario);
   }
 
-  getUsuarioPorCedula(id: number): Observable<Usuario | undefined> {
-    return this.http.get<Usuario | undefined>(`${this.apiUrl}/find/${id}`);
-  }
 
-  modificarUsuario(usuario: Usuario): Observable<void> {
-    return this.http.put<void>(`${this.apiUrl}/update`, usuario);
-  }
+
+
 
 }
 
