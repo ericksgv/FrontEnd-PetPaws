@@ -5,6 +5,11 @@
   transition: margin-bottom 2s ease-in-out;
 }
 
+.navigation-menu.open {
+  display: block;
+  height: 100%;
+}
+
 .title-navegacion {
   height: 20vh;
   font-size: 4rem;
