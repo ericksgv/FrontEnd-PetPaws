@@ -23,6 +23,11 @@
   vertical-align: middle;
 }
 
+.boton-menu{
+  border: none;
+  background-color: inherit;
+}
+
 /*-----------------------*/
 .topbar-title-section{
   flex: 1;
@@ -67,3 +72,5 @@
   font-size: 1rem;
   margin-left: 10%;
 }
+
+
