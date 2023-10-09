@@ -12,16 +12,12 @@ import { UsuarioTableComponent } from './usuario/usuario-table/usuario-table.com
 import { SesionUsuarioComponent } from './iniciar-sesion/sesion-usuario/sesion-usuario.component';
 import { SesionAdministradorComponent } from './iniciar-sesion/sesion-administrador/sesion-administrador.component';
 import { SesionVeterinarioComponent } from './iniciar-sesion/sesion-veterinario/sesion-veterinario.component';
+import {DashboardUsuarioComponent} from "./usuario/dashboard-usuario/dashboard-usuario.component";
 const routes: Routes = [
 
   {
     path: '',
     component: LandingPageComponent
-  },
-
-  {
-    path: 'dropdownMenu',
-    component: DropdownMenuComponent
   },
 
   {
@@ -59,6 +55,11 @@ const routes: Routes = [
   {
     path: 'veterinario/login',
     component: SesionVeterinarioComponent,
+  },
+
+  {
+    path: 'usuario/dashboard',
+    component: DashboardUsuarioComponent
   }
 
 ];

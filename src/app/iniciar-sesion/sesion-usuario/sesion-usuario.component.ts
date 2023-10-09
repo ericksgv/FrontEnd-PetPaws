@@ -18,7 +18,7 @@ export class SesionUsuarioComponent {
       this.vacio = true;
       this.error = false;
     } else {
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['/usuario/dashboard']);
     }
   }
 
