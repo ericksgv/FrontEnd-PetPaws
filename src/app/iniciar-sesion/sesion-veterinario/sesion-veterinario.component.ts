@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-sesion-veterinario',
   templateUrl: './sesion-veterinario.component.html',
-  styleUrls: ['./sesion-veterinario.component.css']
+  styleUrls: ['./sesion-veterinario.component.css', '../../../styles.css']
 })
 export class SesionVeterinarioComponent {
   cedula: string = ''; // Agrega la propiedad cedula y define su tipo

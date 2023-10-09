@@ -101,6 +101,7 @@
 .titulo-login{
     font-size: 2.5rem;
     text-decoration: none;
+    font-family: Recoleta, serif;
 }
 
 .texto-negrilla{
@@ -111,7 +112,7 @@
     border-radius: 20px;
     margin-top: 6%;
     margin-bottom: 33%;
-    
+
 }
 
 .boton-login-ingresar{
@@ -131,12 +132,12 @@
     border-radius: 20px;
     margin-top: 2%;
     margin-bottom: 2%;
-    
+
 }
 
 .boton-redondo2:hover{
-    transform: scale(1.1); 
-    color: white; 
+    transform: scale(1.1);
+    color: white;
 }
 
 .boton-login-otras-cuentas{

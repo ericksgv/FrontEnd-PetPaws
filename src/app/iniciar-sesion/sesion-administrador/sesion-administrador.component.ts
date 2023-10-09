@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-sesion-administrador',
   templateUrl: './sesion-administrador.component.html',
-  styleUrls: ['./sesion-administrador.component.css']
+  styleUrls: ['./sesion-administrador.component.css', '../../../styles.css']
 })
 export class SesionAdministradorComponent {
   cedula: string = '';
@@ -24,5 +24,5 @@ export class SesionAdministradorComponent {
     }
   }
 
-  
+
 }

@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-sesion-usuario',
   templateUrl: './sesion-usuario.component.html',
-  styleUrls: ['./sesion-usuario.component.css']
+  styleUrls: ['./sesion-usuario.component.css', '../../../styles.css']
 })
 export class SesionUsuarioComponent {
   cedula: string = '';
@@ -18,7 +18,7 @@ export class SesionUsuarioComponent {
       this.vacio = true;
       this.error = false;
     } else {
-      this.router.navigate(['/dashboard']); 
+      this.router.navigate(['/dashboard']);
     }
   }
 
