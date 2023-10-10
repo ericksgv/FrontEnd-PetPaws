@@ -22,8 +22,8 @@ export class UsuarioService {
     return this.http.delete<void>(`${this.apiUrl}/delete/${cedula}`);
   }
 
-  modificarUsuario(cedula: number, usuario: Usuario): Observable<void> {
-    return this.http.put<void>(`${this.apiUrl}/update${cedula}`, usuario);
+  modificarUsuario(cedula: number | undefined, usuario: Usuario): Observable<void> {
+    return this.http.put<void>(`${this.apiUrl}/update/${cedula}`, usuario);
   }
 
   getUsuarioPorCedula(cedula: number): Observable<Usuario | undefined> {

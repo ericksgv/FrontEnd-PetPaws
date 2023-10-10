@@ -13,6 +13,7 @@ import {Mascota} from "../../model/mascota";
 export class ModificarUsuarioComponent implements OnInit {
   usuarioForm: FormGroup;
   usuario: Usuario | undefined;
+  cedula: number | undefined
 
   constructor(
     private usuarioService: UsuarioService,
@@ -26,14 +27,17 @@ export class ModificarUsuarioComponent implements OnInit {
       correo: ['', Validators.required],
       celular: ['', Validators.required]
     });
+
+    this.route.params.subscribe(params => {
+      this.cedula = +params['id']
+    })
   }
 
   ngOnInit(): void {
 
-    const cedula = this.route.snapshot.paramMap.get('cedula');
-    if (cedula) {
-      const cedulaNumero = parseInt(cedula, 10); // Convertir cédula a número
-      this.usuarioService.getUsuarioPorCedula(cedulaNumero).subscribe((usuario: Usuario | undefined) => {
+    console.log("Cedula de la url: ", this.cedula)
+    if (this.cedula) {
+      this.usuarioService.getUsuarioPorCedula(this.cedula).subscribe((usuario: Usuario | undefined) => {
         this.usuario = usuario
         if (usuario) {
           // Establece los valores del formulario con los datos del usuario encontrado
@@ -53,12 +57,11 @@ export class ModificarUsuarioComponent implements OnInit {
   modificarUsuario() {
     if (this.usuarioForm.valid && this.usuario) {
       const usuarioModificado = this.usuarioForm.value;
-      const id = this.usuario.id
       // Convierte el valor de 'celular' de string a número si es necesario
       usuarioModificado.celular = parseInt(usuarioModificado.celular, 10);
 
       // Llama al servicio para modificar el usuario
-      this.usuarioService.modificarUsuario(id, usuarioModificado).subscribe(() => {
+      this.usuarioService.modificarUsuario(this.cedula, usuarioModificado).subscribe(() => {
         this.router.navigate(['/usuarios/all']);
       });
     }
