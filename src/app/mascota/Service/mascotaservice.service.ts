@@ -20,6 +20,7 @@ export class MascotaService {
   }
 
   modificarMascota(id: number, nuevaMascota: Mascota): Observable<void> {
+    console.log(nuevaMascota);
     return this.http.put<void>(`${this.apiUrl}/update/${id}`, nuevaMascota);
   }
 

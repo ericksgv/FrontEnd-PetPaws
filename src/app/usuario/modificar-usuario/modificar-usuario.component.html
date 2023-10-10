@@ -35,9 +35,11 @@
                 <div class="dos">
                     <label for="celular" class="acento-verde-texto enunciado">Celular*</label>
                     <br>
-                    <input type="text" formControlName="celular" class="lacento-verde-texto labelenunciado" id="celular" placeholder="celular">
+                    <input type="number" formControlName="celular" class="lacento-verde-texto labelenunciado" id="celular" placeholder="celular">
                 </div>
             </div>
+            <input type="hidden" formControlName="id" name="id" />
+            
             <button type="submit" class="buton">
                 Modificar Usuario
             </button>

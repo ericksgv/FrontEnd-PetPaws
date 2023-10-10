@@ -7,7 +7,7 @@
             <div class="uno">
                 <label for="cedula" class="acento-verde-texto enunciado">Cedula*</label>
                 <br>
-                <input type="text" formControlName="cedula" class="lacento-verde-texto labelenunciado" id="cedula" placeholder="cedula">
+                <input type="number" formControlName="cedula" class="lacento-verde-texto labelenunciado" id="cedula" placeholder="cedula">
             </div>
             <div class="dos">
                 <label for="nombre" class="acento-verde-texto enunciado">Nombre*</label>
@@ -24,9 +24,10 @@
             <div class="dos">
                 <label for="celular" class="acento-verde-texto enunciado">Celular*</label>
                 <br>
-                <input type="text" formControlName="celular" class="lacento-verde-texto labelenunciado" id="celular" placeholder="celular">
+                <input type="number" formControlName="celular" class="lacento-verde-texto labelenunciado" id="celular" placeholder="celular">
             </div>
         </div>
+        <input type="hidden" formControlName="id" name="id" />
         <button type="submit" class="creacional2 no-bordes boton-redondo acento-amarillo-fondo letra-poppins textoBlanco texto-negrilla">
             Agregar Usuario
         </button>

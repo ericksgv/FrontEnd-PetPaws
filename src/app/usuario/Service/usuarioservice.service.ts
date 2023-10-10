@@ -23,7 +23,8 @@ export class UsuarioService {
   }
 
   modificarUsuario(cedula: number | undefined, usuario: Usuario): Observable<void> {
-    return this.http.put<void>(`${this.apiUrl}/update/${cedula}`, usuario);
+    console.log(usuario);
+    return this.http.put<void>(`${this.apiUrl}/update/${usuario.cedula}`, usuario);
   }
 
   getUsuarioPorCedula(cedula: number): Observable<Usuario | undefined> {
@@ -31,6 +32,7 @@ export class UsuarioService {
   }
 
   agregarUsuario(usuario: Usuario): Observable<void> {
+    console.log(usuario);
     return this.http.post<void>(`${this.apiUrl}/agregar`, usuario);
   }
 

@@ -13,7 +13,8 @@ import {Mascota} from "../../model/mascota";
 export class ModificarUsuarioComponent implements OnInit {
   usuarioForm: FormGroup;
   usuario: Usuario | undefined;
-  cedula: number | undefined
+  cedula: number | undefined;
+  celular: number | undefined;
 
   constructor(
     private usuarioService: UsuarioService,
@@ -22,10 +23,11 @@ export class ModificarUsuarioComponent implements OnInit {
     private fb: FormBuilder
   ) {
     this.usuarioForm = this.fb.group({
+      id: ['', ],
       cedula: ['', Validators.required],
       nombre: ['', Validators.required],
       correo: ['', Validators.required],
-      celular: ['', Validators.required]
+      celular: [, Validators.required],
     });
 
     this.route.params.subscribe(params => {
@@ -42,13 +44,14 @@ export class ModificarUsuarioComponent implements OnInit {
         if (usuario) {
           // Establece los valores del formulario con los datos del usuario encontrado
           this.usuarioForm.setValue({
-            cedula: 12012, // Usar el número en lugar de la cadena
+            id: usuario.id,
+            cedula: usuario.cedula, // Usar el número en lugar de la cadena
             nombre: usuario.nombre,
             correo: usuario.correo,
-            celular: usuario.celular.toString() // Convierte a string para mostrarlo en el campo de entrada
+            celular: usuario.celular.toString(), // Convierte a string para mostrarlo en el campo de entrada
           });
         } else {
-          this.router.navigate(['/usuarios/all']);
+          this.router.navigate(['/usuario/all']);
         }
       });
     }
@@ -57,12 +60,9 @@ export class ModificarUsuarioComponent implements OnInit {
   modificarUsuario() {
     if (this.usuarioForm.valid && this.usuario) {
       const usuarioModificado = this.usuarioForm.value;
-      // Convierte el valor de 'celular' de string a número si es necesario
-      usuarioModificado.celular = parseInt(usuarioModificado.celular, 10);
-
       // Llama al servicio para modificar el usuario
       this.usuarioService.modificarUsuario(this.cedula, usuarioModificado).subscribe(() => {
-        this.router.navigate(['/usuarios/all']);
+        this.router.navigate(['/usuario/all']);
       });
     }
   }
