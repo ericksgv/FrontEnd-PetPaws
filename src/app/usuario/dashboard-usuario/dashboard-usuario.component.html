@@ -4,17 +4,56 @@
   <h1 class="titulo-nombre-cliente"> Bienvenido, {{usuarioActual?.nombre}}</h1>
 
   <section class="contenedor-cartas">
+
     <section class="carta-datos">
-      <h2 class="titulo-carta">Tus Datos</h2>
+      <div class="seccion-titulo-carta">
+        <span class="titulo-carta"> Tus Datos </span>
+      </div>
+
+      <form>
+        <label for="cedula">Cédula</label>
+        <br>
+        <input id="cedula" name="cedula" [formControl]="cedula" readonly>
+        <br>
+        <label for="nombre">Nombre</label>
+        <br>
+        <input id="nombre" name="nombre" [formControl]="nombre" readonly>
+        <br>
+        <label for="correo">Correo</label>
+        <br>
+        <input id="correo" name="correo" [formControl]="correo" readonly>
+        <br>
+        <label for="celular">Celular</label>
+        <br>
+        <input id="celular" name="celular" [formControl]="celular" readonly>
+      </form>
+
     </section>
 
     <section class="carta-mascotas">
       <div class="seccion-titulo-carta">
         <span class="titulo-carta"> Mascotas Registradas </span>
       </div>
+      <div *ngFor="let mascota of usuarioActual!.mascotas; index as i; first as isFirst">
+        <span>{{mascota.nombre}}</span>
+        <br>
+        <span>{{mascota.foto}}</span>
+        <br>
+        <span>{{mascota.raza}}</span>
+        <br>
+        <span>{{mascota.enfermedad}}</span>
+        <br>
+        <span>{{mascota.estado}}</span>
+
+
+      </div>
+<!--      <img ngSrc="{{usuarioActual!.mascotas[0].foto}}" alt="Foto de la mascota">-->
+
 
 
     </section>
+
+
 
   </section>
 
