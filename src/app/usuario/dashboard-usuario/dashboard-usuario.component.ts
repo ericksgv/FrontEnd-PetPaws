@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import { UsuarioService } from "../Service/usuarioservice.service";
 import {Usuario} from "../../model/usuario";
 import {FormControl} from "@angular/forms";
+import {Mascota} from "../../model/mascota";
 
 @Component({
   selector: 'app-dashboard-usuario',
@@ -12,7 +13,7 @@ export class DashboardUsuarioComponent implements OnInit{
 
   usuarioActual: Usuario | undefined
   private cedulaUsuario: number = this.usuarioService.getCedulaUsuarioActual()
-
+  mascotasUsuario: Mascota[] | undefined
 
   constructor(private usuarioService: UsuarioService) {
   }
@@ -33,9 +34,14 @@ export class DashboardUsuarioComponent implements OnInit{
       this.nombre.setValue(datosUsuario?.nombre!)
       this.correo.setValue(datosUsuario?.correo!)
       this.celular.setValue(datosUsuario?.celular)
-
-
     }
+    )
+
+    this.usuarioService.getMascotasUsuarioCedula(this.cedulaUsuario).subscribe(
+      (mascotasUsuario => {
+        this.mascotasUsuario = mascotasUsuario
+        console.log("Mascotas obtenidas del usuario: " + mascotasUsuario)
+      })
     )
   }
 

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Usuario } from 'src/app/model/usuario';  // Asegúrate de importar el modelo de usuario
+import { Mascota } from 'src/app/model/mascota'
 
 @Injectable({
   providedIn: 'root',
@@ -39,6 +40,10 @@ export class UsuarioService {
 
   setCedulaUsuarioActual(nuevaCedula : number): void{
     this.cedulaUsuarioActual = nuevaCedula
+  }
+
+  getMascotasUsuarioCedula(cedula: number) : Observable<Mascota[] | undefined>{
+    return this.http.get<Mascota[] | undefined>(`${this.apiUrl}/mascotas/${cedula}`)
   }
 
 

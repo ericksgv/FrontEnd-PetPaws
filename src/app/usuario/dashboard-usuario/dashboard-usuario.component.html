@@ -34,16 +34,20 @@
       <div class="seccion-titulo-carta">
         <span class="titulo-carta"> Mascotas Registradas </span>
       </div>
-      <div *ngFor="let mascota of usuarioActual!.mascotas; index as i; first as isFirst">
-        <span>{{mascota.nombre}}</span>
+
+      <div *ngFor="let mascota of mascotasUsuario; index as i; first as isFirst">
+        <div class="informacionMascota">
+          <img class="foto-mascota" [src]="mascota.foto" alt="Foto de la mascota">
+          <span>{{mascota.nombre}}</span>
+          <br>
+          <span>{{mascota.raza}}</span>
+          <br>
+          <span>{{mascota.peso}}</span>
+          <br>
+          <span>{{mascota.estado}}</span>
+          <hr class="linea-divisor-mascotas">
+        </div>
         <br>
-        <span>{{mascota.foto}}</span>
-        <br>
-        <span>{{mascota.raza}}</span>
-        <br>
-        <span>{{mascota.enfermedad}}</span>
-        <br>
-        <span>{{mascota.estado}}</span>
 
 
       </div>
