@@ -28,6 +28,8 @@ import { SesionVeterinarioComponent } from './iniciar-sesion/sesion-veterinario/
 import { TopBarLandingPageComponent } from './top-bar/top-bar-landing-page/top-bar-landing-page.component';
 import { DashboardUsuarioComponent } from './usuario/dashboard-usuario/dashboard-usuario.component';
 import { TopBarClienteComponent } from './top-bar/top-bar-cliente/top-bar-cliente.component';
+import { TopBarVeterinarioComponent } from './top-bar/top-bar-veterinario/top-bar-veterinario.component';
+
 
 
 @NgModule({
@@ -55,6 +57,7 @@ import { TopBarClienteComponent } from './top-bar/top-bar-cliente/top-bar-client
     TopBarLandingPageComponent,
     DashboardUsuarioComponent,
     TopBarClienteComponent,
+    TopBarVeterinarioComponent,
   ],
     imports: [
         BrowserModule,

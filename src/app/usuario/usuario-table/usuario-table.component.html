@@ -1,7 +1,7 @@
 <!-- app-usuario-table.component.html -->
 
-<app-header [titleColor]="'amarillo-principal-acento'" [backgroundColor]="'acento-amarillo-claro-fondo'"></app-header>
-<div class="acento-amarillo-semi-claro-fondo">
+<app-top-bar-veterinario></app-top-bar-veterinario>
+<div class="acento-amarillo-semi-claro-fondo contenedor-pagina">
   <div class="cuadro-estatico acento-verde-semi-claro-fondo">
     <div class="rectangulo"></div>
     <h1>Lista de Usuarios</h1>
@@ -13,7 +13,7 @@
         <button>Busqueda Avanzada</button>
       </div>
     </div>
-    
+
     <div class="tres-botones texto-negrilla textoNegro">
         <button class="acentro-amarillo-fondo texto-negrilla  .filtro-btn"
           data-atributo="cedula">Cédula</button>
@@ -83,23 +83,23 @@
         </tr>
       </tbody>
     </table>
-    
+
     <!-- Agregar la sección de paginación -->
     <div class="pagination">
       <button [disabled]="paginaActual === 1" (click)="cambiarPagina(paginaActual - 1)" class="pagination-button">Anterior</button>
-    
+
       <button *ngIf="rangoPaginas[0] > 1" (click)="cambiarPagina(1)" class="pagination-button">1</button>
-    
+
       <span *ngIf="rangoPaginas[0] > 2">...</span>
-    
+
       <button *ngFor="let pagina of rangoPaginas" (click)="cambiarPagina(pagina)" class="pagination-button" [ngClass]="{'current-page': paginaActual === pagina}">
         {{ pagina }}
       </button>
-    
+
       <span *ngIf="rangoPaginas[rangoPaginas.length - 1] < paginas.length - 1">...</span>
-    
+
       <button *ngIf="rangoPaginas[rangoPaginas.length - 1] < paginas.length" (click)="cambiarPagina(paginas.length)" class="pagination-button">{{ paginas.length }}</button>
-    
+
       <button [disabled]="paginaActual === paginas.length" (click)="cambiarPagina(paginaActual + 1)" class="pagination-button">Siguiente</button>
     </div>
 
