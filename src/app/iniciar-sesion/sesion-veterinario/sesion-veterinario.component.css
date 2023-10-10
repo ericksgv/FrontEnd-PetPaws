@@ -74,14 +74,18 @@
 }
 
 .boton-redondo3{
-    border-radius: 20px;
-    margin-top: 6%;
-    margin-bottom: 23%;
+  border-radius: 20px;
+  margin-top: 6%;
+  margin-bottom: 23%;
+  font-family: Recoleta, serif;
+  font-size: 1.2rem;
 }
 
 .boton-login-ingresar{
-    width: 35%;
-    height: 4.7vh;
+  width: 35%;
+  height: 4.7vh;
+  font-family: Recoleta, serif;
+  font-size: 1.2rem;
 }
 
 .acento-verde-claro-fondo{
@@ -103,9 +107,11 @@
 }
 
 .boton-redondo2{
-    border-radius: 20px;
-    margin-top: 2%;
-    margin-bottom: 2%;
+  border-radius: 20px;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  font-family: Recoleta, serif;
+  font-size: 1.2rem;
 
 }
 
@@ -123,12 +129,12 @@
 }
 
 .registro-mensaje {
-    color: #000;
-    text-decoration: underline;
-    font-family: Raleway;
-    font-size: 15px;
-    font-weight: 600;
-    margin-bottom: 0vh;
+  color: #000;
+  text-decoration: underline;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: 'Work Sans', sans-serif;
+
 }
 
 .contenedor-imagen-pagina-login{

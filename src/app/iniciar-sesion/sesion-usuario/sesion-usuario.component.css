@@ -81,12 +81,12 @@
 }
 
 .registro-mensaje {
-    color: #000;
-    text-decoration: underline;
-    font-family: Raleway;
-    font-size: 15px;
-    font-weight: 600;
-    margin-bottom: 0vh;
+  color: #000;
+  text-decoration: underline;
+
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: 'Work Sans', sans-serif;
 }
 
 .tituloCentrado{
@@ -112,6 +112,8 @@
     border-radius: 20px;
     margin-top: 6%;
     margin-bottom: 33%;
+    font-family: Recoleta, serif;
+    font-size: 1.2rem;
 
 }
 
@@ -129,9 +131,11 @@
 }
 
 .boton-redondo2{
-    border-radius: 20px;
-    margin-top: 2%;
-    margin-bottom: 2%;
+  border-radius: 20px;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  font-family: Recoleta, serif;
+  font-size: 1.2rem;
 
 }
 
@@ -141,8 +145,10 @@
 }
 
 .boton-login-otras-cuentas{
-    width: 80%;
-    height: 5vh;
+  width: 80%;
+  height: 5vh;
+  font-family: Recoleta, serif;
+  font-size: 1.2rem;
 }
 
 .pagina-login-Layout{
