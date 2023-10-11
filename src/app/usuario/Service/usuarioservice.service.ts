@@ -33,7 +33,7 @@ export class UsuarioService {
 
   agregarUsuario(usuario: Usuario): Observable<void> {
     console.log(usuario);
-    return this.http.post<void>(`${this.apiUrl}/agregar`, usuario);
+    return this.http.post<void>(`${this.apiUrl}/add`, usuario);
   }
 
   getCedulaUsuarioActual() : number {

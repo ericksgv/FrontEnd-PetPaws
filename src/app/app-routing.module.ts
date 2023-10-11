@@ -13,6 +13,8 @@ import { SesionUsuarioComponent } from './iniciar-sesion/sesion-usuario/sesion-u
 import { SesionAdministradorComponent } from './iniciar-sesion/sesion-administrador/sesion-administrador.component';
 import { SesionVeterinarioComponent } from './iniciar-sesion/sesion-veterinario/sesion-veterinario.component';
 import {DashboardUsuarioComponent} from "./usuario/dashboard-usuario/dashboard-usuario.component";
+import { VeterinarioTableComponent } from './veterinario/veterinario-table/veterinario-table.component';
+import { AgregarVeterinarioComponent } from './veterinario/agregar-veterinario/agregar-veterinario.component';
 const routes: Routes = [
 
   {
@@ -59,7 +61,15 @@ const routes: Routes = [
 
   {
     path: 'usuario/dashboard',
-    component: DashboardUsuarioComponent
+    component: DashboardUsuarioComponent,
+  },
+  {
+    path: 'veterinario/all',
+    component: VeterinarioTableComponent,
+  },
+  {
+    path: 'veterinario/add',
+    component: AgregarVeterinarioComponent,
   }
 
 ];

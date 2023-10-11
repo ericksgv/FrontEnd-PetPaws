@@ -29,6 +29,9 @@ import { TopBarLandingPageComponent } from './top-bar/top-bar-landing-page/top-b
 import { DashboardUsuarioComponent } from './usuario/dashboard-usuario/dashboard-usuario.component';
 import { TopBarClienteComponent } from './top-bar/top-bar-cliente/top-bar-cliente.component';
 import { TopBarVeterinarioComponent } from './top-bar/top-bar-veterinario/top-bar-veterinario.component';
+import { AgregarVeterinarioComponent } from './veterinario/agregar-veterinario/agregar-veterinario.component';
+import { ModificarVeterinarioComponent } from './veterinario/modificar-veterinario/modificar-veterinario.component';
+import { VeterinarioTableComponent } from './veterinario/veterinario-table/veterinario-table.component';
 
 
 
@@ -58,6 +61,9 @@ import { TopBarVeterinarioComponent } from './top-bar/top-bar-veterinario/top-ba
     DashboardUsuarioComponent,
     TopBarClienteComponent,
     TopBarVeterinarioComponent,
+    AgregarVeterinarioComponent,
+    ModificarVeterinarioComponent,
+    VeterinarioTableComponent,
   ],
     imports: [
         BrowserModule,
