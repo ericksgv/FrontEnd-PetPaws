@@ -31,8 +31,8 @@ export class AgregarMascotaComponent {
   agregarMascota() {
     const nuevaMascota = this.mascotaForm.value;
 
-    this.mascotaService.agregarMascota(nuevaMascota);
-
-    this.router.navigate(['/mascotas/all']);
+    this.mascotaService.agregarMascota(nuevaMascota).subscribe(() => {
+      this.router.navigate(['/mascotas/all']);
+    }) 
   }
 }
