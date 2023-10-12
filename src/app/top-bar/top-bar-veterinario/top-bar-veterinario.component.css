@@ -19,17 +19,16 @@
 .topbar-left-section{
   display: flex;
   flex: 2;
-  padding-left: 5%;
   text-align: left;
   vertical-align: middle;
-  justify-content: space-between;
-  padding-right: 5%;
+  justify-content: space-around;
+  font-size: 1.5rem;
 }
 
 .link-menu{
   border: none;
   background-color: inherit;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 /*-----------------------*/
@@ -52,12 +51,11 @@
   display: flex;
   justify-content: space-around;
   text-align: right;
-  padding-right: 5%;
-  vertical-align: middle;
+  align-items: center;
+  font-size: 1.5rem;
 }
 
 .selector-lenguaje{
-  font-size: 2rem;
   vertical-align: middle;
 }
 
