@@ -24,7 +24,7 @@ export class ServiceService {
     return this.http.post<Veterinario>(`${this.apiUrl}/add`, veterinario);
   }
 
-  actualizarVeterinario(id: number, veterinario: Veterinario): Observable<Veterinario> {
+  actualizarVeterinario(id:  number | undefined, veterinario: Veterinario): Observable<Veterinario> {
     return this.http.put<Veterinario>(`${this.apiUrl}/update/${id}`, veterinario);
   }
 

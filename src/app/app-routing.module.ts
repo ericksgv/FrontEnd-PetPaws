@@ -15,6 +15,7 @@ import { SesionVeterinarioComponent } from './iniciar-sesion/sesion-veterinario/
 import {DashboardUsuarioComponent} from "./usuario/dashboard-usuario/dashboard-usuario.component";
 import { VeterinarioTableComponent } from './veterinario/veterinario-table/veterinario-table.component';
 import { AgregarVeterinarioComponent } from './veterinario/agregar-veterinario/agregar-veterinario.component';
+import { ModificarVeterinarioComponent } from './veterinario/modificar-veterinario/modificar-veterinario.component';
 const routes: Routes = [
 
   {
@@ -70,6 +71,10 @@ const routes: Routes = [
   {
     path: 'veterinario/add',
     component: AgregarVeterinarioComponent,
+  },
+  {
+    path: 'veterinario/update/:id',
+    component: ModificarVeterinarioComponent,
   }
 
 ];

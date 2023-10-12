@@ -1,1 +1,61 @@
-<p>modificar-veterinario works!</p>
+<div class="completo">
+    <app-header [titleColor]="'acento-verde-oscuro-texto'" [backgroundColor]="'amarillo-claro-background'"></app-header>
+    <section class="contenido-modificar-cliente">
+        <section class="contenedor-img-modificar-entidad">
+            <section class="contenedor-img-modificar-mascota">
+                <div class="contenedor-imagen-perro ">
+                </div>
+            </section>
+        </section>
+
+            <section class="contenedor-campos-modificar-entidad">
+                <div class="seccion-input-contenido-dashboard">
+                    <h2 class="title-creacional subrayado negro-acento">Editar Datos de Veterinario</h2>
+                    <form [formGroup]="veterinarioForm" (ngSubmit)="modificarVeterinario()">
+                        <div class="columna">
+                            <div class="uno">
+                                <label for="cedula" class="acento-verde-texto enunciado">Cedula*</label>
+                                <br>
+                                <input type="number" formControlName="cedula" class="acento-verde-texto labelenunciado"
+                                    id="cedula" placeholder="Cedula">
+                            </div>
+                            <div class="dos">
+                                <label for="nombre" class="acento-verde-texto enunciado">Nombre*</label>
+                                <br>
+                                <input type="text" formControlName="nombre" class="acento-verde-texto labelenunciado"
+                                    id="nombre" placeholder="Nombre">
+                            </div>
+                        </div>
+                        <div class="columna">
+                            <div class="uno">
+                               
+                            </div>
+                            <div class="dos">
+                                <label for="especialidad" class="acento-verde-texto enunciado">Especialidad*</label>
+                                <br>
+                                <input type="text" formControlName="especialidad" class="lacento-verde-texto labelenunciado"
+                                    id="especialidad" placeholder="Especialidad">
+                            </div>
+                        </div>
+                        <div class="columna">
+                            <div class="uno">
+                                <label for="numeroAtenciones" class="acento-verde-texto enunciado">Número de Atenciones*</label>
+                                <br>
+                                <input type="number" formControlName="numeroAtenciones" class="acento-verde-texto labelenunciado"
+                                    id="numeroAtenciones" placeholder="Número de Atenciones">
+                            </div>
+                            <div class="dos">
+                                <label for="foto" class="acento-verde-texto enunciado">URL de la Foto</label>
+                                <br>
+                                <input type="text" formControlName="foto" class="acento-verde-texto labelenunciado"
+                                    id="foto" placeholder="URL de la Foto">
+                            </div>
+                        </div>
+                        <button type="submit" class="buton">
+                            Modificar Veterinario
+                        </button>
+                    </form>
+                </div>
+            </section>
+        </section>
+</div>
