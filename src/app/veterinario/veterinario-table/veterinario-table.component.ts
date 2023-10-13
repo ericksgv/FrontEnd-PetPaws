@@ -9,18 +9,42 @@ import { Router } from '@angular/router';
   styleUrls: ['./veterinario-table.component.css']
 })
 export class VeterinarioTableComponent implements OnInit {
-  veterinarios: Veterinario[] = [];
+    // Propiedades para mantener el estado de las selecciones
+    selectedSortBy: string = 'cedula'; // Valor predeterminado
+    selectedSortOrder: string = 'asc'; // Valor predeterminado
+    veterinarios: Veterinario[] = []; // Usar la interfaz para definir el tipo
   itemsPorPagina: number = 15;
   paginaActual: number = 1;
   paginas: number[] = [];
   indicePaginaActual: number = 1;
   rangoPaginas: number[] = [];
+  veterinariosSort: any[] = [];
 
-  constructor(private veterinarioService: ServiceService, private router: Router) {}
+  constructor(private veterinarioService: ServiceService, private router: Router) {
+  }
 
   ngOnInit() {
     this.getVeterinarios();
   }
+
+
+
+  ordenarVeterinarios() {
+    this.veterinariosSort = this.veterinarios;
+    this.veterinariosSort.sort((a, b) => {
+      const valueA = a[this.selectedSortBy];
+      const valueB = b[this.selectedSortBy];
+  
+      if (typeof valueA === 'string' && typeof valueB === 'string') {
+        return this.selectedSortOrder === 'asc' ? valueA.localeCompare(valueB) : valueB.localeCompare(valueA);
+      } else if (typeof valueA === 'number' && typeof valueB === 'number') {
+        return this.selectedSortOrder === 'asc' ? valueA - valueB : valueB - valueA;
+      } else {
+        return 0;
+      }
+    });
+  }
+  
 
   getVeterinarios() {
     this.veterinarioService.getVeterinarios().subscribe((veterinarios) => {
@@ -36,6 +60,14 @@ export class VeterinarioTableComponent implements OnInit {
       this.getVeterinarios();
     });
   }
+
+
+  activarVeterinario(id: number) {
+    this.veterinarioService.activarVeterinario(id).subscribe(() => {
+      this.getVeterinarios();
+    });
+  }
+
 
   modificarVeterinario(id: number) {
     this.router.navigate(['/veterinario/update', id]);

@@ -32,4 +32,9 @@ export class ServiceService {
     console.log(id);
     return this.http.delete<void>(`${this.apiUrl}/delete/${id}`);
   }
+
+  activarVeterinario(id: number): Observable<void> {
+    console.log(id);
+    return this.http.put<void>(`${this.apiUrl}/activate/${id}`, null);
+  }
 }
