@@ -2,67 +2,69 @@
 .contenedor-pagina{
     padding-top: 15vh;
   }
-  
+
   .acento-amarillo-semi-claro-fondo{
       background-color:#D4B8A0;
   }
-  
+
   .contorno{
       background-color:#F2EBD2;
   }
-  
+
   .texto-negrilla{
       font-weight: bold;
   }
-  
+
   .letra-normal-grande{
       font-size: 1.5rem;
   }
-  
+
   .acentro-amarillo-fondo{
-      background-color: #80563D;
+    background-color: #80563D;
+    color: #F2EBD2;
   }
-  
+
   .textoBlanco{
       color: white;
   }
-  
+
   .margenizquierdo{
       margin-right: 5vh;
   }
-  
+
   .acento-amarillo-claro-fondo{
       background-color:#F2EBD2;
   }
-  
+
   .no-border{
       border: none;
   }
-  
+
   .acento-transparente{
       background-color: transparent;
   }
-  
-  
-  /* Estructura del componente */
-  .cuadro-estatico {
-      margin: 0vh 6vh 0 6vh;
-      padding: 2vh 15vh 5vh 15vh;
-      border: none;
-      text-align: center;
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
-  }
-  
-  
-  .cuadro-estatico h1 {
-      margin-top: 0;
-      margin-bottom: 4vh;
-      font-size: 40px;
-      z-index: 10;
-      position: relative;
-  }
-  
+
+
+/* Estructura del componente */
+.cuadro-estatico {
+  margin: 6vh;
+  margin-right: 7vw;
+    border: none;
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+
+.cuadro-estatico h1 {
+  margin-top: 0;
+  margin-bottom: 4vh;
+  font-size: 2.5rem;
+  z-index: 10;
+  position: relative;
+  font-family: Recoleta, serif;
+}
+
   .rectangulo {
       position: absolute;
       background-color: #F2EBD2;
@@ -73,15 +75,15 @@
       margin: 0 auto;
       z-index: 1;
   }
-  
+
   /* Estructura filtros*/
-  
+
   .grupo-elementos {
       display: flex;
       justify-content: space-between;
       margin-top: 10px;
   }
-  
+
   /* Estilo para la etiqueta label que contiene el campo de búsqueda */
   .busqueda {
       display: flex;
@@ -91,12 +93,12 @@
       width: 80%;
       position: relative;
   }
-  
+
   /* Estilo del campo de búsqueda */
   .busqueda:focus-within::before {
       display: none;
   }
-  
+
   .busqueda input[type="text"] {
       flex: 1;
       padding: 10px;
@@ -104,7 +106,7 @@
       border: 2px solid #2D2D2D;
       background: #F2EBD2;
   }
-  
+
   /* Estilo para la imagen de la lupa */
   .busqueda::before, .boton-derecha button::before {
       content: "";
@@ -118,7 +120,7 @@
       transform: translateY(-50%);
       cursor: pointer;
   }
-  
+
   .boton-derecha button {
       display: flex;
       align-items: center;
@@ -129,7 +131,7 @@
       border: 2px solid #2D2D2D;
       background: #F2EBD2;
   }
-  
+
   button {
       padding: 2vh 4vh;
       border: none;
@@ -137,7 +139,7 @@
       margin-left: 5vh;
       border-radius: 50px;
   }
-  
+
   .tres-botones {
       display: flex;
       align-items: center;
@@ -146,12 +148,12 @@
       width: 100%;
       gap: 10px;
   }
-  
+
   .boton-contenedor {
       display: flex; /* Usar flexbox para colocar las dos mitades en línea */
       overflow: hidden;
   }
-  
+
   .mitad-izquierda,
   .mitad-derecha {
       flex: 1; /* Hacer que ambas mitades ocupen el mismo espacio */
@@ -160,52 +162,63 @@
       text-align: center;
       cursor: pointer;
   }
-  
+
   .mitad-izquierda {
       border-radius: 50px 0px 0px 50px;
   }
-  
+
   .mitad-derecha {
       border-radius: 0px 50px 50px 0px;
       background: #F2EBD2;
   }
-  
+
   /*tabla*/
   .cuadro-estatico2 {
       margin: 0vh 6vh 0vh 6vh;
       padding: 0%;
       padding-bottom: 6vh;
   }
-  
+
   .tabla-general2 {
       width: 100%;
       overflow: hidden;
       border-collapse: collapse;
   }
-  
-  .tabla-general2 th,
-  .tabla-general2 td {
-      padding: 10px; /* Ajusta este valor según el espacio que desees dentro de las celdas */
-      white-space: nowrap; /* Evita que el contenido se rompa en varias líneas */
-      overflow: hidden; /* Ocultar contenido desbordado */
-      text-overflow: ellipsis; /* Agregar puntos suspensivos (...) para indicar desbordamiento */
-  }
-  
+
+.tabla-general2 th{
+  padding: 10px; /* Ajusta este valor según el espacio que desees dentro de las celdas */
+  white-space: nowrap; /* Evita que el contenido se rompa en varias líneas */
+  overflow: hidden; /* Ocultar contenido desbordado */
+  text-overflow: ellipsis; /* Agregar puntos suspensivos (...) para indicar desbordamiento */
+  font-family: Recoleta, serif;
+
+}
+.tabla-general2 td {
+  padding: 10px; /* Ajusta este valor según el espacio que desees dentro de las celdas */
+  white-space: nowrap; /* Evita que el contenido se rompa en varias líneas */
+  overflow: hidden; /* Ocultar contenido desbordado */
+  text-overflow: ellipsis; /* Agregar puntos suspensivos (...) para indicar desbordamiento */
+  font-family: 'Work Sans', sans-serif;
+  text-align: center;
+
+}
+
   /* Aplicar fondo a filas impares */
   .tbody2 tr:nth-child(odd) {
       background-color: #F2EBD2;
-  
+    font-family: 'Work Sans', sans-serif;
+
   }
-  
+
   .custom-checkbox-cell {
       display: flex;
       align-items: center;
   }
-  
+
   .custom-checkbox {
       display: none;
   }
-  
+
   .custom-checkbox-label {
       width: 24px;
       height: 24px;
@@ -213,7 +226,7 @@
       cursor: pointer;
       position: relative;
   }
-  
+
   .custom-checkbox-label::after {
       content: '\2713'; /* Código de verificación (✓) */
       font-size: 16px; /* Tamaño de la fuente */
@@ -225,11 +238,11 @@
       opacity: 0;
       transition: opacity 0.3s ease-in-out;
   }
-  
+
   .custom-checkbox:checked + .custom-checkbox-label::after {
       opacity: 1;
   }
-  
+
   .dropdown {
       background-color: rgba(249, 249, 249, 0);
       background-image: url("src/assets/elementosheader/options.svg");
@@ -239,14 +252,14 @@
       border: none;
       margin: 0;
   }
-  
+
   .dropbtn {
       color: #333;
       padding: 8px 16px;
       border: none;
       cursor: pointer;
   }
-  
+
   .dropdown-content {
       display: none;
       position: absolute;
@@ -255,18 +268,18 @@
       box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
       z-index: 1;
   }
-  
+
   .dropdown-content a {
       padding: 12px 16px;
       text-decoration: none;
       display: block;
       color: #333;
   }
-  
+
   .dropdown-content a:hover {
       background-color: #ddd;
   }
-  
+
   /* Mostrar la lista desplegable cuando se pasa el ratón sobre el botón */
   .dropdown:hover .dropdown-content {
       display: block;
@@ -276,7 +289,7 @@
       margin-top: 5vh;
       text-align: center;
   }
-  
+
   .pagination a {
       display: inline-block;
       padding: 5px 10px;
@@ -288,28 +301,28 @@
       text-decoration: none;
       transition: background-color 0.3s, color 0.3s;
   }
-  
+
   .pagination a:hover{
       background-color: #F2EBD2;
       color: #333;
   }
-  
+
   .boton-crear {
       display: flex;
       margin-top: 1%;
       justify-content: center; /* Centrado horizontal para todos los elementos dentro del contenedor */
       align-items: center; /* Centrado vertical para todos los elementos dentro del contenedor */
   }
-  
+
   .ancho-razas {
       min-width: 15vh;
   }
-  
+
   .pagination {
       margin-top: 5vh;
       text-align: center;
   }
-  
+
   .pagination-button {
       display: inline-block;
       padding: 5px 10px;
@@ -321,15 +334,14 @@
       text-decoration: none;
       transition: background-color 0.3s, color 0.3s;
   }
-  
+
   .pagination-button:hover {
       background-color: #F2EBD2;
       color: #333;
   }
-  
+
   .pagination-button.current-page {
       background-color: #80563D;
       color: #FFF;
   }
-  
-  
+

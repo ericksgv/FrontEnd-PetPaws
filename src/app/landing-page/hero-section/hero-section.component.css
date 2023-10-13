@@ -5,7 +5,7 @@
 .info-basica {
   position: relative;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #F2EBD2;
 }
 
@@ -59,14 +59,14 @@
   position: absolute;
   top:15%;
   right: 0;
-  width: 30%;
-  text-align: right;
-  padding-right: 27vh;
+
   margin: 0;
   padding-top: 0;
-  font-size: 70px;
+  padding-right: 15vh;
 
   font-family: Recoleta, serif;
+  font-size: 3.5rem;
+  text-align: right;
   color: #DD4429;
   font-weight: bold;
 }
@@ -75,11 +75,11 @@
   position: absolute;
   top:60%;
   right: 0;
-  width: 30%; /* Ajusta el ancho máximo del texto según tus necesidades */
+  width: 30%;
   height: auto;
-  text-align: right; /* Alinea el texto a la derecha */
-  padding-right: 27vh; /* Añade relleno para separar el texto del borde */
-  font-size: 25px;
+  text-align: right;
+  padding-right: 15vh;
 
+  font-size: 1.5rem;
   font-family: 'Work Sans', sans-serif;
 }

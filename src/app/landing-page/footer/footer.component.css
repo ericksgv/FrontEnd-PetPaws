@@ -3,10 +3,9 @@
 /*FOOTER*/
 footer {
   background-color: #DDA45A;
-  font-family: 'fonts/Recoleta-Bold.woff';
+  font-family: Recoleta, serif;
   height: 85vh;
-  max-width: 99%;
-  min-width: 100%;
+  max-width: 100%;
   bottom: 0;
   margin: auto;
   position: relative;
@@ -23,14 +22,14 @@ footer {
   font-size: 35px;
   font-style: normal;
   font-weight: 400;
-  line-height: 48px;
+  line-height: 1.5;
 }
 
 .footer-middle {
   display: flex;
   align-items: center;
-  margin-top: 20px;
   justify-content: space-between;
+  height: 60%;
 }
 
 .left-section,
@@ -81,7 +80,7 @@ img {
   position: relative;
   display: flex;
   justify-content: center;
-  align-items: center;
+
   margin-top: 2vh;
   margin-bottom: 5vh;
 }
@@ -93,13 +92,11 @@ img {
 }
 
 .social-media svg:first-child {
-  position: absolute;
   left: 87vh;
   margin-top: 0;
 }
 
 .social-media svg:last-child {
-  position: absolute;
   right: 87vh;
   margin-top: 0;
 }
