@@ -9,17 +9,36 @@ import { Router } from '@angular/router';
   styleUrls: ['./usuario-table.component.css']
 })
 export class UsuarioTableComponent implements OnInit {
+  selectedSortBy: string = 'cedula'; // Valor predeterminado
+  selectedSortOrder: string = 'asc'; // Valor predeterminado
   usuarios: Usuario[] = [];
   itemsPorPagina: number = 15;
   paginaActual: number = 1;
   paginas: number[] = [];
   indicePaginaActual: number = 1;
   rangoPaginas: number[] = [];
+  usuariosSort: any[] = [];
 
   constructor(private usuarioService: UsuarioService, private router: Router) {}
 
   ngOnInit() {
     this.getUsuarios();
+  }
+
+  ordenarVeterinarios() {
+    this.usuariosSort = this.usuarios;
+    this.usuariosSort.sort((a, b) => {
+      const valueA = a[this.selectedSortBy];
+      const valueB = b[this.selectedSortBy];
+  
+      if (typeof valueA === 'string' && typeof valueB === 'string') {
+        return this.selectedSortOrder === 'asc' ? valueA.localeCompare(valueB) : valueB.localeCompare(valueA);
+      } else if (typeof valueA === 'number' && typeof valueB === 'number') {
+        return this.selectedSortOrder === 'asc' ? valueA - valueB : valueB - valueA;
+      } else {
+        return 0;
+      }
+    });
   }
 
   getUsuarios() {
