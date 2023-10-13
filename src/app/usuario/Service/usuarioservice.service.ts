@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Usuario } from 'src/app/model/usuario';  // Asegúrate de importar el modelo de usuario
+import { Mascota } from 'src/app/model/mascota'
 
 @Injectable({
   providedIn: 'root',
 })
 export class UsuarioService {
   private apiUrl = 'http://localhost:8090/usuario';  // Ajusta la URL según tu backend
+  private cedulaUsuarioActual: number = -1
 
   constructor(private http: HttpClient) {}
 
@@ -15,22 +17,37 @@ export class UsuarioService {
     return this.http.get<Usuario[]>(`${this.apiUrl}/all`);
   }
 
-  eliminarUsuario(id: number): Observable<void> {
-    console.log(id);
-    return this.http.delete<void>(`${this.apiUrl}/delete/${id}`);
+  eliminarUsuario(cedula: number): Observable<void> {
+    console.log(cedula);
+    return this.http.delete<void>(`${this.apiUrl}/delete/${cedula}`);
+  }
+
+  modificarUsuario(cedula: number | undefined, usuario: Usuario): Observable<void> {
+    console.log(usuario);
+    return this.http.put<void>(`${this.apiUrl}/update/${usuario.cedula}`, usuario);
+  }
+
+  getUsuarioPorCedula(cedula: number): Observable<Usuario | undefined> {
+    return this.http.get<Usuario | undefined>(`${this.apiUrl}/find/${cedula}`);
   }
 
   agregarUsuario(usuario: Usuario): Observable<void> {
+    console.log(usuario);
     return this.http.post<void>(`${this.apiUrl}/agregar`, usuario);
   }
 
-  getUsuarioPorCedula(id: number): Observable<Usuario | undefined> {
-    return this.http.get<Usuario | undefined>(`${this.apiUrl}/find/${id}`);
+  getCedulaUsuarioActual() : number {
+    return this.cedulaUsuarioActual
   }
 
-  modificarUsuario(usuario: Usuario): Observable<void> {
-    return this.http.put<void>(`${this.apiUrl}/update`, usuario);
+  setCedulaUsuarioActual(nuevaCedula : number): void{
+    this.cedulaUsuarioActual = nuevaCedula
   }
+
+  getMascotasUsuarioCedula(cedula: number) : Observable<Mascota[] | undefined>{
+    return this.http.get<Mascota[] | undefined>(`${this.apiUrl}/mascotas/${cedula}`)
+  }
+
 
 }
 

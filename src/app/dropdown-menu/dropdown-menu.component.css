@@ -2,6 +2,12 @@
   padding-top: 5%;
   background-color: #EFC353;
   font-family: Recoleta, serif;
+  transition: margin-bottom 2s ease-in-out;
+}
+
+.navigation-menu.open {
+  display: block;
+  height: 100%;
 }
 
 .title-navegacion {

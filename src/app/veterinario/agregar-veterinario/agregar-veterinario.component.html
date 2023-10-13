@@ -1,0 +1,53 @@
+<app-top-bar-veterinario></app-top-bar-veterinario>
+
+<div class="completo">
+    <!--<app-header [titleColor]="'amarillo-principal-acento'" [backgroundColor]="'acento-transparente'"></app-header>-->
+    <section class="container-wave2 creacional">
+      <h1 class="title-creacional subrayado margin-bottom">Añadir Veterinario</h1>
+      <form [formGroup]="veterinarioForm" (ngSubmit)="agregarVeterinario()">
+        <div class="columna">
+          <div class="uno">
+            <label for="cedula" class="acento-verde-texto enunciado">Cedula*</label>
+            <br>
+            <input type="number" formControlName="cedula" class="acento-verde-texto labelenunciado" id="cedula" placeholder="Cédula">
+          </div>
+          <div class="dos">
+            <label for="nombre" class="acento-verde-texto enunciado">Nombre*</label>
+            <br>
+            <input type="text" formControlName="nombre" class="acento-verde-texto labelenunciado" id="nombre" placeholder="Nombre del veterinario">
+          </div>
+        </div>
+        <div class="columna">
+          <div class="uno">
+            <label for="passwordHash" class="acento-verde-texto enunciado">Contraseña*</label>
+            <br>
+            <input type="password" formControlName="passwordHash" class="acento-verde-texto labelenunciado" id="passwordHash" placeholder="Contraseña">
+          </div>
+          <div class="dos">
+            <label for="especialidad" class="acento-verde-texto enunciado">Especialidad*</label>
+            <br>
+            <input type="text" formControlName="especialidad" class="acento-verde-texto labelenunciado" id="especialidad" placeholder="Especialidad">
+          </div>
+        </div>
+        <div class="columna">
+          <div class="uno">
+            <label for="numeroAtenciones" class="acento-verde-texto enunciado">Número de Atenciones*</label>
+            <br>
+            <input type="number" formControlName="numeroAtenciones" class="acento-verde-texto labelenunciado" id="numeroAtenciones" placeholder="Número de Atenciones">
+          </div>
+          <div class="dos">
+            <label for="foto" class="acento-verde-texto enunciado">URL de la Foto</label>
+            <br>
+            <input type="text" formControlName="foto" class="acento-verde-texto labelenunciado" id="foto" placeholder="URL de la Foto">
+          </div>
+        </div>
+        <button type="submit" class="creacional2 no-bordes boton-redondo acento-amarillo-fondo letra-poppins textoBlanco texto-negrilla">
+          Agregar Veterinario
+        </button>
+      </form>
+    </section>
+    <div class="wave-container"></div>
+    <img class="waveimage" src="./assets/crearusuario/iconoimagen.svg" alt="perro">
+    <img class="waveimage2" src="./assets/crearmascota/devolverse.svg" alt="devolverse">
+  </div>
+

@@ -10,6 +10,7 @@ import { UsuarioService } from '../Service/usuarioservice.service';
 })
 export class AgregarUsuarioComponent {
   usuarioForm: FormGroup;  
+  id: number | undefined;
 
   constructor(
     private usuarioService: UsuarioService,  
@@ -17,6 +18,7 @@ export class AgregarUsuarioComponent {
     private formBuilder: FormBuilder  
   ) {
     this.usuarioForm = this.formBuilder.group({
+      id: [  , ],
       cedula: ['', Validators.required],
       nombre: ['', Validators.required],
       correo: ['', Validators.required],
@@ -26,8 +28,11 @@ export class AgregarUsuarioComponent {
 
   agregarUsuario() {
     const nuevoUsuario = this.usuarioForm.value;
-    this.usuarioService.agregarUsuario(nuevoUsuario);
-    this.router.navigate(['/usuario/all']);  
+    nuevoUsuario.id=0;
+    console.log(nuevoUsuario);
+    this.usuarioService.agregarUsuario(nuevoUsuario).subscribe(() => {
+      this.router.navigate(['usuario/all']);  
+    })
   }
 }
 

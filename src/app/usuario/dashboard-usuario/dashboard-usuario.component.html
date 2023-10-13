@@ -1,0 +1,68 @@
+<section class="contenedor-pagina beige-fondo">
+  <app-top-bar-cliente></app-top-bar-cliente>
+
+  <h1 class="titulo-nombre-cliente"> Bienvenido, {{usuarioActual?.nombre}}</h1>
+
+  <section class="contenedor-cartas">
+
+    <section class="carta-datos">
+      <div class="seccion-titulo-carta">
+        <span class="titulo-carta"> Tus Datos </span>
+      </div>
+
+      <form>
+        <label for="cedula">Cédula</label>
+        <br>
+        <input id="cedula" name="cedula" [formControl]="cedula" readonly>
+        <br>
+        <label for="nombre">Nombre</label>
+        <br>
+        <input id="nombre" name="nombre" [formControl]="nombre" readonly>
+        <br>
+        <label for="correo">Correo</label>
+        <br>
+        <input id="correo" name="correo" [formControl]="correo" readonly>
+        <br>
+        <label for="celular">Celular</label>
+        <br>
+        <input id="celular" name="celular" [formControl]="celular" readonly>
+      </form>
+
+    </section>
+
+    <section class="carta-mascotas">
+      <div class="seccion-titulo-carta">
+        <span class="titulo-carta"> Mascotas Registradas </span>
+      </div>
+
+      <div *ngFor="let mascota of mascotasUsuario; index as i; first as isFirst">
+        <div class="informacionMascota">
+          <img class="foto-mascota" [src]="mascota.foto" alt="Foto de la mascota">
+          <span>{{mascota.nombre}}</span>
+          <br>
+          <span>{{mascota.raza}}</span>
+          <br>
+          <span>{{mascota.peso}}</span>
+          <br>
+          <span>{{mascota.estado}}</span>
+          <hr class="linea-divisor-mascotas">
+        </div>
+        <br>
+
+
+      </div>
+<!--      <img ngSrc="{{usuarioActual!.mascotas[0].foto}}" alt="Foto de la mascota">-->
+
+
+
+    </section>
+
+
+
+  </section>
+
+
+</section>
+
+
+

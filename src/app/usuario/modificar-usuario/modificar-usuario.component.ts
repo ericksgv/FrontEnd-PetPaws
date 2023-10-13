@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { UsuarioService } from '../Service/usuarioservice.service';
 import { Usuario } from 'src/app/model/usuario';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {Mascota} from "../../model/mascota";
 
 @Component({
   selector: 'app-modificar-usuario',
@@ -11,6 +12,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class ModificarUsuarioComponent implements OnInit {
   usuarioForm: FormGroup;
+  usuario: Usuario | undefined;
+  cedula: number | undefined;
+  celular: number | undefined;
 
   constructor(
     private usuarioService: UsuarioService,
@@ -19,42 +23,46 @@ export class ModificarUsuarioComponent implements OnInit {
     private fb: FormBuilder
   ) {
     this.usuarioForm = this.fb.group({
+      id: ['', ],
       cedula: ['', Validators.required],
       nombre: ['', Validators.required],
       correo: ['', Validators.required],
-      celular: ['', Validators.required]
+      celular: [, Validators.required],
     });
+
+    this.route.params.subscribe(params => {
+      this.cedula = +params['id']
+    })
   }
 
   ngOnInit(): void {
-    const cedula = this.route.snapshot.paramMap.get('cedula');
-    if (cedula) {
-      const cedulaNumero = parseInt(cedula, 10); // Convertir cédula a número
-      this.usuarioService.getUsuarioPorCedula(cedulaNumero).subscribe((usuario: Usuario | undefined) => {
+
+    console.log("Cedula de la url: ", this.cedula)
+    if (this.cedula) {
+      this.usuarioService.getUsuarioPorCedula(this.cedula).subscribe((usuario: Usuario | undefined) => {
+        this.usuario = usuario
         if (usuario) {
           // Establece los valores del formulario con los datos del usuario encontrado
           this.usuarioForm.setValue({
-            cedula: cedulaNumero, // Usar el número en lugar de la cadena
+            id: usuario.id,
+            cedula: usuario.cedula, // Usar el número en lugar de la cadena
             nombre: usuario.nombre,
             correo: usuario.correo,
-            celular: usuario.celular.toString() // Convierte a string para mostrarlo en el campo de entrada
+            celular: usuario.celular.toString(), // Convierte a string para mostrarlo en el campo de entrada
           });
         } else {
-          this.router.navigate(['/usuarios/all']);
+          this.router.navigate(['/usuario/all']);
         }
       });
     }
   }
 
   modificarUsuario() {
-    if (this.usuarioForm.valid) {
+    if (this.usuarioForm.valid && this.usuario) {
       const usuarioModificado = this.usuarioForm.value;
-      // Convierte el valor de 'celular' de string a número si es necesario
-      usuarioModificado.celular = parseInt(usuarioModificado.celular, 10);
-
       // Llama al servicio para modificar el usuario
-      this.usuarioService.modificarUsuario(usuarioModificado).subscribe(() => {
-        this.router.navigate(['/usuarios/all']);
+      this.usuarioService.modificarUsuario(this.cedula, usuarioModificado).subscribe(() => {
+        this.router.navigate(['/usuario/all']);
       });
     }
   }

@@ -4,7 +4,7 @@ export interface Veterinario {
     id: number;
     cedula: number;
     nombre: string;
-    passwordHash: string;
+    password_Hash: string;
     especialidad: string;
     numeroAtenciones: number;
     foto: string;

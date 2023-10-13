@@ -19,6 +19,7 @@ export class ModificarMascotaComponent implements OnInit {
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
+    console.log("id de la url: ", id)
     this.mascotaService.getMascotaPorId(id).subscribe((mascota) => {
       this.mascota = mascota;
 

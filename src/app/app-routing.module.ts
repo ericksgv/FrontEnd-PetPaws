@@ -12,16 +12,15 @@ import { UsuarioTableComponent } from './usuario/usuario-table/usuario-table.com
 import { SesionUsuarioComponent } from './iniciar-sesion/sesion-usuario/sesion-usuario.component';
 import { SesionAdministradorComponent } from './iniciar-sesion/sesion-administrador/sesion-administrador.component';
 import { SesionVeterinarioComponent } from './iniciar-sesion/sesion-veterinario/sesion-veterinario.component';
+import {DashboardUsuarioComponent} from "./usuario/dashboard-usuario/dashboard-usuario.component";
+import { VeterinarioTableComponent } from './veterinario/veterinario-table/veterinario-table.component';
+import { AgregarVeterinarioComponent } from './veterinario/agregar-veterinario/agregar-veterinario.component';
+import { ModificarVeterinarioComponent } from './veterinario/modificar-veterinario/modificar-veterinario.component';
 const routes: Routes = [
 
   {
     path: '',
     component: LandingPageComponent
-  },
-
-  {
-    path: 'dropdownMenu',
-    component: DropdownMenuComponent
   },
 
   {
@@ -59,6 +58,23 @@ const routes: Routes = [
   {
     path: 'veterinario/login',
     component: SesionVeterinarioComponent,
+  },
+
+  {
+    path: 'usuario/dashboard',
+    component: DashboardUsuarioComponent,
+  },
+  {
+    path: 'veterinario/all',
+    component: VeterinarioTableComponent,
+  },
+  {
+    path: 'veterinario/add',
+    component: AgregarVeterinarioComponent,
+  },
+  {
+    path: 'veterinario/update/:id',
+    component: ModificarVeterinarioComponent,
   }
 
 ];

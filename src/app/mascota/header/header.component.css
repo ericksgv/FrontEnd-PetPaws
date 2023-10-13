@@ -1,6 +1,7 @@
 /* Colores */
 .acento-amarillo-claro-fondo {
     background-color: #F2EBD2;
+
 }
 
 .amarillo-principal-acento-texto {
@@ -24,7 +25,7 @@
 }
 /* Decoración */
 .dato3-cerrarSesion {
-    text-decoration: none; 
+    text-decoration: none;
 }
 
 /* Estructura del componente */
@@ -33,12 +34,13 @@
     justify-content: space-between;
     align-items: center;
     padding: 2vh 0vh 2.5vh 0vh;
+  font-family: Recoleta, serif;
 }
 
 .header-left,
 .header-center,
 .header-right {
-    flex: 1; 
+    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -54,7 +56,7 @@
 }
 
 .mensaje-registro-7elementos {
-    margin-right: 10vh; 
+    margin-right: 10vh;
 }
 
 .titulo-petpaws {

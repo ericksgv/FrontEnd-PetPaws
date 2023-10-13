@@ -6,6 +6,5 @@ export interface Usuario {
     nombre: string;
     correo: string;
     celular: number;
-    mascotas: Mascota[];
   }
   
