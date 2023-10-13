@@ -51,9 +51,10 @@
           <div class="uno" *ngIf="mascota">
             <label for="estado" class="acento-verde-texto enunciado">Estado</label><br>
             <select [(ngModel)]="mascota.estado" name="estado" class="lacento-verde-texto selectenunciado" id="estado" required>
+              <option value="Inactivo">Inactivo</option>
               <option value="Sin estado">Sin estado</option>
-              <option value="hospitalizado">Hospitalizado</option>
-              <option value="curado">Curado</option>
+              <option value="Hospitalizado">Hospitalizado</option>
+              <option value="Curado">Curado</option>
             </select>
           </div>
           <div class="dos" *ngIf="mascota">
