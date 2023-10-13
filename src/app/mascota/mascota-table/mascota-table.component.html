@@ -28,18 +28,19 @@
       <div class="boton-contenedor">
         <div class="mitad-izquierda acentro-verde-oscuro-fondo">
           <!-- Lista desplegable izquierda -->
-          <select class="acentro-verde-oscuro-fondo textoBlanco texto-negrilla">
-            <option value="opcion1">Edad</option>
-            <option value="opcion2">Opción 2</option>
-            <option value="opcion3">Opción 3</option>
+          <select class="acentro-verde-oscuro-fondo textoBlanco texto-negrilla" [(ngModel)]="selectedSortBy" (ngModelChange)="ordenarVeterinarios()">
+            <option value="nombre">Nombre</option>
+            <option value="edad">Edad</option>
+            <option value="raza">Raza</option>
+            <option value="peso">Peso</option>
+            <option value="estado">Estado</option>
           </select>
         </div>
         <div class="mitad-derecha">
           <!-- Lista desplegable derecha -->
-          <select class="acento-amarillo-claro-fondo texto-negrilla no-border">
-            <option value="opcion4">Ascendente</option>
-            <option value="opcion5">Opción 5</option>
-            <option value="opcion6">Opción 6</option>
+          <select class="acento-amarillo-claro-fondo texto-negrilla no-border" [(ngModel)]="selectedSortOrder" (ngModelChange)="ordenarVeterinarios()">
+            <option value="asc">Ascendente</option>
+            <option value="desc">Descendente</option>
           </select>
         </div>
       </div>

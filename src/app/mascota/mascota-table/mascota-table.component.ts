@@ -9,17 +9,36 @@ import { Router } from '@angular/router';
   styleUrls: ['./mascota-table.component.css']
 })
 export class MascotaTableComponent implements OnInit {
+  selectedSortBy: string = 'nombre'; // Valor predeterminado
+  selectedSortOrder: string = 'asc'; // Valor predeterminado
   mascotas: Mascota[] = [];
   itemsPorPagina: number = 15; 
   paginaActual: number = 1;
   paginas: number[] = [];
   indicePaginaActual: number = 1; 
   rangoPaginas: number[] = [];
+  mascotasSort: any[] = [];
 
   constructor(private mascotaService: MascotaService, private router: Router) { }
 
   ngOnInit() {
     this.getMascotas();
+  }
+
+  ordenarVeterinarios() {
+    this.mascotasSort = this.mascotas;
+    this.mascotasSort.sort((a, b) => {
+      const valueA = a[this.selectedSortBy];
+      const valueB = b[this.selectedSortBy];
+  
+      if (typeof valueA === 'string' && typeof valueB === 'string') {
+        return this.selectedSortOrder === 'asc' ? valueA.localeCompare(valueB) : valueB.localeCompare(valueA);
+      } else if (typeof valueA === 'number' && typeof valueB === 'number') {
+        return this.selectedSortOrder === 'asc' ? valueA - valueB : valueB - valueA;
+      } else {
+        return 0;
+      }
+    });
   }
 
   getMascotas() {
