@@ -27,6 +27,10 @@ export class UsuarioService {
     return this.http.put<void>(`${this.apiUrl}/update/${usuario.cedula}`, usuario);
   }
 
+  activarUsuario(id: number | undefined): Observable<void> {
+    return this.http.put<void>(`${this.apiUrl}/activate/${id}`, null  );
+  }
+
   getUsuarioPorCedula(cedula: number): Observable<Usuario | undefined> {
     return this.http.get<Usuario | undefined>(`${this.apiUrl}/find/${cedula}`);
   }

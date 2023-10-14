@@ -138,6 +138,12 @@ filtrarPorAtributo(atributo: string) {
     });
   }
 
+  activarMascota(id: number) {
+    this.mascotaService.activarMascota(id).subscribe(() => {
+      this.getMascotas();
+    });
+  }
+
   modificarMascota(id: number) {
     this.router.navigate(['/mascotas/modificar', id]);
   }

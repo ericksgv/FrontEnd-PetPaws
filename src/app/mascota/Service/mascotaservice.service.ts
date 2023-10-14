@@ -24,6 +24,11 @@ export class MascotaService {
     return this.http.put<void>(`${this.apiUrl}/update/${id}`, nuevaMascota);
   }
 
+  activarMascota(id: number): Observable<void> {
+    console.log(id);
+    return this.http.put<void>(`${this.apiUrl}/activate/${id}`, null);
+  }
+
   getMascotaPorId(id: number): Observable<Mascota | undefined> {
     return this.http.get<Mascota | undefined>(`${this.apiUrl}/find/${id}`);
   }

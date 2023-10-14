@@ -87,7 +87,9 @@
             <div class="dropdown acento-transparente">
               <button class="dropbtn acento-transparente"></button>
               <div class="dropdown-content acento-transparente">
-                <a href="#" [routerLink]="['/mascotas/all']" *ngIf="mascota.estado != 'Inactivo'" (click)="eliminarMascota(mascota.id)">Eliminar</a>
+                <a href="#" [routerLink]="['/mascotas/all']" *ngIf="mascota.estado != 'Inactivo'" (click)="eliminarMascota(mascota.id)">Inactivar</a>
+                <a href="#" [routerLink]="['/mascotas/all']" *ngIf="mascota.estado == 'Inactivo'" (click)="activarMascota(mascota.id)">Activar</a>
+
                 <a href="#" data-value="opcion8" [routerLink]="['/mascotas/modificar', mascota.id]">Modificar</a>
               </div>
             </div>

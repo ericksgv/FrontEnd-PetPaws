@@ -6,5 +6,6 @@ export interface Usuario {
     nombre: string;
     correo: string;
     celular: number;
+    estado: string;
   }
   
