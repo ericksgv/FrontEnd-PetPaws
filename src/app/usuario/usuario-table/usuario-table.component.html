@@ -45,7 +45,21 @@
           </div>
         </div>
         <div class="margenizquierdo"></div>
-        <button class="acentro-amarillo-fondo texto-negrilla">15</button>
+
+        <div class="boton-contenedor">
+          <div class="mitad-izquierda acentro-amarillo-fondo">
+            <!-- Lista desplegable para seleccionar la cantidad de mascotas por página -->
+            <select class="acentro-amarillo-fondo texto-negrilla no-border" [(ngModel)]="itemsPorPagina"
+              (ngModelChange)="cambiarCantidadPorPagina()">
+              <option value="5">5</option>
+              <option value="10">10</option>
+              <option value="30">30</option>
+              <option value="50">50</option>
+              <option value="100">100</option>
+            </select>
+          </div>
+        </div>
+
       </div>
     </div>
 

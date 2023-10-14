@@ -326,3 +326,8 @@ button {
     color: #FFF; 
 }
 
+.filtro-activo {
+    background-color: lightyellow;
+    color: black;
+  }
+  

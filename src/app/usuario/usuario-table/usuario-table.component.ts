@@ -41,6 +41,12 @@ export class UsuarioTableComponent implements OnInit {
     });
   }
 
+  cambiarCantidadPorPagina() {
+    this.calcularPaginas();
+    this.paginaActual = 1; // Vuelve a la primera página al cambiar la cantidad por página
+    this.calcularIndicesPagina(); // Actualiza los índices de página
+  }
+  
   getUsuarios() {
     this.usuarioService.getUsuarios().subscribe((usuarios) => {
       this.usuarios = usuarios;

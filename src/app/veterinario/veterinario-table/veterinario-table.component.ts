@@ -45,7 +45,12 @@ export class VeterinarioTableComponent implements OnInit {
     });
   }
   
-
+  cambiarCantidadPorPagina() {
+    this.calcularPaginas();
+    this.paginaActual = 1; // Vuelve a la primera página al cambiar la cantidad por página
+    this.calcularIndicesPagina(); // Actualiza los índices de página
+  }
+  
   getVeterinarios() {
     this.veterinarioService.getVeterinarios().subscribe((veterinarios) => {
       this.veterinarios = veterinarios;
