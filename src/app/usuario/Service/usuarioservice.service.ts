@@ -52,6 +52,9 @@ export class UsuarioService {
     return this.http.get<Mascota[] | undefined>(`${this.apiUrl}/mascotas/${cedula}`)
   }
 
+  buscarUsuariosPorCedula(cedula: number): Observable<Usuario[]> {
+    return this.http.get<Usuario[]>(`${this.apiUrl}/filtrar/${cedula}`);
+  }
 
 }
 
