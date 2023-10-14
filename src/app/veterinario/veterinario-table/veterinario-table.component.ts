@@ -120,8 +120,6 @@ export class VeterinarioTableComponent implements OnInit {
         } else if (atributo == 'especialidad') {
           return veterinario.especialidad.toLowerCase().includes(atributoBusqueda);
         } else if (atributo == 'estado') {
-          console.log(atributoBusqueda)
-          console.log(veterinario.estado.toLowerCase())
           return veterinario.estado.toLowerCase().includes(atributoBusqueda);
         }else if (atributo == 'atenciones') {
           return veterinario.numeroAtenciones.toString().includes(atributoBusqueda);
