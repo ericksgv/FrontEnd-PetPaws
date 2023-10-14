@@ -10,20 +10,21 @@
     <!-- Barras de búsqueda -->
     <div class="grupo-elementos">
       <label for="campoBusqueda" class="busqueda">
-        <input type="text" id="campoBusqueda" name="campoBusqueda" placeholder="Busca cédulas, nombres, correos...">
+        <input type="text" id="campoBusqueda" name="campoBusqueda" placeholder="Busca por cédula" [(ngModel)]="textoBusqueda" (input)="filtrarVeterinarios()">
       </label>
       <div class="boton-derecha">
-        <button>Busqueda Avanzada</button>
+        <label for="campoBusqueda" class="busqueda">
+          <input type="text" [(ngModel)]="busquedaAvanzada" placeholder="Búsqueda Avanzada">
+        </label>
       </div>
     </div>
 
     <div class="tres-botones texto-negrilla textoNegro">
-      <button class="acentro-amarillo-fondo texto-negrilla .filtro-btn" data-atributo="cedula">Cédula</button>
-      <button class="acentro-amarillo-fondo texto-negrilla .filtro-btn" data-atributo="nombre">Nombre</button>
-      <button class="acentro-amarillo-fondo texto-negrilla .filtro-btn"
-        data-atributo="especialidad">Especialidad</button>
-      <button class="acentro-amarillo-fondo texto-negrilla .filtro-btn" data-atributo="numeroAtenciones">Número
-        Atenciones</button>
+      <button [ngClass]="filtroActivoNombre ? 'filtro-activo' : 'acentro-amarillo-fondo texto-negrilla .filtro-btn'"  class="acentro-amarillo-fondo texto-negrilla .filtro-btn" (click)="filtrarPorAtributo('nombre')">Nombre</button>
+      <button [ngClass]="filtroActivoEspecialidad ? 'filtro-activo' : 'acentro-amarillo-fondo texto-negrilla .filtro-btn'"  class="acentro-amarillo-fondo texto-negrilla .filtro-btn" (click)="filtrarPorAtributo('especialidad')">Especialidad</button>
+      <button [ngClass]="filtroActivoNAtenciones ? 'filtro-activo' : 'acentro-amarillo-fondo texto-negrilla .filtro-btn'"  class="acentro-amarillo-fondo texto-negrilla .filtro-btn" (click)="filtrarPorAtributo('atenciones')">Número de Atenciones</button>
+      <button [ngClass]="filtroActivoEstado ? 'filtro-activo' : 'acentro-amarillo-fondo texto-negrilla .filtro-btn'"  class="acentro-amarillo-fondo texto-negrilla .filtro-btn" (click)="filtrarPorAtributo('estado')">Estado</button>
+      <button  class="acentro-amarillo-fondo texto-negrilla .filtro-btn" (click)="filtrarPorAtributo('limpiar')">Limpiar búsqueda avanzada</button>
     </div>
     <div class="tres-botones texto-negrilla textoNegro">
       <div class="margenizquierdo"></div>
@@ -77,7 +78,7 @@
       </thead>
       <tbody id="tableBody" class="tbody2">
         <tr
-          *ngFor="let veterinario of veterinarios.slice(calcularIndicesPagina().inicio, calcularIndicesPagina().fin); let i = index">
+          *ngFor="let veterinario of veterinariosFiltrados.slice(calcularIndicesPagina().inicio, calcularIndicesPagina().fin); let i = index">
           <td class="custom-checkbox-cell">
             <input type="checkbox" class="custom-checkbox" [id]="'checkbox-' + i">
             <label [for]="'checkbox-' + i" class="custom-checkbox-label"></label>
