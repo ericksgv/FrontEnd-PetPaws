@@ -87,6 +87,8 @@ restaurarFiltros(){
   this.filtroActivoR = false;
   this.filtroActivoP = false;
   this.filtroActivoEs = false;
+  this.calcularPaginas();
+  this.actualizarRangoPaginas();
 }
 
 filtrarPorAtributo(atributo: string) {
@@ -95,35 +97,33 @@ filtrarPorAtributo(atributo: string) {
     this.busquedaAvanzada = '';
     this.restaurarFiltros();
     this.filtrarMascotas();
+    this.calcularPaginas();
+    this.actualizarRangoPaginas();
   } else {
     // Filtra las mascotas que coinciden con el texto de búsqueda y el atributo de búsqueda avanzada.
     this.filtrarMascotas();
+    this.restaurarFiltros();
     this.mascotasFiltradas = this.mascotasFiltradas.filter(mascota => {
       const atributoBusqueda = this.busquedaAvanzada;
       if (atributo === 'edad') {
-        this.restaurarFiltros();
         this.filtroActivoE = !this.filtroActivoE;
         return mascota.edad.toString().includes(atributoBusqueda);
       } else if (atributo === 'raza') {
-        this.restaurarFiltros();
         this.filtroActivoR = !this.filtroActivoR;
         return mascota.raza.toLowerCase().includes(atributoBusqueda);
       } else if (atributo === 'peso') {
-        this.restaurarFiltros();
         this.filtroActivoP = !this.filtroActivoP;
         return mascota.peso.toString().includes(atributoBusqueda);
       } else if (atributo === 'estado') {
-        this.restaurarFiltros();
+
         this.filtroActivoEs = !this.filtroActivoEs;
         return mascota.estado.toLowerCase().includes(atributoBusqueda);
       }
     });
-  }
-
     this.calcularPaginas();
     this.actualizarRangoPaginas();
-  
-}
+  }
+  }
 
 
 
