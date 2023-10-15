@@ -20,7 +20,7 @@ export class SesionAdministradorComponent {
     } else {
       // Aquí puedes agregar lógica adicional para verificar la cédula y contraseña del administrador y autenticarlo.
       // Si la autenticación es exitosa, puedes redirigir al administrador a la página deseada.
-      this.router.navigate(['/dashboard-admin']); // Cambia '/dashboard-admin' por la ruta que desees para el administrador.
+      this.router.navigate(['/admin/dashboard']); // Cambia '/dashboard-admin' por la ruta que desees para el administrador.
     }
   }
 
