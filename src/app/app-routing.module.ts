@@ -20,6 +20,7 @@ import { TratamientoTableComponent } from './tratamiento/tratamiento-table/trata
 import { AgregarTratamientoComponent } from './tratamiento/agregar-tratamiento/agregar-tratamiento.component';
 import { ModificarTratamientoComponent } from './tratamiento/modificar-tratamiento/modificar-tratamiento.component';
 import {DashboardAdminComponent} from "./admin/dashboard-admin/dashboard-admin.component";
+import { DashboardVeterinarioComponent } from './veterinario/dashboard-veterinario/dashboard-veterinario.component';
 const routes: Routes = [
 
   {
@@ -87,6 +88,10 @@ const routes: Routes = [
   {
     path: 'veterinario/update/:id',
     component: ModificarVeterinarioComponent,
+  },
+  {
+    path: 'veterinario/dashboard/:cedula',
+    component: DashboardVeterinarioComponent,
   },
   {
     path: 'tratamiento/all',

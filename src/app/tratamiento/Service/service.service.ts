@@ -30,4 +30,9 @@ export class ServiceService {
   eliminarTratamiento(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/delete/${id}`);
   }
+
+  mostrarveterinario(id: number): Observable<Tratamiento[]> {
+    return this.http.get<Tratamiento[]>(`${this.apiUrl}/veterinario/${id}`);
+  }
+
 }

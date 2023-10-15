@@ -36,6 +36,7 @@ import { AgregarTratamientoComponent } from './tratamiento/agregar-tratamiento/a
 import { ModificarTratamientoComponent } from './tratamiento/modificar-tratamiento/modificar-tratamiento.component';
 import { TratamientoTableComponent } from './tratamiento/tratamiento-table/tratamiento-table.component';
 import { DashboardAdminComponent } from './admin/dashboard-admin/dashboard-admin.component';
+import { DashboardVeterinarioComponent } from './veterinario/dashboard-veterinario/dashboard-veterinario.component';
 
 
 
@@ -72,6 +73,7 @@ import { DashboardAdminComponent } from './admin/dashboard-admin/dashboard-admin
     ModificarTratamientoComponent,
     TratamientoTableComponent,
     DashboardAdminComponent,
+    DashboardVeterinarioComponent,
   ],
     imports: [
         BrowserModule,

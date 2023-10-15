@@ -1,0 +1,85 @@
+<app-header [titleColor]="'acento-verde-claro-texto'" [backgroundColor]="'acento-amarillo-claro-fondo'"></app-header>
+<section class="contenedor-pagina beige-fondo">
+    <h1 class="titulo-nombre-cliente"> Bienvenid@ de nuevo, {{usuarioActual?.nombre}}</h1>
+    <section class="acciones-rapidas">
+        <p>Acciones rápidas</p>
+        <div class="botones-acciones">
+            <button class="boton naranja-fondo">Añadir Tratamiento</button>
+            <button class="boton verde-fondo">Añadir Mascota</button>
+            <button class="boton amarillo-fondo">Añadir Cliente</button>
+        </div>
+    </section>
+    <section class="contenedor-cartas">
+
+        <section class="carta-datos ">
+            <div class="seccion-titulo-carta">
+                <span class="titulo-carta"> Tratamientos Hechos </span>
+            </div>
+
+            <div class="informacion-tratamientos scrollable-container">
+                <div *ngFor="let tratamiento of tratamientos" class="tratamiento-card">
+                    <img class="mascota-foto" [src]="tratamiento.mascota.foto">
+                    <div class="mascota-info">
+                        <span class="info-titulo">Nombre:</span>
+                        <span>{{ tratamiento.mascota.nombre }}</span>
+                        <span class="info-titulo">Raza:</span>
+                        <span>{{ tratamiento.mascota.raza }}</span>
+                        <span class="info-titulo">Veterinario:</span>
+                        <span>{{ tratamiento.veterinario.nombre }}</span>
+                        <span class="info-titulo">Estado:</span>
+                        <span>{{ tratamiento.mascota.estado }}</span>
+                    </div>
+                    <div class="tratamiento-info">
+                        <span class="info-titulo">Medicamento:</span>
+                        <span>{{ tratamiento.medicamento.nombre }}</span>
+                        <span class="info-titulo">Tratamiento:</span>
+                        <span>{{ tratamiento.descripcion }}</span>
+                        <span class="info-titulo">Fecha:</span>
+                        <span>{{ tratamiento.fecha }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="botones-acciones2">
+                <button class="boton2 naranja-fondo">Todos los tratamientos</button>
+                <button class="boton2 naranja-fondo">Añadir Tratamiento</button>
+            </div>
+        </section>
+
+        <section class="carta-mascotas">
+            <div class="seccion-titulo-carta">
+                <span class="titulo-carta"> Mascotas Registradas </span>
+            </div>
+            <div class="informacion-tratamientos scrollable-container2">
+                <div *ngFor="let tratamiento of tratamientos" class="tratamiento-card">
+                    <img class="mascota-foto" [src]="tratamiento.mascota.foto">
+                    <div class="mascota-info">
+                        <span class="info-titulo2">{{ tratamiento.mascota.nombre }}</span>
+                        <ng-container *ngIf="tratamiento.mascota.edad >= 12; else mostrarMeses">
+                            <span class="info-parrafo">
+                                Edad: {{ calcularEdadMascota(tratamiento.mascota.edad).anos }} ano(s)
+                                {{ calcularEdadMascota(tratamiento.mascota.edad).meses > 0 ? calcularEdadMascota(tratamiento.mascota.edad).meses + ' mes(es)' : '' }}
+                            </span>
+                        </ng-container>
+                        <ng-template #mostrarMeses>
+                            <span class="info-parrafo">
+                                Edad: {{ tratamiento.mascota.edad }} mes(es)
+                            </span>
+                        </ng-template>
+                        
+                        <span class="info-parrafo">Peso: {{ tratamiento.mascota.peso }}</span>
+                        <span class="info-parrafo">{{ tratamiento.mascota.raza }}</span>
+                        <span class="info-parrafo">{{ tratamiento.mascota.estado }}</span>
+                    </div>
+                </div>
+                <br>
+            </div>
+            <div class="botones-acciones2">
+                <button class="boton2 verde-oscuro-fondo">Todos los tratamientos</button>
+                <button class="boton2 verde-oscuro-fondo">Añadir Tratamiento</button>
+            </div>
+        </section>
+
+    </section>
+
+    <app-footer></app-footer>
+</section>

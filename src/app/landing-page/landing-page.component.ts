@@ -15,6 +15,7 @@ export class LandingPageComponent {
   ngOnInit() {
     this.menuService.menuVisibility$.subscribe((isVisible) => {
       this.visibilidadMenu = isVisible;
+      
     });
   }
 
