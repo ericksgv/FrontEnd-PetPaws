@@ -18,7 +18,7 @@ export class DashboardUsuarioComponent implements OnInit{
   constructor(private usuarioService: UsuarioService) {
   }
 
-  // Controles para el form
+  // Controles para el form que muestra los datos
   cedula = new FormControl()
   nombre = new FormControl('')
   correo = new FormControl('')
