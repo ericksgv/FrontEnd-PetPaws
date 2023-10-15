@@ -15,9 +15,11 @@
     border: none;
 }
 
-.acento-verde-fondo{
-    background-color: #44561E;
-    
+.acento-rojo-texto{
+    color: #DC6A35;
+}
+.acento-rojo-fondo{
+    background-color: #DC6A35;
 }
 
 .boton-redondo{
@@ -51,7 +53,7 @@ button {
     height: 130vh; 
     padding: 0%;
     margin: 0;
-    background-image: url('src/assets/crearmascota/wavemascota.svg');
+    background-image: url('src/assets/creartratamiento/wavetratamiento.svg');
     z-index: 0; 
 }
 
@@ -80,7 +82,7 @@ form{
 }
 
 .title-creacional{
-    margin-left: 40%;
+    margin-left: 25%;
     color: #2D2D2D;
     font-size: 40px;
 }
@@ -169,7 +171,7 @@ form{
 
 .waveimage{
     position: absolute;
-    top: 40%;
+    top: 20%;
     left: 7%;
 }
 

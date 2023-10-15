@@ -16,6 +16,9 @@ import {DashboardUsuarioComponent} from "./usuario/dashboard-usuario/dashboard-u
 import { VeterinarioTableComponent } from './veterinario/veterinario-table/veterinario-table.component';
 import { AgregarVeterinarioComponent } from './veterinario/agregar-veterinario/agregar-veterinario.component';
 import { ModificarVeterinarioComponent } from './veterinario/modificar-veterinario/modificar-veterinario.component';
+import { TratamientoTableComponent } from './tratamiento/tratamiento-table/tratamiento-table.component';
+import { AgregarTratamientoComponent } from './tratamiento/agregar-tratamiento/agregar-tratamiento.component';
+import { ModificarTratamientoComponent } from './tratamiento/modificar-tratamiento/modificar-tratamiento.component';
 const routes: Routes = [
 
   {
@@ -75,7 +78,20 @@ const routes: Routes = [
   {
     path: 'veterinario/update/:id',
     component: ModificarVeterinarioComponent,
+  },
+  {
+    path: 'tratamiento/all',
+    component: TratamientoTableComponent,
+  },
+  {
+    path: 'tratamiento/add',
+    component: AgregarTratamientoComponent,
+  },
+  {
+    path: 'tratamiento/update/:id',
+    component: ModificarTratamientoComponent,
   }
+
 
 ];
 

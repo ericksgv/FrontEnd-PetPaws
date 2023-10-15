@@ -32,6 +32,9 @@ import { TopBarVeterinarioComponent } from './top-bar/top-bar-veterinario/top-ba
 import { AgregarVeterinarioComponent } from './veterinario/agregar-veterinario/agregar-veterinario.component';
 import { ModificarVeterinarioComponent } from './veterinario/modificar-veterinario/modificar-veterinario.component';
 import { VeterinarioTableComponent } from './veterinario/veterinario-table/veterinario-table.component';
+import { AgregarTratamientoComponent } from './tratamiento/agregar-tratamiento/agregar-tratamiento.component';
+import { ModificarTratamientoComponent } from './tratamiento/modificar-tratamiento/modificar-tratamiento.component';
+import { TratamientoTableComponent } from './tratamiento/tratamiento-table/tratamiento-table.component';
 
 
 
@@ -64,6 +67,9 @@ import { VeterinarioTableComponent } from './veterinario/veterinario-table/veter
     AgregarVeterinarioComponent,
     ModificarVeterinarioComponent,
     VeterinarioTableComponent,
+    AgregarTratamientoComponent,
+    ModificarTratamientoComponent,
+    TratamientoTableComponent,
   ],
     imports: [
         BrowserModule,
