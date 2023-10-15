@@ -33,8 +33,8 @@ export class MascotaService {
     return this.http.get<Mascota | undefined>(`${this.apiUrl}/find/${id}`);
   }
 
-  agregarMascota(mascota: Mascota): Observable<void> {
-    return this.http.post<void>(`${this.apiUrl}/agregar`, mascota);
+  agregarMascota(mascota: Mascota, cedula: number): Observable<void> {
+    return this.http.post<void>(`${this.apiUrl}/agregarConCedula/${cedula}`, mascota);
   }
 
   buscarMascotasPorNombre(nombre: string): Observable<Mascota[]> {
