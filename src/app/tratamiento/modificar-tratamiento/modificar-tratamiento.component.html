@@ -1,0 +1,52 @@
+
+<div class="completo">
+
+    <app-header [titleColor]="'naranja-principal-acento'" [backgroundColor]="'amarillo-claro-background'"></app-header>
+    <section class="contenido-modificar-cliente">
+      <section class="contenedor-img-modificar-entidad">
+    
+      </section>
+      <section class="contenedor-img-modificar-mascota">
+        
+        <div class="contenedor-imagen-perro ">
+         
+        </div>
+        
+        <div class="contenedor-label margin-bottom">
+            <label for="descripcion" class="acento-verde-texto enunciado">Descripción</label><br>
+            <input *ngIf="tratamiento" [(ngModel)]="tratamiento.descripcion" name="descripcion" type="text" class="labelenunciado" id="descripcion" placeholder="Descripción" required>    
+        </div>
+      </section>
+      
+      <section class="contenedor-campos-modificar-entidad">
+        <div class="seccion-input-contenido-dashboard">
+          <h2 class="title-creacional subrayado acento-verde-oscuro-texto">Editar Datos de Mascota</h2>
+          <form (ngSubmit)="actualizarTratamiento()" #form="ngForm">
+            <div class="columna">
+                <div class="uno" *ngIf="tratamiento">
+                    <label for="fecha" class="acento-verde-texto enunciado">Fecha</label><br>
+                    <input [(ngModel)]="tratamiento.fecha" name="fecha" type="date" class="labelenunciado" id="fecha" required>
+                  </div>
+                  <div class="dos" *ngIf="tratamiento">
+                    <label for="medicamento" class="acento-verde-texto enunciado">Medicamento</label><br>
+                    <input [(ngModel)]="tratamiento.medicamento.id" name="medicamentoId" type="number" class="labelenunciado" id="medicamento" placeholder="ID del medicamento" required>
+                  </div>
+            </div>
+            <div class="columna">
+              <div class="uno" *ngIf="tratamiento">
+                <label for="raza" class="acento-verde-texto enunciado">Mascota</label><br>
+                <input [(ngModel)]="tratamiento.mascota.nombre" name="raza" type="text" class="labelenunciado" id="raza" placeholder="Raza" required>
+               
+              </div>
+              <div class="dos" *ngIf="tratamiento">
+                <label for="peso" class="acento-verde-texto enunciado">Veterinario</label><br>
+                <input [(ngModel)]="tratamiento.veterinario.id" name="peso" type="number" class="labelenunciado" id="peso" placeholder="Peso" min="0.01" required>
+                
+              </div>
+            </div>
+            <button type="submit" class="buton margin-bottom">Actualizar Tratamiento</button>
+          </form>
+        </div>
+      </section>
+    </section>
+    </div>

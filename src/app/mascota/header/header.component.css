@@ -17,7 +17,7 @@
 }
 
 .acento-verde-oscuro-texto{
-    color: #4C894F;;
+    color: #4C894F;
 }
 
 .acento-transparente{
@@ -26,6 +26,9 @@
 /* Decoración */
 .dato3-cerrarSesion {
     text-decoration: none;
+}
+.acento-rojo-texto{
+    color: #DC6A35;
 }
 
 /* Estructura del componente */
