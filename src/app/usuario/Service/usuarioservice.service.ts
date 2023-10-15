@@ -56,5 +56,35 @@ export class UsuarioService {
     return this.http.get<Usuario[]>(`${this.apiUrl}/filtrar/${cedula}`);
   }
 
+  /* Metodos para guardar informacion del usuario en Session storage.
+  *  - Session storage porque estamos guardando datos sensibles. I.e datos del usuario
+  *  - después de haber iniciado sesión.
+  * */
+
+  guardaUsuarioEnSessionStorage(usuario: Usuario){
+
+    // Primero se convierten los datos del usuario a strings, porque local storage solo guarda strings.
+    const stringCedulaUsuario = usuario.cedula.toString()
+    const stringUsuario =  JSON.stringify(usuario)
+
+    // Se guardan los datos del usuario en SessionStorage en un par llave-valor
+    //  Cedula llave, Usuario - valor
+    sessionStorage.setItem(stringCedulaUsuario, stringUsuario)
+  }
+
+  getUsuarioSessionStorage(cedulaUsuario: string){
+
+    const stringUsuario = sessionStorage.getItem(cedulaUsuario)
+    // Se conviertern los datos del usuario de string a un objeto Usuario
+    if (stringUsuario != null){
+      const datosUsuario = JSON.parse(stringUsuario)
+      return datosUsuario
+    }
+
+    console.log("Datos del usuario son nulos. No se retorna nada.")
+
+  }
+
+
 }
 
