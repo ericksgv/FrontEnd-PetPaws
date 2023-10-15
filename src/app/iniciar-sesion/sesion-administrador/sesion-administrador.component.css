@@ -2,9 +2,9 @@
 
 #imagenLoginClientes{
     overflow: hidden;
-    background-image: url("/assets/paginasLogin/imgPrincipalAdministrador.png");
+    background-image: url("/assets/paginasLogin/Bernese dog unsplashed.jpg");
     background-size: cover;
-    background-position: center right;
+    background-position: top;
 }
 
 .error{
