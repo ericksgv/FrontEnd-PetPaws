@@ -56,5 +56,34 @@ export class UsuarioService {
     return this.http.get<Usuario[]>(`${this.apiUrl}/filtrar/${cedula}`);
   }
 
+  /* Metodos para guardar informacion del usuario en Local storage.
+  *  - Local storage porque se quiere que la información pueda ser vista desde varias tabs.
+  * */
+
+  guardaUsuarioEnLocalStorage(usuario: Usuario){
+
+    // Primero se convierten los datos del usuario a strings, porque local storage solo guarda strings.
+    const stringUsuario =  JSON.stringify(usuario)
+
+    // Se guardan los datos del usuario en Local Storage en un par llave-valor
+    //  "usuarioActual" - llave, Usuario - valor
+    localStorage.setItem("usuarioActual", stringUsuario)
+  }
+
+  getUsuarioLocalStorage(cedulaUsuario: string) : Usuario | null {
+
+    const stringUsuario = localStorage.getItem(cedulaUsuario)
+    // Se conviertern los datos del usuario de string a un objeto Usuario
+    if (stringUsuario != null){
+      const datosUsuario = JSON.parse(stringUsuario)
+      return datosUsuario
+    }
+
+    console.log("Datos del usuario son nulos. No se retorna nada.")
+    return null
+
+  }
+
+
 }
 

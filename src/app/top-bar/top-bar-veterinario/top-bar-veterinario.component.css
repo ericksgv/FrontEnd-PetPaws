@@ -1,20 +1,3 @@
-
-.topbar-layout{
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 15vh;
-  z-index: 1000;
-  max-width: 100vw;
-
-  background-color: #F2EBD2;
-  display: flex;
-  align-content: center;
-  align-items: center;
-  font-family: Recoleta, serif;
-}
-
 /*-----------------------*/
 .topbar-left-section{
   display: flex;
@@ -25,11 +8,6 @@
   font-size: 1.5rem;
 }
 
-.link-menu{
-  border: none;
-  background-color: inherit;
-  font-size: 1.5rem;
-}
 
 /*-----------------------*/
 .topbar-title-section{
@@ -46,23 +24,6 @@
 }
 
 /*-----------------------*/
-.topbar-right-section{
-  flex: 2;
-  display: flex;
-  justify-content: space-around;
-  text-align: right;
-  align-items: center;
-  font-size: 1.5rem;
-}
-
-.selector-lenguaje{
-  vertical-align: middle;
-}
-
-.selector-lenguaje span{
-  font-weight: bold;
-}
-
 .boton-login{
   border-radius: 8px;
   background-color: #E7B10A;

@@ -4,7 +4,7 @@ import { MenuServiceService } from '../../dropdown-menu/menu-service.service'
 @Component({
   selector: 'app-top-bar-landing-page',
   templateUrl: './top-bar-landing-page.component.html',
-  styleUrls: ['./top-bar-landing-page.component.css']
+  styleUrls: ['./top-bar-landing-page.component.css', '../top-bar.component.css', '../../../styles.css']
 })
 export class TopBarLandingPageComponent {
 
