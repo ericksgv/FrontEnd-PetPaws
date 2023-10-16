@@ -71,7 +71,7 @@ export class UsuarioService {
     localStorage.setItem(stringCedulaUsuario, stringUsuario)
   }
 
-  getUsuarioLocalStorage(cedulaUsuario: string){
+  getUsuarioLocalStorage(cedulaUsuario: string) : Usuario | null {
 
     const stringUsuario = localStorage.getItem(cedulaUsuario)
     // Se conviertern los datos del usuario de string a un objeto Usuario
@@ -81,6 +81,7 @@ export class UsuarioService {
     }
 
     console.log("Datos del usuario son nulos. No se retorna nada.")
+    return null
 
   }
 

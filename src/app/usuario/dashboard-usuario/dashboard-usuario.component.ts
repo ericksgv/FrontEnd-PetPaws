@@ -31,8 +31,7 @@ export class DashboardUsuarioComponent implements OnInit{
 
 
   ngOnInit(){
-    this.usuarioService.getUsuarioPorCedula(this.cedulaUsuario).subscribe(
-    (datosUsuario) => {
+
       this.usuarioActual = datosUsuario
 
       // Se llenan los campos del form si la informacion del usuario no es nula
@@ -45,8 +44,8 @@ export class DashboardUsuarioComponent implements OnInit{
         this.setInformacionForm(-1, "No recibido", "No recibido", -1)
       }
 
-    }
-    )
+
+
 
     this.usuarioService.getMascotasUsuarioCedula(this.cedulaUsuario).subscribe(
       (mascotasUsuario => {

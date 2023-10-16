@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import {UsuarioService} from "../../usuario/Service/usuarioservice.service";
-import {FormControl} from "@angular/forms";
+import {FormControl, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-sesion-usuario',
@@ -14,7 +14,9 @@ export class SesionUsuarioComponent {
   error: boolean = false;
   vacio: boolean = false;
 
-  campoCedula = new FormControl()
+  campoCedula = new FormControl('', [
+    Validators.required
+  ])
 
 
   constructor(private router: Router, private usuarioService: UsuarioService) {}
@@ -23,12 +25,21 @@ export class SesionUsuarioComponent {
     if (this.cedula === '') {
       this.vacio = true;
       this.error = false;
+
     } else {
       const cedulaUsuario = this.campoCedula.value
-      const usuario = this.usuarioService.buscarUsuariosPorCedula(cedulaUsuario)
-      this.usuarioService.guardaUsuarioEnLocalStorage(usuario)
 
-      this.router.navigate(['/usuario/dashboard']);
+       this.usuarioService.getUsuarioPorCedula(+cedulaUsuario!).subscribe(
+         (datosUsuario) => {
+
+           if (datosUsuario != null){
+             this.usuarioService.guardaUsuarioEnLocalStorage(datosUsuario)
+             this.router.navigate(['/usuario/dashboard']);
+           }
+
+         }
+       )
+
     }
   }
 
