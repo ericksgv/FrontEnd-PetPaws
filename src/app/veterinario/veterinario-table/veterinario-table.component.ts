@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Veterinario } from 'src/app/model/veterinario'; // Importa la clase Veterinario adecuada
-import { ServiceService } from '../Service/service.service'; // Importa el servicio de veterinarios
+import { VeterinarioService } from '../Service/service.service'; // Importa el servicio de veterinarios
 import { Router } from '@angular/router';
 
 @Component({
@@ -30,7 +30,7 @@ export class VeterinarioTableComponent implements OnInit {
   rangoPaginas: number[] = [];
   veterinariosSort: any[] = [];
 
-  constructor(private veterinarioService: ServiceService, private router: Router) {
+  constructor(private veterinarioService: VeterinarioService, private router: Router) {
   }
 
   ngOnInit() {
@@ -40,7 +40,7 @@ export class VeterinarioTableComponent implements OnInit {
 
 
   ordenarVeterinarios() {
-    this.veterinariosSort = this.veterinarios;
+    this.veterinariosSort = this.veterinariosFiltrados;
     this.veterinariosSort.sort((a, b) => {
       const valueA = a[this.selectedSortBy];
       const valueB = b[this.selectedSortBy];

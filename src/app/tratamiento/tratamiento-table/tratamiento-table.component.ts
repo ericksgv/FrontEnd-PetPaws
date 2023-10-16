@@ -10,8 +10,22 @@ import { Router } from '@angular/router';
   styleUrls: ['./tratamiento-table.component.css']
 })
 export class TratamientoTableComponent implements OnInit{
+
+
+  busquedaAvanzada: string = ''; // Variable para el atributo de búsqueda avanzada
+  textoBusqueda: string = '';
+  tratamientosFiltrados: any[] = [];
+  tratamientosSort: any[] = [];
+  selectedSortBy: string = 'id'; // Valor predeterminado
+  selectedSortOrder: string = 'asc'; // Valor predeterminado
+
+  filtroActivoIdMascota = false;
+  filtroActivoMedicamento = false;
+  filtroActivoVeterinario = false;
+  filtroActivoFecha = false;
+  
   tratamientos: Tratamiento[] = []; // Cambia el nombre de la propiedad
-  itemsPorPagina: number = 15;
+  itemsPorPagina: number = 10;
   paginaActual: number = 1;
   paginas: number[] = [];
   indicePaginaActual: number = 1;
@@ -26,12 +40,118 @@ export class TratamientoTableComponent implements OnInit{
   getTratamientos() {
     this.tratamientoService.getTratamientos().subscribe((tratamientos) => { // Cambia el nombre del método y la variable
       this.tratamientos = tratamientos;
-      console.log(this.tratamientos);
+      this.tratamientosFiltrados = this.tratamientos;
       this.calcularPaginas();
       this.actualizarRangoPaginas();
     });
   }
 
+  
+  ordenarTratamientos() {
+    this.tratamientosSort = this.tratamientosFiltrados;
+    this.tratamientosSort.sort((a, b) => {
+      let valueA = [];
+      let valueB = [];
+
+      switch(this.selectedSortBy){
+        case "id":
+          valueA = a['id'];
+          valueB = b['id'];
+          break;
+
+        case "fecha":
+          valueA = a['fecha'];
+          valueB = b['fecha'];
+          break;
+          
+        case "mascota":
+          valueA = a['mascota']['id'];
+          valueB = b['mascota']['id'];
+          break;
+
+        case "medicamento":
+          valueA = a['medicamento']['id'];
+          valueB = b['medicamento']['id'];
+          break;
+
+        case "veterinario":
+          valueA = a['veterinario']['nombre'];
+          valueB = b['veterinario']['nombre'];
+          break;
+      }
+
+
+
+      if (typeof valueA == 'string' && typeof valueB == 'string') {
+        return this.selectedSortOrder === 'asc' ? valueA.localeCompare(valueB) : valueB.localeCompare(valueA);
+      } else if (typeof valueA == 'number' && typeof valueB == 'number') {
+        return this.selectedSortOrder === 'asc' ? valueA - valueB : valueB - valueA;
+      } else {
+        return 0;
+      }
+    });
+  }
+
+
+  filtrarTratamientos() {
+    if (this.textoBusqueda.trim() === '') {
+      // Si el campo de búsqueda está vacío, muestra todos los tratamientos.
+      this.tratamientosFiltrados = this.tratamientos;
+
+    } else {
+      // Filtra los tratamientos que coinciden con el texto de búsqueda.
+      this.tratamientosFiltrados = this.tratamientos.filter(tratamiento => tratamiento.id.toString().includes(this.textoBusqueda));
+      this.calcularPaginas();
+      this.actualizarRangoPaginas();
+    }
+  }
+
+  restaurarFiltros() {
+    this.filtroActivoIdMascota = false;
+    this.filtroActivoMedicamento = false;
+    this.filtroActivoVeterinario = false;
+    this.filtroActivoFecha = false;
+    this.calcularPaginas();
+    this.actualizarRangoPaginas();
+  }
+
+  filtrarPorAtributo(atributo: string) {
+    if (atributo == 'limpiar') {
+      // Limpia el campo de búsqueda avanzada y muestra todos los tratamientos
+      this.busquedaAvanzada = '';
+      this.restaurarFiltros();
+      this.filtrarTratamientos();
+      this.calcularPaginas();
+      this.actualizarRangoPaginas();
+    } else {
+      // Filtra los tratamientos que coinciden con el texto de búsqueda y el atributo de búsqueda avanzada.
+      this.filtrarTratamientos();
+      
+      this.restaurarFiltros();
+      if (atributo == 'mascota')
+        this.filtroActivoIdMascota = !this.filtroActivoIdMascota;
+      else if (atributo == 'medicamento')
+        this.filtroActivoMedicamento = !this.filtroActivoMedicamento;
+      else if (atributo == 'veterinario')
+        this.filtroActivoVeterinario = !this.filtroActivoVeterinario;
+      else if (atributo == 'fecha')
+        this.filtroActivoFecha = !this.filtroActivoFecha;
+      this.tratamientosFiltrados = this.tratamientosFiltrados.filter(tratamiento => {
+        const atributoBusqueda = this.busquedaAvanzada;
+        if (atributo == 'mascota') {
+          return tratamiento.mascota.id.toString().includes(atributoBusqueda);
+        } else if (atributo == 'medicamento') {
+          return tratamiento.medicamento.nombre.toLowerCase().includes(atributoBusqueda);
+        } else if (atributo == 'veterinario') {
+          return tratamiento.veterinario.nombre.toLowerCase().includes(atributoBusqueda);
+        }else if (atributo == 'fecha') {
+          return tratamiento.fecha.toString().includes(atributoBusqueda);
+        } 
+      });
+      this.calcularPaginas();
+      this.actualizarRangoPaginas();
+    }
+  }
   eliminarTratamiento(id: number) { // Cambia el nombre del método
     this.tratamientoService.eliminarTratamiento(id).subscribe(() => { // Cambia el nombre del método
       this.getTratamientos(); // Cambia el nombre del método
@@ -55,7 +175,7 @@ export class TratamientoTableComponent implements OnInit{
   }
 
   calcularPaginas() {
-    const cantidadPaginas = Math.ceil(this.tratamientos.length / this.itemsPorPagina);
+    const cantidadPaginas = Math.ceil(this.tratamientosFiltrados.length / this.itemsPorPagina);
     this.paginas = Array.from({ length: cantidadPaginas }, (_, index) => index + 1);
     this.actualizarRangoPaginas();
   }
@@ -70,4 +190,10 @@ export class TratamientoTableComponent implements OnInit{
     this.rangoPaginas = Array.from({ length: fin - inicio + 1 }, (_, index) => inicio + index);
   }
 
+  cambiarCantidadPorPagina() {
+    this.calcularPaginas();
+    this.paginaActual = 1; // Vuelve a la primera página al cambiar la cantidad por página
+    this.calcularIndicesPagina(); // Actualiza los índices de página
+  }
 }
+

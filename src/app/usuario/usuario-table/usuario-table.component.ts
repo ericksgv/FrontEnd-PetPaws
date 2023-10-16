@@ -36,7 +36,7 @@ export class UsuarioTableComponent implements OnInit {
   }
 
   ordenarUsuarios() {
-    this.usuariosSort = this.usuarios;
+    this.usuariosSort = this.usuariosFiltrados;
     this.usuariosSort.sort((a, b) => {
       const valueA = a[this.selectedSortBy];
       const valueB = b[this.selectedSortBy];

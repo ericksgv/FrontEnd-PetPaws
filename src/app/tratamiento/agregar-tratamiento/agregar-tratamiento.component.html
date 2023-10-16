@@ -5,21 +5,26 @@
     <img class="waveimage2" src="./assets/crearmascota/devolverse.svg" alt="devolverse">
     <section class="container-wave2 creacional">
         <h1 class="title-creacional subrayado">Añadir Tratamiento</h1>
-        <form >
+        <form [formGroup]="tratamientoForm" (ngSubmit)="guardarTratamiento()">
             <div class="columna">
                 <div class="uno">
                     <label for="mascotaId" class="acento-verde-texto enunciado">Mascota</label>
                     <br>
-                    <select id="mascotaId" formControlName="mascotaId" class="labelenunciado">
-                        <option class="labelenunciado">Cedula, nombre</option>
-                    </select>
+                    <input type="text" formControlName="mascotaId" class="acento-verde-texto labelenunciado" id="mascotaId"
+                        placeholder="Nombre de la mascota" (input)="buscarMascotaPorNombre($event)">
+                        <select id="mascotaId" formControlName="mascotaId" class="labelenunciado">
+                            <option *ngFor="let mascota of mascotas" [value]="mascota.id">{{ mascota.nombre }}</option>
+                        </select>
+
                     <input type="hidden" id="duenioId" class="letra-poppins campo-input-dashboard form-control">
                 </div>
                 <div class="dos">
                     <label for="veterinarioId" class="acento-verde-texto enunciado">Veterinario</label>
                     <br>
+                    <input type="text" formControlName="veterinarioId" class="acento-verde-texto labelenunciado" id="veterinarioId"
+                    placeholder="Nombre o cédula del veterinario" (input)="buscarVeterinario($event)">
                     <select id="veterinarioId" formControlName="veterinarioId" class="labelenunciado">
-                        <option class="labelenunciado">Cedula, nombre</option>
+                        <option *ngFor="let veterinario of veterinarios" [value]="veterinario.cedula">{{veterinario.nombre }}, {{veterinario.cedula }}</option>
                     </select>
                 </div>
             </div>
@@ -27,23 +32,19 @@
                 <div class="uno">
                     <label for="medicamentoId" class="acento-verde-texto enunciado">Medicamento</label>
                     <br>
-                    <select id="medicamentoId" formControlName="medicamentoId" class="labelenunciado">
-                        <option class="labelenunciado">Medicamento</option>
-                    </select>
-                </div>
-                <div class="dos">
-                    <label for="foto" class="acento-verde-texto enunciado">Fecha</label>
-                    <br>
-                    <input type="date" formControlName="foto" class="lacento-verde-texto labelenunciado" id="foto"
-                        placeholder="foto">
+                    <input type="text" formControlName="medicamentoId" class="acento-verde-texto labelenunciado" id="medicamentoId"
+                        placeholder="Nombre del medicamento" (input)="buscarMedicamentoPorNombre($event)">
+                        <select id="medicamentoId" formControlName="medicamentoId" class="labelenunciado">
+                            <option *ngFor="let medicamento of medicamentos" [value]="medicamento.id">{{ medicamento.nombre }}</option>
+                        </select>
                 </div>
             </div>
             <div class="columna">
                 <div class="uno">
-                    <label for="raza" class="acento-verde-texto enunciado">Descripción</label>
+                    <label for="descripcion" class="acento-verde-texto enunciado">Descripción</label>
                     <br>
-                    <input type="text" formControlName="raza" class="lacento-verde-texto labelenunciado" id="raza"
-                        placeholder="Raza">
+                    <input type="text" formControlName="descripcion" class="acento-verde-texto labelenunciado"
+                        id="descripcion" placeholder="descripcion">
                 </div>
             </div>
             <button type="submit"
