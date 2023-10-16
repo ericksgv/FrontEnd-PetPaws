@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { UsuarioService } from "../Service/usuarioservice.service";
 import {Usuario} from "../../model/usuario";
-import {FormControl} from "@angular/forms";
+import {FormControl, FormGroup} from "@angular/forms";
 import {Mascota} from "../../model/mascota";
 
 @Component({
@@ -18,22 +18,33 @@ export class DashboardUsuarioComponent implements OnInit{
   constructor(private usuarioService: UsuarioService) {
   }
 
+
   // Controles para el form que muestra los datos
-  cedula = new FormControl()
-  nombre = new FormControl('')
-  correo = new FormControl('')
-  celular = new FormControl ()
+  formDatosUsuario = new FormGroup({
+    cedula : new FormControl(),
+    nombre : new FormControl(''),
+    correo : new FormControl(''),
+    celular : new FormControl ()
+  })
+
+
 
 
   ngOnInit(){
     this.usuarioService.getUsuarioPorCedula(this.cedulaUsuario).subscribe(
     (datosUsuario) => {
       this.usuarioActual = datosUsuario
-      console.log("Datos de usuario recibidos: " + datosUsuario)
-      this.cedula.setValue(datosUsuario?.cedula)
-      this.nombre.setValue(datosUsuario?.nombre!)
-      this.correo.setValue(datosUsuario?.correo!)
-      this.celular.setValue(datosUsuario?.celular)
+
+      // Se llenan los campos del form si la informacion del usuario no es nula
+      if (datosUsuario != null){
+        this.setInformacionForm(datosUsuario.cedula, datosUsuario.nombre, datosUsuario.correo, datosUsuario.celular)
+      }
+
+      // Si es nula, se llena con no recibidos para saber que hubo un error con los datos.
+      if (datosUsuario == null){
+        this.setInformacionForm(-1, "No recibido", "No recibido", -1)
+      }
+
     }
     )
 
@@ -43,6 +54,13 @@ export class DashboardUsuarioComponent implements OnInit{
         console.log("Mascotas obtenidas del usuario: " + mascotasUsuario)
       })
     )
+  }
+
+  setInformacionForm(cedula:number, nombre:string, correo:string, celular:number){
+    this.formDatosUsuario.controls['cedula'].setValue(cedula)
+    this.formDatosUsuario.controls['nombre'].setValue(nombre)
+    this.formDatosUsuario.controls['correo'].setValue(correo)
+    this.formDatosUsuario.controls['celular'].setValue(celular)
   }
 
 
