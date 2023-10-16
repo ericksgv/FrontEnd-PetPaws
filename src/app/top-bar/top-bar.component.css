@@ -21,7 +21,7 @@
 .link-menu{
   border: none;
   background-color: inherit;
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 
@@ -56,7 +56,6 @@
   flex: 2;
   display: flex;
   justify-content: space-around;
-  text-align: right;
   align-items: center;
   font-size: 1.5rem;
 
@@ -79,7 +78,6 @@
 /*-----------------------*/
 .boton-login{
   border-radius: 8px;
-  background-color: #E7B10A;
   color: #2D2D2D;
 
   width: 7vw;
