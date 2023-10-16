@@ -12,13 +12,13 @@
         <br>
         <input type="cedula" id="inputCedula" name="campoInputCedula" placeholder="Ingresa tu cédula" class="letra-poppins campo-input-login" [(ngModel)]="cedula">
         <br>
-        <input type="password" id="inputPassword" name="campoInputPassword" placeholder="Ingresa tu contraseña" class="letra-poppins campo-password-login">
+        <input type="password" id="inputPassword" name="campoInputPassword" placeholder="Ingresa tu contraseña" class="letra-poppins campo-password-login" [(ngModel)]="password">
         <br>
         <button type="submit" class="letra-poppins texto-negrilla boton-redondo3 boton-login-ingresar acento-naranja-claro-fondo">Ingresar</button>
       </form>
 
       <div *ngIf="error" class="error">
-        <p>Contraseña incorrecta.</p>
+        <p>Datos Incorrectos. Intente de nuevo.</p>
       </div>
 
       <div *ngIf="vacio" class="error">

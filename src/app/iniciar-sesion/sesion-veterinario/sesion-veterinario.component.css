@@ -94,7 +94,10 @@
 
 .error{
     color: red;
-}
+    font-weight: bold;
+    text-decoration: underline;
+    font-family: 'Work Sans', sans-serif;
+  }
 
 .espacio-blanco-texto-login{
     width: 100%;

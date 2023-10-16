@@ -8,13 +8,17 @@
           <br>
           <input type="text" id="inputCedula" name="campoInputCedula" placeholder="Ingresa tu Cédula" class="letra-poppins campo-input-login" [(ngModel)]="cedula">
           <br>
-          <input type="password" id="inputPassword" name="campoInputPassword" placeholder="Ingresa tu Contraseña" class="letra-poppins campo-password-login">
+          <input type="password" id="inputPassword" name="campoInputPassword" placeholder="Ingresa tu Contraseña" class="letra-poppins campo-password-login" [(ngModel)]="password">
           <br>
           <button type="submit" class="letra-poppins texto-negrilla boton-redondo3 boton-login-ingresar acento-verde-claro-fondo">Ingresar</button>
         </form>
   
         <div *ngIf="error" class="error">
-          <p>Cédula incorrecta.</p>
+          <p>{{ message }}</p>
+        </div>
+
+        <div *ngIf="inactive" class="error">
+          <p>{{ message }}</p>
         </div>
   
         <div *ngIf="vacio" class="error">

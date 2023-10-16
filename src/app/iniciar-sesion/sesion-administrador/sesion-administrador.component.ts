@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-sesion-administrador',
@@ -8,21 +9,40 @@ import { Router } from '@angular/router';
 })
 export class SesionAdministradorComponent {
   cedula: string = '';
+  password: string = ''; 
   error: boolean = false;
   vacio: boolean = false;
+  inactive: boolean = false;
+  message: string = '';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private http: HttpClient) { }
 
   login() {
-    if (this.cedula === '') {
+    this.error = false;
+    this.vacio = false;
+    this.message = '';
+
+    if (!this.cedula) {
       this.vacio = true;
-      this.error = false;
     } else {
-      // Aquí puedes agregar lógica adicional para verificar la cédula y contraseña del administrador y autenticarlo.
-      // Si la autenticación es exitosa, puedes redirigir al administrador a la página deseada.
-      this.router.navigate(['/admin/dashboard']); // Cambia '/dashboard-admin' por la ruta que desees para el administrador.
+      const data = {
+        cedula: this.cedula,
+        password: this.password,
+      };
+
+      this.http.post('http://localhost:8090/loginAdministrador/login', data, { responseType: 'text' }).subscribe(
+        (response) => {
+          if (response === 'success') {
+            this.error = false;
+            this.router.navigate(['/admin/dashboard']);
+          } else if (response === 'incorrect') {
+            this.error = true;
+          }
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
     }
   }
-
-
 }

@@ -9,7 +9,10 @@
 
 .error{
     color: red;
-}
+    font-weight: bold;
+    text-decoration: underline;
+    font-family: 'Work Sans', sans-serif;
+  }
 
 .contenedor-imagen-pagina-login{
     flex: 7;
