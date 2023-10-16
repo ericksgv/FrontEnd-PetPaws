@@ -63,12 +63,11 @@ export class UsuarioService {
   guardaUsuarioEnLocalStorage(usuario: Usuario){
 
     // Primero se convierten los datos del usuario a strings, porque local storage solo guarda strings.
-    const stringCedulaUsuario = usuario.cedula.toString()
     const stringUsuario =  JSON.stringify(usuario)
 
-    // Se guardan los datos del usuario en SessionStorage en un par llave-valor
-    //  Cedula llave, Usuario - valor
-    localStorage.setItem(stringCedulaUsuario, stringUsuario)
+    // Se guardan los datos del usuario en Local Storage en un par llave-valor
+    //  "usuarioActual" - llave, Usuario - valor
+    localStorage.setItem("usuarioActual", stringUsuario)
   }
 
   getUsuarioLocalStorage(cedulaUsuario: string) : Usuario | null {

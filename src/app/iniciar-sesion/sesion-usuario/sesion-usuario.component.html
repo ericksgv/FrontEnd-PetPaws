@@ -11,17 +11,21 @@
 
       <form (ngSubmit)="login()">
         <br>
-        <input type="number" id="inputCedula" name="campoInputCedula" placeholder="Ingresa tu Cédula" class="letra-poppins campo-input-login" [formControl]="campoCedula">
+        <input type="number" id="inputCedula" name="campoInputCedula" placeholder="Ingresa tu Cédula*" class="letra-poppins campo-input-login" [formControl]="campoCedula">
         <br>
         <button type="submit" class="letra-poppins texto-negrilla boton-redondo boton-login-ingresar acento-amarillo-fondo">Ingresar</button>
+
+        <div *ngIf="campoCedula.invalid && campoCedula.touched" class="error">
+          <p>Debes llenar la cedula del usuario.</p>
+        </div>
       </form>
 
-      <div *ngIf="error" class="error">
-        <p>Cédula incorrecta.</p>
+      <div *ngIf="!usuarioEncontrado" class="error">
+        <p>El usuario no fue encontrado. Intenta de nuevo.</p>
       </div>
 
-      <div *ngIf="vacio" class="error">
-        <p>Debe ingresar la cédula.</p>
+      <div *ngIf="usuarioInactivo" class="error">
+        <p>El usuario actualmente se encuentra inactivo. Porfavor comunicate con nuestro personal para activar la cuenta de nuevo.</p>
       </div>
 
       <div class="espacio-blanco-texto-login"></div>

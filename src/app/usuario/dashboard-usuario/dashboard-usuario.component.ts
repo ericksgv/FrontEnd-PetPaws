@@ -12,7 +12,6 @@ import {Mascota} from "../../model/mascota";
 export class DashboardUsuarioComponent implements OnInit{
 
   usuarioActual: Usuario | undefined
-  private cedulaUsuario: number = this.usuarioService.getCedulaUsuarioActual()
   mascotasUsuario: Mascota[] | undefined
 
   constructor(private usuarioService: UsuarioService) {
@@ -32,22 +31,19 @@ export class DashboardUsuarioComponent implements OnInit{
 
   ngOnInit(){
 
-      this.usuarioActual = datosUsuario
+    // Se recupera el usuario de local storage con la llave "usuarioActual". Esta llave esta quemada con el fin
+    // de no tener que enviar más información entre las pantallas.
+    this.usuarioActual = this.usuarioService.getUsuarioLocalStorage("usuarioActual")!
 
       // Se llenan los campos del form si la informacion del usuario no es nula
-      if (datosUsuario != null){
-        this.setInformacionForm(datosUsuario.cedula, datosUsuario.nombre, datosUsuario.correo, datosUsuario.celular)
-      }
+        this.setInformacionForm(this.usuarioActual.cedula, this.usuarioActual.nombre, this.usuarioActual.correo, this.usuarioActual.celular)
 
       // Si es nula, se llena con no recibidos para saber que hubo un error con los datos.
-      if (datosUsuario == null){
-        this.setInformacionForm(-1, "No recibido", "No recibido", -1)
-      }
+      // if (datosUsuario == null){
+      //   this.setInformacionForm(-1, "No recibido", "No recibido", -1)
+      // }
 
-
-
-
-    this.usuarioService.getMascotasUsuarioCedula(this.cedulaUsuario).subscribe(
+    this.usuarioService.getMascotasUsuarioCedula(this.usuarioActual.cedula).subscribe(
       (mascotasUsuario => {
         this.mascotasUsuario = mascotasUsuario
         console.log("Mascotas obtenidas del usuario: " + mascotasUsuario)
