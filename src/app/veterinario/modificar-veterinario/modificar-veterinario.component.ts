@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ServiceService } from '../Service/service.service';
+import { VeterinarioService } from '../Service/service.service';
 import { Veterinario } from '../../model/veterinario';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -15,7 +15,7 @@ export class ModificarVeterinarioComponent implements OnInit {
   cedula: number | undefined;
 
   constructor(
-    private veterinarioService: ServiceService,
+    private veterinarioService: VeterinarioService,
     private route: ActivatedRoute,
     private router: Router,
     private fb: FormBuilder

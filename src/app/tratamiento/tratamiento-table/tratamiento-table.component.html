@@ -7,7 +7,7 @@
           <!-- Barras de búsqueda -->
     <div class="grupo-elementos">
       <label for="campoBusqueda" class="busqueda">
-        <input type="text" id="campoBusqueda" name="campoBusqueda" placeholder="Busca por cédula" [(ngModel)]="textoBusqueda" (input)="filtrarVeterinarios()">
+        <input type="text" id="campoBusqueda" name="campoBusqueda" placeholder="Busca por cédula" [(ngModel)]="textoBusqueda" (input)="filtrarTratamientos()">
       </label>
       <div class="boton-derecha">
         <label for="campoBusqueda" class="busqueda">
@@ -17,10 +17,11 @@
     </div>
   
     <div class="tres-botones texto-negrilla textoNegro">
-      <button [ngClass]="filtroActivoIdMascota ? 'filtro-activo' : 'acentro-amarillo-fondo texto-negrilla .filtro-btn'"  class="acentro-amarillo-fondo texto-negrilla .filtro-btn" (click)="filtrarPorAtributo('mascota')">Mascota</button>
-      <button [ngClass]="filtroActivoMedicamento ? 'filtro-activo' : 'acentro-amarillo-fondo texto-negrilla .filtro-btn'"  class="acentro-amarillo-fondo texto-negrilla .filtro-btn" (click)="filtrarPorAtributo('medicamento')">Medicamento</button>
-      <button [ngClass]="filtroActivoVeterinario ? 'filtro-activo' : 'acentro-amarillo-fondo texto-negrilla .filtro-btn'"  class="acentro-amarillo-fondo texto-negrilla .filtro-btn" (click)="filtrarPorAtributo('veterinario')">Veterinario</button>
-      <button [ngClass]="filtroActivoFecha ? 'filtro-activo' : 'acentro-amarillo-fondo texto-negrilla .filtro-btn'"  class="acentro-amarillo-fondo texto-negrilla .filtro-btn" (click)="filtrarPorAtributo('fecha')">Fecha</button>
+      <button [ngClass]="filtroActivoIdMascota ? 'filtro-activo texto-negrilla' : 'acentro-amarillo-fondo texto-negrilla filtro-btn'" (click)="filtrarPorAtributo('mascota')">Mascota</button>
+      <button [ngClass]="filtroActivoMedicamento ? 'filtro-activo texto-negrilla' : 'acentro-amarillo-fondo texto-negrilla filtro-btn'" (click)="filtrarPorAtributo('medicamento')">Medicamento</button>
+      <button [ngClass]="filtroActivoVeterinario ? 'filtro-activo texto-negrilla' : 'acentro-amarillo-fondo texto-negrilla filtro-btn'" (click)="filtrarPorAtributo('veterinario')">Veterinario</button>
+      <button [ngClass]="filtroActivoFecha ? 'filtro-activo texto-negrilla' : 'acentro-amarillo-fondo texto-negrilla filtro-btn'" (click)="filtrarPorAtributo('fecha')">Fecha</button>
+      
       <button  class="acentro-amarillo-fondo texto-negrilla .filtro-btn" (click)="filtrarPorAtributo('limpiar')">Limpiar búsqueda avanzada</button>
     </div>
 
@@ -120,6 +121,9 @@
       </div>
   
       <div class="boton-crear">
+        <a>
+          <button [routerLink]="['/tratamiento/add']" class="acentro-amarillo-fondo texto-negrilla">Añadir</button>
+        </a>
       </div>
     </section>
   </div>

@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class ServiceService {
+export class VeterinarioService {
   private apiUrl = 'http://localhost:8090/veterinario'; // Reemplaza con la URL de tu API
 
   constructor(private http: HttpClient) {}
@@ -36,5 +36,9 @@ export class ServiceService {
   activarVeterinario(id: number): Observable<void> {
     console.log(id);
     return this.http.put<void>(`${this.apiUrl}/activate/${id}`, null);
+  }
+
+  buscarVeterinarioFiltro(data: string): Observable<Veterinario[]> {
+    return this.http.get<Veterinario[]>(`${this.apiUrl}/filtrar/${data}`);
   }
 }

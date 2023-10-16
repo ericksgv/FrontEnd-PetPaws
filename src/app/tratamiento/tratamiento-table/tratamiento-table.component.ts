@@ -93,7 +93,7 @@ export class TratamientoTableComponent implements OnInit{
   }
 
 
-  filtrarVeterinarios() {
+  filtrarTratamientos() {
     if (this.textoBusqueda.trim() === '') {
       // Si el campo de búsqueda está vacío, muestra todos los tratamientos.
       this.tratamientosFiltrados = this.tratamientos;
@@ -116,16 +116,17 @@ export class TratamientoTableComponent implements OnInit{
   }
 
   filtrarPorAtributo(atributo: string) {
-    if (atributo === 'limpiar') {
-      // Limpia el campo de búsqueda avanzada y muestra todos los veterinarios
+    if (atributo == 'limpiar') {
+      // Limpia el campo de búsqueda avanzada y muestra todos los tratamientos
       this.busquedaAvanzada = '';
       this.restaurarFiltros();
-      this.filtrarVeterinarios();
+      this.filtrarTratamientos();
       this.calcularPaginas();
       this.actualizarRangoPaginas();
     } else {
-      // Filtra los veterinarios que coinciden con el texto de búsqueda y el atributo de búsqueda avanzada.
-      this.filtrarVeterinarios();
+      // Filtra los tratamientos que coinciden con el texto de búsqueda y el atributo de búsqueda avanzada.
+      this.filtrarTratamientos();
+      
       this.restaurarFiltros();
       if (atributo == 'mascota')
         this.filtroActivoIdMascota = !this.filtroActivoIdMascota;

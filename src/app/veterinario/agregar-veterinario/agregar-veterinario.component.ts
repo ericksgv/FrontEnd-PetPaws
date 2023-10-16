@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ServiceService } from '../Service/service.service'; 
+import { VeterinarioService } from '../Service/service.service'; 
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,7 +13,7 @@ export class AgregarVeterinarioComponent  {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router, 
-    private veterinarioService: ServiceService
+    private veterinarioService: VeterinarioService
     ) {
       this.veterinarioForm = this.formBuilder.group({
         cedula: ['', Validators.required],

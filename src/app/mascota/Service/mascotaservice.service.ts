@@ -36,5 +36,9 @@ export class MascotaService {
   agregarMascota(mascota: Mascota): Observable<void> {
     return this.http.post<void>(`${this.apiUrl}/agregar`, mascota);
   }
+
+  buscarMascotasPorNombre(nombre: string): Observable<Mascota[]> {
+    return this.http.get<Mascota[]>(`${this.apiUrl}/filtrar/${nombre}`);
+  }
 }
 
