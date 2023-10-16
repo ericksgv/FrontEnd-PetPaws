@@ -20,6 +20,7 @@ export class DashboardVeterinarioComponent {
   mascotasUsuario: Mascota[] | undefined
   tratamientos: Tratamiento[] = []; 
   cedula: any;
+  nombreUsuario: string | undefined;
 
   constructor(private tratamientoService: ServiceService, private veterinarioService: VeterinarioService, private route: ActivatedRoute) {}
 
@@ -42,7 +43,7 @@ export class DashboardVeterinarioComponent {
 
           // Guarda el ID del veterinario
           const idVeterinario = veterinario.id;
-
+          this.nombreUsuario = veterinario.nombre;
           // Luego, carga los tratamientos para este veterinario
           this.cargarTratamientos(idVeterinario);
         } else {
