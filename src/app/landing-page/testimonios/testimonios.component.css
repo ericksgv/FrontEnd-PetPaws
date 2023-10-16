@@ -63,7 +63,7 @@
 
 
 .testimony-box {
-  background-color: #d8d4c9;
+  background-color: #F1D79D;
   /*height: f;*/
 
   padding: 10px;
@@ -98,13 +98,13 @@
   display: flex;
   align-items: center;
 
-  font-family: 'Work Sans', sans-serif;
+  font-family: Recoleta, serif
 }
 
 .testimonial-author img {
   /* width: 100px; */
   height: 100px;
-  border-radius: 50%;
+  border-radius: 30px;
 }
 
 .testimonial-author p {

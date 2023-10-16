@@ -62,3 +62,27 @@
 .custom-shape-divider-top-1697470803 .shape-fill {
   fill: #F2EBD2;
 }
+
+/*------------- Separador de section Contacto -> Footer -------------*/
+
+.custom-shape-divider-bottom-1697471207 {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1697471207 svg {
+  position: relative;
+  display: block;
+  width: calc(113% + 1.3px);
+  height: 130px;
+  transform: rotateY(180deg);
+}
+
+.custom-shape-divider-bottom-1697471207 .shape-fill {
+  fill: #DDA45A;
+}
