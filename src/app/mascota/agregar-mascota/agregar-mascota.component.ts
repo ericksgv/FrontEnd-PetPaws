@@ -62,9 +62,9 @@ seleccionarDueno(duenoCedula: number) {
 agregarMascota() {
   const nuevaMascota = this.mascotaForm.value;
   console.log(this.cedulaUsuario)
-  nuevaMascota.duenoId = this.cedulaUsuario; // Asigna la cédula del dueño
+  const cedula = this.mascotaForm.value.duenoId; // Asigna la cédula del dueño
   console.log(nuevaMascota)
-  this.mascotaService.agregarMascota(nuevaMascota).subscribe(() => {
+  this.mascotaService.agregarMascota(nuevaMascota, cedula).subscribe(() => {
     this.router.navigate(['/mascotas/all']);
   });
 }
