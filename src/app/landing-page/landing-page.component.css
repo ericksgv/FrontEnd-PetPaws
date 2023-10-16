@@ -1,0 +1,64 @@
+.custom-shape-divider-top-1697470301 {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+
+  background-color: #F1D79D;
+}
+
+.custom-shape-divider-top-1697470301 svg {
+  position: relative;
+  display: block;
+  width: calc(114% + 1.3px);
+  height: 177px;
+}
+
+.custom-shape-divider-top-1697470301 .shape-fill {
+  fill: #F2EBD2;
+}
+
+/*------------- Separador de section about-us -> testimonios -------------*/
+.custom-shape-divider-top-1697470438 {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-top-1697470438 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 153px;
+}
+
+.custom-shape-divider-top-1697470438 .shape-fill {
+  fill: #F1D79D;
+}
+
+/*------------- Separador de section Testimonios -> Contacto -------------*/
+.custom-shape-divider-top-1697470803 {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-top-1697470803 svg {
+  position: relative;
+  display: block;
+  width: calc(177% + 1.3px);
+  height: 140px;
+  transform: rotateY(180deg);
+}
+
+.custom-shape-divider-top-1697470803 .shape-fill {
+  fill: #F2EBD2;
+}
