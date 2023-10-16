@@ -26,22 +26,14 @@ export class DashboardUsuarioComponent implements OnInit{
     celular : new FormControl ()
   })
 
-
-
-
   ngOnInit(){
 
     // Se recupera el usuario de local storage con la llave "usuarioActual". Esta llave esta quemada con el fin
     // de no tener que enviar más información entre las pantallas.
     this.usuarioActual = this.usuarioService.getUsuarioLocalStorage("usuarioActual")!
 
-      // Se llenan los campos del form si la informacion del usuario no es nula
-        this.setInformacionForm(this.usuarioActual.cedula, this.usuarioActual.nombre, this.usuarioActual.correo, this.usuarioActual.celular)
-
-      // Si es nula, se llena con no recibidos para saber que hubo un error con los datos.
-      // if (datosUsuario == null){
-      //   this.setInformacionForm(-1, "No recibido", "No recibido", -1)
-      // }
+    // Se llenan los campos del form con la informacion del usuario.
+    this.setInformacionForm(this.usuarioActual.cedula, this.usuarioActual.nombre, this.usuarioActual.correo, this.usuarioActual.celular)
 
     this.usuarioService.getMascotasUsuarioCedula(this.usuarioActual.cedula).subscribe(
       (mascotasUsuario => {

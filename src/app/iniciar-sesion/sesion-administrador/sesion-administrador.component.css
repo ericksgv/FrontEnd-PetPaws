@@ -126,7 +126,7 @@
     background-color: #DC6A35;
 }
 
-.boton-redondo2{
+.boton-redondo{
     border-radius: 20px;
     margin-top: 2%;
     margin-bottom: 2%;
@@ -134,7 +134,7 @@
 
 }
 .boton-redondo3:hover,
-.boton-redondo2:hover{
+.boton-redondo:hover{
     transform: scale(1.1);
     color: white;
 }
