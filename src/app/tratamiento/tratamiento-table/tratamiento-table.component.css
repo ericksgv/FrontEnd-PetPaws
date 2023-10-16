@@ -1,4 +1,8 @@
-
+.filtro-activo {
+    background-color: lightyellow;
+    color: black;
+  }
+  
 .contenedor-pagina{
     padding-top: 15vh;
   }

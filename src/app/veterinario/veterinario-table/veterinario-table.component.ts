@@ -40,7 +40,7 @@ export class VeterinarioTableComponent implements OnInit {
 
 
   ordenarVeterinarios() {
-    this.veterinariosSort = this.veterinarios;
+    this.veterinariosSort = this.veterinariosFiltrados;
     this.veterinariosSort.sort((a, b) => {
       const valueA = a[this.selectedSortBy];
       const valueB = b[this.selectedSortBy];
