@@ -1,11 +1,13 @@
 /* Colores */
+
+*{
+  font-family: 'Work Sans', sans-serif;
+}
+
 .subrayado{
     text-decoration: underline;
 }
 
-.letra-poppins{
-    font-family: 'Poppins', sans-serif;
-}
 
 .no-bordes{
     border: none;
@@ -17,8 +19,24 @@
 }
 
 .boton-redondo{
-    border-radius: 20px;
-    margin-top: 6%;
+  border-radius: 20px;
+  margin-top: 6%;
+
+  font-family: Recoleta, serif;
+  font-size: 1.2rem;
+  color: #2D2D2D;
+
+  transition: 0.5s all;
+
+}
+
+.boton-redondo:hover{
+  cursor: pointer;
+  background-color: white;
+  color: #2D2D2D;
+
+  transition: 0.5s all;
+
 }
 
 button {
@@ -47,7 +65,6 @@ button {
     height: 140vh;
     padding: 0%;
     margin: 0;
-    background-image: url('src/assets/crearveterinario/wave5.svg');
     z-index: 0;
     transform: rotate(90deg);
 }
@@ -56,6 +73,9 @@ button {
     position: relative;
     z-index: 10;
     height:80vh;
+
+  background-image: url('src/assets/crearveterinario/wave5.svg');
+
 }
 
 svg {
@@ -80,7 +100,9 @@ form{
 .title-creacional{
     margin-left: 35%;
     color: #2D2D2D;
-  font-size: 40px;
+  font-size: 2.5rem;
+
+  font-family: Recoleta, serif;
 
 }
 

@@ -5,16 +5,12 @@
 }
 
 .completo{
-  margin-top: 15vh;
+  padding-top: 15vh;
     background-color: #F2EBD2;
 }
 
 .subrayado {
     text-decoration: underline;
-}
-
-.letra-poppins {
-    font-family: 'Poppins', sans-serif;
 }
 
 .no-bordes {

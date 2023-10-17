@@ -1,0 +1,55 @@
+/*-----------------------*/
+/*-----------------------*/
+
+.inherit-color{
+  background-color: inherit;
+}
+
+.topbar-left-section{
+  display: flex;
+  flex: 2;
+  text-align: left;
+  vertical-align: middle;
+  justify-content: space-around;
+  font-size: 1.5rem;
+}
+
+
+/*-----------------------*/
+.topbar-title-section{
+  flex: 1;
+}
+
+.topbar-title{
+  font-family: Recoleta, serif;
+  font-weight: bold;
+  color: #E7B10A;
+  text-align: center;
+  font-size: 3rem;
+
+}
+
+/*-----------------------*/
+.boton-login{
+  border-radius: 8px;
+  background-color: #E7B10A;
+  color: #2D2D2D;
+
+  width: 7vw;
+  wrap-option: wrap;
+
+  font-family: Recoleta, serif;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-left: 10%;
+}
+
+.link-menu:hover{
+
+  text-decoration: underline;
+  cursor: pointer;
+  color: #DC6A35;
+
+  transition: all 0.3s;
+}
+
