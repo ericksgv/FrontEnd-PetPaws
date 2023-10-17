@@ -28,6 +28,7 @@ export class VeterinarioService {
     return this.http.put<Veterinario>(`${this.apiUrl}/update/${id}`, veterinario);
   }
 
+
   eliminarVeterinario(id: number): Observable<void> {
     console.log(id);
     return this.http.delete<void>(`${this.apiUrl}/delete/${id}`);

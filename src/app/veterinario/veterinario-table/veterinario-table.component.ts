@@ -35,6 +35,7 @@ export class VeterinarioTableComponent implements OnInit {
 
   ngOnInit() {
     this.getVeterinarios();
+    
   }
 
 
@@ -64,6 +65,7 @@ export class VeterinarioTableComponent implements OnInit {
   getVeterinarios() {
     this.veterinarioService.getVeterinarios().subscribe((veterinarios) => {
       this.veterinarios = veterinarios;
+      console.log(this.veterinarios);
       this.veterinariosFiltrados = veterinarios;
       this.calcularPaginas();
       this.actualizarRangoPaginas();
