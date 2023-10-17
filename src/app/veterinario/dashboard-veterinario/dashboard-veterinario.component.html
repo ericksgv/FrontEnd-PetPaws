@@ -3,9 +3,9 @@
 <section class="contenedor-pagina beige-fondo">
     <h1 class="titulo-nombre-cliente"> Bienvenid@ de nuevo, {{nombreUsuario }}</h1>
     <section class="acciones-rapidas">
-        <p>Acciones rápidas</p>
+        <p> <strong> Acciones rápidas:    </strong></p>
         <div class="botones-acciones">
-            <button class="boton naranja-fondo">Añadir Tratamiento</button>
+            <button [routerLink]="'/tratamiento/agregar'" class="boton naranja-fondo">Añadir Tratamiento</button>
             <button class="boton verde-fondo">Añadir Mascota</button>
             <button class="boton amarillo-fondo">Añadir Cliente</button>
         </div>
@@ -82,5 +82,7 @@
 
     </section>
 
-    <app-footer></app-footer>
+
 </section>
+
+<app-footer></app-footer>

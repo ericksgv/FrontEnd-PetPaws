@@ -33,9 +33,10 @@
   /* ------------------------ */
   .acciones-rapidas {
     display: flex;
-    justify-content: space-around;
+    justify-content: left;
     align-items: center;
     padding: 20px;
+    padding-left: 5%;
     background-color: #F2EBD2;
  }
 
@@ -69,29 +70,20 @@
 
 
 
- .boton {
-    margin-right: 10px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 20px;
-    font-family: Recoleta, serif;
-    font-size: 1.4rem;
-    cursor: pointer;
-    font-weight: 600;
+.boton {
+  margin-right: 2%;
+  margin-left: 5%;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+
+  font-family: Recoleta, serif;
+  font-size: 1.4rem;
+  cursor: pointer;
+  font-weight: 600;
+  wrap-option: no-wrap;
+  width: 17vw
  }
-
- .boton {
-    margin-right: 10px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 20px;
-    font-family: Recoleta, serif;
-    font-size: 1.4rem;
-    cursor: pointer;
-    font-weight: 600;
- }
-
-
 
 
    /* ------------------------ */

@@ -1,3 +1,7 @@
+*{
+ font-family: 'Work Sans', sans-serif;
+}
+
 .contenedor-pagina{
     padding-top: 15vh;
   }
@@ -104,6 +108,8 @@
       border-radius: 50px;
       border: 2px solid #2D2D2D;
       background: #F2EBD2;
+
+    width: 10vw;
   }
 
   /* Estilo para la imagen de la lupa */
@@ -343,9 +349,28 @@
       background-color: #80563D;
       color: #FFF;
   }
-  
+
   .filtro-activo {
     background-color: lightyellow;
     color: black;
   }
-  
+
+.boton-redondo{
+  border-radius: 20px;
+  margin-top: 6%;
+
+  font-family: Recoleta, serif;
+  font-size: 1.2rem;
+
+  transition: 0.5s all;
+
+}
+
+.boton-redondo:hover{
+  cursor: pointer;
+  background-color: #F2EBD2;
+  color: #2D2D2D;
+
+  transition: 0.5s all;
+
+}
