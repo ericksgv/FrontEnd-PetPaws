@@ -54,15 +54,13 @@
   -webkit-appearance: none;
 }
 
-/* Change the white to any color */
+/* Css para cambiar el color de cuando se autocompleta el campo */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active{
   -webkit-box-shadow: 0 0 0 30px #F1D79D inset !important;
 }
-
-
 
 .boton-login-ingresar{
     width: 35%;
@@ -170,7 +168,6 @@ input:-webkit-autofill:active{
   cursor: pointer;
 
 }
-
 
 .pagina-login-Layout{
 

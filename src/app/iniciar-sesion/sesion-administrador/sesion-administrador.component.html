@@ -10,11 +10,12 @@
 
       <form (ngSubmit)="login()" #loginForm="ngForm">
         <br>
-        <input type="cedula" id="inputCedula" name="campoInputCedula" placeholder="Ingresa tu cédula" class="letra-poppins campo-input-login" [(ngModel)]="cedula">
+        <input type="number" id="inputCedula" name="campoInputCedula" placeholder="Ingresa tu cédula" class="letra-poppins campo-input-login" [(ngModel)]="cedula">
         <br>
         <input type="password" id="inputPassword" name="campoInputPassword" placeholder="Ingresa tu contraseña" class="letra-poppins campo-password-login" [(ngModel)]="password">
         <br>
-        <button type="submit" class="letra-poppins texto-negrilla boton-redondo3 boton-login-ingresar acento-naranja-claro-fondo">Ingresar</button>
+        <button type="submit" class="texto-negrilla boton-redondo boton-login-ingresar
+        ">Ingresar</button>
       </form>
 
       <div *ngIf="error" class="error">
@@ -29,14 +30,15 @@
 
       <div class="div-inferior-texto-login letra-poppins">
         <a [routerLink]="['/usuario/login']">
-            <button type="button" class="boton-redondo2 boton-login-otras-cuentas acento-amarillo-fondo texto-negrilla">
+            <button type="button" class="boton-redondo boton-login-otras-cuentas acento-amarillo-fondo
+            botol texto-negrilla">
               Clientes
             </button>
           </a>
 
         <br>
         <a [routerLink]="['/veterinario/login']">
-          <button type="button" class="boton-redondo2 boton-login-otras-cuentas acento-verde-claro-fondo texto-negrilla">
+          <button type="button" class="boton-redondo boton-login-otras-cuentas acento-verde-claro-fondo texto-negrilla">
             Veterinarios
           </button>
         </a>

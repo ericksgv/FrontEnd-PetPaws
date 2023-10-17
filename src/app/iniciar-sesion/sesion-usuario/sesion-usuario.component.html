@@ -13,7 +13,8 @@
         <br>
         <input type="number" id="inputCedula" name="campoInputCedula" placeholder="Ingresa tu Cédula*" class="letra-poppins campo-input-login" [formControl]="campoCedula">
         <br>
-        <button type="submit" class="letra-poppins texto-negrilla boton-redondo boton-login-ingresar acento-amarillo-fondo">Ingresar</button>
+        <button type="submit" class="letra-poppins texto-negrilla boton-redondo boton-login-ingresar
+        acento-amarillo-fondo">Ingresar</button>
 
         <div *ngIf="campoCedula.invalid && campoCedula.touched" class="error">
           <p>Debes llenar la cedula del usuario.</p>

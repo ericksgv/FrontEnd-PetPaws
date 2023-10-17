@@ -81,6 +81,7 @@ input{
   background-color: #AAC074;
   margin-left: 2.5%;
   border-radius: 15px;
+  height: fit-content;
 }
 
 .informacionMascota{

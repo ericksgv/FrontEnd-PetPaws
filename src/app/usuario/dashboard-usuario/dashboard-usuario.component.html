@@ -1,7 +1,7 @@
 <section class="contenedor-pagina beige-fondo">
   <app-top-bar-cliente></app-top-bar-cliente>
 
-  <h1 class="titulo-nombre-cliente"> Bienvenido, {{usuarioActual?.nombre}}</h1>
+  <h1 class="titulo-nombre-cliente"> Bienvenido, <strong>{{usuarioActual?.nombre}}</strong> </h1>
 
   <section class="contenedor-cartas">
 
@@ -38,7 +38,7 @@
       <div *ngFor="let mascota of mascotasUsuario; index as i; first as isFirst">
         <div class="informacionMascota">
           <img class="foto-mascota" [src]="mascota.foto" alt="Foto de la mascota">
-          <span>{{mascota.nombre}}</span>
+          <span> <strong> {{mascota.nombre}} </strong></span>
           <br>
           <span>{{mascota.raza}}</span>
           <br>
