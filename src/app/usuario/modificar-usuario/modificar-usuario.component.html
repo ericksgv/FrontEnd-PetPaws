@@ -17,6 +17,7 @@
         <div class="seccion-input-contenido-dashboard">
           <h2 class="title-creacional subrayado negro-acento">Editar Datos de Cliente</h2>
           <form [formGroup]="usuarioForm" (ngSubmit)="modificarUsuario()" #form="ngForm">
+            <input type="hidden" formControlName="estado" id="estado">
             <div class="columna">
                 <div class="uno" >
                     <label for="cedula" class="acento-verde-texto enunciado">Cedula*</label>

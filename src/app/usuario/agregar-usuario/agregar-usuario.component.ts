@@ -29,6 +29,7 @@ export class AgregarUsuarioComponent {
   agregarUsuario() {
     const nuevoUsuario = this.usuarioForm.value;
     nuevoUsuario.id=0;
+    nuevoUsuario.estado="activo";
     console.log(nuevoUsuario);
     this.usuarioService.agregarUsuario(nuevoUsuario).subscribe(() => {
       this.router.navigate(['usuario/all']);  

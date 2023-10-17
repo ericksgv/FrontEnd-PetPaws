@@ -28,6 +28,7 @@ export class ModificarUsuarioComponent implements OnInit {
       nombre: ['', Validators.required],
       correo: ['', Validators.required],
       celular: [, Validators.required],
+      estado: [''],
     });
 
     this.route.params.subscribe(params => {
@@ -48,7 +49,8 @@ export class ModificarUsuarioComponent implements OnInit {
             cedula: usuario.cedula, // Usar el número en lugar de la cadena
             nombre: usuario.nombre,
             correo: usuario.correo,
-            celular: usuario.celular.toString(), // Convierte a string para mostrarlo en el campo de entrada
+            celular: usuario.celular.toString(), 
+            estado: usuario.estado,
           });
         } else {
           this.router.navigate(['/usuario/all']);
