@@ -1,5 +1,11 @@
 /* Colores */
+
+*{
+  font-family: 'Work Sans', sans-serif;
+}
+
 .completo{
+  margin-top: 15vh;
     background-color: #F2EBD2;
 }
 
@@ -42,9 +48,11 @@ button {
 }
 
 .title-creacional {
-    margin-top: 12vh;
-    color: #2D2D2D;
-    font-size: 40px;
+  margin-top: 12vh;
+  color: #2D2D2D;
+  font-size: 40px;
+
+font-family: Recoleta, serif;
 }
 
 
@@ -124,6 +132,9 @@ button {
 .enunciado {
     font-size: 30px;
     font-weight: 500;
+
+  font-family: Recoleta, serif;
+  text-align: left;
 }
 
 .labelenunciado {
@@ -157,11 +168,23 @@ button {
     background: #E7B10A;
     padding: 2vh;
     color: #000000;
-    font-family: Recoleta;
-    font-size: 20px;
+
+    font-family: Recoleta, serif;
+    font-size: 1.2rem;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+
+  transition: all 0.5s;
+}
+
+.buton:hover{
+
+  text-decoration: none;
+  cursor: pointer;
+  background-color: white;
+
+  transition: all 0.3s;
 }
 
 .margin-bottom {

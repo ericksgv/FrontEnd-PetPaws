@@ -1,5 +1,6 @@
+<app-top-bar-veterinario></app-top-bar-veterinario>
+
 <div class="completo">
-<app-header [titleColor]="'amarillo-principal-acento'" [backgroundColor]="'acento-transparente'"></app-header>
 <section class="container-wave2 creacional">
     <h1 class="title-creacional subrayado margin-bottom">Añadir Usuario</h1>
     <form [formGroup]="usuarioForm" (ngSubmit)="agregarUsuario()">
@@ -7,28 +8,28 @@
             <div class="uno">
                 <label for="cedula" class="acento-verde-texto enunciado">Cedula*</label>
                 <br>
-                <input type="number" formControlName="cedula" class="lacento-verde-texto labelenunciado" id="cedula" placeholder="cedula">
+                <input type="number" formControlName="cedula" class="lacento-verde-texto labelenunciado" id="cedula" placeholder="Cedula">
             </div>
             <div class="dos">
                 <label for="nombre" class="acento-verde-texto enunciado">Nombre*</label>
                 <br>
-                <input type="text" formControlName="nombre" class="acento-verde-texto labelenunciado" id="nombre" placeholder="nombre usuario">
+                <input type="text" formControlName="nombre" class="acento-verde-texto labelenunciado" id="nombre" placeholder="Nombre">
             </div>
         </div>
         <div class="columna">
             <div class="uno">
                 <label for="correo" class="acento-verde-texto enunciado">Correo*</label>
                 <br>
-                <input type="text" formControlName="correo" class="lacento-verde-texto labelenunciado" id="correo" placeholder="correo">
+                <input type="text" formControlName="correo" class="lacento-verde-texto labelenunciado" id="correo" placeholder="Correo">
             </div>
             <div class="dos">
                 <label for="celular" class="acento-verde-texto enunciado">Celular*</label>
                 <br>
-                <input type="number" formControlName="celular" class="lacento-verde-texto labelenunciado" id="celular" placeholder="celular">
+                <input type="number" formControlName="celular" class="lacento-verde-texto labelenunciado" id="celular" placeholder="Celular">
             </div>
         </div>
         <input type="hidden" formControlName="id" name="id" />
-        <button type="submit" class="creacional2 no-bordes boton-redondo acento-amarillo-fondo letra-poppins textoBlanco texto-negrilla">
+        <button type="submit" class="creacional2 boton-redondo acento-amarillo-fondo texto-negrilla">
             Agregar Usuario
         </button>
     </form>
@@ -37,3 +38,5 @@
 <img class="waveimage" src="./assets/crearusuario/iconoimagen.svg" alt="perro">
 <img class="waveimage2" src="./assets/crearmascota/devolverse.svg" alt="devolverse">
 </div>
+
+<app-footer></app-footer>
