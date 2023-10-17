@@ -1,10 +1,16 @@
 /* Colores */
+
+*{
+  font-family: 'Work Sans', sans-serif;
+}
+
 .acento-verde-semi-claro-fondo{
     background-color:#AAC074;
 }
 
 .contorno{
     background-color:#F2EBD2;
+  padding-top: 15vh;
 }
 
 .texto-negrilla{
@@ -43,10 +49,10 @@
 /* Estructura del componente */
 .cuadro-estatico {
     margin: 0vh 6vh 0 6vh;
-    padding: 2vh 15vh 5vh 15vh; 
+    padding: 2vh 15vh 5vh 15vh;
     border: none;
     text-align: center;
-    border-top-left-radius: 10px; 
+    border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
 
@@ -94,11 +100,13 @@
 }
 
 .busqueda input[type="text"] {
-    flex: 1;
-    padding: 10px;
-    border-radius: 50px;
-    border: 2px solid #2D2D2D;
-    background: #F2EBD2;
+  flex: 1;
+  padding: 10px;
+  border-radius: 50px;
+  border: 2px solid #2D2D2D;
+  background: #F2EBD2;
+
+  width: 10vw;
 }
 
 /* Estilo para la imagen de la lupa */
@@ -135,12 +143,12 @@ button {
 }
 
 .tres-botones {
-    display: flex; 
-    align-items: center; 
-    margin-top: 3vh; 
-    margin-right: 10vh; 
+    display: flex;
+    align-items: center;
+    margin-top: 3vh;
+    margin-right: 10vh;
     width: 100%;
-    gap: 10px; 
+    gap: 10px;
 }
 
 .boton-contenedor {
@@ -176,6 +184,21 @@ button {
 .tabla-general2 {
     width: 100%;
     overflow: hidden;
+}
+
+.tabla-general2 th{
+  font-family: Recoleta, serif;
+}
+
+.tabla-general2 td{
+  font-family: 'Work Sans', sans-serif;
+  text-align: center;
+
+}
+
+.tabla-general2 tr{
+  text-align: center;
+
 }
 
 .tabla-general2 th,
@@ -296,7 +319,7 @@ button {
 }
 
 .ancho-razas {
-    min-width: 15vh; 
+    min-width: 15vh;
 }
 
 .pagination {
@@ -323,11 +346,34 @@ button {
 
 .pagination-button.current-page {
     background-color: #4C894F;
-    color: #FFF; 
+    color: #FFF;
 }
 
 .filtro-activo {
     background-color: lightyellow;
     color: black;
   }
-  
+
+.boton-redondo{
+  border-radius: 20px;
+  margin-top: 6%;
+
+  font-family: Recoleta, serif;
+  font-size: 1.2rem;
+
+  transition: 0.5s all;
+
+}
+
+.boton-redondo:hover{
+  cursor: pointer;
+  background-color: #AAC074;
+  color: #2D2D2D;
+
+  transition: 0.5s all;
+
+}
+
+h1{
+  font-family: Recoleta, serif;
+}

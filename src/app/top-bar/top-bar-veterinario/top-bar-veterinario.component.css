@@ -1,4 +1,8 @@
 /*-----------------------*/
+.inherit-color{
+  background-color: inherit;
+}
+
 .topbar-left-section{
   display: flex;
   flex: 2;

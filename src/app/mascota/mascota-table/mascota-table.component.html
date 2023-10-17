@@ -1,4 +1,5 @@
-<app-header [titleColor]="'acento-verde-claro-texto'" [backgroundColor]="'acento-amarillo-claro-fondo'"></app-header>
+<app-top-bar-veterinario></app-top-bar-veterinario>
+
 <div class="contorno acento-amarillo-claro-fondo">
   <div class="cuadro-estatico acento-verde-semi-claro-fondo">
     <div class="rectangulo"></div>
@@ -11,10 +12,10 @@
         <label for="campoBusqueda" class="busqueda">
           <input type="text" [(ngModel)]="busquedaAvanzada" placeholder="Búsqueda Avanzada">
         </label>
-        
+
       </div>
     </div>
-    
+
     <div class="tres-botones texto-negrilla textoNegro">
       <button [ngClass]="filtroActivoEdad ? 'filtro-activo' : 'acentro-verde-oscuro-fondo texto-negrilla textoBlanco .filtro-btn'"  class="acentro-verde-oscuro-fondo texto-negrilla textoBlanco .filtro-btn" (click)="filtrarPorAtributo('edad')">Edad</button>
       <button [ngClass]="filtroActivoRaza ? 'filtro-activo' : 'acentro-verde-oscuro-fondo texto-negrilla textoBlanco .filtro-btn'" class="acentro-verde-oscuro-fondo texto-negrilla textoBlanco .filtro-btn" (click)="filtrarPorAtributo('raza')">Raza</button>
@@ -97,37 +98,37 @@
         </tr>
       </tbody>
     </table>
-    
+
     <!-- Agregar la sección de paginación -->
     <div class="pagination">
       <button [disabled]="paginaActual === 1" (click)="cambiarPagina(paginaActual - 1)" class="pagination-button">Anterior</button>
-    
+
       <button *ngIf="rangoPaginas[0] > 1" (click)="cambiarPagina(1)" class="pagination-button">1</button>
-    
+
       <span *ngIf="rangoPaginas[0] > 2">...</span>
-    
+
       <button *ngFor="let pagina of rangoPaginas" (click)="cambiarPagina(pagina)" class="pagination-button" [ngClass]="{'current-page': paginaActual === pagina}">
         {{ pagina }}
       </button>
-    
+
       <span *ngIf="rangoPaginas[rangoPaginas.length - 1] < paginas.length - 1">...</span>
-    
+
       <button *ngIf="rangoPaginas[rangoPaginas.length - 1] < paginas.length" (click)="cambiarPagina(paginas.length)" class="pagination-button">{{ paginas.length }}</button>
-    
+
       <button [disabled]="paginaActual === paginas.length" (click)="cambiarPagina(paginaActual + 1)" class="pagination-button">Siguiente</button>
     </div>
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
 
 
     <div class="boton-crear">
       <a>
         <button [routerLink]="['/mascotas/add']"
-          class="acentro-verde-oscuro-fondo texto-negrilla textoBlanco">Añadir</button>
+          class="acentro-verde-oscuro-fondo texto-negrilla textoBlanco boton-redondo">Añadir</button>
       </a>
     </div>
   </section>
