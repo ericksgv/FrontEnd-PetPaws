@@ -1,5 +1,9 @@
 /* Colores */
 
+*{
+  font-family: 'Work Sans', sans-serif;
+}
+
 .contenedor-pagina{
   padding-top: 15vh;
 }
@@ -104,6 +108,8 @@
     border-radius: 50px;
     border: 2px solid #2D2D2D;
     background: #F2EBD2;
+
+  width: 10vw;
 }
 
 /* Estilo para la imagen de la lupa */
@@ -184,17 +190,35 @@ button {
     border-collapse: collapse;
 }
 
+.tabla-general2 th{
+  font-family: Recoleta, serif;
+}
+
+.tabla-general2 td{
+  font-family: 'Work Sans', sans-serif;
+  text-align: center;
+
+}
+
+.tabla-general2 tr{
+  text-align: center;
+
+}
+
 .tabla-general2 th,
 .tabla-general2 td {
-    padding: 10px; /* Ajusta este valor según el espacio que desees dentro de las celdas */
-    white-space: nowrap; /* Evita que el contenido se rompa en varias líneas */
-    overflow: hidden; /* Ocultar contenido desbordado */
-    text-overflow: ellipsis; /* Agregar puntos suspensivos (...) para indicar desbordamiento */
+  padding: 10px; /* Ajusta este valor según el espacio que desees dentro de las celdas */
+  white-space: nowrap; /* Evita que el contenido se rompa en varias líneas */
+  overflow: hidden; /* Ocultar contenido desbordado */
+  text-overflow: ellipsis; /* Agregar puntos suspensivos (...) para indicar desbordamiento */
+  text-align: center;
+
+
 }
 
 /* Aplicar fondo a filas impares */
 .tbody2 tr:nth-child(odd) {
-    background-color: #F2EBD2;
+  background-color: #F2EBD2;
 
 }
 
@@ -296,10 +320,12 @@ button {
 }
 
 .boton-crear {
-    display: flex;
-    margin-top: 1%;
-    justify-content: center; /* Centrado horizontal para todos los elementos dentro del contenedor */
-    align-items: center; /* Centrado vertical para todos los elementos dentro del contenedor */
+  display: flex;
+  margin-top: 1%;
+  justify-content: center; /* Centrado horizontal para todos los elementos dentro del contenedor */
+  align-items: center; /* Centrado vertical para todos los elementos dentro del contenedor */
+
+  font-family: Recoleta, serif;
 }
 
 .ancho-razas {
@@ -312,15 +338,17 @@ button {
 }
 
 .pagination-button {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 0 5px;
-    border: none;
-    border-radius: 10px;
-    background-color: #f1d69d00;
-    color: #333;
-    text-decoration: none;
-    transition: background-color 0.3s, color 0.3s;
+  display: inline-block;
+  padding: 5px 10px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 10px;
+  background-color: #f1d69d00;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+
+  font-family: 'Work Sans', sans-serif;
 }
 
 .pagination-button:hover {
@@ -337,4 +365,3 @@ button {
     background-color: lightyellow;
     color: black;
   }
-  
