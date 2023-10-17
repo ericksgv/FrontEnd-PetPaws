@@ -1,6 +1,13 @@
 /* Colores */
+
+*{
+  font-family: 'Work Sans', sans-serif;
+}
+
 .completo{
     background-color: #F2EBD2;
+  padding-top: 15vh;
+
 }
 
 .subrayado{
@@ -23,8 +30,24 @@
 }
 
 .boton-redondo{
-    border-radius: 20px;
-    margin-top: 6%;    
+  border-radius: 20px;
+  margin-top: 6%;
+
+  font-family: Recoleta, serif;
+  font-size: 1.2rem;
+  color: #2D2D2D;
+
+  transition: 0.5s all;
+
+}
+
+.boton-redondo:hover{
+  cursor: pointer;
+  background-color: white;
+  color: #2D2D2D;
+
+  transition: 0.5s all;
+
 }
 
 button {
@@ -50,22 +73,22 @@ button {
     top: -5vh;
     right: 0;
     width: 55%;
-    height: 130vh; 
+    height: 130vh;
     padding: 0%;
     margin: 0;
     background-image: url('src/assets/creartratamiento/wavetratamiento.svg');
-    z-index: 0; 
+    z-index: 0;
 }
 
 .container-wave2 {
     position: relative;
-    z-index: 10; 
+    z-index: 10;
     height:101.5vh;
 }
 
 svg {
     width: 100%;
-    height: auto;  
+    height: auto;
 }
 
 form{
@@ -84,7 +107,9 @@ form{
 .title-creacional{
     margin-left: 25%;
     color: #2D2D2D;
-    font-size: 40px;
+    font-size: 2.8rem;
+
+  font-family: Recoleta, serif;
 }
 
 .columna {
@@ -92,7 +117,7 @@ form{
     justify-content: space-between;
     flex-wrap: wrap;
     margin-top: 6vh;
-    
+
 }
 
 @media (max-width: 768px) {
@@ -117,8 +142,10 @@ form{
 }
 
 .enunciado{
-    font-size: 30px;
+    font-size: 1.8rem;
     font-weight: 500;
+
+  font-family: Recoleta, serif;
 }
 
 .labelenunciado{
