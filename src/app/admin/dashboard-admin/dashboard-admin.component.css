@@ -1,0 +1,142 @@
+.contenido-dashboard{
+  padding-top: 15vh;
+
+  background-color: #F2EBD2;
+  height: 85vh;
+  min-width: 100%;
+}
+
+.cuadros-estadisticas-principales{
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  align-items: center;
+
+  padding-left: 3%;
+  padding-right: 3%;
+
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+
+.numero-cuadro-estadisticas{
+  font-family: Recoleta, serif;
+  font-weight: bold;
+  font-size: 2rem;
+
+}
+
+.textp-cuadro-estadisticas{
+  font-family: Recoleta, serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+
+}
+
+.cuadro-estadisticas{
+  text-align: center;
+  align-content: center;
+  border-radius: 15px;
+  border: 2px solid #2D2D2D;
+  height: 15vh;
+
+  margin-right: 3%;
+  margin-left: 3%;
+
+}
+
+.letra-amarilla{
+  color: black;
+}
+
+.letra-naranja-intensa{
+  color: #DD4429;
+}
+
+.cuadro-clientes{
+  background-color:#E7B10A;
+  color: #2D2D2D;
+  flex: 2.5;
+  text-align: center;
+  vertical-align: center;
+}
+
+
+.cuadro-mascotas{
+  background-color:#A0BF30;
+  color: #2D2D2D;
+  flex: 2.5;
+
+  text-align: center;
+  vertical-align: center;
+}
+
+
+.cuadro-tratamientos{
+
+  background-color:#DC6A35;
+  color: #2D2D2D;
+  flex: 2.5;
+
+  text-align: center;
+  vertical-align: center;
+}
+
+
+.cuadro-veterinarios{
+  background-color:#80563D;
+  color: #F2EBD2;
+  flex: 2;
+
+
+}
+
+hr{
+  color: #2D2D2D;
+  width: 90%;
+  border: 1px solid;
+
+
+}
+
+/* ------------------- */
+.entidadesActivas{
+
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  align-items: center;
+
+  padding-left: 3%;
+  padding-right: 3%;
+
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+
+
+.table-container {
+  margin: 20px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 90%;
+  text-align: center;
+  margin: auto;
+}
+
+th, td {
+  border: 1px solid #F2EBD2;
+  padding: 8px;
+  text-align: center;
+  font-family: Recoleta, serif;
+}
+
+th {
+  background-color: #F1D79D;
+}
+
+tr:nth-child(even) {
+  background-color: #F2EBD2;
+}

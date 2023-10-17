@@ -1,1 +1,108 @@
-<p>dashboard-admin works!</p>
+<app-top-bar-admin></app-top-bar-admin>
+
+<section class="contenido-dashboard">
+
+  <section class="cuadros-estadisticas-principales">
+
+    <div  class="cuadro-estadisticas cuadro-clientes">
+      <p class="numero-cuadro-estadisticas"> {{clientesTotales}}</p>
+      <span class="textp-cuadro-estadisticas">Clientes Totales</span>
+    </div>
+
+    <div  class="cuadro-estadisticas cuadro-mascotas">
+      <p class="numero-cuadro-estadisticas"> {{mascotasRegistradas}}</p>
+      <span class="textp-cuadro-estadisticas">Mascotas Registradas</span>
+    </div>
+
+<!--    <div  class="cuadro-estadisticas cuadro-tratamientos">-->
+
+<!--    </div>-->
+
+    <div  class="cuadro-estadisticas cuadro-veterinarios">
+      <p class="numero-cuadro-estadisticas"> {{veterinariosActivos}}</p>
+      <span class="textp-cuadro-estadisticas">Veterinarios Activos</span>
+    </div>
+
+  </section>
+
+  <hr>
+
+  <section class="entidadesActivas letra-amarilla">
+    <span>
+      <p class="numero-cuadro-estadisticas"> {{mascotasTratamiento}}</p>
+    <span class="textp-cuadro-estadisticas">Mascotas en Tratamiento</span>
+    </span>
+
+    <span>
+      <p class="numero-cuadro-estadisticas"> {{veterinariosInactivos}}</p>
+    <span class="textp-cuadro-estadisticas">Veterinarios Inactivos</span>
+    </span>
+
+    <span>
+      <p class="numero-cuadro-estadisticas"> {{ventasTotales}}</p>
+    <span class="textp-cuadro-estadisticas">Ventas Totales</span>
+    </span>
+
+    <span>
+      <p class="numero-cuadro-estadisticas"> {{gananciasTotales}}</p>
+      <span class="textp-cuadro-estadisticas">Ganancias Totales</span>
+    </span>
+
+    <span>
+      <p class="numero-cuadro-estadisticas"> {{tratamientosUltimoMes.length}}</p>
+      <span class="textp-cuadro-estadisticas">Tratamientos administrados este mes</span>
+    </span>
+  </section>
+
+  <hr>
+
+
+  <section class="entidadesActivas letra-naranja-intensa">
+
+    <span>
+      <p class="numero-cuadro-estadisticas"> Top 3 Medicamentos <br> por ventas: </p>
+    </span>
+
+    <span>
+      <p class="numero-cuadro-estadisticas"> {{top3Medicamentos[0].nombre}}</p>
+      <span class="textp-cuadro-estadisticas">{{top3Medicamentos[0].precio}}</span>
+    </span>
+
+    <span>
+      <p class="numero-cuadro-estadisticas"> {{top3Medicamentos[1].nombre}}</p>
+      <span class="textp-cuadro-estadisticas">{{top3Medicamentos[1].precio}}</span>
+    </span>
+
+    <span>
+      <p class="numero-cuadro-estadisticas"> {{top3Medicamentos[1].nombre}}</p>
+      <span class="textp-cuadro-estadisticas">{{top3Medicamentos[1].precio}}</span>
+    </span>
+
+
+  </section>
+
+  <hr>
+
+  <div class="table-container">
+    <table>
+      <thead>
+      <tr>
+        <th>Medicamento</th>
+        <th>Cantidad de Tratamientos</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let entry of cantidadTratamientosPorMedicamento | keyvalue">
+        <td>{{ entry.key.nombre}}:{{ entry.value}}</td>
+        <td>{{ entry.value }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+</section>
+
+
+
+
