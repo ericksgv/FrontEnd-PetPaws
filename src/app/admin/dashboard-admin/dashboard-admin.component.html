@@ -93,12 +93,13 @@
       </thead>
       <tbody>
       <tr *ngFor="let entry of cantidadTratamientosPorMedicamento | keyvalue">
-        <td>{{ entry.key.nombre}}:{{ entry.value}}</td>
+        <td>{{ entry.key }}</td>
         <td>{{ entry.value }}</td>
       </tr>
       </tbody>
     </table>
-  </div>
+</div>
+
 
 
 </section>
