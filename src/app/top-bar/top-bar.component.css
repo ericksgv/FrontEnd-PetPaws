@@ -23,13 +23,15 @@
   background-color: inherit;
   font-size: 2rem;
   font-weight: bold;
+  text-decoration: none;
+  color: #2D2D2D;
 
   transition: all 0.5s;
 }
 
 .link-menu:hover{
 
-  text-decoration: underline;
+  text-decoration: none;
   cursor: pointer;
 
   transition: all 0.3s;
@@ -56,7 +58,6 @@
 .topbar-title{
   font-family: Recoleta, serif;
   font-weight: bold;
-  color: #DD4429;
   text-align: center;
   font-size: 3rem;
 

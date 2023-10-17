@@ -38,4 +38,12 @@
   margin-left: 10%;
 }
 
+.link-menu:hover{
+
+  text-decoration: underline;
+  cursor: pointer;
+  color: #A0BF30;
+
+  transition: all 0.3s;
+}
 

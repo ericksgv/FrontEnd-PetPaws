@@ -1,4 +1,5 @@
-<app-header [titleColor]="'acento-verde-claro-texto'" [backgroundColor]="'acento-amarillo-claro-fondo'"></app-header>
+<app-top-bar-veterinario></app-top-bar-veterinario>
+
 <section class="contenedor-pagina beige-fondo">
     <h1 class="titulo-nombre-cliente"> Bienvenid@ de nuevo, {{nombreUsuario }}</h1>
     <section class="acciones-rapidas">
@@ -65,7 +66,7 @@
                                 Edad: {{ tratamiento.mascota.edad }} mes(es)
                             </span>
                         </ng-template>
-                        
+
                         <span class="info-parrafo">Peso: {{ tratamiento.mascota.peso }}</span>
                         <span class="info-parrafo">{{ tratamiento.mascota.raza }}</span>
                         <span class="info-parrafo">{{ tratamiento.mascota.estado }}</span>
