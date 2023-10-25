@@ -35,7 +35,7 @@
         <span class="titulo-carta"> Mascotas Registradas </span>
       </div>
 
-      <div *ngFor="let mascota of mascotasUsuario; index as i; first as isFirst">
+      <div *ngFor="let mascota of mascotasUsuario?.slice(0, 3); index as i; first as isFirst">
         <div class="informacionMascota">
           <img class="foto-mascota" [src]="mascota.foto" alt="Foto de la mascota">
           <span> <strong> {{mascota.nombre}} </strong></span>
@@ -48,9 +48,9 @@
           <hr class="linea-divisor-mascotas">
         </div>
         <br>
-
       </div>
-<!--      <img ngSrc="{{usuarioActual!.mascotas[0].foto}}" alt="Foto de la mascota">-->
+
+      <button class="recoleta-bold boton-redondo-global verde-secundario-fondo beige-acento">Todas mis Mascotas</button>
 
     </section>
 
