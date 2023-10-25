@@ -27,8 +27,8 @@ export class AgregarVeterinarioComponent  {
 
 
   agregarVeterinario() {
-
       const veterinario = this.veterinarioForm.value;
+      veterinario.estado = "activo";
       this.veterinarioService.agregarVeterinario(veterinario).subscribe(() => {
         this.router.navigate(['veterinario/all']); 
       });

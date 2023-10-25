@@ -159,6 +159,41 @@ form{
     height: 28%;
     padding: 1vh;
 }
+.labelenunciado2{
+    width: 105%;
+    border-radius: 50px;
+    border: solid 1px #2D2D2D;
+    background: #F2EBD2;
+    margin: 0;
+    font-size: 20px;
+    border-radius: 1vh;
+    height: 40%;
+    padding: 1vh;
+}
+
+.labelenunciado3{
+    width: 95%;
+    border-radius: 50px;
+    border: solid 1px #2D2D2D;
+    background: #F2EBD2;
+    margin: 0;
+    font-size: 20px;
+    border-radius: 1vh;
+    height: 28%;
+    padding: 1vh;
+}
+.labelenunciado4{
+    width: 97%;
+    border-radius: 50px;
+    border: solid 1px #2D2D2D;
+    background: #F2EBD2;
+    margin: 0;
+    font-size: 20px;
+    border-radius: 1vh;
+    height: 40%;
+    padding: 1vh;
+}
+
 
 .selectenunciado{
     height: 50%;

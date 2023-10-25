@@ -21,6 +21,8 @@ export class ModificarVeterinarioComponent implements OnInit {
     private fb: FormBuilder
   ) {
     this.veterinarioForm = this.fb.group({
+      id: [''],
+      estado: [''],
       cedula: ['', Validators.required],
       nombre: ['', Validators.required],
       especialidad: ['', Validators.required],
@@ -39,11 +41,13 @@ export class ModificarVeterinarioComponent implements OnInit {
         this.veterinario = veterinario;
         if (veterinario) {
           this.veterinarioForm.setValue({
+            id: veterinario.id,
             cedula: veterinario.cedula,
             nombre: veterinario.nombre,
             especialidad: veterinario.especialidad,
             numeroAtenciones: veterinario.numeroAtenciones,
-            foto: veterinario.foto
+            foto: veterinario.foto,
+            estado: veterinario.estado,
           });
         } else {
           this.router.navigate(['/veterinario/all']);
@@ -55,6 +59,7 @@ export class ModificarVeterinarioComponent implements OnInit {
   modificarVeterinario() {
     if (this.veterinarioForm.valid && this.veterinario) {
       const veterinarioModificado = this.veterinarioForm.value;
+      console.log(veterinarioModificado.estado);
       this.veterinarioService.actualizarVeterinario(this.cedula, veterinarioModificado).subscribe(() => {
         this.router.navigate(['/veterinario/all']);
       });

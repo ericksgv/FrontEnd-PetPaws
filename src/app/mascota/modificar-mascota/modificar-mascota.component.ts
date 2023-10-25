@@ -32,6 +32,7 @@ export class ModificarMascotaComponent implements OnInit {
   actualizarMascota() {
     if (this.mascota) {
       const id = this.mascota.id;
+      console.log(this.mascota);
       this.mascotaService.modificarMascota(id, this.mascota).subscribe(() => {
         this.router.navigate(['/mascotas/all']);
       });

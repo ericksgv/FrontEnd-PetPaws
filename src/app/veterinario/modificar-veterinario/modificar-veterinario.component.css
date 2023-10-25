@@ -57,7 +57,7 @@ button {
 .contenido-modificar-cliente {
     margin-top: 15vh;
     display: flex;
-    background-image: url('src/assets/modificarusuario/wave.svg');
+    background-image: url('src/assets/modificarveterinario/waveveterinario.svg');
     height: 85vh;
     margin: 0;
     z-index: 0;
@@ -164,27 +164,23 @@ button {
 
 
 .buton {
-  margin-top: 10vh;
+  margin-top: 5vh;
   border-radius: 20px;
-  background: #E7B10A;
+  background: #80563D;
   padding: 2vh;
   color: #000000;
-
   font-family: Recoleta, serif;
   font-size: 1.2rem;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-
   transition: all 0.5s;
 }
 
 .buton:hover{
-
   text-decoration: none;
   cursor: pointer;
   background-color: white;
-
   transition: all 0.3s;
 }
 

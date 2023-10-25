@@ -1,4 +1,4 @@
-<app-top-bar-admin></app-top-bar-admin>
+<app-top-bar-oscuro></app-top-bar-oscuro>
 
 <div class="completo">
     <section class="contenido-modificar-cliente">
@@ -13,6 +13,8 @@
                 <div class="seccion-input-contenido-dashboard">
                     <h2 class="title-creacional subrayado negro-acento">Editar Datos de Veterinario</h2>
                     <form [formGroup]="veterinarioForm" (ngSubmit)="modificarVeterinario()">
+                        <input type="hidden" formControlName="id" id="id">
+                        <input type="hidden" formControlName="estado" id="estado">
                         <div class="columna">
                             <div class="uno">
                                 <label for="cedula" class="acento-verde-texto enunciado">Cedula*</label>
@@ -52,7 +54,7 @@
                                     id="foto" placeholder="URL de la Foto">
                             </div>
                         </div>
-                        <button type="submit" class="buton">
+                        <button type="submit" class="buton ">
                             Modificar Veterinario
                         </button>
                     </form>

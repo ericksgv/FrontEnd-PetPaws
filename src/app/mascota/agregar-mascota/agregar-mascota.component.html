@@ -14,9 +14,9 @@
                 <div class="uno">
                     <label for="duenoId" class="acento-verde-texto enunciado">Dueño</label>
                     <br>
-                    <input type="text" formControlName="duenoId" class="acento-verde-texto labelenunciado" id="duenoId"
-                        placeholder="Cédula del Dueño" (input)="buscarUsuariosPorCedula($event)">
-                    <select formControlName="duenoId" class="labelenunciado">
+                    <input type="text" class="acento-verde-texto labelenunciado" id="duenoId"
+                        placeholder="Filtrar por Cédula del Dueño" (input)="buscarUsuariosPorCedula($event)">
+                    <select formControlName="duenoId" class="labelenunciado2">
                         <option [value]="usuario.cedula" *ngFor="let usuario of usuarios">{{ usuario.cedula }}, {{
                             usuario.nombre }}</option>
                     </select>
@@ -62,7 +62,7 @@
                 <div class="uno">
                     <label for="peso" class="acento-verde-texto enunciado">Peso</label>
                     <br>
-                    <input type="number" formControlName="Peso" class="lacento-verde-texto labelenunciado" id="peso"
+                    <input type="number" formControlName="peso" class="lacento-verde-texto labelenunciado" id="peso"
                         placeholder="Peso" min="0.01" step="0.01">
                 </div>
                 <div class="dos">
@@ -79,6 +79,12 @@
                 class="creacional2 no-bordes boton-redondo texto-negrilla">
                 Agregar Mascota
             </button>
+            <div *ngIf="mostrarError" class="error">
+                <p class="mensaje-error">
+                  Formulario no válido. Por favor, complete todos los campos obligatorios.
+                </p>
+              </div>
+              
         </form>
     </section>
 </div>

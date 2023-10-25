@@ -14,6 +14,8 @@ export class AgregarMascotaComponent {
   mascotaForm: FormGroup; //Define el formulario
   usuarios: Usuario[] = []; // Almacena la lista de usuarios
   cedulaUsuario: number | undefined; // Almacena la cédula del usuario seleccionado
+  mostrarError: boolean = false;
+
 
   constructor(
     private mascotaService: MascotaService,
@@ -60,12 +62,18 @@ seleccionarDueno(duenoCedula: number) {
 }
 
 agregarMascota() {
-  const nuevaMascota = this.mascotaForm.value;
-  console.log(this.cedulaUsuario)
-  const cedula = this.mascotaForm.value.duenoId; // Asigna la cédula del dueño
-  console.log(nuevaMascota)
-  this.mascotaService.agregarMascota(nuevaMascota, cedula).subscribe(() => {
-    this.router.navigate(['/mascotas/all']);
-  });
+  if (this.mascotaForm.valid) {
+    // Comprobar si el formulario es válido antes de agregar la mascota
+    const nuevaMascota = this.mascotaForm.value;
+    const cedula = this.mascotaForm.value.duenoId;
+
+    this.mascotaService.agregarMascota(nuevaMascota, cedula).subscribe(() => {
+      this.router.navigate(['/mascotas/all']);
+    });
+  } else {
+    // El formulario no es válido, muestra un mensaje de error o realiza alguna acción
+    this.mostrarError = true;
+  }
 }
+
 }

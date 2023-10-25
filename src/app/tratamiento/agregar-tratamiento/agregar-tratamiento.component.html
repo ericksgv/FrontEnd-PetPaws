@@ -1,4 +1,4 @@
-<app-top-bar-veterinario></app-top-bar-veterinario>
+<app-top-bar-admin></app-top-bar-admin>
 
 <div class="completo">
     <div class="wave-container"></div>
@@ -12,8 +12,8 @@
                     <label for="mascotaId" class="acento-verde-texto enunciado">Mascota</label>
                     <br>
                     <input type="text" formControlName="mascotaId" class="acento-verde-texto labelenunciado" id="mascotaId"
-                        placeholder="Nombre de la mascota" (input)="buscarMascotaPorNombre($event)">
-                        <select id="mascotaId" formControlName="mascotaId" class="labelenunciado">
+                        placeholder="Filtrar por Nombre de la mascota" (input)="buscarMascotaPorNombre($event)">
+                        <select id="mascotaId" formControlName="mascotaId" class="labelenunciado2">
                             <option *ngFor="let mascota of mascotas" [value]="mascota.id">{{ mascota.nombre }}</option>
                         </select>
 
@@ -23,8 +23,8 @@
                     <label for="veterinarioId" class="acento-verde-texto enunciado">Veterinario</label>
                     <br>
                     <input type="text" formControlName="veterinarioId" class="acento-verde-texto labelenunciado" id="veterinarioId"
-                    placeholder="Nombre o cédula del veterinario" (input)="buscarVeterinario($event)">
-                    <select id="veterinarioId" formControlName="veterinarioId" class="labelenunciado">
+                    placeholder="Filtrar por Nombre o cédula del veterinario" (input)="buscarVeterinario($event)">
+                    <select id="veterinarioId" formControlName="veterinarioId" class="labelenunciado2">
                         <option *ngFor="let veterinario of veterinarios" [value]="veterinario.cedula">{{veterinario.nombre }}, {{veterinario.cedula }}</option>
                     </select>
                 </div>
@@ -33,9 +33,9 @@
                 <div class="uno">
                     <label for="medicamentoId" class="acento-verde-texto enunciado">Medicamento</label>
                     <br>
-                    <input type="text" formControlName="medicamentoId" class="acento-verde-texto labelenunciado" id="medicamentoId"
-                        placeholder="Nombre del medicamento" (input)="buscarMedicamentoPorNombre($event)">
-                        <select id="medicamentoId" formControlName="medicamentoId" class="labelenunciado">
+                    <input type="text" formControlName="medicamentoId" class="acento-verde-texto labelenunciado3" id="medicamentoId"
+                        placeholder="Filtrar por Nombre del medicamento" (input)="buscarMedicamentoPorNombre($event)">
+                        <select id="medicamentoId" formControlName="medicamentoId" class="labelenunciado4">
                             <option *ngFor="let medicamento of medicamentos" [value]="medicamento.id">{{ medicamento.nombre }}</option>
                         </select>
                 </div>
@@ -44,7 +44,7 @@
                 <div class="uno">
                     <label for="descripcion" class="acento-verde-texto enunciado">Descripción</label>
                     <br>
-                    <input type="text" formControlName="descripcion" class="acento-verde-texto labelenunciado"
+                    <input type="text" formControlName="descripcion" class="acento-verde-texto labelenunciado3"
                         id="descripcion" placeholder="descripcion">
                 </div>
             </div>

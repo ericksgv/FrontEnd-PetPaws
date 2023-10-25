@@ -96,7 +96,9 @@ export class DashboardAdminComponent implements  OnInit{
     /* -------------- */
 
     this.dashboardService.getTratamientosEsteMes().subscribe(
+      
       (tratamientosEsteMes) => {
+        console.log(tratamientosEsteMes);
         this.tratamientosUltimoMes = tratamientosEsteMes
       }
     )
@@ -105,6 +107,7 @@ export class DashboardAdminComponent implements  OnInit{
 
     this.dashboardService.getCantidadTratamientosPorMedicamento().subscribe(
       (mapaTramientos) => {
+        console.log(mapaTramientos);
         this.cantidadTratamientosPorMedicamento = mapaTramientos
       }
     )
