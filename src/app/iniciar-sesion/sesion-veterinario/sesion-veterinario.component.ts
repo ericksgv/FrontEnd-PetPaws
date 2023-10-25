@@ -45,6 +45,8 @@ export class SesionVeterinarioComponent {
         },
         (error) => {
           console.error(error);
+          this.vacio = true;
+          this.message = 'Debe ingresar la cédula.';
         }
       );
     }
