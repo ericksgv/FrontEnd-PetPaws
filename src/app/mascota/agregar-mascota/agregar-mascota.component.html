@@ -16,7 +16,7 @@
                     <br>
                     <input type="text" class="acento-verde-texto labelenunciado" id="duenoId"
                         placeholder="Filtrar por Cédula del Dueño" (input)="buscarUsuariosPorCedula($event)">
-                    <select formControlName="duenoId" class="labelenunciado2">
+                    <select id="lista-de-duenios" formControlName="duenoId" class="labelenunciado2">
                         <option [value]="usuario.cedula" *ngFor="let usuario of usuarios">{{ usuario.cedula }}, {{
                             usuario.nombre }}</option>
                     </select>
@@ -75,7 +75,7 @@
                     </select>
                 </div>
             </div>
-            <button type="submit"
+            <button id="btnAgregarMascota" type="submit"
                 class="creacional2 no-bordes boton-redondo texto-negrilla">
                 Agregar Mascota
             </button>

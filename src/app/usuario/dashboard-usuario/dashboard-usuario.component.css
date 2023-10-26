@@ -35,6 +35,7 @@
 
 .titulo-carta{
   background-color: #F2EBD2;
+  background-size: 50%;
   color: #2D2D2D;
   font-family: Recoleta, serif;
   font-size: 2.4rem;
@@ -63,12 +64,16 @@ label{
 input{
   width: 100%;
   height: 4vh;
+
+  border-color: #2D2D2D;
   border-radius: 5px;
+  border-style: solid;
+
   font-family: 'Work Sans', sans-serif;
   font-size: 1.3rem;
+
   background-color: #F2EBD2;
   color: #2D2D2D;
-  border-color: #2D2D2D;
   margin-bottom: 3vh;
 }
 
@@ -77,6 +82,7 @@ input{
 .carta-mascotas{
   flex: 4;
   padding: 2%;
+  align-items: center;
 
   background-color: #AAC074;
   margin-left: 2.5%;
@@ -92,6 +98,7 @@ input{
 
 .foto-mascota{
   width: 20%;
+  max-width: 20%;
   float: left;
   margin-right: 5%;
   border-radius: 15px;
@@ -100,12 +107,23 @@ input{
 
 .linea-divisor-mascotas{
   background-color: #F2EBD2;
+
+  border-radius: 15px;
   border-color: #F2EBD2;
+  border-style: solid;
 
   box-shadow: none;
   height: 2px;
   margin-top: 5%;
-  border-radius: 15px;
+}
 
+.carta-mascotas button{
+  display: block;
+  margin: auto;
+  border: none;
+}
 
+.carta-mascotas button:hover{
+  background-color: #F2EBD2;
+  color: #2D2D2D;
 }

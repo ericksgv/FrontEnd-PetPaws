@@ -19,8 +19,10 @@
         <div class="columna">
             <div class="uno">
                 <label for="correo" class="acento-verde-texto enunciado">Correo*</label>
+                
                 <br>
                 <input type="text" formControlName="correo" class="lacento-verde-texto labelenunciado" id="correo" placeholder="Correo">
+                
             </div>
             <div class="dos">
                 <label for="celular" class="acento-verde-texto enunciado">Celular*</label>
@@ -29,7 +31,12 @@
             </div>
         </div>
         <input type="hidden" formControlName="id" name="id" />
-        <button type="submit" class="creacional2 boton-redondo acento-amarillo-fondo texto-negrilla">
+
+        <div id="mensajeError" *ngIf="showError" class="error-message">
+            Por favor, complete todos los campos requeridos y asegúrese de que el formato del correo sea válido.
+        </div>
+          
+        <button id="btnAgregarCliente" type="submit" class="creacional2 boton-redondo acento-amarillo-fondo texto-negrilla">
             Agregar Usuario
         </button>
     </form>

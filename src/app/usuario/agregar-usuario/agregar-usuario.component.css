@@ -214,3 +214,11 @@ form{
 .margin-bottom{
     margin-bottom: 10vh;
 }
+
+
+.error-message {
+    color: red;
+    font-weight: bolder;
+    margin-top: 10px; 
+  }
+  
