@@ -38,7 +38,7 @@
       <div *ngFor="let mascota of mascotasUsuario?.slice(0, 3); index as i; first as isFirst">
         <div class="informacionMascota">
           <img class="foto-mascota" [src]="mascota.foto" alt="Foto de la mascota">
-          <span> <strong> {{mascota.nombre}} </strong></span>
+          <a> <strong> {{mascota.nombre}} </strong></a>
           <br>
           <span>{{mascota.raza}}</span>
           <br>
@@ -50,7 +50,8 @@
         <br>
       </div>
 
-      <button class="recoleta-bold boton-redondo-global verde-secundario-fondo beige-acento">Todas mis Mascotas</button>
+      <button class="recoleta-bold boton-redondo-global verde-secundario-fondo beige-acento"
+              [routerLink]="'/usuario/mascotas'">Todas mis Mascotas</button>
 
     </section>
 

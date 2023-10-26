@@ -1,7 +1,47 @@
-<section class="layout-tablaMascotas-usuario">
+<app-top-bar-cliente></app-top-bar-cliente>
 
-    <section class="contenedor-tabla-mascotas">
-      <h1>Mascotas Registradas</h1>
+<section class="layout-tablaMascotas-usuario beige-fondo">
+
+    <section class="contenedor-tabla-mascotas verdeOlivaPastel-fondo carta-general">
+      <h1 class="titulo-tabla-mascotas-usuario">Mascotas Registradas</h1>
+
+      <!-- Division generada para cada mascota -->
+      <section *ngFor="let mascota of mascotasUsuario; index as i; first as isFirst">
+        <div class="layout-entrada-mascota">
+          <div class="seccion-foto-mascota">
+            <img class="foto-mascota" [src]="mascota.foto" alt="Foto de la mascota">
+          </div>
+
+          <div class="seccion-nombre-mascota">
+            <a class="recoleta-bold nombre-mascota"> <strong> {{mascota.nombre}} </strong></a>
+            <br>
+            <span>{{mascota.raza}}</span>
+            <br>
+            <span>{{mascota.edad}} años</span>
+            <br>
+            <span>{{mascota.peso}} kg</span>
+          </div>
+
+          <div class="seccion-clinica-mascota">
+            <span class="worksans-bold">Enfermedad:</span>
+            <span>{{mascota.enfermedad}}</span>
+            <br>
+            <br>
+            <span class="worksans-bold">Ultimo Tratamiento:</span>
+            <span>{{mascota.tratamientos?.at(0)}}</span>
+            <br>
+            <br>
+            <span class="worksans-bold">Estado:</span>
+            <br>
+            <span>{{mascota.estado}}</span>
+          </div>
+
+        </div>
+
+          <hr class="linea-divisor-mascotas">
+
+        <br>
+      </section>
 
     </section>
 

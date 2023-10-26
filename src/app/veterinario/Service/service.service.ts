@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Veterinario } from '../../model/veterinario';
 import { Injectable } from '@angular/core';
+import {Usuario} from "../../model/usuario";
 
 @Injectable({
   providedIn: 'root'
@@ -41,5 +42,26 @@ export class VeterinarioService {
 
   buscarVeterinarioFiltro(data: string): Observable<Veterinario[]> {
     return this.http.get<Veterinario[]>(`${this.apiUrl}/filtrar/${data}`);
+  }
+
+  guardarVeterinarioEnLocalStorage(veterinario: Veterinario){
+
+    const stringVeterinario =  JSON.stringify(veterinario)
+
+    localStorage.setItem("veterinarioActual", stringVeterinario)
+  }
+
+  getVeterinarioLocalStorage(cedulaVeterinario: string) : Veterinario | null {
+
+    const stringVeterinario = localStorage.getItem("veterinarioActual")
+    // Se conviertern los datos del usuario de string a un objeto Usuario
+    if (stringVeterinario != null){
+      const datosVeterinario = JSON.parse(stringVeterinario)
+      return datosVeterinario
+    }
+
+    console.log("Datos del veterinario son nulos. No se retorna nada.")
+    return null
+
   }
 }

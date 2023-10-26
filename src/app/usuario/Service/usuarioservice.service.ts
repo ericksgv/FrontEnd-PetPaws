@@ -84,6 +84,16 @@ export class UsuarioService {
 
   }
 
+  guardarMascotaActualLocalStorage(mascota: Mascota){
+
+    // Primero se convierten los datos de la mascota a string, porque local storage solo guarda strings.
+    const stringMascota =  JSON.stringify(mascota)
+
+    // Se guardan los datos del usuario en Local Storage en un par llave-valor
+    //  "usuarioActual" - llave, Usuario - valor
+    localStorage.setItem("mascotaActual", stringMascota)
+}
+
 
 }
 

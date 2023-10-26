@@ -51,5 +51,9 @@ export class DashboardUsuarioComponent implements OnInit{
     this.formDatosUsuario.controls['celular'].setValue(celular)
   }
 
+  onClickMascota(objeto: any){
+    objeto.getAttribute()
+  }
+
 
 }
