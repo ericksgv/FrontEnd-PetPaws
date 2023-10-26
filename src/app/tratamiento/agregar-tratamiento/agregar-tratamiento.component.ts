@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ServiceService } from '../Service/service.service'; 
+import { ServiceService } from '../Service/service.service';
 import { Veterinario } from 'src/app/model/veterinario';
 import { Mascota } from 'src/app/model/mascota';
 import { Medicamento } from 'src/app/model/medicamento';
@@ -14,11 +14,11 @@ import { MedicamentoService } from 'src/app/medicamento/Service/medicamento.serv
   templateUrl: './agregar-tratamiento.component.html',
   styleUrls: ['./agregar-tratamiento.component.css']
 })
-export class AgregarTratamientoComponent {
+export class AgregarTratamientoComponent implements OnInit {
   mascotas: Mascota[] = [];
   veterinarios: Veterinario[] = [];
   medicamentos: Medicamento[] = [];
-  tratamientoForm!: FormGroup;
+  tratamientoForm: FormGroup;
 
   constructor(
     private tratamientoService: ServiceService,
@@ -26,16 +26,38 @@ export class AgregarTratamientoComponent {
     private veterinarioService: VeterinarioService,
     private medicamentoService: MedicamentoService,
     private router: Router,
-    private formBuilder: FormBuilder // Agrega el FormBuilder
-  ) {}
-
-  ngOnInit() {
+    private formBuilder: FormBuilder
+  ) {
     this.tratamientoForm = this.formBuilder.group({
-      mascotaId: ['', Validators.required], // Agrega los campos correspondientes a tus listas desplegables
+      mascotaId: ['', Validators.required],
       veterinarioId: ['', Validators.required],
       medicamentoId: ['', Validators.required],
       descripcion: ['', Validators.required],
-      fecha: [this.obtenerFechaActual()]
+      fecha: [this.obtenerFechaActual()],
+      // Agrega otros campos del formulario y sus validaciones si es necesario
+    });
+  
+    this.veterinarioService.getVeterinarios().subscribe((veterinarios) => {
+      this.veterinarios = veterinarios;
+    });
+  
+    this.mascotaService.getMascotas().subscribe((mascotas) => {
+      this.mascotas = mascotas;
+    });
+  
+    this.medicamentoService.getMedicamentosMayorCero().subscribe((medicamentos) => {
+      this.medicamentos = medicamentos;
+    });
+  }
+  
+
+  ngOnInit() {
+    this.tratamientoForm = this.formBuilder.group({
+      mascotaId: ['', Validators.required],
+      veterinarioId: ['', Validators.required],
+      medicamentoId: ['', Validators.required],
+      descripcion: ['', Validators.required],
+      fecha: [this.obtenerFechaActual()],
       // Agrega otros campos del formulario y sus validaciones si es necesario
     });
 
@@ -50,14 +72,12 @@ export class AgregarTratamientoComponent {
     this.medicamentoService.getMedicamentosMayorCero().subscribe((medicamentos) => {
       this.medicamentos = medicamentos;
     });
-  
   }
 
   buscarMascotaPorNombre(event: any) {
     const nombre = event.target.value;
     
     if (nombre == '' || nombre == null) {
-      // Si la cédula está vacía, muestra todos los usuarios
       this.mascotaService.getMascotas().subscribe((m) => {
         this.mascotas = m;
       });
@@ -86,7 +106,6 @@ export class AgregarTratamientoComponent {
     const veterinarioData = event.target.value;
     
     if (veterinarioData == '' || veterinarioData == null) {
-      // Si la cédula está vacía, muestra todos los usuarios
       this.veterinarioService.getVeterinarios().subscribe((v) => {
         this.veterinarios = v;
       });
@@ -106,11 +125,10 @@ export class AgregarTratamientoComponent {
   }
 
   guardarTratamiento() {
-
     const tratamiento = this.tratamientoForm.value;
-    console.log(tratamiento)
+    console.log(tratamiento);
     this.tratamientoService.agregarTratamiento(tratamiento).subscribe(() => {
       this.router.navigate(['tratamiento/all']); 
     });
-}
+  }
 }

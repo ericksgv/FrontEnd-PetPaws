@@ -39,6 +39,8 @@ import { DashboardAdminComponent } from './admin/dashboard-admin/dashboard-admin
 import { DashboardVeterinarioComponent } from './veterinario/dashboard-veterinario/dashboard-veterinario.component';
 import { TopBarAdminComponent } from './top-bar/top-bar-admin/top-bar-admin.component';
 import { TopBarOscuroComponent } from './top-bar/top-bar-oscuro/top-bar-oscuro.component';
+import { TablaMascotasUsuarioComponent } from './usuario/tabla-mascotas-usuario/tabla-mascotas-usuario.component';
+import { InformacionMascotaComponent } from './mascota/informacion-mascota/informacion-mascota.component';
 
 
 
@@ -78,6 +80,8 @@ import { TopBarOscuroComponent } from './top-bar/top-bar-oscuro/top-bar-oscuro.c
     DashboardVeterinarioComponent,
     TopBarAdminComponent,
     TopBarOscuroComponent,
+    TablaMascotasUsuarioComponent,
+    InformacionMascotaComponent,
   ],
     imports: [
         BrowserModule,

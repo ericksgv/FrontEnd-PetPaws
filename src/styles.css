@@ -121,6 +121,9 @@ body {
   color: #2D2D2D;
 }
 
+.beige-acento{
+  color: #F2EBD2;
+}
 
 /*Colores de fondo*/
 
@@ -193,5 +196,26 @@ body {
   color: #DC6A35;
 }
 
-/* ------------------------- Colores -------------------------*/
+/* ------------------------- Botones -------------------------*/
+.boton-redondo-global{
+  border-radius: 20px;
+  border-style: solid;
+  margin-top: 3%;
+  padding: 2%;
 
+  font-family: Recoleta, serif;
+  font-size: 1.2rem;
+
+  transition: 0.5s all;
+}
+
+.boton-redondo-global:hover{
+  cursor: pointer;
+
+  transition: 0.5s all;
+
+}
+/* ------------------------- Layouts -------------------------*/
+.carta-general{
+  border-radius: 15px;
+}
