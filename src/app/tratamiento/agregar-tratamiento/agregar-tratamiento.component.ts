@@ -6,7 +6,7 @@ import { Veterinario } from 'src/app/model/veterinario';
 import { Mascota } from 'src/app/model/mascota';
 import { Medicamento } from 'src/app/model/medicamento';
 import { MascotaService } from 'src/app/mascota/Service/mascotaservice.service';
-import { VeterinarioService } from 'src/app/veterinario/Service/service.service';
+import { VeterinarioService } from 'src/app/veterinario/Service/veterinario-service.service';
 import { MedicamentoService } from 'src/app/medicamento/Service/medicamento.service';
 
 @Component({
@@ -36,20 +36,20 @@ export class AgregarTratamientoComponent implements OnInit {
       fecha: [this.obtenerFechaActual()],
       // Agrega otros campos del formulario y sus validaciones si es necesario
     });
-  
+
     this.veterinarioService.getVeterinarios().subscribe((veterinarios) => {
       this.veterinarios = veterinarios;
     });
-  
+
     this.mascotaService.getMascotas().subscribe((mascotas) => {
       this.mascotas = mascotas;
     });
-  
+
     this.medicamentoService.getMedicamentosMayorCero().subscribe((medicamentos) => {
       this.medicamentos = medicamentos;
     });
   }
-  
+
 
   ngOnInit() {
     this.tratamientoForm = this.formBuilder.group({
@@ -76,7 +76,7 @@ export class AgregarTratamientoComponent implements OnInit {
 
   buscarMascotaPorNombre(event: any) {
     const nombre = event.target.value;
-    
+
     if (nombre == '' || nombre == null) {
       this.mascotaService.getMascotas().subscribe((m) => {
         this.mascotas = m;
@@ -90,7 +90,7 @@ export class AgregarTratamientoComponent implements OnInit {
 
   buscarMedicamentoPorNombre(event: any) {
     const nombre = event.target.value;
-    
+
     if (nombre == '' || nombre == null) {
       this.medicamentoService.getMedicamentosMayorCero().subscribe((m) => {
         this.medicamentos = m;
@@ -104,7 +104,7 @@ export class AgregarTratamientoComponent implements OnInit {
 
   buscarVeterinario(event: any) {
     const veterinarioData = event.target.value;
-    
+
     if (veterinarioData == '' || veterinarioData == null) {
       this.veterinarioService.getVeterinarios().subscribe((v) => {
         this.veterinarios = v;
@@ -128,7 +128,7 @@ export class AgregarTratamientoComponent implements OnInit {
     const tratamiento = this.tratamientoForm.value;
     console.log(tratamiento);
     this.tratamientoService.agregarTratamiento(tratamiento).subscribe(() => {
-      this.router.navigate(['tratamiento/all']); 
+      this.router.navigate(['tratamiento/all']);
     });
   }
 }

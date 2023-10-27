@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import {FormGroup, FormControl, Validators} from "@angular/forms";
+import {VeterinarioService} from "../../veterinario/Service/veterinario-service.service";
+import {catchError} from "rxjs";
 
 @Component({
   selector: 'app-sesion-veterinario',
@@ -9,46 +12,48 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SesionVeterinarioComponent {
   cedula: string = '';
-  password: string = ''; 
-  error: boolean = false;
-  vacio: boolean = false;
-  inactive: boolean = false;
-  message: string = '';
+  password: string = '';
+  cedulaString: string = '-1'
 
-  constructor(private router: Router, private http: HttpClient) { }
+  vetInactivo: boolean = false
+  encontrado: boolean = true
+
+  camposForm: FormGroup = new FormGroup({
+      campoCedula: new FormControl('', [Validators.required]),
+      campoContrasena: new FormControl ('', Validators.required)
+    }
+  )
+
+  constructor(private router: Router, private http: HttpClient, private vetService: VeterinarioService) { }
 
   login() {
-    this.error = false;
-    this.vacio = false;
-    this.inactive = false;
-    this.message = '';
 
-    if (!this.cedula) {
-      this.vacio = true;
-    } else {
-      const data = {
-        cedula: this.cedula,
-        password: this.password,
-      };
+    this.cedulaString = this.camposForm.get('campoCedula')?.value
+    this.vetService.getVeterinarioPorCedula(Number(this.cedulaString)).pipe(
+      catchError(error => {
+          this.encontrado = false
+          console.error('Vet no encontrado. Error:', error);
 
-      this.http.post('http://localhost:8090/loginVeterinario/login', data, { responseType: 'text' }).subscribe(
-        (response) => {
-          if (response === 'success') {
-            this.router.navigate(['/veterinario/dashboard', this.cedula]);
-          } else if (response === 'inactive') {
-            this.inactive = true;
-            this.message = 'El usuario actualmente se encuentra inactivo. Por favor, comunícate con el administrador para activar la cuenta de nuevo.';
-          } else if (response === 'incorrect') {
-            this.message = 'Datos Incorrectos. Intente de nuevo';
-            this.error = true;
-          }
-        },
-        (error) => {
-          console.error(error);
-          this.vacio = true;
-          this.message = 'Debe ingresar la cédula.';
+          return []; //
         }
-      );
-    }
+      )
+    ).subscribe(
+      (datosVeterinario) => {
+
+        if (datosVeterinario == null){
+          this.encontrado = false;
+        }
+
+        if (datosVeterinario != null && datosVeterinario.estado == "inactivo"){
+          this.vetInactivo = true;
+        }
+
+        if(datosVeterinario != null && datosVeterinario.estado == "activo"){
+          this.vetService.guardarVeterinarioEnLocalStorage(datosVeterinario)
+          this.router.navigate(['/veterinario/dashboard',this.cedulaString])
+        }
+      }
+    )
+
   }
 }

@@ -16,8 +16,8 @@ export class VeterinarioService {
     return this.http.get<Veterinario[]>(`${this.apiUrl}/all`);
   }
 
-  getVeterinarioPorId(id: number): Observable<Veterinario> {
-    return this.http.get<Veterinario>(`${this.apiUrl}/find/${id}`);
+  getVeterinarioPorCedula(cedula: number): Observable<Veterinario> {
+    return this.http.get<Veterinario>(`${this.apiUrl}/find/${cedula}`);
   }
 
   agregarVeterinario(veterinario: Veterinario): Observable<Veterinario> {
@@ -59,7 +59,6 @@ export class VeterinarioService {
       const datosVeterinario = JSON.parse(stringVeterinario)
       return datosVeterinario
     }
-
     console.log("Datos del veterinario son nulos. No se retorna nada.")
     return null
 

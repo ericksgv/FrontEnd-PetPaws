@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Veterinario } from 'src/app/model/veterinario'; // Importa la clase Veterinario adecuada
-import { VeterinarioService } from '../Service/service.service'; // Importa el servicio de veterinarios
+import { VeterinarioService } from '../Service/veterinario-service.service'; // Importa el servicio de veterinarios
 import { Router } from '@angular/router';
 
 @Component({
@@ -35,7 +35,7 @@ export class VeterinarioTableComponent implements OnInit {
 
   ngOnInit() {
     this.getVeterinarios();
-    
+
   }
 
 
@@ -125,7 +125,7 @@ export class VeterinarioTableComponent implements OnInit {
           return veterinario.estado.toLowerCase().includes(atributoBusqueda);
         }else if (atributo == 'atenciones') {
           return veterinario.numeroAtenciones.toString().includes(atributoBusqueda);
-        } 
+        }
       });
       this.calcularPaginas();
       this.actualizarRangoPaginas();

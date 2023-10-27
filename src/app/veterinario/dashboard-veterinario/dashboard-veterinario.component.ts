@@ -1,11 +1,11 @@
-import { VeterinarioService } from 'src/app/veterinario/Service/service.service';
+import { VeterinarioService } from 'src/app/veterinario/Service/veterinario-service.service';
 import {Component, OnInit} from '@angular/core';
 import {Usuario} from "../../model/usuario";
 import {FormControl, FormGroup} from "@angular/forms";
 import {Mascota} from "../../model/mascota";
 import { Tratamiento } from 'src/app/model/tratamiento';
 import { HttpClient } from '@angular/common/http';
-import { ServiceService } from '../../tratamiento/Service/service.service'; 
+import { ServiceService } from '../../tratamiento/Service/service.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { Veterinario } from 'src/app/model/veterinario';
@@ -18,14 +18,14 @@ import { Veterinario } from 'src/app/model/veterinario';
 export class DashboardVeterinarioComponent {
   usuarioActual: Usuario | undefined
   mascotasUsuario: Mascota[] | undefined
-  tratamientos: Tratamiento[] = []; 
+  tratamientos: Tratamiento[] = [];
   cedula: any;
   nombreUsuario: string | undefined;
 
   constructor(private tratamientoService: ServiceService, private veterinarioService: VeterinarioService, private route: ActivatedRoute) {}
 
 
- 
+
   ngOnInit() {
     // Obtener la cédula de la URL
     this.route.params.subscribe((params) => {
@@ -35,7 +35,7 @@ export class DashboardVeterinarioComponent {
     });
   }
   mostrarveterinario() {
-    this.veterinarioService.getVeterinarioPorId(this.cedula).subscribe(
+    this.veterinarioService.getVeterinarioPorCedula(this.cedula).subscribe(
       (veterinario: Veterinario | undefined) => {
         if (veterinario) {
           // Actualizar formulario u otras acciones necesarias

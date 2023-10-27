@@ -15,25 +15,28 @@
           <div class="seccion-nombre-mascota">
             <a class="recoleta-bold nombre-mascota"> <strong> {{mascota.nombre}} </strong></a>
             <br>
-            <span>{{mascota.raza}}</span>
             <br>
-            <span>{{mascota.edad}} años</span>
+            <span class="datos-basicos-mascota">{{mascota.raza}}</span>
             <br>
-            <span>{{mascota.peso}} kg</span>
+            <br>
+            <span class="datos-basicos-mascota">{{mascota.edad}} años</span>
+            <br>
+            <br>
+            <span class="datos-basicos-mascota">{{mascota.peso}} kg</span>
           </div>
 
           <div class="seccion-clinica-mascota">
-            <span class="worksans-bold">Enfermedad:</span>
-            <span>{{mascota.enfermedad}}</span>
+            <span class="worksans-bold datos-basicos-mascota">Enfermedad:</span>
+            <span class="datos-basicos-mascota">{{mascota.enfermedad}}</span>
             <br>
             <br>
-            <span class="worksans-bold">Ultimo Tratamiento:</span>
-            <span>{{mascota.tratamientos?.at(0)}}</span>
+            <span class="worksans-bold datos-basicos-mascota">Ultimo Tratamiento:</span>
+            <span class="datos-basicos-mascota">{{mascota.tratamientos?.at(0)}}</span>
             <br>
             <br>
-            <span class="worksans-bold">Estado:</span>
+            <span class="worksans-bold datos-basicos-mascota">Estado:</span>
             <br>
-            <span>{{mascota.estado}}</span>
+            <span class="datos-basicos-mascota">{{mascota.estado}}</span>
           </div>
 
         </div>

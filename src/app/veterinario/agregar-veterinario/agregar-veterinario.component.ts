@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { VeterinarioService } from '../Service/service.service'; 
+import { VeterinarioService } from '../Service/veterinario-service.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,7 +12,7 @@ export class AgregarVeterinarioComponent  {
   veterinarioForm: FormGroup ;
   constructor(
     private formBuilder: FormBuilder,
-    private router: Router, 
+    private router: Router,
     private veterinarioService: VeterinarioService
     ) {
       this.veterinarioForm = this.formBuilder.group({
@@ -21,7 +21,7 @@ export class AgregarVeterinarioComponent  {
         passwordHash: ['', Validators.required],
         especialidad: ['', Validators.required],
         numeroAtenciones: ['', Validators.required],
-        foto: [''] 
+        foto: ['']
       });
     }
 
@@ -30,7 +30,7 @@ export class AgregarVeterinarioComponent  {
       const veterinario = this.veterinarioForm.value;
       veterinario.estado = "activo";
       this.veterinarioService.agregarVeterinario(veterinario).subscribe(() => {
-        this.router.navigate(['veterinario/all']); 
+        this.router.navigate(['veterinario/all']);
       });
   }
 }

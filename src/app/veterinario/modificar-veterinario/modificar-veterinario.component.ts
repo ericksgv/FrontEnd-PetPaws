@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { VeterinarioService } from '../Service/service.service';
+import { VeterinarioService } from '../Service/veterinario-service.service';
 import { Veterinario } from '../../model/veterinario';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -37,7 +37,7 @@ export class ModificarVeterinarioComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.cedula) {
-      this.veterinarioService.getVeterinarioPorId(this.cedula).subscribe((veterinario: Veterinario | undefined) => {
+      this.veterinarioService.getVeterinarioPorCedula(this.cedula).subscribe((veterinario: Veterinario | undefined) => {
         this.veterinario = veterinario;
         if (veterinario) {
           this.veterinarioForm.setValue({
@@ -67,5 +67,5 @@ export class ModificarVeterinarioComponent implements OnInit {
       console.error("La cedula es indefinida o el formulario no es válido.");
     }
   }
-  
+
 }
