@@ -17,7 +17,7 @@ export class VeterinarioService {
   }
 
   getVeterinarioPorCedula(cedula: number): Observable<Veterinario> {
-    return this.http.get<Veterinario>(`${this.apiUrl}/find/${cedula}`);
+    return this.http.get<Veterinario>(`${this.apiUrl}/find/${cedula}`)
   }
 
   agregarVeterinario(veterinario: Veterinario): Observable<Veterinario> {

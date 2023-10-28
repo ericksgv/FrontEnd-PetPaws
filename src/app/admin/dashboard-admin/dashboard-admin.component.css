@@ -2,8 +2,9 @@
   padding-top: 15vh;
 
   background-color: #F2EBD2;
-  height: 85vh;
+  min-height: 85vh;
   min-width: 100%;
+  padding-bottom: 5vh;
 }
 
 .cuadros-estadisticas-principales{
@@ -23,6 +24,7 @@
   font-family: Recoleta, serif;
   font-weight: bold;
   font-size: 2rem;
+  text-align: center;
 
 }
 
@@ -30,6 +32,8 @@
   font-family: Recoleta, serif;
   font-weight: bold;
   font-size: 1.5rem;
+
+  text-align: center;
 
 }
 
