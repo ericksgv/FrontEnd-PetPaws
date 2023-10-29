@@ -7,7 +7,7 @@
 
       <!-- Division generada para cada mascota -->
       <section *ngFor="let mascota of mascotasUsuario; index as i; first as isFirst">
-        <div class="layout-entrada-mascota">
+        <div id="listaMascotas" class="layout-entrada-mascota">
           <div class="seccion-foto-mascota">
             <img class="foto-mascota" [src]="mascota.foto" alt="Foto de la mascota">
           </div>
