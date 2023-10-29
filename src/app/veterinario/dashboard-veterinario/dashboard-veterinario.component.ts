@@ -9,6 +9,7 @@ import { ServiceService } from '../../tratamiento/Service/service.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { Veterinario } from 'src/app/model/veterinario';
+import {LogicalFileSystem} from "@angular/compiler-cli";
 
 @Component({
   selector: 'app-dashboard-veterinario',
@@ -38,16 +39,15 @@ export class DashboardVeterinarioComponent {
     this.veterinarioService.getVeterinarioPorCedula(this.cedula).subscribe(
       (veterinario: Veterinario | undefined) => {
         if (veterinario) {
-          // Actualizar formulario u otras acciones necesarias
-          // Aquí puedes poner el código para actualizar la vista con los datos del veterinario si es necesario
+          console.log(veterinario)
 
           // Guarda el ID del veterinario
           const idVeterinario = veterinario.id;
           this.nombreUsuario = veterinario.nombre;
-          // Luego, carga los tratamientos para este veterinario
+
           this.cargarTratamientos(idVeterinario);
         } else {
-          // Manejo de caso donde no se encuentra el veterinario
+
         }
       }
     );

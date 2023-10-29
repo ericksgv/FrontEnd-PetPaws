@@ -135,12 +135,19 @@ th, td {
   padding: 8px;
   text-align: center;
   font-family: Recoleta, serif;
+
+}
+
+td{
+  font-size: 1.3rem;
 }
 
 th {
   background-color: #F1D79D;
+  font-size: 1.8rem;
 }
 
+
 tr:nth-child(even) {
-  background-color: #F2EBD2;
+  background-color: #F1D79D;
 }
