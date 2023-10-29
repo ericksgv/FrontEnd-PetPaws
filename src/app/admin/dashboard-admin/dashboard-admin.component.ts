@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {DashboardAdminService} from "../dashboard-admin.service";
 import {Medicamento} from "../../model/medicamento";
 import { Tratamiento } from "../../model/tratamiento";
+import { CurrencyPipe } from '@angular/common';
 
 
 @Component({
@@ -27,7 +28,7 @@ export class DashboardAdminComponent implements  OnInit{
 
 
 
-  constructor(private dashboardService: DashboardAdminService) {
+  constructor(private dashboardService: DashboardAdminService, ) {
   }
 
   ngOnInit() {
@@ -96,7 +97,7 @@ export class DashboardAdminComponent implements  OnInit{
     /* -------------- */
 
     this.dashboardService.getTratamientosEsteMes().subscribe(
-      
+
       (tratamientosEsteMes) => {
         console.log(tratamientosEsteMes);
         this.tratamientosUltimoMes = tratamientosEsteMes
@@ -117,5 +118,8 @@ export class DashboardAdminComponent implements  OnInit{
 
 
   }
+
+
+
 
 }

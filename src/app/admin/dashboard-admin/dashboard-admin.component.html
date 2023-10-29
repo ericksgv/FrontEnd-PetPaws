@@ -5,6 +5,7 @@
   <section class="cuadros-estadisticas-principales">
 
     <div  class="cuadro-estadisticas cuadro-clientes">
+      <br>
       <span class="numero-cuadro-estadisticas"> {{clientesTotales}}</span>
       <br>
       <br>
@@ -12,6 +13,7 @@
     </div>
 
     <div  class="cuadro-estadisticas cuadro-mascotas">
+      <br>
       <span class="numero-cuadro-estadisticas"> {{mascotasRegistradas}}</span>
       <br>
       <br>
@@ -23,6 +25,7 @@
 <!--    </div>-->
 
     <div  class="cuadro-estadisticas cuadro-veterinarios">
+      <br>
       <span class="numero-cuadro-estadisticas"> {{veterinariosActivos}}</span>
       <br>
       <br>
@@ -45,12 +48,12 @@
     </span>
 
     <span>
-      <p id="ventasTotales" class="numero-cuadro-estadisticas"> {{ventasTotales | currency:'USD':'symbol':'1.2-2'}}</p>
+      <p id="ventasTotales" class="numero-cuadro-estadisticas"> {{ventasTotales | currency:'$':'symbol'}}</p>
       <p class="textp-cuadro-estadisticas">Ventas <br> Totales</p>
     </span>
 
     <span>
-      <p id="gananciasTotales" class="numero-cuadro-estadisticas"> {{gananciasTotales| currency:'USD':'symbol':'1.2-2'}}</p>
+      <p class="numero-cuadro-estadisticas"> {{gananciasTotales| currency:'USD':'symbol':'1.2-2'}}</p>
       <p class="textp-cuadro-estadisticas">Ganancias <br>  Totales</p>
     </span>
 

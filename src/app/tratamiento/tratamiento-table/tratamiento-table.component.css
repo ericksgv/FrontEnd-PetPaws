@@ -78,17 +78,6 @@ h1{
       position: relative;
   }
 
-  .rectangulo {
-      position: absolute;
-      background-color: #F2EBD2;
-      width: 30%;
-      height: 4vh;
-      top: 21.5%;
-      left: 35%;
-      margin: 0 auto;
-      z-index: 1;
-  }
-
   /* Estructura filtros*/
 
   .grupo-elementos {
