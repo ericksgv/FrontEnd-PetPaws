@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import {FormGroup, FormControl, Validators} from "@angular/forms";
 import {VeterinarioService} from "../../veterinario/Service/veterinario-service.service";
 import {catchError} from "rxjs";
+import { LoginModel } from 'src/app/model/loginModel';
 
 @Component({
   selector: 'app-sesion-veterinario',
@@ -29,7 +30,9 @@ export class SesionVeterinarioComponent {
   login() {
 
     this.cedulaString = this.camposForm.get('campoCedula')?.value
-    this.vetService.getVeterinarioPorCedula(Number(this.cedulaString)).pipe(
+    this.password = this.camposForm.get('campoContrasena')?.value
+    const infoLogin = new LoginModel(Number(this.cedulaString), this.password)
+    this.vetService.login(infoLogin).pipe(
       catchError(error => {
           this.encontrado = false
           console.error('Vet no encontrado. Error:', error);
