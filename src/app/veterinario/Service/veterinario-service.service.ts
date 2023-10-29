@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { Veterinario } from '../../model/veterinario';
 import { Injectable } from '@angular/core';
 import {Usuario} from "../../model/usuario";
+import { LoginModel } from 'src/app/model/loginModel';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,10 @@ export class VeterinarioService {
 
   getVeterinarioPorCedula(cedula: number): Observable<Veterinario> {
     return this.http.get<Veterinario>(`${this.apiUrl}/find/${cedula}`)
+  }
+
+  login(infoLogin: LoginModel): Observable<Veterinario> {
+    return this.http.post<Veterinario>(`${this.apiUrl}/login`, infoLogin)
   }
 
   agregarVeterinario(veterinario: Veterinario): Observable<Veterinario> {
