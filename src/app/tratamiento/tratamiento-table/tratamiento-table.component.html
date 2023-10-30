@@ -115,7 +115,7 @@
 
         <span *ngIf="rangoPaginas[rangoPaginas.length - 1] < paginas.length - 1">...</span>
 
-        <button *ngIf="rangoPaginas[rangoPaginas.length - 1] < paginas.length" (click)="cambiarPagina(paginas.length)" class="pagination-button">{{ paginas.length }}</button>
+        <button id="ultimaPagina" *ngIf="rangoPaginas[rangoPaginas.length - 1] < paginas.length" (click)="cambiarPagina(paginas.length)" class="pagination-button">{{ paginas.length }}</button>
 
         <button [disabled]="paginaActual === paginas.length" (click)="cambiarPagina(paginaActual + 1)" class="pagination-button">Siguiente</button>
       </div>
