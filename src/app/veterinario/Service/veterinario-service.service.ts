@@ -56,7 +56,7 @@ export class VeterinarioService {
     localStorage.setItem("veterinarioActual", stringVeterinario)
   }
 
-  getVeterinarioLocalStorage(cedulaVeterinario: string) : Veterinario | null {
+  getVeterinarioLocalStorage() : Veterinario | null {
 
     const stringVeterinario = localStorage.getItem("veterinarioActual")
     // Se conviertern los datos del usuario de string a un objeto Usuario
