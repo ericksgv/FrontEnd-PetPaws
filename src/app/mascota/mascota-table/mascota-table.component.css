@@ -235,48 +235,67 @@ button {
 .custom-checkbox:checked + .custom-checkbox-label::after {
     opacity: 1;
 }
-
-.dropdown {
-    background-color: rgba(249, 249, 249, 0);
-    background-image: url("src/assets/elementosheader/options.svg");
-    background-size: cover;
-    width: 2vh; /* Ancho de la imagen */
-    height: 3.2vh;
-    border: none;
-    margin: 0;
-}
-
-.dropbtn {
-    color: #333;
-    padding: 8px 16px;
-    border: none;
+.toggle-container {
+    width: 40px;
+    height: 20px;
+    border: 1px solid #4c894f;
+    border-radius: 20px;
+    background-color: #4c894f;
+    position: relative;
     cursor: pointer;
+    margin-left: 35%;
+  }
+
+  .toggle-switch {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    left: 0;
+    top: 0;
+    transition: transform 0.3s ease; 
+  }
+
+  .toggle-switch.sin-estado {
+    transform: translateX(20px); 
+    background-color: #000000be;
+  }
+
+
+.acciones-cell {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: rgb(249, 249, 249); /* Fondo transparente */
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-.dropdown-content a {
-    padding: 12px 16px;
+/* Estilo para el botón "Modificar" */
+.acciones-cell a {
+    padding: 8px 12px; 
     text-decoration: none;
-    display: block;
     color: #333;
+    transition: all 0.5s;
 }
 
-.dropdown-content a:hover {
+.acciones-cell a:hover {
     background-color: #ddd;
+    transition: all 0.5s;
 }
 
-/* Mostrar la lista desplegable cuando se pasa el ratón sobre el botón */
-.dropdown:hover .dropdown-content {
-    display: block;
-}
+.boton-modificar {
+    display: inline-block; 
+    padding: 10px 20px;
+    background-color: #4c894f; 
+    color: #ffffff; 
+    text-decoration: none; 
+    border-radius: 5px; 
+    border: none;
+    text-align: center; 
+    cursor: pointer; 
+  }
+
+  .boton-modificar:hover {
+    background-color: #AAC074; 
+  }
 /*Paginacion*/
 .pagination {
     margin-top: 5vh;

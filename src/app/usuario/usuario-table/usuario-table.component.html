@@ -73,6 +73,8 @@
           <th scope="col">Celular</th>
           <th scope="col">Estado</th>
           <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody id="tableBody" class="tbody2">
@@ -85,18 +87,15 @@
           <td>{{ usuario.nombre }}</td>
           <td>{{ usuario.correo }}</td>
           <td>{{ usuario.celular }}</td>
-          {{ usuario.estado == 'activo' ? 'Activo' : 'Inactivo' }}
+          
           <td class="acciones-cell acento-transparente">
-            <div class="dropdown acento-transparente">
-              <button class="dropbtn acento-transparente"></button>
-              <div class="dropdown-content acento-transparente">
-                <a href="#" [routerLink]="['/usuario/all']" *ngIf="usuario.estado == 'activo'" (click)="eliminarUsuario(usuario.id)">Inactivar</a>
-
-                <a href="#" [routerLink]="['/usuario/all']" *ngIf="usuario.estado == 'inactivo'" (click)="activarUsuario(usuario.id)">Activar</a>
-                <a href="#" data-value="opcion8" [routerLink]="['/usuario/update', usuario.cedula]">Modificar</a>
-              </div>
+            <div class="toggle-container" (click)="toggleEstadoUsuario(usuario)">
+              <div class="toggle-switch" [ngClass]="{'activo': usuario.estado === 'inactivo'}"></div>
             </div>
-          </td>
+          </td> 
+          <td class="texto-negrilla">
+            <a class="boton-modificar" href="#" data-value="opcion8" [routerLink]="['/usuario/update', usuario.cedula]">Modificar</a>
+          </td> 
         </tr>
       </tbody>
     </table>

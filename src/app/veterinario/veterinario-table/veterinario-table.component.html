@@ -75,6 +75,7 @@
           <th scope="col">Número Atenciones</th>
           <th scope="col">Estado</th>
           <th scope="col"></th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody id="tableBody" class="tbody2">
@@ -88,22 +89,14 @@
           <td>{{ veterinario.nombre }}</td>
           <td>{{ veterinario.especialidad }}</td>
           <td>{{ veterinario.numeroAtenciones }}</td>
-          <td>
-            {{ veterinario.estado == 'activo' ? 'Activo' : 'Inactivo' }}
-          </td>
           <td class="acciones-cell acento-transparente">
-            <div class="dropdown acento-transparente">
-              <button class="dropbtn acento-transparente"></button>
-              <div class="dropdown-content acento-transparente">
-                <a href="#" [routerLink]="['/veterinario/all']" *ngIf="veterinario.estado == 'activo'"
-                  (click)="eliminarVeterinario(veterinario.cedula)">Inactivar</a>
-                <a href="#" [routerLink]="['/veterinario/all']" *ngIf="veterinario.estado == 'inactivo'"
-                  (click)="activarVeterinario(veterinario.cedula)">Activar</a>
-                <a href="#" data-value="opcion8"
-                  [routerLink]="['/veterinario/update', veterinario.cedula]">Modificar</a>
-              </div>
+            <div class="toggle-container" (click)="toggleEstadoVeterinario(veterinario)">
+              <div class="toggle-switch" [ngClass]="{'activo': veterinario.estado === 'inactivo'}"></div>
             </div>
-          </td>
+          </td> 
+          <td class="texto-negrilla">
+            <a class="boton-modificar" href="#" data-value="opcion8" [routerLink]="['/veterinario/update', veterinario.cedula]">Modificar</a>
+          </td> 
         </tr>
       </tbody>
     </table>

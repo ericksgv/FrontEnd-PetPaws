@@ -251,46 +251,20 @@ h1{
       opacity: 1;
   }
 
-  .dropdown {
-      background-color: rgba(249, 249, 249, 0);
-      background-image: url("src/assets/elementosheader/options.svg");
-      background-size: cover;
-      width: 2vh; /* Ancho de la imagen */
-      height: 3.2vh;
-      border: none;
-      margin: 0;
+  .boton-eliminar {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #DC6A35; 
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px; 
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
   }
 
-  .dropbtn {
-      color: #333;
-      padding: 8px 16px;
-      border: none;
-      cursor: pointer;
-  }
-
-  .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: rgb(249, 249, 249); /* Fondo transparente */
-      min-width: 160px;
-      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-      z-index: 1;
-  }
-
-  .dropdown-content a {
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-      color: #333;
-  }
-
-  .dropdown-content a:hover {
-      background-color: #ddd;
-  }
-
-  /* Mostrar la lista desplegable cuando se pasa el ratón sobre el botón */
-  .dropdown:hover .dropdown-content {
-      display: block;
+  .boton-eliminar:hover {
+    background-color: #EEB66D;
   }
   /*Paginacion*/
   .pagination {

@@ -144,6 +144,14 @@ filtrarPorAtributo(atributo: string) {
     });
   }
 
+  toggleEstadoMascota(mascota: any) {
+    if (mascota.estado === 'Sin Estado') {
+      this.eliminarMascota(mascota.id);
+    } else if (mascota.estado === 'Inactivo') {
+      this.activarMascota(mascota.id);
+    }
+  }
+
   modificarMascota(id: number) {
     this.router.navigate(['/mascotas/modificar', id]);
   }

@@ -138,7 +138,13 @@ export class UsuarioTableComponent implements OnInit {
       this.getUsuarios();
     });
   }
-
+  toggleEstadoUsuario(usuario: any) {
+    if (usuario.estado === 'activo') {
+      this.eliminarUsuario(usuario.id);
+    } else if (usuario.estado === 'inactivo') {
+      this.activarUsuario(usuario.id);
+    }
+  }
   modificarUsuario(id: number) {
     this.router.navigate(['/usuario/update', id]);
   }

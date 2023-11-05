@@ -145,7 +145,13 @@ export class VeterinarioTableComponent implements OnInit {
     });
   }
 
-
+  toggleEstadoVeterinario(veterinario: any) {
+    if (veterinario.estado === 'activo') {
+      this.eliminarVeterinario(veterinario.id);
+    } else if (veterinario.estado === 'inactivo') {
+      this.activarVeterinario(veterinario.id);
+    }
+  }
   modificarVeterinario(id: number) {
     this.router.navigate(['/veterinario/update', id]);
   }

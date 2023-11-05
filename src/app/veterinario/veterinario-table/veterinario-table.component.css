@@ -238,47 +238,69 @@
       opacity: 1;
   }
 
-  .dropdown {
-      background-color: rgba(249, 249, 249, 0);
-      background-image: url("src/assets/elementosheader/options.svg");
-      background-size: cover;
-      width: 2vh; /* Ancho de la imagen */
-      height: 3.2vh;
-      border: none;
-      margin: 0;
+  .toggle-container {
+    width: 40px;
+    height: 20px;
+    border: 1px solid #80563D;
+    border-radius: 20px;
+    background-color: #80563D;
+    position: relative;
+    cursor: pointer;
+    margin-left: 35%;
   }
 
-  .dropbtn {
-      color: #333;
-      padding: 8px 16px;
-      border: none;
-      cursor: pointer;
+  .toggle-switch {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #fdfdfd;
+    left: 0;
+    top: 0;
+    transition: transform 0.3s ease; 
   }
 
-  .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: rgb(249, 249, 249); /* Fondo transparente */
-      min-width: 160px;
-      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-      z-index: 1;
+  .toggle-switch.activo {
+    transform: translateX(20px); 
+    background-color: #000000be;
   }
 
-  .dropdown-content a {
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-      color: #333;
+
+.acciones-cell {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Estilo para el botón "Modificar" */
+.acciones-cell a {
+    padding: 8px 12px; 
+    text-decoration: none;
+    color: #333;
+    transition: all 0.5s;
+}
+
+.acciones-cell a:hover {
+    background-color: #ddd;
+    transition: all 0.5s;
+}
+
+.boton-modificar {
+    display: inline-block; 
+    padding: 10px 20px;
+    background-color: #80563D; 
+    color: #000; 
+    text-decoration: none; 
+    border-radius: 5px; 
+    border: none;
+    text-align: center; 
+    cursor: pointer; 
   }
 
-  .dropdown-content a:hover {
-      background-color: #ddd;
+  .boton-modificar:hover {
+    background-color: #D4B8A0; 
   }
 
-  /* Mostrar la lista desplegable cuando se pasa el ratón sobre el botón */
-  .dropdown:hover .dropdown-content {
-      display: block;
-  }
+
   /*Paginacion*/
   .pagination {
       margin-top: 5vh;
