@@ -221,3 +221,19 @@ body {
 }
 
 
+#boton-flotante {
+  position: fixed;
+  bottom: 20px; 
+  right: 20px; 
+  z-index: 1000; 
+}
+
+#boton-flotante a {
+  display: block; 
+}
+
+#boton-flotante img {
+  width: 100px; 
+  height: auto; 
+}
+

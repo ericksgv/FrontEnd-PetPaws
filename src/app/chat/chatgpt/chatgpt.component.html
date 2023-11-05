@@ -1,4 +1,5 @@
-<div class="container mt-3">
+<div class="chat-container">
+  <div class="container mt-3">
     <div class="card">
       <div class="card-header fondonaranja text-light">
         <h1>PetPaws Chat</h1>
@@ -21,18 +22,9 @@
           </div>
         </div>
         <input [(ngModel)]="message" class="form-control" name="message" placeholder="Escribe tu mensaje aquí...">
-        <button class="btn btn-outline-primary mt-2 mr-2" (click)="sendMessage()">Enviar</button>
-        <button class="btn btn-outline-danger mt-2" (click)="limpiar()">Limpiar</button>
+        <button class="btn btn-outline-primary mt-2 mr-2 espacio-botones" (click)="sendMessage()">Enviar</button>
+        <button class="btn btn-outline-danger mt-2 espacio-botones" (click)="limpiar()">Limpiar</button>        
       </div>
     </div>
   </div>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+</div>

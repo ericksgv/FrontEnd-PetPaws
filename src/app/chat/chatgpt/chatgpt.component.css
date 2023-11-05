@@ -1,4 +1,34 @@
-/* chatgpt.component.css */
+
+.chat-container {
+  background-image: url("/assets/bot/fondobot.png");
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; 
+}
+.chat-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3); /* Añade una capa oscura con opacidad */
+}
+
+.card-header h1 {
+  font-weight: bold; 
+  text-align: center; 
+}
+
+.espacio-botones {
+  margin-right: 10px; 
+}
 
 .chat-list {
     display: flex;

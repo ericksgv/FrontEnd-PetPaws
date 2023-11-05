@@ -21,10 +21,7 @@ export class ChatgptService {
   readonly openai = new OpenAIApi(this.configuration);
 
   getDataFromOpenAI(text: string) {
-    // Obtén la información de la empresa desde el servicio
-
   
-    // Combina la información de la empresa con la pregunta
     const preguntaConInfo = `puedo proporcionar una respuesta que comunique seguridad y explique los pasos a seguir cuando un dueño de perro se enfrenta a una situación de emergencia. Aquí tienes una respuesta que se adhiere al contexto proporcionado:
 
     "¡Tranquilo! En PetPaws, estamos contigo en cada paso del camino cuando se trata de la salud de tu perro. Si tu peludo amigo se enferma, te recomendamos seguir estos pasos:
