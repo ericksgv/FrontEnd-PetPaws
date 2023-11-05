@@ -23,6 +23,7 @@ import {DashboardAdminComponent} from "./admin/dashboard-admin/dashboard-admin.c
 import { DashboardVeterinarioComponent } from './veterinario/dashboard-veterinario/dashboard-veterinario.component';
 import {TablaMascotasUsuarioComponent} from "./usuario/tabla-mascotas-usuario/tabla-mascotas-usuario.component";
 import {InformacionMascotaComponent} from "./mascota/informacion-mascota/informacion-mascota.component";
+import { ChatgptComponent } from './chat/chatgpt/chatgpt.component';
 const routes: Routes = [
 
   {
@@ -117,6 +118,10 @@ const routes: Routes = [
   {
     path: 'tratamiento/update/:id',
     component: ModificarTratamientoComponent,
+  },
+  {
+    path: 'chat',
+    component: ChatgptComponent,
   }
 
 

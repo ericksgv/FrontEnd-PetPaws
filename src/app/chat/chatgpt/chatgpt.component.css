@@ -1,0 +1,32 @@
+/* chatgpt.component.css */
+
+.chat-list {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .pregunta {
+    background-color: #FF7E00; /* Color de fondo para las preguntas */
+    color: #000; /* Color del texto para las preguntas (opcional) */
+    align-self: flex-start; /* Alinear a la izquierda (preguntas) */
+  }
+  
+  .chat-entry {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinea a la izquierda (preguntas) */
+    margin-bottom: 10px; /* Espacio entre entradas de chat */
+  }
+  
+  .respuesta {
+    align-self: flex-end; /* Alinea a la derecha (respuestas) */
+  }
+
+  .fondonaranja{
+    background-color: #FF7E00;
+  }
+  
+  
+  
+  
+  

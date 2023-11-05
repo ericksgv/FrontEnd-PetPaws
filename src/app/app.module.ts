@@ -41,6 +41,7 @@ import { TopBarAdminComponent } from './top-bar/top-bar-admin/top-bar-admin.comp
 import { TopBarOscuroComponent } from './top-bar/top-bar-oscuro/top-bar-oscuro.component';
 import { TablaMascotasUsuarioComponent } from './usuario/tabla-mascotas-usuario/tabla-mascotas-usuario.component';
 import { InformacionMascotaComponent } from './mascota/informacion-mascota/informacion-mascota.component';
+import { ChatgptComponent } from './chat/chatgpt/chatgpt.component';
 
 
 
@@ -82,6 +83,7 @@ import { InformacionMascotaComponent } from './mascota/informacion-mascota/infor
     TopBarOscuroComponent,
     TablaMascotasUsuarioComponent,
     InformacionMascotaComponent,
+    ChatgptComponent,
   ],
     imports: [
         BrowserModule,
