@@ -71,6 +71,7 @@
           <th scope="col">Peso</th>
           <th scope="col">Estado</th>
           <th scope="col"></th><!-- Opciones -->
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody id="tableBody" class="tbody2">
@@ -84,17 +85,14 @@
           <td class="ancho-razas">{{ mascota.raza }}</td>
           <td>{{ mascota.peso }}</td>
           <td>{{ mascota.estado }}</td>
-          <td class="acciones-cell acento-transparente ">
-            <div class="dropdown acento-transparente">
-              <button class="dropbtn acento-transparente"></button>
-              <div class="dropdown-content acento-transparente">
-                <a href="#" [routerLink]="['/mascotas/all']" *ngIf="mascota.estado != 'Inactivo'" (click)="eliminarMascota(mascota.id)">Inactivar</a>
-                <a href="#" [routerLink]="['/mascotas/all']" *ngIf="mascota.estado == 'Inactivo'" (click)="activarMascota(mascota.id)">Activar</a>
-
-                <a href="#" data-value="opcion8" [routerLink]="['/mascotas/modificar', mascota.id]">Modificar</a>
-              </div>
+          <td class="acciones-cell acento-transparente">
+            <div class="toggle-container" (click)="toggleEstadoMascota(mascota)">
+              <div class="toggle-switch" [ngClass]="{'SinEstado': mascota.estado === 'inactivo'}"></div>
             </div>
-          </td>
+          </td>  
+          <td class="texto-negrilla">
+            <a class="boton-modificar" href="#" data-value="opcion8" [routerLink]="['/mascotas/modificar', mascota.id]">Modificar</a>
+          </td>  
         </tr>
       </tbody>
     </table>

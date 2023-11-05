@@ -91,13 +91,9 @@
             <td>{{ tratamiento.fecha }}</td>
             <td>{{ tratamiento.veterinario.nombre }}</td>
             <td class="acciones-cell acento-transparente">
-              <div class="dropdown acento-transparente">
-                <button class="dropbtn acento-transparente"></button>
-                <div class="dropdown-content acento-transparente">
-                  <a href="#" [routerLink]="['/tratamiento/all']" (click)="eliminarTratamiento(tratamiento.id)">Eliminar</a>
-                </div>
-              </div>
-            </td>
+              <td class="texto-negrilla">
+                <a class="boton-eliminar" href="#" data-value="opcion8" [routerLink]="['/tratamiento/all']" (click)="eliminarTratamiento(tratamiento.id)">Eliminar</a>
+              </td>                          
           </tr>
         </tbody>
       </table>
