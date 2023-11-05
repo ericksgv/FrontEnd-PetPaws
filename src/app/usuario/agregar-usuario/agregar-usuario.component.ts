@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';  
 import { Router } from '@angular/router';
 import { UsuarioService } from '../Service/usuarioservice.service';  
-
+import Swal from 'sweetalert2';
 
 // Función de validación personalizada para el formato de correo electrónico
 export function EmailValidator(control: AbstractControl): { [key: string]: boolean } | null {
@@ -47,8 +47,20 @@ export class AgregarUsuarioComponent {
       nuevoUsuario.id = 0;
       nuevoUsuario.estado = "activo";
       console.log(nuevoUsuario);
+  
       this.usuarioService.agregarUsuario(nuevoUsuario).subscribe(() => {
+        Swal.fire({
+          icon: 'success',
+          title: 'CRUD Exitoso',
+          text: 'Usuario agregado exitosamente',
+          timer: 2000, 
+          timerProgressBar: true,
+          didOpen: () => {
+            Swal.showLoading();
+          },
+        }).then(() => {
           this.router.navigate(['usuario/all']);
+        });
       });
     } else {
       this.mostrarError();

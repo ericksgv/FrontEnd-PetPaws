@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { MascotaService } from '../Service/mascotaservice.service';
 import { Usuario } from 'src/app/model/usuario';
 import { UsuarioService } from 'src/app/usuario/Service/usuarioservice.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-agregar-mascota',
   templateUrl: './agregar-mascota.component.html',
@@ -63,17 +63,25 @@ seleccionarDueno(duenoCedula: number) {
 
 agregarMascota() {
   if (this.mascotaForm.valid) {
-    // Comprobar si el formulario es válido antes de agregar la mascota
     const nuevaMascota = this.mascotaForm.value;
     const cedula = this.mascotaForm.value.duenoId;
 
     this.mascotaService.agregarMascota(nuevaMascota, cedula).subscribe(() => {
-      this.router.navigate(['/mascotas/all']);
+      Swal.fire({
+        icon: 'success',
+        title: 'CRUD Exitoso',
+        text: 'Mascota agregada exitosamente',
+        timer: 2000, 
+        timerProgressBar: true,
+        didOpen: () => {
+          Swal.showLoading();
+        },
+      }).then(() => {
+        this.router.navigate(['/mascotas/all']);
+      });
     });
   } else {
-    // El formulario no es válido, muestra un mensaje de error o realiza alguna acción
     this.mostrarError = true;
   }
 }
-
 }

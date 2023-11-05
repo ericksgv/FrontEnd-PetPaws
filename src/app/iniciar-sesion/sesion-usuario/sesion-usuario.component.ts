@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import {UsuarioService} from "../../usuario/Service/usuarioservice.service";
 import {FormControl, Validators} from "@angular/forms";
 import {catchError} from "rxjs";
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-sesion-usuario',
@@ -14,9 +15,6 @@ export class SesionUsuarioComponent {
   usuarioEncontrado: boolean = true
   usuarioInactivo: boolean = false
   cedulaUsuarioString: string = ''
-
-  // Se valida la cedula haciendo uso de los validadores dados por Angular.
-  // El input se especifica como numerico en HTML, por lo que aquí solo se valida que no este vacio.
   campoCedula = new FormControl('', [
     Validators.required
   ])
@@ -26,39 +24,40 @@ export class SesionUsuarioComponent {
 
 
   login() {
+    // Dado que siempre se va a retornar un valor, buscamos la cedula en los usuarios existentes.
+    this.cedulaUsuarioString = this.campoCedula.value!;
+    this.usuarioService
+      .getUsuarioPorCedula(Number(this.cedulaUsuarioString))
+      .pipe(
+        catchError((error) => {
+          this.usuarioEncontrado = false;
+          console.error('Usuario no encontrado. Error:', error);
+          return [];
+        })
+      )
+      .subscribe((datosUsuario) => {
+        if (datosUsuario != null && datosUsuario.estado === 'inactivo') {
+          this.usuarioInactivo = true;
+        }
+        if (datosUsuario != null && datosUsuario.estado !== 'inactivo') {
+          this.usuarioEncontrado = true;
+          this.usuarioInactivo = false;
+          this.usuarioService.guardaUsuarioEnLocalStorage(datosUsuario);
 
-    // Dado que siempre se va a retornar una valor, buscamos la cedula en los usuarios existentes.
-    this.cedulaUsuarioString = this.campoCedula.value!
-    this.usuarioService.getUsuarioPorCedula(Number(this.cedulaUsuarioString)).pipe(
-         catchError(error => {
-
-             this.usuarioEncontrado = false
-             console.error('Usuario no encontrado. Error:', error);
-
-           return []; //
-         }
-        )
-       ).subscribe(
-         (datosUsuario) => {
-
-           // Si el usuario es encontrado, pero inactivo, se habilita la flag para mostrar un mensaje.
-           if (datosUsuario != null && datosUsuario.estado === "inactivo"){
-             this.usuarioInactivo = true
-           }
-
-           // Si se encuentra el usuario y esta activo, se hace el login,
-           // y se guardan sus datos en local storage.
-           if (datosUsuario != null && datosUsuario.estado !== "inactivo"){
-             this.usuarioEncontrado = true
-             this.usuarioInactivo = false
-             this.usuarioService.guardaUsuarioEnLocalStorage(datosUsuario)
-             this.router.navigate(['/usuario/dashboard'])
-           }
-
-         }
-       )
-
-
+          Swal.fire({
+            icon: 'success',
+            title: 'Inicio de Sesión Exitoso',
+            text: 'Has iniciado sesión correctamente',
+            timer: 1000, 
+            timerProgressBar: true,
+            didOpen: () => {
+              Swal.showLoading();
+            },
+          }).then(() => {
+            this.router.navigate(['/usuario/dashboard']);
+          });
+        }
+      });
   }
 
   loginVeterinario() {

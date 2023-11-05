@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { VeterinarioService } from '../Service/veterinario-service.service';
 import { Veterinario } from '../../model/veterinario';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-modificar-veterinario',
   templateUrl: './modificar-veterinario.component.html',
@@ -59,13 +59,22 @@ export class ModificarVeterinarioComponent implements OnInit {
   modificarVeterinario() {
     if (this.veterinarioForm.valid && this.veterinario) {
       const veterinarioModificado = this.veterinarioForm.value;
-      console.log(veterinarioModificado.estado);
       this.veterinarioService.actualizarVeterinario(this.cedula, veterinarioModificado).subscribe(() => {
-        this.router.navigate(['/veterinario/all']);
+        Swal.fire({
+          icon: 'success',
+          title: 'CRUD Exitoso',
+          text: 'Veterinario modificado exitosamente',
+          timer: 2000, 
+          timerProgressBar: true,
+          didOpen: () => {
+            Swal.showLoading();
+          },
+        }).then(() => {
+          this.router.navigate(['/veterinario/all']);
+        });
       });
     } else {
-      console.error("La cedula es indefinida o el formulario no es válido.");
+      console.error("La cédula es indefinida o el formulario no es válido.");
     }
   }
-
 }

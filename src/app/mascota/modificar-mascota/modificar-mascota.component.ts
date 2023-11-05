@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MascotaService } from '../Service/mascotaservice.service';
 import { Mascota } from 'src/app/model/mascota';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-modificar-mascota',
   templateUrl: './modificar-mascota.component.html',
@@ -34,7 +34,18 @@ export class ModificarMascotaComponent implements OnInit {
       const id = this.mascota.id;
       console.log(this.mascota);
       this.mascotaService.modificarMascota(id, this.mascota).subscribe(() => {
-        this.router.navigate(['/mascotas/all']);
+        Swal.fire({
+          icon: 'success',
+          title: 'CRUD Exitoso',
+          text: 'Mascota actualizada exitosamente',
+          timer: 2000, 
+          timerProgressBar: true,
+          didOpen: () => {
+            Swal.showLoading();
+          },
+        }).then(() => {
+          this.router.navigate(['/mascotas/all']);
+        });
       });
     } else {
       this.router.navigate(['/mascotas/modificar']);

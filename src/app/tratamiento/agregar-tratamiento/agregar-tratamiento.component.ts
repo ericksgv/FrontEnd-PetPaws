@@ -8,7 +8,7 @@ import { Medicamento } from 'src/app/model/medicamento';
 import { MascotaService } from 'src/app/mascota/Service/mascotaservice.service';
 import { VeterinarioService } from 'src/app/veterinario/Service/veterinario-service.service';
 import { MedicamentoService } from 'src/app/medicamento/Service/medicamento.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-agregar-tratamiento',
   templateUrl: './agregar-tratamiento.component.html',
@@ -126,9 +126,20 @@ export class AgregarTratamientoComponent implements OnInit {
 
   guardarTratamiento() {
     const tratamiento = this.tratamientoForm.value;
-    console.log(tratamiento);
+
     this.tratamientoService.agregarTratamiento(tratamiento).subscribe(() => {
-      this.router.navigate(['tratamiento/all']);
+      Swal.fire({
+        icon: 'success',
+        title: 'CRUD Exitoso',
+        text: 'Tratamiento Agregado exitosamente',
+        timer: 2000,
+        timerProgressBar: true,
+        didOpen: () => {
+          Swal.showLoading();
+        },
+      }).then(() => {
+        this.router.navigate(['tratamiento/all']);
+      });
     });
   }
 }

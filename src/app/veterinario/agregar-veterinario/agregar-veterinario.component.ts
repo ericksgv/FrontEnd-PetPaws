@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { VeterinarioService } from '../Service/veterinario-service.service';
 import { Router } from '@angular/router';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-agregar-veterinario',
   templateUrl: './agregar-veterinario.component.html',
@@ -26,12 +26,23 @@ export class AgregarVeterinarioComponent  {
     }
 
 
-  agregarVeterinario() {
+    agregarVeterinario() {
       const veterinario = this.veterinarioForm.value;
       veterinario.estado = "activo";
+  
       this.veterinarioService.agregarVeterinario(veterinario).subscribe(() => {
-        this.router.navigate(['veterinario/all']);
+        Swal.fire({
+          icon: 'success',
+          title: 'CRUD Exitoso',
+          text: 'Veterinario agregado exitosamente',
+          timer: 2000, 
+          timerProgressBar: true,
+          didOpen: () => {
+            Swal.showLoading();
+          },
+        }).then(() => {
+          this.router.navigate(['veterinario/all']);
+        });
       });
+    }
   }
-}
-

@@ -5,6 +5,7 @@ import {FormGroup, FormControl, Validators} from "@angular/forms";
 import {VeterinarioService} from "../../veterinario/Service/veterinario-service.service";
 import {catchError} from "rxjs";
 import { LoginModel } from 'src/app/model/loginModel';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-sesion-veterinario',
@@ -28,35 +29,41 @@ export class SesionVeterinarioComponent {
   constructor(private router: Router, private http: HttpClient, private vetService: VeterinarioService) { }
 
   login() {
-
-    this.cedulaString = this.camposForm.get('campoCedula')?.value
-    this.password = this.camposForm.get('campoContrasena')?.value
-    const infoLogin = new LoginModel(Number(this.cedulaString), this.password)
+    this.cedulaString = this.camposForm.get('campoCedula')?.value;
+    this.password = this.camposForm.get('campoContrasena')?.value;
+    const infoLogin = new LoginModel(Number(this.cedulaString), this.password);
+  
     this.vetService.login(infoLogin).pipe(
-      catchError(error => {
-          this.encontrado = false
-          console.error('Vet no encontrado. Error:', error);
-
-          return []; //
-        }
-      )
-    ).subscribe(
-      (datosVeterinario) => {
-
-        if (datosVeterinario == null){
-          this.encontrado = false;
-        }
-
-        if (datosVeterinario != null && datosVeterinario.estado == "inactivo"){
-          this.vetInactivo = true;
-        }
-
-        if(datosVeterinario != null && datosVeterinario.estado == "activo"){
-          this.vetService.guardarVeterinarioEnLocalStorage(datosVeterinario)
-          this.router.navigate(['/veterinario/dashboard',this.cedulaString])
-        }
+      catchError((error) => {
+        this.encontrado = false;
+        console.error('Vet no encontrado. Error:', error);
+        return [];
+      })
+    ).subscribe((datosVeterinario) => {
+      if (datosVeterinario == null) {
+        this.encontrado = false;
       }
-    )
-
+  
+      if (datosVeterinario != null && datosVeterinario.estado == "inactivo") {
+        this.vetInactivo = true;
+      }
+  
+      if (datosVeterinario != null && datosVeterinario.estado == "activo") {
+        this.vetService.guardarVeterinarioEnLocalStorage(datosVeterinario);
+  
+        Swal.fire({
+          icon: 'success',
+          title: 'Inicio de Sesión Exitoso',
+          text: 'Has iniciado sesión correctamente',
+          timer: 1000, // 1 segundo
+          timerProgressBar: true,
+          didOpen: () => {
+            Swal.showLoading();
+          },
+        }).then(() => {
+          this.router.navigate(['/veterinario/dashboard', this.cedulaString]);
+        });
+      }
+    });
   }
-}
+}  

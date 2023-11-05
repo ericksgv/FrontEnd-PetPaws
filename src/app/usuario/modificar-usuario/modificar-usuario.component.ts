@@ -4,6 +4,7 @@ import { UsuarioService } from '../Service/usuarioservice.service';
 import { Usuario } from 'src/app/model/usuario';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {Mascota} from "../../model/mascota";
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-modificar-usuario',
@@ -62,9 +63,19 @@ export class ModificarUsuarioComponent implements OnInit {
   modificarUsuario() {
     if (this.usuarioForm.valid && this.usuario) {
       const usuarioModificado = this.usuarioForm.value;
-      // Llama al servicio para modificar el usuario
       this.usuarioService.modificarUsuario(this.cedula, usuarioModificado).subscribe(() => {
-        this.router.navigate(['/usuario/all']);
+        Swal.fire({
+          icon: 'success',
+          title: 'CRUD Exitoso',
+          text: 'Usuario modificado exitosamente',
+          timer: 2000, 
+          timerProgressBar: true,
+          didOpen: () => {
+            Swal.showLoading();
+          },
+        }).then(() => {
+          this.router.navigate(['/usuario/all']);
+        });
       });
     }
   }
