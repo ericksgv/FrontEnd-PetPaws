@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import Swal from 'sweetalert2'; 
+import { catchError } from 'rxjs/internal/operators/catchError';
 @Component({
   selector: 'app-sesion-administrador',
   templateUrl: './sesion-administrador.component.html',
@@ -27,32 +28,29 @@ export class SesionAdministradorComponent {
     } else {
       const data = {
         cedula: this.cedula,
-        password: this.password,
+        contrasena: this.password,
       };
 
-      this.http.post('http://localhost:8090/loginAdministrador/login', data, { responseType: 'text' }).subscribe(
-        (response) => {
-          if (response === 'success') {
-            Swal.fire({
-              icon: 'success',
-              title: 'Inicio de Sesión Exitoso',
-              text: 'Has iniciado sesión correctamente',
-              timer: 1000, 
-              timerProgressBar: true,
-              didOpen: () => {
-                Swal.showLoading();
-              },
-            }).then(() => {
-              this.router.navigate(['/admin/dashboard']);
-            });
-          } else if (response === 'incorrect') {
-            this.error = true;
-          }
-        },
-        (error) => {
-          console.error(error);
-        }
-      );
+      console.log(data)
+
+      this.http.post('http://localhost:8090/loginAdministrador/login', data, { responseType: 'text' })
+
+      .subscribe((response) => {
+        console.log(response)
+        localStorage.setItem('token', String(response))
+          Swal.fire({
+            icon: 'success',
+            title: 'Inicio de Sesión Exitoso',
+            text: 'Has iniciado sesión correctamente',
+            timer: 1000,
+            timerProgressBar: true,
+            didOpen: () => {
+              Swal.showLoading();
+            },
+          }).then(() => {
+            this.router.navigate(['/admin/dashboard']);
+          });
+      });
     }
   }
 }

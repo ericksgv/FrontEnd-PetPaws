@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Mascota } from 'src/app/model/mascota';
 import { MascotaService } from '../Service/mascotaservice.service';
 import { Router } from '@angular/router';
+import { VeterinarioService } from 'src/app/veterinario/Service/veterinario-service.service';
 
 @Component({
   selector: 'app-mascota-table',
@@ -12,6 +13,7 @@ export class MascotaTableComponent implements OnInit {
   selectedSortBy: string = 'nombre'; // Valor predeterminado
   selectedSortOrder: string = 'asc'; // Valor predeterminado
   textoBusqueda: string = '';
+  rol: String = '';
   
   filtroActivoEdad = false;
   filtroActivoRaza = false;
@@ -29,9 +31,12 @@ export class MascotaTableComponent implements OnInit {
   rangoPaginas: number[] = [];
   mascotasSort: any[] = [];
 
-  constructor(private mascotaService: MascotaService, private router: Router) { }
+  constructor(private mascotaService: MascotaService, private veterinarioService: VeterinarioService, private router: Router) { }
 
   ngOnInit() {
+    this.veterinarioService.getRol().subscribe(rol => {
+      this.rol = rol;
+    });
     this.getMascotas();
   }
 

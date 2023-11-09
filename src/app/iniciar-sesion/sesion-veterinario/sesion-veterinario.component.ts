@@ -44,13 +44,9 @@ export class SesionVeterinarioComponent {
         this.encontrado = false;
       }
   
-      if (datosVeterinario != null && datosVeterinario.estado == "inactivo") {
-        this.vetInactivo = true;
-      }
-  
-      if (datosVeterinario != null && datosVeterinario.estado == "activo") {
-        this.vetService.guardarVeterinarioEnLocalStorage(datosVeterinario);
-  
+      if (datosVeterinario != null) {
+        //this.vetService.guardarVeterinarioEnLocalStorage(datosVeterinario);
+        localStorage.setItem('token', String(datosVeterinario))
         Swal.fire({
           icon: 'success',
           title: 'Inicio de Sesión Exitoso',
@@ -61,7 +57,7 @@ export class SesionVeterinarioComponent {
             Swal.showLoading();
           },
         }).then(() => {
-          this.router.navigate(['/veterinario/dashboard', this.cedulaString]);
+          this.router.navigate(['/veterinario/dashboard']);
         });
       }
     });

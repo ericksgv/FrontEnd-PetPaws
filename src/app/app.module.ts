@@ -18,7 +18,7 @@ import { ContactoComponent } from './landing-page/contacto/contacto.component';
 import { FooterComponent } from './landing-page/footer/footer.component';
 import { DropdownMenuComponent } from './dropdown-menu/dropdown-menu.component';
 import {NgOptimizedImage} from "@angular/common";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { ModificarUsuarioComponent } from './usuario/modificar-usuario/modificar-usuario.component';
 import { AgregarUsuarioComponent } from './usuario/agregar-usuario/agregar-usuario.component';
 import { UsuarioTableComponent } from './usuario/usuario-table/usuario-table.component';
@@ -42,6 +42,9 @@ import { TopBarOscuroComponent } from './top-bar/top-bar-oscuro/top-bar-oscuro.c
 import { TablaMascotasUsuarioComponent } from './usuario/tabla-mascotas-usuario/tabla-mascotas-usuario.component';
 import { InformacionMascotaComponent } from './mascota/informacion-mascota/informacion-mascota.component';
 import { ChatgptComponent } from './chat/chatgpt/chatgpt.component';
+import { AuthInterceptor } from './helpers/auth.interceptor';
+import { UnauthorizedComponent } from './errores/unauthorized/unauthorized.component';
+import { ForbiddenComponent } from './errores/forbidden/forbidden.component';
 
 
 
@@ -84,6 +87,8 @@ import { ChatgptComponent } from './chat/chatgpt/chatgpt.component';
     TablaMascotasUsuarioComponent,
     InformacionMascotaComponent,
     ChatgptComponent,
+    UnauthorizedComponent,
+    ForbiddenComponent,
   ],
     imports: [
         BrowserModule,
@@ -93,7 +98,11 @@ import { ChatgptComponent } from './chat/chatgpt/chatgpt.component';
         NgOptimizedImage,
         HttpClientModule
     ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi:true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

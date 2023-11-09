@@ -21,9 +21,18 @@ export class VeterinarioService {
     return this.http.get<Veterinario>(`${this.apiUrl}/find/${cedula}`)
   }
 
-  login(infoLogin: LoginModel): Observable<Veterinario> {
-    return this.http.post<Veterinario>(`${this.apiUrl}/login`, infoLogin)
+  login(infoLogin: LoginModel): Observable<string> {
+    return this.http.post(`${this.apiUrl}/login`, infoLogin, {
+      responseType: 'text'
+    });
   }
+
+  getRol(): Observable<string> {
+    return this.http.get(`${this.apiUrl}/user/roles`, {
+      responseType: 'text'
+    });
+  }
+  
 
   agregarVeterinario(veterinario: Veterinario): Observable<Veterinario> {
     console.log(veterinario);
@@ -47,6 +56,10 @@ export class VeterinarioService {
 
   buscarVeterinarioFiltro(data: string): Observable<Veterinario[]> {
     return this.http.get<Veterinario[]>(`${this.apiUrl}/filtrar/${data}`);
+  }
+
+  veterinarioHome(): Observable<Veterinario>{
+    return this.http.get<Veterinario>(`${this.apiUrl}/details`)
   }
 
   guardarVeterinarioEnLocalStorage(veterinario: Veterinario){

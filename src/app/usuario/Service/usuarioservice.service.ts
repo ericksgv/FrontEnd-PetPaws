@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Usuario } from 'src/app/model/usuario';  // Asegúrate de importar el modelo de usuario
 import { Mascota } from 'src/app/model/mascota'
+import { LoginModel } from 'src/app/model/loginModel';
 
 @Injectable({
   providedIn: 'root',
@@ -15,6 +16,10 @@ export class UsuarioService {
 
   getUsuarios(): Observable<Usuario[]> {
     return this.http.get<Usuario[]>(`${this.apiUrl}/all`);
+  }
+
+  usuarioHome(): Observable<Usuario>{
+    return this.http.get<Usuario>(`${this.apiUrl}/details`)
   }
 
   eliminarUsuario(cedula: number): Observable<void> {
@@ -52,6 +57,12 @@ export class UsuarioService {
     return this.http.get<Mascota[] | undefined>(`${this.apiUrl}/mascotas/${cedula}`)
   }
 
+  login(infoLogin: LoginModel): Observable<string> {
+    return this.http.post(`${this.apiUrl}/login`, infoLogin, {
+      responseType: 'text'
+    });
+  }
+  
   buscarUsuariosPorCedula(cedula: number): Observable<Usuario[]> {
     return this.http.get<Usuario[]>(`${this.apiUrl}/filtrar/${cedula}`);
   }

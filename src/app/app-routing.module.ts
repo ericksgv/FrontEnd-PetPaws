@@ -24,6 +24,9 @@ import { DashboardVeterinarioComponent } from './veterinario/dashboard-veterinar
 import {TablaMascotasUsuarioComponent} from "./usuario/tabla-mascotas-usuario/tabla-mascotas-usuario.component";
 import {InformacionMascotaComponent} from "./mascota/informacion-mascota/informacion-mascota.component";
 import { ChatgptComponent } from './chat/chatgpt/chatgpt.component';
+import { UnauthorizedComponent } from './errores/unauthorized/unauthorized.component';
+import { ForbiddenComponent } from './errores/forbidden/forbidden.component';
+
 const routes: Routes = [
 
   {
@@ -34,6 +37,10 @@ const routes: Routes = [
   {
     path: 'mascotas/all',
     component: MascotaTableComponent,
+  },
+  {
+    path: 'veterinario/dashboard',
+    component: DashboardVeterinarioComponent,
   },
   {
     path: 'mascotas/add',
@@ -103,10 +110,10 @@ const routes: Routes = [
     path: 'veterinario/update/:id',
     component: ModificarVeterinarioComponent,
   },
-  {
+/*  {
     path: 'veterinario/dashboard/:cedula',
     component: DashboardVeterinarioComponent,
-  },
+  },*/
   {
     path: 'tratamiento/all',
     component: TratamientoTableComponent,
@@ -122,7 +129,13 @@ const routes: Routes = [
   {
     path: 'chat',
     component: ChatgptComponent,
-  }
+  },
+  {path: 'unauthorized',
+    component: UnauthorizedComponent,
+  },
+    {path: 'forbidden',
+  component: ForbiddenComponent,
+}
 
 
 ];

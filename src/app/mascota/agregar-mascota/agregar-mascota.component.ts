@@ -5,6 +5,7 @@ import { MascotaService } from '../Service/mascotaservice.service';
 import { Usuario } from 'src/app/model/usuario';
 import { UsuarioService } from 'src/app/usuario/Service/usuarioservice.service';
 import Swal from 'sweetalert2';
+import { VeterinarioService } from 'src/app/veterinario/Service/veterinario-service.service';
 @Component({
   selector: 'app-agregar-mascota',
   templateUrl: './agregar-mascota.component.html',
@@ -15,10 +16,12 @@ export class AgregarMascotaComponent {
   usuarios: Usuario[] = []; // Almacena la lista de usuarios
   cedulaUsuario: number | undefined; // Almacena la cédula del usuario seleccionado
   mostrarError: boolean = false;
+  rol: String =''
 
 
   constructor(
     private mascotaService: MascotaService,
+    private veterinarioService: VeterinarioService,
     private usuarioService: UsuarioService,
     private router: Router,
     private formBuilder: FormBuilder
@@ -39,6 +42,13 @@ export class AgregarMascotaComponent {
     });
   }
   
+  ngOnInit() {
+    this.veterinarioService.getRol().subscribe(rol => {
+      this.rol = rol;
+    });
+    console.log("ROL: " + this.rol)
+ 
+  }
 
   buscarUsuariosPorCedula(event: any) {
     const cedula = event.target.value;

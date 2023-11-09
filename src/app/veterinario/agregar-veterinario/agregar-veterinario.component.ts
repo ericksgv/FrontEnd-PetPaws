@@ -30,7 +30,8 @@ export class AgregarVeterinarioComponent  {
       const veterinario = this.veterinarioForm.value;
       veterinario.estado = "activo";
   
-      this.veterinarioService.agregarVeterinario(veterinario).subscribe(() => {
+      this.veterinarioService.agregarVeterinario(veterinario).subscribe(
+        (data) => {
         Swal.fire({
           icon: 'success',
           title: 'CRUD Exitoso',
@@ -43,6 +44,9 @@ export class AgregarVeterinarioComponent  {
         }).then(() => {
           this.router.navigate(['veterinario/all']);
         });
+      },
+      (error) => {
+        console.log(error.error);
       });
     }
   }

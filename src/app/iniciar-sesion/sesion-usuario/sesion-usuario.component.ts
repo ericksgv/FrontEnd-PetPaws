@@ -4,6 +4,7 @@ import {UsuarioService} from "../../usuario/Service/usuarioservice.service";
 import {FormControl, Validators} from "@angular/forms";
 import {catchError} from "rxjs";
 import Swal from 'sweetalert2';
+import { LoginModel } from 'src/app/model/loginModel';
 
 @Component({
   selector: 'app-sesion-usuario',
@@ -24,26 +25,16 @@ export class SesionUsuarioComponent {
 
 
   login() {
-    // Dado que siempre se va a retornar un valor, buscamos la cedula en los usuarios existentes.
-    this.cedulaUsuarioString = this.campoCedula.value!;
-    this.usuarioService
-      .getUsuarioPorCedula(Number(this.cedulaUsuarioString))
-      .pipe(
-        catchError((error) => {
-          this.usuarioEncontrado = false;
-          console.error('Usuario no encontrado. Error:', error);
-          return [];
-        })
+    const infoLogin = new LoginModel(Number(this.campoCedula.value!), "1");
+    this.usuarioService.login(infoLogin).pipe(
+      catchError((error) => {
+        this.usuarioEncontrado = true;
+        console.error('Vet no encontrado. Error:', error);
+        return [];
+      })
       )
-      .subscribe((datosUsuario) => {
-        if (datosUsuario != null && datosUsuario.estado === 'inactivo') {
-          this.usuarioInactivo = true;
-        }
-        if (datosUsuario != null && datosUsuario.estado !== 'inactivo') {
-          this.usuarioEncontrado = true;
-          this.usuarioInactivo = false;
-          this.usuarioService.guardaUsuarioEnLocalStorage(datosUsuario);
-
+      .subscribe((token) => {
+        localStorage.setItem('token', String(token))
           Swal.fire({
             icon: 'success',
             title: 'Inicio de Sesión Exitoso',
@@ -56,7 +47,6 @@ export class SesionUsuarioComponent {
           }).then(() => {
             this.router.navigate(['/usuario/dashboard']);
           });
-        }
       });
   }
 

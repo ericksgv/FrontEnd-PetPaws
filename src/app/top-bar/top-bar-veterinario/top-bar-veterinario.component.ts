@@ -9,6 +9,10 @@ import {Router} from "@angular/router";
   styleUrls: ['./top-bar-veterinario.component.css', '../../../styles.css', '../top-bar.component.css']
 })
 export class TopBarVeterinarioComponent {
+  cerrarCesion() {
+  localStorage.removeItem('token'); // Elimina el token de localStorage
+  this.router.navigate(['/']);
+  }
 
   datosVeterinario: Veterinario | null = null
 
@@ -17,10 +21,6 @@ export class TopBarVeterinarioComponent {
 
 
   devolverseDashboard():void{
-    this.datosVeterinario = this.vetService.getVeterinarioLocalStorage()
-
-    if(this.datosVeterinario != null){
-      this.router.navigate(["/veterinario/dashboard/", this.datosVeterinario.cedula])
-    }
+      this.router.navigate(["/veterinario/dashboard/"])
   }
 }
