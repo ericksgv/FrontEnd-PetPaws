@@ -5,6 +5,7 @@ import { Usuario } from 'src/app/model/usuario';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {Mascota} from "../../model/mascota";
 import Swal from 'sweetalert2';
+import { VeterinarioService } from 'src/app/veterinario/Service/veterinario-service.service';
 
 @Component({
   selector: 'app-modificar-usuario',
@@ -16,9 +17,11 @@ export class ModificarUsuarioComponent implements OnInit {
   usuario: Usuario | undefined;
   cedula: number | undefined;
   celular: number | undefined;
+  rol: String = '';
 
   constructor(
     private usuarioService: UsuarioService,
+    private veterinarioService: VeterinarioService,
     private route: ActivatedRoute,
     private router: Router,
     private fb: FormBuilder
@@ -38,6 +41,13 @@ export class ModificarUsuarioComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    
+      this.veterinarioService.getRol().subscribe((rol) => {
+        this.rol = rol;
+        console.log(this.rol);
+      });
+    
 
     console.log("Cedula de la url: ", this.cedula)
     if (this.cedula) {

@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/fo
 import { Router } from '@angular/router';
 import { UsuarioService } from '../Service/usuarioservice.service';  
 import Swal from 'sweetalert2';
+import { VeterinarioService } from 'src/app/veterinario/Service/veterinario-service.service';
 
 // Función de validación personalizada para el formato de correo electrónico
 export function EmailValidator(control: AbstractControl): { [key: string]: boolean } | null {
@@ -26,9 +27,11 @@ export class AgregarUsuarioComponent {
   id: number | undefined;
   showError: boolean = false;
   message: string = ''; 
+  rol: string = ''; 
 
   constructor(
     private usuarioService: UsuarioService,  
+    private veterinarioService: VeterinarioService,
     private router: Router,
     private formBuilder: FormBuilder, 
   ) {
@@ -38,6 +41,13 @@ export class AgregarUsuarioComponent {
       nombre: ['', Validators.required],
       correo: ['', [Validators.required, EmailValidator]], // Usar la validación personalizada
       celular: ['', Validators.required]
+    });
+  }
+  
+  ngOnInit() {
+    this.veterinarioService.getRol().subscribe((rol) => {
+      this.rol = rol;
+      console.log(this.rol);
     });
   }
   

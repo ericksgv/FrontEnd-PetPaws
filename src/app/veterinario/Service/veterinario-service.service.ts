@@ -28,7 +28,7 @@ export class VeterinarioService {
   }
 
   getRol(): Observable<string> {
-    return this.http.get(`${this.apiUrl}/user/roles`, {
+    return this.http.get(`http://localhost:8090/user/roles`, {
       responseType: 'text'
     });
   }
@@ -60,25 +60,5 @@ export class VeterinarioService {
 
   veterinarioHome(): Observable<Veterinario>{
     return this.http.get<Veterinario>(`${this.apiUrl}/details`)
-  }
-
-  guardarVeterinarioEnLocalStorage(veterinario: Veterinario){
-
-    const stringVeterinario =  JSON.stringify(veterinario)
-
-    localStorage.setItem("veterinarioActual", stringVeterinario)
-  }
-
-  getVeterinarioLocalStorage() : Veterinario | null {
-
-    const stringVeterinario = localStorage.getItem("veterinarioActual")
-    // Se conviertern los datos del usuario de string a un objeto Usuario
-    if (stringVeterinario != null){
-      const datosVeterinario = JSON.parse(stringVeterinario)
-      return datosVeterinario
-    }
-    console.log("Datos del veterinario son nulos. No se retorna nada.")
-    return null
-
   }
 }

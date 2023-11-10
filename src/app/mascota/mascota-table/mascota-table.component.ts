@@ -36,7 +36,9 @@ export class MascotaTableComponent implements OnInit {
   ngOnInit() {
     this.veterinarioService.getRol().subscribe(rol => {
       this.rol = rol;
+      console.log(this.rol)
     });
+
     this.getMascotas();
   }
 

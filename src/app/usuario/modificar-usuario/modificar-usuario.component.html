@@ -1,5 +1,9 @@
-<app-top-bar-veterinario></app-top-bar-veterinario>
-
+<ng-container *ngIf="rol === 'VETERINARIO'; else adminTopBar">
+  <app-top-bar-veterinario></app-top-bar-veterinario>
+</ng-container>
+<ng-template #adminTopBar>
+  <app-top-bar-admin></app-top-bar-admin>
+</ng-template>
 
 <div class="completo">
 

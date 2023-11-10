@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/model/usuario'; // Asegúrate de importar la clase de usuario adecuada
 import { UsuarioService } from '../Service/usuarioservice.service'; // Importa el servicio de usuarios
 import { Router } from '@angular/router';
+import { VeterinarioService } from 'src/app/veterinario/Service/veterinario-service.service';
 
 @Component({
   selector: 'app-usuario-table',
@@ -12,6 +13,7 @@ export class UsuarioTableComponent implements OnInit {
   selectedSortBy: string = 'cedula'; // Valor predeterminado
   selectedSortOrder: string = 'asc'; // Valor predeterminado
   usuarios: Usuario[] = [];
+  rol: String = '';
 
   busquedaAvanzada: string = ''; // Variable para el atributo de búsqueda avanzada
   textoBusqueda: string = '';
@@ -29,9 +31,13 @@ export class UsuarioTableComponent implements OnInit {
   rangoPaginas: number[] = [];
   usuariosSort: any[] = [];
 
-  constructor(private usuarioService: UsuarioService, private router: Router) {}
+  constructor(private usuarioService: UsuarioService, private router: Router,private veterinarioService: VeterinarioService) {}
 
   ngOnInit() {
+    this.veterinarioService.getRol().subscribe((rol) => {
+      this.rol = rol;
+      console.log(this.rol);
+    });
     this.getUsuarios();
   }
 

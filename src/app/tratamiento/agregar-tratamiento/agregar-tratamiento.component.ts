@@ -12,13 +12,14 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-agregar-tratamiento',
   templateUrl: './agregar-tratamiento.component.html',
-  styleUrls: ['./agregar-tratamiento.component.css']
+  styleUrls: ['./agregar-tratamiento.component.css'],
 })
 export class AgregarTratamientoComponent implements OnInit {
   mascotas: Mascota[] = [];
   veterinarios: Veterinario[] = [];
   medicamentos: Medicamento[] = [];
   tratamientoForm: FormGroup;
+  rol: String = '';
 
   constructor(
     private tratamientoService: ServiceService,
@@ -45,13 +46,18 @@ export class AgregarTratamientoComponent implements OnInit {
       this.mascotas = mascotas;
     });
 
-    this.medicamentoService.getMedicamentosMayorCero().subscribe((medicamentos) => {
-      this.medicamentos = medicamentos;
-    });
+    this.medicamentoService
+      .getMedicamentosMayorCero()
+      .subscribe((medicamentos) => {
+        this.medicamentos = medicamentos;
+      });
   }
 
-
   ngOnInit() {
+    this.veterinarioService.getRol().subscribe((rol) => {
+      this.rol = rol;
+      console.log(this.rol);
+    });
     this.tratamientoForm = this.formBuilder.group({
       mascotaId: ['', Validators.required],
       veterinarioId: ['', Validators.required],
@@ -69,9 +75,11 @@ export class AgregarTratamientoComponent implements OnInit {
       this.mascotas = mascotas;
     });
 
-    this.medicamentoService.getMedicamentosMayorCero().subscribe((medicamentos) => {
-      this.medicamentos = medicamentos;
-    });
+    this.medicamentoService
+      .getMedicamentosMayorCero()
+      .subscribe((medicamentos) => {
+        this.medicamentos = medicamentos;
+      });
   }
 
   buscarMascotaPorNombre(event: any) {
@@ -82,9 +90,11 @@ export class AgregarTratamientoComponent implements OnInit {
         this.mascotas = m;
       });
     } else {
-      this.mascotaService.buscarMascotasPorNombre(nombre).subscribe((mascotas) => {
-        this.mascotas = mascotas;
-      });
+      this.mascotaService
+        .buscarMascotasPorNombre(nombre)
+        .subscribe((mascotas) => {
+          this.mascotas = mascotas;
+        });
     }
   }
 
@@ -96,9 +106,11 @@ export class AgregarTratamientoComponent implements OnInit {
         this.medicamentos = m;
       });
     } else {
-      this.medicamentoService.buscarMedicamentosPorNombre(nombre).subscribe((medicamentos) => {
-        this.medicamentos = medicamentos;
-      });
+      this.medicamentoService
+        .buscarMedicamentosPorNombre(nombre)
+        .subscribe((medicamentos) => {
+          this.medicamentos = medicamentos;
+        });
     }
   }
 
@@ -110,9 +122,11 @@ export class AgregarTratamientoComponent implements OnInit {
         this.veterinarios = v;
       });
     } else {
-      this.veterinarioService.buscarVeterinarioFiltro(veterinarioData).subscribe((veterinarios) => {
-        this.veterinarios = veterinarios;
-      });
+      this.veterinarioService
+        .buscarVeterinarioFiltro(veterinarioData)
+        .subscribe((veterinarios) => {
+          this.veterinarios = veterinarios;
+        });
     }
   }
 
