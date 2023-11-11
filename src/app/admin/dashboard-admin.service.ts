@@ -21,6 +21,10 @@ export class DashboardAdminService {
 
   }
 
+  usuarioHome(): Observable<Boolean>{
+    return this.http.get<Boolean>(`${this.apiUrl}/details`)
+  }
+
   getTotalClientes() : Observable<number | undefined > {
     return this.http.get<number | undefined>(`${this.apiUrl}/usuarios/total`)
   }
