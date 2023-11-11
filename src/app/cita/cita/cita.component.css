@@ -1,0 +1,119 @@
+.main-container {
+    background-color: #F2EBD2;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.contenedor-titulo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20vh;
+    background-color: #F2EBD2;
+}
+
+.contenedor-titulo h1 {
+    font-family: Recoleta;
+    font-weight: bold;
+    color: #E7B10A;
+    text-align: center;
+    font-size: 3rem;
+}
+
+
+
+.contenedor-padre {
+    width: 90vw;
+    height: 60vh;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.contenedor-izquierdo {
+    width: 40vw;
+    padding: 3vh;
+    min-height: 80%;
+    max-height: 80%;
+    float: left;
+    display: flex;
+    background-color: #F1D79D;
+    border-radius: 4vh;
+    flex-direction: column;
+    align-items: center;
+}
+
+input[type="date"] {
+    background-color: #F1D79D;
+    border: none;
+    margin-top: 5vh;
+    font-size: 1.2rem;
+}
+
+label {
+    color: #2D2D2D;
+    font-family: Recoleta;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+
+.contenedor-derecho {
+    margin-left: 5vw;
+    width: 50vw;
+    min-height: 80%;
+    max-height: 80%;
+    padding: 3vh;
+    float: left;
+    background-color: #F2EBD2;
+}
+
+p{
+    color: #2D2D2D;
+    font-family: Recoleta;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.contenedor-boton {
+    align-items: center;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.horas-disponibles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.horas-disponibles button {
+    border: 2px solid #333; 
+    border-radius: 8vh; 
+    margin: 5px; 
+    padding: 10px; 
+    background-color: #F2EBD2;
+    color: #333;
+}
+
+.horas-disponibles button.selected {
+    background-color: #F1D79D; 
+    color: #fff;
+    font-weight: bold;
+}
+
+
+
+
+button[color="primary"] {
+    background-color: #E7B10A;
+    color: #ffffff;
+    font-family: work sans;
+}

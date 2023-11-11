@@ -17,8 +17,8 @@ import { AboutUsComponent } from './landing-page/about-us/about-us.component';
 import { ContactoComponent } from './landing-page/contacto/contacto.component';
 import { FooterComponent } from './landing-page/footer/footer.component';
 import { DropdownMenuComponent } from './dropdown-menu/dropdown-menu.component';
-import {NgOptimizedImage} from "@angular/common";
-import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import { NgOptimizedImage } from "@angular/common";
+import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { ModificarUsuarioComponent } from './usuario/modificar-usuario/modificar-usuario.component';
 import { AgregarUsuarioComponent } from './usuario/agregar-usuario/agregar-usuario.component';
 import { UsuarioTableComponent } from './usuario/usuario-table/usuario-table.component';
@@ -45,8 +45,12 @@ import { ChatgptComponent } from './chat/chatgpt/chatgpt.component';
 import { AuthInterceptor } from './helpers/auth.interceptor';
 import { UnauthorizedComponent } from './errores/unauthorized/unauthorized.component';
 import { ForbiddenComponent } from './errores/forbidden/forbidden.component';
-
-
+import { CitaComponent } from './cita/cita/cita.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -89,18 +93,24 @@ import { ForbiddenComponent } from './errores/forbidden/forbidden.component';
     ChatgptComponent,
     UnauthorizedComponent,
     ForbiddenComponent,
+    CitaComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        FormsModule,
-        ReactiveFormsModule,
-        NgOptimizedImage,
-        HttpClientModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgOptimizedImage,
+    HttpClientModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatButtonModule,
+    MatIconModule,
+  ],
   providers: [
     {
-      provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi:true
+      provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true
     }
   ],
   bootstrap: [AppComponent]

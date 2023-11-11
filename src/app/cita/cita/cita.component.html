@@ -1,0 +1,30 @@
+<div class="main-container">
+
+    <div class="contenedor-titulo">
+        <h1>PetPaws</h1>
+    </div>
+    <div class="contenedor-padre">
+        <div class="contenedor-izquierdo">
+            <label>Fecha de la cita:</label>
+            <input type="date" [(ngModel)]="selectedDate" (change)="cargarHorasDisponibles()">
+        </div>
+
+        <div class="contenedor-derecho">
+            <p>Horas disponibles:</p>
+            <div *ngIf="horasDisponibles && horasDisponibles.length > 0">
+                <div class="horas-disponibles">
+                    <button mat-button
+                            *ngFor="let hora of horasDisponibles"
+                            (click)="seleccionarHora(hora)"
+                            [class.selected]="hora === horaSeleccionada">
+                        {{ hora | date:'HH:mm' }}
+                    </button>
+                </div>
+            </div>
+        </div>        
+
+    </div>
+    <div class="contenedor-boton">
+        <button mat-raised-button color="primary" (click)="guardarCita()">Guardar Cita</button>
+    </div>
+</div>

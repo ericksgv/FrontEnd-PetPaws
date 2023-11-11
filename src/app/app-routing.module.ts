@@ -26,6 +26,7 @@ import {InformacionMascotaComponent} from "./mascota/informacion-mascota/informa
 import { ChatgptComponent } from './chat/chatgpt/chatgpt.component';
 import { UnauthorizedComponent } from './errores/unauthorized/unauthorized.component';
 import { ForbiddenComponent } from './errores/forbidden/forbidden.component';
+import { CitaComponent } from './cita/cita/cita.component';
 
 const routes: Routes = [
 
@@ -135,7 +136,11 @@ const routes: Routes = [
   },
     {path: 'forbidden',
   component: ForbiddenComponent,
-}
+  },
+  {
+    path: 'citas',
+    component: CitaComponent,
+  },
 
 
 ];
