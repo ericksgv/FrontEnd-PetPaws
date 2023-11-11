@@ -7,26 +7,8 @@
 
 }
   
-.contenedor-titulo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 20vh;
-    background-color: #F2EBD2;
-}
-
-.contenedor-titulo h1 {
-    font-family: Recoleta;
-    font-weight: bold;
-    color: #E7B10A;
-    text-align: center;
-    font-size: 3rem;
-}
-
-
-
 .contenedor-padre {
-    width: 90vw;
+    width: 100%;
     padding-top: 2%;
     height: auto;
     margin: 0 auto;
@@ -35,8 +17,8 @@
 }
 
 .contenedor-izquierdo {
-    width: 40vw;
-    padding: 3vh;
+    width: 40%;
+    padding: 3%;
     height: auto;
     float: left;
     display: flex;
@@ -48,45 +30,45 @@
 
 .warning-message {
     color: red;
-    margin-top: 10px;
+    margin-top: 0.4vw;
+    font-size: 1vw;
   }
   
 .contenedor-derecho {
-    margin-left: 5vw;
-    width: 50vw;
-    height: auto;
+    margin-left: 5%;
+    width: 50%;
+    height: 20vw;
     border-radius: 4vh;
-    padding: 3vh;
+    padding: 3%;
     float: left;
     background-color: #F1D79D;
 }
  
   .contenedor-inferior {
     text-align: center;
-    height: auto;
-    margin-top: 1%; /* Adjust the margin as needed */
+    height: 5vw;
   }
   
 
 input[type="date"] {
     background-color: #F1D79D;
     border: none;
-    margin-top: 5vh;
-    font-size: 1.2rem;
+    margin-top: 2vw;
+    font-size: 1.5vw;
 }
 
 #mascotaInput {
-    background-color: #FFFFCC; /* Amarillo claro */
-    border: 2px solid #E7B10A; /* Color del borde */
-    border-radius: 8px; /* Bordes redondeados */
-    padding: 8px; /* Ajusta el relleno según sea necesario */
-    font-size: 1.2rem;
+    background-color: #FFFFCC; 
+    border: 0.4vh solid #E7B10A; 
+    border-radius: 2vh; 
+    padding: 1.5%; 
+    font-size: 1.2vw;
 }
 
 label {
     color: #2D2D2D;
     font-family: Recoleta;
-    font-size: 2rem;
+    font-size: 2vw;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -97,7 +79,7 @@ label {
 p{
     color: #2D2D2D;
     font-family: Recoleta;
-    font-size: 2rem;
+    font-size: 2vw;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -105,18 +87,14 @@ p{
 
 .boton-redondo {
     border-radius: 20px;
-    margin-top: 6%;
     font-family: Recoleta, serif;
-    font-size: 1.2rem;
+    font-size: 1.2vw;
     transition: 0.5s all;
     background-color: #E7B10A;
     color: #000000;
-    text-align: center; /* Center the text */
-    padding: 10px 20px; /* Adjust padding for better size */
-    margin: 10% auto; /* Center horizontally by setting left and right margins to auto */
-    display: flex; /* Use flex to center vertically */
-    align-items: center; /* Center vertically */
-    justify-content: center; /* Center horizontally */
+    padding: 1vw 2vw; 
+    margin: 0.5vw auto; 
+    display: flex; 
     font-weight: bold;
     border: none;
   }
@@ -139,10 +117,11 @@ p{
 .horas-disponibles button {
     border: 2px solid #333; 
     border-radius: 8vh; 
-    margin: 5px; 
-    padding: 10px; 
+    margin: 0.5vw; 
+    padding: 5%; 
     background-color: #F2EBD2;
     color: #333;
+    font-size: 1.2vw;
 }
 
 .horas-disponibles button.selected {
