@@ -1,10 +1,12 @@
 .main-container {
+    max-width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+    padding: 15vh 2% 2% 2%;
     background-color: #F2EBD2;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
 
+}
+  
 .contenedor-titulo {
     display: flex;
     align-items: center;
@@ -25,7 +27,8 @@
 
 .contenedor-padre {
     width: 90vw;
-    height: 60vh;
+    padding-top: 2%;
+    height: auto;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -34,8 +37,7 @@
 .contenedor-izquierdo {
     width: 40vw;
     padding: 3vh;
-    min-height: 80%;
-    max-height: 80%;
+    height: auto;
     float: left;
     display: flex;
     background-color: #F1D79D;
@@ -44,10 +46,40 @@
     align-items: center;
 }
 
+.warning-message {
+    color: red;
+    margin-top: 10px;
+  }
+  
+.contenedor-derecho {
+    margin-left: 5vw;
+    width: 50vw;
+    height: auto;
+    border-radius: 4vh;
+    padding: 3vh;
+    float: left;
+    background-color: #F1D79D;
+}
+ 
+  .contenedor-inferior {
+    text-align: center;
+    height: auto;
+    margin-top: 1%; /* Adjust the margin as needed */
+  }
+  
+
 input[type="date"] {
     background-color: #F1D79D;
     border: none;
     margin-top: 5vh;
+    font-size: 1.2rem;
+}
+
+#mascotaInput {
+    background-color: #FFFFCC; /* Amarillo claro */
+    border: 2px solid #E7B10A; /* Color del borde */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 8px; /* Ajusta el relleno según sea necesario */
     font-size: 1.2rem;
 }
 
@@ -61,15 +93,6 @@ label {
 }
 
 
-.contenedor-derecho {
-    margin-left: 5vw;
-    width: 50vw;
-    min-height: 80%;
-    max-height: 80%;
-    padding: 3vh;
-    float: left;
-    background-color: #F2EBD2;
-}
 
 p{
     color: #2D2D2D;
@@ -80,18 +103,37 @@ p{
     line-height: normal;
 }
 
-.contenedor-boton {
-    align-items: center;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.boton-redondo {
+    border-radius: 20px;
+    margin-top: 6%;
+    font-family: Recoleta, serif;
+    font-size: 1.2rem;
+    transition: 0.5s all;
+    background-color: #E7B10A;
+    color: #000000;
+    text-align: center; /* Center the text */
+    padding: 10px 20px; /* Adjust padding for better size */
+    margin: 10% auto; /* Center horizontally by setting left and right margins to auto */
+    display: flex; /* Use flex to center vertically */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    font-weight: bold;
+    border: none;
+  }
+  
+  
+
+  
+  
+
+.horas{
+    margin-top: 5%;
 }
 
 .horas-disponibles {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .horas-disponibles button {
@@ -107,13 +149,4 @@ p{
     background-color: #F1D79D; 
     color: #fff;
     font-weight: bold;
-}
-
-
-
-
-button[color="primary"] {
-    background-color: #E7B10A;
-    color: #ffffff;
-    font-family: work sans;
 }
