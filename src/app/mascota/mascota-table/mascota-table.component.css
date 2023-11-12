@@ -345,12 +345,10 @@ button {
     margin-top: 5%;
     max-width: 100%;
     text-align: center;
-    border: solid;
 }
 
 .pagination-button {
     transform:translateX(-60%);
-    border: solid;
     display: inline-block;
     padding: 1% 2%;
     margin: 0 5%;
@@ -402,7 +400,9 @@ h1 {
 }
 
 @media screen and (max-width: 768px) {
-    
+    .boton-contenedor {
+        width: 50%;
+    }
     
     .toggle-container{
         display: none;

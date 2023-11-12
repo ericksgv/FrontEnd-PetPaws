@@ -109,13 +109,13 @@
 
       <button *ngIf="rangoPaginas[0] > 1" (click)="cambiarPagina(1)" class="pagination-button">1</button>
 
-      <span *ngIf="rangoPaginas[0] > 2">...</span>
+      <span class="pagination-button1" *ngIf="rangoPaginas[0] > 2">...</span>
 
       <button *ngFor="let pagina of rangoPaginas" (click)="cambiarPagina(pagina)" class="pagination-button" [ngClass]="{'current-page': paginaActual === pagina}">
         {{ pagina }}
       </button>
 
-      <span *ngIf="rangoPaginas[rangoPaginas.length - 1] < paginas.length - 1">...</span>
+      <span  class="pagination-button1" *ngIf="rangoPaginas[rangoPaginas.length - 1] < paginas.length - 1">...</span>
 
       <button *ngIf="rangoPaginas[rangoPaginas.length - 1] < paginas.length" (click)="cambiarPagina(paginas.length)" class="pagination-button">{{ paginas.length }}</button>
 
