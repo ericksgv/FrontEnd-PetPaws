@@ -1,4 +1,13 @@
-<app-top-bar-cliente></app-top-bar-cliente>
+<ng-container *ngIf="rol === 'VETERINARIO'; else adminTopBar">
+  <app-top-bar-veterinario></app-top-bar-veterinario>
+</ng-container>
+<ng-template #adminTopBar>
+  <app-top-bar-admin></app-top-bar-admin>
+</ng-template>
+
+<!-- Agrega la siguiente línea para el caso de rol igual a 'CLIENTE' -->
+<app-top-bar-cliente *ngIf="rol === 'CLIENTE'"></app-top-bar-cliente>
+
 
 <section class="layout-informacion-mascota beige-fondo">
 
