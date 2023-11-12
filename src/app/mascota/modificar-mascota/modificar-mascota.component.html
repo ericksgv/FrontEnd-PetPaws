@@ -7,72 +7,79 @@
 
 <div class="completo">
 
-<section class="contenido-modificar-cliente">
-  <section class="contenedor-img-modificar-entidad">
+  <section class="contenido-modificar-cliente">
+    <section class="contenedor-img-modificar-entidad">
 
+    </section>
+    <section class="contenedor-img-modificar-mascota">
+
+      <div class="contenedor-imagen-perro ">
+
+      </div>
+
+      <div class="contenedor-label margin-bottom">
+        <label for="nombre" class="acento-verde-texto enunciado ">URL de Foto</label><br>
+        <input *ngIf="mascota" [(ngModel)]="mascota.foto" name="foto" type="text" class="labelenunciado" id="nombre"
+          placeholder="URL" required>
+
+      </div>
+    </section>
+
+    <section class="contenedor-campos-modificar-entidad">
+      <div class="seccion-input-contenido-dashboard">
+        <h2 class="title-creacional subrayado acento-verde-oscuro-texto">Editar Datos de Mascota</h2>
+        <form (ngSubmit)="actualizarMascota()" #form="ngForm">
+          <div class="columna">
+            <div class="uno" *ngIf="mascota">
+              <label for="nombre" class="acento-verde-texto enunciado">Nombre</label><br>
+              <input [(ngModel)]="mascota.nombre" name="nombre" type="text" class="labelenunciado" id="nombre"
+                placeholder="Nombre" required>
+
+            </div>
+            <div class="dos" *ngIf="mascota">
+              <label for="edad" class="acento-verde-texto enunciado">Edad</label><br>
+              <input [(ngModel)]="mascota.edad" name="edad" type="number" class="labelenunciado" id="edad"
+                placeholder="Edad" min="0" step="1" required>
+
+            </div>
+          </div>
+          <div class="columna">
+            <div class="uno" *ngIf="mascota">
+              <label for="raza" class="acento-verde-texto enunciado">Raza</label><br>
+              <input [(ngModel)]="mascota.raza" name="raza" type="text" class="labelenunciado" id="raza"
+                placeholder="Raza" required>
+
+            </div>
+            <div class="dos" *ngIf="mascota">
+              <label for="peso" class="acento-verde-texto enunciado">Peso</label><br>
+              <input [(ngModel)]="mascota.peso" name="peso" type="number" class="labelenunciado" id="peso"
+                placeholder="Peso" min="0.01" required>
+
+            </div>
+          </div>
+          <div class="columna">
+            <div class="uno" *ngIf="mascota">
+              <label for="estado" class="acento-verde-texto enunciado">Estado</label><br>
+              <select [(ngModel)]="mascota.estado" name="estado" class="lacento-verde-texto selectenunciado" id="estado"
+                required>
+                <option value="Inactivo">Inactivo</option>
+                <option value="Sin estado">Sin estado</option>
+                <option value="Hospitalizado">Hospitalizado</option>
+                <option value="Curado">Curado</option>
+              </select>
+            </div>
+            <div class="dos" *ngIf="mascota">
+              <label for="enfermedad" class="acento-verde-texto enunciado">Enfermedad</label><br>
+              <input [(ngModel)]="mascota.enfermedad" name="enfermedad" class="labelenunciado" id="enfermedad"
+                placeholder="Enfermedad" required>
+
+            </div>
+          </div>
+          <input *ngIf="mascota" type="hidden" [(ngModel)]="mascota.duenio.id" name="duenioId" />
+
+          <button type="submit" class="buton">Actualizar Mascota</button>
+        </form>
+      </div>
+    </section>
   </section>
-  <section class="contenedor-img-modificar-mascota">
-
-    <div class="contenedor-imagen-perro ">
-
-    </div>
-
-    <div class="contenedor-label margin-bottom">
-      <label for="nombre" class="acento-verde-texto enunciado ">URL de Foto</label><br>
-      <input *ngIf="mascota" [(ngModel)]="mascota.foto" name="foto" type="text" class="labelenunciado" id="nombre" placeholder="URL" required>
-
-    </div>
-  </section>
-
-  <section class="contenedor-campos-modificar-entidad">
-    <div class="seccion-input-contenido-dashboard">
-      <h2 class="title-creacional subrayado acento-verde-oscuro-texto">Editar Datos de Mascota</h2>
-      <form (ngSubmit)="actualizarMascota()" #form="ngForm">
-        <div class="columna">
-          <div class="uno" *ngIf="mascota">
-            <label for="nombre" class="acento-verde-texto enunciado">Nombre</label><br>
-            <input [(ngModel)]="mascota.nombre" name="nombre" type="text" class="labelenunciado" id="nombre" placeholder="Nombre" required>
-
-          </div>
-          <div class="dos" *ngIf="mascota">
-            <label for="edad" class="acento-verde-texto enunciado">Edad</label><br>
-            <input [(ngModel)]="mascota.edad" name="edad" type="number" class="labelenunciado" id="edad" placeholder="Edad" min="0" step="1" required>
-
-          </div>
-        </div>
-        <div class="columna">
-          <div class="uno" *ngIf="mascota">
-            <label for="raza" class="acento-verde-texto enunciado">Raza</label><br>
-            <input [(ngModel)]="mascota.raza" name="raza" type="text" class="labelenunciado" id="raza" placeholder="Raza" required>
-
-          </div>
-          <div class="dos" *ngIf="mascota">
-            <label for="peso" class="acento-verde-texto enunciado">Peso</label><br>
-            <input [(ngModel)]="mascota.peso" name="peso" type="number" class="labelenunciado" id="peso" placeholder="Peso" min="0.01" required>
-
-          </div>
-        </div>
-        <div class="columna">
-          <div class="uno" *ngIf="mascota">
-            <label for="estado" class="acento-verde-texto enunciado">Estado</label><br>
-            <select [(ngModel)]="mascota.estado" name="estado" class="lacento-verde-texto selectenunciado" id="estado" required>
-              <option value="Inactivo">Inactivo</option>
-              <option value="Sin estado">Sin estado</option>
-              <option value="Hospitalizado">Hospitalizado</option>
-              <option value="Curado">Curado</option>
-            </select>
-          </div>
-          <div class="dos" *ngIf="mascota">
-            <label for="enfermedad" class="acento-verde-texto enunciado">Enfermedad</label><br>
-            <input [(ngModel)]="mascota.enfermedad" name="enfermedad" class="labelenunciado" id="enfermedad" placeholder="Enfermedad" required>
-
-          </div>
-        </div>
-        <input *ngIf="mascota" type="hidden" [(ngModel)]="mascota.duenio.id" name="duenioId" />
-
-        <button type="submit" class="buton margin-bottom">Actualizar Mascota</button>
-      </form>
-    </div>
-  </section>
-</section>
 </div>
