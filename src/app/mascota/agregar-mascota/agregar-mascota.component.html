@@ -15,7 +15,7 @@
     <section class="container-wave2 creacional">
         <h1 class="title-creacional subrayado">Añadir Mascota</h1>
         <form [formGroup]="mascotaForm" (ngSubmit)="agregarMascota()">
-            <div class="columna">
+            <div class="columna orientation">
                 <div class="uno">
                     <label for="duenoId" class="acento-verde-texto enunciado">Dueño</label>
                     <br>
@@ -37,13 +37,13 @@
             </div>
             <div class="columna">
                 <div class="uno">
-                    <label for="edad" class="acento-verde-texto enunciado">Edad</label>
+                    <label for="edad" class="acento-verde-texto enunciado ">Edad</label>
                     <br>
-                    <input type="text" formControlName="edad" class="lacento-verde-texto labelenunciado" id="edad"
+                    <input type="text" formControlName="edad" class="lacento-verde-texto labelenunciado anchoajustado" id="edad"
                         placeholder="Edad">
                 </div>
                 <div class="dos">
-                    <label for="foto" class="acento-verde-texto enunciado">Foto</label>
+                    <label for="foto" class="acento-verde-texto enunciado ">Foto</label>
                     <br>
                     <input type="text" formControlName="foto" class="lacento-verde-texto labelenunciado" id="foto"
                         placeholder="Foto">
@@ -53,7 +53,7 @@
                 <div class="uno">
                     <label for="raza" class="acento-verde-texto enunciado">Raza</label>
                     <br>
-                    <input type="text" formControlName="raza" class="lacento-verde-texto labelenunciado" id="raza"
+                    <input type="text" formControlName="raza" class="lacento-verde-texto labelenunciado anchoajustado" id="raza"
                         placeholder="Raza">
                 </div>
                 <div class="dos">
