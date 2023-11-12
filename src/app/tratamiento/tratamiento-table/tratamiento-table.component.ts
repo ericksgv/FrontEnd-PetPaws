@@ -105,14 +105,23 @@ export class TratamientoTableComponent implements OnInit {
       // Si el campo de búsqueda está vacío, muestra todos los tratamientos.
       this.tratamientosFiltrados = this.tratamientos;
     } else {
-      // Filtra los tratamientos que coinciden con el texto de búsqueda.
-      this.tratamientosFiltrados = this.tratamientos.filter((tratamiento) =>
-        tratamiento.id.toString().includes(this.textoBusqueda)
-      );
+      // Filtra los tratamientos que coinciden con el texto de búsqueda en varios atributos.
+      const textoBusquedaLower = this.textoBusqueda.toLowerCase();
+      this.tratamientosFiltrados = this.tratamientos.filter((tratamiento) => {
+        return (
+          tratamiento.id.toString().includes(textoBusquedaLower) ||
+          tratamiento.mascota.id.toString().includes(textoBusquedaLower) ||
+          tratamiento.medicamento.nombre.toLowerCase().includes(textoBusquedaLower) ||
+          tratamiento.veterinario.nombre.toLowerCase().includes(textoBusquedaLower) ||
+          tratamiento.fecha.toString().includes(textoBusquedaLower)
+        );
+      });
+  
       this.calcularPaginas();
       this.actualizarRangoPaginas();
     }
   }
+  
 
   restaurarFiltros() {
     this.filtroActivoIdMascota = false;
@@ -124,6 +133,17 @@ export class TratamientoTableComponent implements OnInit {
   }
 
   filtrarPorAtributo(atributo: string) {
+    console.log(this.filtroActivoIdMascota)
+    if(this.filtroActivoIdMascota == true){
+      atributo = 'limpiar'
+    }else if(this.filtroActivoMedicamento){
+      atributo = 'limpiar'
+    }else if(this.filtroActivoVeterinario){
+      atributo = 'limpiar'
+    }else if(this.filtroActivoFecha){
+      atributo = 'limpiar'
+    }
+    
     if (atributo == 'limpiar') {
       // Limpia el campo de búsqueda avanzada y muestra todos los tratamientos
       this.busquedaAvanzada = '';
@@ -146,7 +166,7 @@ export class TratamientoTableComponent implements OnInit {
         this.filtroActivoFecha = !this.filtroActivoFecha;
       this.tratamientosFiltrados = this.tratamientosFiltrados.filter(
         (tratamiento) => {
-          const atributoBusqueda = this.busquedaAvanzada;
+          const atributoBusqueda = this.textoBusqueda;
           if (atributo == 'mascota') {
             return tratamiento.mascota.id.toString().includes(atributoBusqueda);
           } else if (atributo == 'medicamento') {

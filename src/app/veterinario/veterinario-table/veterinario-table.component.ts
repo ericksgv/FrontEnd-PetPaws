@@ -19,6 +19,7 @@ export class VeterinarioTableComponent implements OnInit {
   veterinariosFiltrados: any[] = [];
 
   filtroActivoNombre = false;
+  filtroActivoCedula = false;
   filtroActivoEspecialidad = false;
   filtroActivoNAtenciones = false;
   filtroActivoEstado = false;
@@ -79,14 +80,22 @@ export class VeterinarioTableComponent implements OnInit {
 
     } else {
       // Filtra los veterinarios que coinciden con el texto de búsqueda.
-      this.veterinariosFiltrados = this.veterinarios.filter(veterinario => veterinario.cedula.toString().includes(this.textoBusqueda));
+      this.veterinariosFiltrados = this.veterinarios.filter((veterinario) => {
+        return veterinario.nombre.toLowerCase().includes(this.textoBusqueda.toLowerCase()) ||
+          veterinario.especialidad.toLowerCase().includes(this.textoBusqueda.toLowerCase()) ||
+          veterinario.estado.toLowerCase().includes(this.textoBusqueda.toLowerCase()) ||
+          veterinario.cedula.toString().includes(this.textoBusqueda) ||
+          veterinario.numeroAtenciones.toString().includes(this.textoBusqueda);
+      });
       this.calcularPaginas();
       this.actualizarRangoPaginas();
     }
   }
 
   restaurarFiltros() {
+
     this.filtroActivoNombre = false;
+    this.filtroActivoCedula = false;
     this.filtroActivoEspecialidad = false;
     this.filtroActivoNAtenciones = false;
     this.filtroActivoEstado = false;
@@ -95,9 +104,27 @@ export class VeterinarioTableComponent implements OnInit {
   }
 
   filtrarPorAtributo(atributo: string) {
+
+
+    if(this.filtroActivoNombre){
+      atributo = 'limpiar'
+    }
+    else if(this.filtroActivoCedula){
+      atributo = 'limpiar'
+    }
+    else if(this.filtroActivoEspecialidad){
+      atributo = 'limpiar'
+    }
+    else if(this.filtroActivoNAtenciones){
+      atributo = 'limpiar'
+    }
+    else if(this.filtroActivoEstado){
+      atributo = 'limpiar'
+    }
+
     if (atributo === 'limpiar') {
       // Limpia el campo de búsqueda avanzada y muestra todos los veterinarios
-      this.busquedaAvanzada = '';
+      this.textoBusqueda = '';
       this.restaurarFiltros();
       this.filtrarVeterinarios();
       this.calcularPaginas();
@@ -106,7 +133,9 @@ export class VeterinarioTableComponent implements OnInit {
       // Filtra los veterinarios que coinciden con el texto de búsqueda y el atributo de búsqueda avanzada.
       this.filtrarVeterinarios();
       this.restaurarFiltros();
-      if (atributo == 'nombre')
+      if (atributo == 'cedula')
+        this.filtroActivoCedula = !this.filtroActivoCedula;
+      else if (atributo == 'nombre')
         this.filtroActivoNombre = !this.filtroActivoNombre;
       else if (atributo == 'especialidad')
         this.filtroActivoEspecialidad = !this.filtroActivoEspecialidad;
@@ -116,7 +145,7 @@ export class VeterinarioTableComponent implements OnInit {
         this.filtroActivoEstado = !this.filtroActivoEstado;
 
       this.veterinariosFiltrados = this.veterinariosFiltrados.filter(veterinario => {
-        const atributoBusqueda = this.busquedaAvanzada;
+        const atributoBusqueda = this.textoBusqueda;
         if (atributo == 'nombre') {
           return veterinario.nombre.toLowerCase().includes(atributoBusqueda);
         } else if (atributo == 'especialidad') {

@@ -19,6 +19,7 @@ export class UsuarioTableComponent implements OnInit {
   textoBusqueda: string = '';
   usuariosFiltrados: any[] = [];
 
+  filtroActivoCedula = false;
   filtroActivoNombre = false;
   filtroActivoCorreo = false;
   filtroActivoCelular = false;
@@ -64,7 +65,14 @@ export class UsuarioTableComponent implements OnInit {
 
     } else {
       // Filtra los usuarios que coinciden con el texto de búsqueda.
-      this.usuariosFiltrados = this.usuarios.filter(usuario => usuario.cedula.toString().includes(this.textoBusqueda));
+      this.usuariosFiltrados = this.usuarios.filter((usuario) => {
+        return usuario.nombre.toLowerCase().includes(this.textoBusqueda.toLowerCase()) ||
+        usuario.correo.toLowerCase().includes(this.textoBusqueda.toLowerCase()) ||
+        usuario.estado.toLowerCase().includes(this.textoBusqueda.toLowerCase()) ||
+        usuario.celular.toString().includes(this.textoBusqueda) ||
+        usuario.cedula.toString().includes(this.textoBusqueda);
+      });
+        
       this.calcularPaginas();
       this.actualizarRangoPaginas();
     }
@@ -87,6 +95,7 @@ export class UsuarioTableComponent implements OnInit {
   }
 
   restaurarFiltros() {
+    this.filtroActivoCedula = false;
     this.filtroActivoNombre = false;
     this.filtroActivoCorreo = false;
     this.filtroActivoCelular = false;
@@ -96,6 +105,20 @@ export class UsuarioTableComponent implements OnInit {
   }
 
   filtrarPorAtributo(atributo: string) {
+    if(this.filtroActivoCedula){
+      atributo = 'limpiar'
+    } else
+    if(this.filtroActivoNombre){
+      atributo = 'limpiar'
+    } else if(this.filtroActivoCorreo){
+      atributo = 'limpiar'
+    }
+    else if(this.filtroActivoCelular){
+      atributo = 'limpiar'
+    }
+    else if(this.filtroActivoEstado){
+      atributo = 'limpiar'
+    }
     if (atributo === 'limpiar') {
       // Limpia el campo de búsqueda avanzada y muestra todos los usuarios
       this.busquedaAvanzada = '';
@@ -107,6 +130,9 @@ export class UsuarioTableComponent implements OnInit {
       // Filtra los usuarios que coinciden con el texto de búsqueda y el atributo de búsqueda avanzada.
       this.filtrarUsuarios();
       this.restaurarFiltros();
+      if (atributo == 'cedula')
+        this.filtroActivoCedula = !this.filtroActivoCedula;
+      else
       if (atributo == 'nombre')
         this.filtroActivoNombre = !this.filtroActivoNombre;
       else if (atributo == 'correo')
@@ -117,7 +143,10 @@ export class UsuarioTableComponent implements OnInit {
         this.filtroActivoEstado = !this.filtroActivoEstado;
 
       this.usuariosFiltrados = this.usuariosFiltrados.filter(usuario => {
-        const atributoBusqueda = this.busquedaAvanzada;
+        const atributoBusqueda = this.textoBusqueda;
+        if (atributo == 'cedula') {
+          return usuario.cedula.toString().includes(atributoBusqueda);
+        } else
         if (atributo == 'nombre') {
           return usuario.nombre.toLowerCase().includes(atributoBusqueda);
         } else if (atributo == 'correo') {
