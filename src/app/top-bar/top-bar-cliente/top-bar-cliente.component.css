@@ -55,3 +55,9 @@
   font-size: 2vw !important;
   font-weight: bold;
 }
+
+@media (min-width: 600px) {
+  div {
+    flex-basis: 33%;
+  }
+}
