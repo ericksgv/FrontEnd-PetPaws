@@ -152,7 +152,7 @@ filtrarPorAtributo(atributo: string) {
   }
 
   toggleEstadoMascota(mascota: any) {
-    if (mascota.estado === 'Sin Estado') {
+    if (mascota.estado === 'activo') {
       this.eliminarMascota(mascota.id);
     } else if (mascota.estado === 'Inactivo') {
       this.activarMascota(mascota.id);

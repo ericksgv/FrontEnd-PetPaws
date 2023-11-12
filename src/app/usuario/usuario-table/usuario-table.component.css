@@ -260,12 +260,12 @@ button {
 
   .toggle-switch {
     width: 20px;
-    height: 20px;
+    height: 18px;
     border-radius: 50%;
     background-color: #fdfdfd;
     left: 0;
     top: 0;
-    transition: transform 0.3s ease; 
+    transition: transform 0.4s ease; 
   }
 
   .toggle-switch.activo {
