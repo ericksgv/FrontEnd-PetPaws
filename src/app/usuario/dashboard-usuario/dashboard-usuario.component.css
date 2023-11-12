@@ -3,18 +3,14 @@
   min-height: 100vh;
   overflow-x: hidden;
   padding: 15vh 2% 2% 2%;
-
   background-color: #F2EBD2;
-
 }
 
 .titulo-nombre-cliente{
   text-align: center;
-
   font-family: Recoleta, serif;
-  font-size: 2.8rem;
+  font-size: calc(0.2em + 2.8vw);
   color: #2D2D2D;
-
 }
 
 /* ------------------------ */
@@ -34,12 +30,10 @@
 }
 
 .titulo-carta{
-
   background-size: 50%;
   color: #2D2D2D;
   font-family: Recoleta, serif;
-  font-size: 2.4rem;
-
+  font-size: calc(0.2em + 2.4vw);
   font-weight: bold;
   margin: auto;
   margin-bottom: 5%;
@@ -49,7 +43,6 @@
 .carta-datos{
   flex: 4;
   padding: 2%;
-
   background-color: #F1D79D;
   margin-right: 2.5%;
   border-radius: 15px;
@@ -57,21 +50,17 @@
 
 label{
   font-family: Recoleta, serif;
-  font-size: 1.7rem;
-
+  font-size: calc(0.2em + 1.7vw);
 }
 
 input{
   width: 100%;
-  height: 4vh;
-
+  height: 3vw;
   border-color: #2D2D2D;
   border-radius: 5px;
   border-style: solid;
-
   font-family: 'Work Sans', sans-serif;
-  font-size: 1.3rem;
-
+  font-size: calc(0.2em + 1.3vw);
   background-color: #F2EBD2;
   color: #2D2D2D;
   margin-bottom: 3vh;
@@ -83,7 +72,6 @@ input{
   flex: 4;
   padding: 2%;
   align-items: center;
-
   background-color: #AAC074;
   margin-left: 2.5%;
   border-radius: 15px;
@@ -92,26 +80,23 @@ input{
 
 .informacionMascota{
   font-family: 'Work Sans', sans-serif;
-  font-size: 1.3rem;
+  font-size: calc(0.2em + 1.3vw);
   margin-bottom: 1%;
 }
 
 .foto-mascota{
-  width: 20%;
-  max-width: 20%;
+  width: 40%;
+  height: auto;
   float: left;
   margin-right: 5%;
   border-radius: 15px;
-
 }
 
 .linea-divisor-mascotas{
   background-color: #F2EBD2;
-
   border-radius: 15px;
   border-color: #F2EBD2;
   border-style: solid;
-
   box-shadow: none;
   height: 2px;
   margin-top: 5%;
@@ -121,6 +106,7 @@ input{
   display: block;
   margin: auto;
   border: none;
+  font-size: calc(0.2em + 1vw);
 }
 
 .carta-mascotas button:hover{
