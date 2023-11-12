@@ -9,7 +9,16 @@
   text-align: left;
   vertical-align: middle;
   justify-content: space-around;
-  font-size: 1.5rem;
+  font-size: calc(0.2em + 2vw) !important;
+}
+
+.topbar-right-section{
+  display: flex;
+  flex: 2;
+  text-align: center;
+  vertical-align: left;
+  justify-content: space-around;
+  font-size: calc(0.2em + 2vw) !important;
 }
 
 
@@ -23,31 +32,38 @@
   font-weight: bold;
   color: #E7B10A;
   text-align: center;
-  font-size: 3rem;
-
+  font-size: calc(0.2em + 3.5vw)!important;
 }
 
 /*-----------------------*/
 .boton-login{
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
   border-radius: 8px;
   background-color: #E7B10A;
   color: #2D2D2D;
-
-  width: 7vw;
-  wrap-option: wrap;
-
   font-family: Recoleta, serif;
   font-weight: bold;
-  font-size: 1rem;
-  margin-left: 10%;
+  font-size: calc(0.2em + 1vw)!important;
 }
-
+.link-menu{
+  font-size: calc(0.2em + 1.6vw)!important;
+}
 .link-menu:hover{
-
   text-decoration: underline;
   cursor: pointer;
   color: #A0BF30;
-
   transition: all 0.3s;
 }
 
+.selector-lenguaje-image {
+  width: 40%;
+  height: auto; 
+}
+
+.selector-lenguaje{
+  margin-left: 0;
+  font-size: calc(0.2em + 1.6vw) !important;
+  font-weight: bold;
+}

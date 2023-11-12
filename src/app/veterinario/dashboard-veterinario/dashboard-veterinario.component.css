@@ -1,258 +1,327 @@
 /*-------------------------*/
-.naranja-fondo{
-    background-color: #DC6A35;
+.naranja-fondo {
+  background-color: #DC6A35;
 }
 
-.verde-fondo{
-    background-color: #A0BF30;
+.verde-fondo {
+  background-color: #A0BF30;
 }
 
-.amarillo-fondo{
-    background-color: #E7B10A;
+.amarillo-fondo {
+  background-color: #E7B10A;
 }
 
-.verde-oscuro-fondo{
-    background-color: #4C894F;
+.verde-oscuro-fondo {
+  background-color: #4C894F;
 }
 
-.contenedor-pagina{
-    max-width: 100vw;
-    min-height: 100vh;
-    overflow-x: hidden;
-    padding: 2% 2% 2%;
-    background-color: #F2EBD2;
-  }
+.contenedor-pagina {
+  margin-top: 15vh;
+  width: 100%;
+  height: auto;
+  overflow-x: hidden;
+  padding: 2% 2% 2%;
+  background-color: #F2EBD2;
+}
 
-  .titulo-nombre-cliente{
-    text-align: center;
-    font-family: Recoleta, serif;
-    font-size: 2.8rem;
-    color: #2D2D2D;
-  }
+.titulo-nombre-cliente {
+  text-align: center;
+  font-family: Recoleta, serif;
+  font-size: calc(0.2em + 2.8vw);
+  color: #2D2D2D;
+}
 
-  /* ------------------------ */
-  .acciones-rapidas {
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    padding: 20px;
-    padding-left: 5%;
-    background-color: #F2EBD2;
- }
+.titulo-nombre-cliente .nombre-usuario {
+  font-weight: bold;
+}
 
- .acciones-rapidas p {
-    font-family: Recoleta, serif;
-    font-size: 1.6rem;
-    color: #2D2D2D;
- }
+/* ------------------------ */
+.acciones-rapidas {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 5% 15%;
+  padding-left: 5%;
+  background-color: #F2EBD2;
+}
 
- .botones-acciones {
-    display: flex;
- }
- .botones-acciones2 {
-    display: flex;
-    justify-content: center;
+.acciones-rapidas p {
+  font-family: Recoleta, serif;
+  font-size: calc(0.2em + 1.6vw);
+  color: #2D2D2D;
+}
+
+.botones-acciones {
+  display: flex;
+}
+
+.botones-acciones2 {
+  display: flex;
+  justify-content: center;
 }
 
 .boton2 {
-    padding: 10px 20px;
-    color: #FFF;
-    border: none;
-    border-radius: 20px;
-    font-family: Recoleta, serif;
-    font-size: 1rem;
-    cursor: pointer;
-    margin: 5px;
-    margin-top: 4vh;
-    font-weight: 600;
+  padding: 2%;
+  color: #FFF;
+  border: none;
+  border-radius: 20px;
+  font-family: Recoleta, serif;
+  font-size: calc(0.2em + 1vw);
+  cursor: pointer;
+  margin: 1%;
+  margin-top: 4vh;
+  font-weight: 600;
 }
-
-
-
 
 .boton {
   margin-right: 2%;
   margin-left: 5%;
-  padding: 10px 20px;
+  padding: 3%;
   border: none;
   border-radius: 20px;
-
   font-family: Recoleta, serif;
-  font-size: 1.4rem;
+  font-size: calc(0.2em + 1.4vw);
   cursor: pointer;
   font-weight: 600;
-  wrap-option: no-wrap;
-  width: 17vw
- }
+  width: 17vw;
+}
 
 
-   /* ------------------------ */
-  .contenedor-cartas{
-    width: 90%;
-    display: flex;
-    justify-content: space-around;
-    padding-left: 5%;
-    padding-right: 4%;
-    margin: 0;
-    margin-bottom: 8vh;
-  }
+/* ------------------------ */
+.contenedor-cartas {
+  width: 90%;
+  display: flex;
+  justify-content: space-around;
+  padding-left: 5%;
+  padding-right: 4%;
+  margin: 0;
+  margin-bottom: 8vh;
+}
 
-  .seccion-titulo-carta{
-    display: flex;
-    justify-content: center;
-  }
+.seccion-titulo-carta {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
 
-  .titulo-carta{
+.titulo-carta {
+  color: #2D2D2D;
+  font-family: Recoleta, serif;
+  font-size: calc(0.2em + 2.4vw);
+  font-weight: bold;
+  margin: auto;
+  margin-bottom: 5%;
+}
 
-    color: #2D2D2D;
-    font-family: Recoleta, serif;
-    font-size: 2.4rem;
+.carta-datos {
+  flex: 4;
+  padding: 2%;
+  background-color: #F1D79D;
+  margin-right: 2.5%;
+  border-radius: 15px;
+  font-family: 'Work Sans', sans-serif;
+}
 
-    font-weight: bold;
-    margin: auto;
-    margin-bottom: 5%;
-  }
-
-  .carta-datos{
-    flex: 4;
-    padding: 2%;
-
-    background-color: #F1D79D;
-    margin-right: 2.5%;
-    border-radius: 15px;
-    font-family: 'Work Sans', sans-serif;
-  }
-  /* ------------------------ */
+/* ------------------------ */
 
 
-  .tratamiento-card {
-    display: flex;
-    margin: 10px;
-    padding: 10px;
+.tratamiento-card {
+  display: flex;
+  flex-direction: column;
+  margin: 0.1%;
+  padding: 0.1%;
+  border-radius: 5px;
+  background-color: #f9f9f900;
+  align-items: center;
+}
 
-    border-radius: 5px;
-    background-color: #f9f9f900;
-    align-items: center;
+.tratamiento-card1 {
+  display: flex;
+  margin: 0.1%;
+  padding: 0.1%;
+  border-radius: 5px;
+  background-color: #f9f9f900;
+  align-items: left;
 }
 
 .mascota-foto {
-  width: 20%;
+  width: 50%;
   float: left;
   margin-right: 5%;
   border-radius: 15px;
+  height: auto;
+  object-fit: cover;
+}
 
-  height: 10vh;
+.mascota-foto1 {
+  width: 40%;
+  height: 35%;
+  float: left;
+  margin-right: 5%;
+  border-radius: 15px;
   object-fit: cover;
 }
 
 .mascota-info,
+.mascota-info1,
 .tratamiento-info {
-    flex: 1;
+  flex: 1;
 }
 
 .info-titulo {
-    display: block;
-    font-weight: bold;
-    font-size: 1.2rem;
-    margin-bottom: 5px;
+  display: block;
+  font-weight: bold;
+  font-size: calc(0.2em + 1.2vw);
+  margin-bottom: 5px;
 }
 
 .info-titulo2 {
-    display: block;
-    font-weight: bold;
-    font-size: 1.5rem;
-    margin-bottom: 5px;
+  display: block;
+  font-weight: bold;
+  font-size: calc(0.2em + 1.5vw);
+  margin-bottom: 5px;
 }
 
 .info-parrafo {
-    display: block;
-    font-size: 1.2rem;
-    margin-bottom: 5px;
+  display: block;
+  font-size: calc(0.2em + 1.2vw);
+  margin-bottom: 5px;
 }
 
-.mascota-info > span,
-.tratamiento-info > span {
-    margin-bottom: 5px;
+.info-parrafo1 {
+  display: block;
+  font-size: calc(0.2em + 1.2vw);
+  margin-bottom: 5px;
 }
 
-  /* ------------------------ */
-  .carta-mascotas{
-    flex: 4;
-    padding: 1%;
-    background-color: #AAC074;
-    margin-left: 2.5%;
-    border-radius: 15px;
+.mascota-info>span,
+.tratamiento-info>span {
+  margin-bottom: 5px;
+}
 
-    font-family: 'Work Sans', sans-serif;
-  }
+/* ------------------------ */
+.carta-mascotas {
+  flex: 4;
+  padding: 1%;
+  background-color: #AAC074;
+  margin-left: 2.5%;
+  border-radius: 15px;
+  font-family: 'Work Sans', sans-serif;
+}
 
 
 
 .mascotas-section {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 
 .nombre-mascota {
-    font-weight: bold;
-    font-size: 1.2rem;
-    margin-bottom: 5px;
+  font-weight: bold;
+  font-size: calc(0.2em + 1.2vw);
+  margin-bottom: 5px;
 }
 
 .otros-detalles {
-    font-size: 1rem;
-    margin-bottom: 5px;
+  font-size: calc(0.2em + 1vw);
+  margin-bottom: 5px;
 }
 
 
 
-  .scrollable-container {
-    max-height: 300px;
-    overflow-y: auto;
+.scrollable-container {
+  max-height: 300px;
+  overflow-y: auto;
 }
 
 
 .scrollable-container::-webkit-scrollbar {
-    width: 8px;
+  width: 8px;
 }
 
 .scrollable-container::-webkit-scrollbar-thumb {
-    background-color: #EEB66D;
-    border-radius: 8px;
+  background-color: #EEB66D;
+  border-radius: 8px;
 }
 
 .scrollable-container::-webkit-scrollbar-track {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 .scrollable-container2 {
-    max-height: 300px;
-    overflow-y: auto;
+  max-height: 300px;
+  overflow-y: auto;
 }
 
 
 .scrollable-container2::-webkit-scrollbar {
-    width: 8px;
+  width: 8px;
 }
 
 .scrollable-container2::-webkit-scrollbar-thumb {
-    background-color: #16520a;
-    border-radius: 8px;
+  background-color: #16520a;
+  border-radius: 8px;
 }
 
 .scrollable-container2::-webkit-scrollbar-track {
-    background-color: transparent;
+  background-color: transparent;
 }
 
-.linea-divisor-mascotas{
+.linea-divisor-mascotas {
   background-color: #F2EBD2;
-
   border-radius: 15px;
   border-color: #F2EBD2;
   border-style: solid;
-
   box-shadow: none;
   height: 2px;
   margin-top: 5%;
+}
+
+.linea-divisor-mascotas2 {
+  background-color: #000000;
+  border-radius: 15px;
+  border-color: #000000;
+  border-style: solid;
+  box-shadow: none;
+  height: 2px;
+  margin-top: 5%;
+}
+
+.linea-divisor-mascotas3 {
+  background-color: #000000;
+  border-radius: 15px;
+  border-color: #000000;
+  border-style: solid;
+  box-shadow: none;
+  height: 2px;
+  width: 100%;
+}
+
+.mascota-info{
+  width: 100%;
+  column-count: 2; 
+  margin-top: 2%;
+}
+
+.tratamiento-info{
+  width: 100%;
+  column-count: 2; 
+  margin-top: 2%;
+}
+
+@media screen and (max-width: 768px) {
+  .tratamiento-card {
+    display: flex;
+    flex-direction: column;
+  }
+  .mascota-foto {
+    width: 50%;
+  }
+  .mascota-info{
+    width: 100%;
+    column-count: 2; 
+    margin-top: 2%;
+  }
+
 }
