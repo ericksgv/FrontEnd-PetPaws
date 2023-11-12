@@ -342,20 +342,28 @@ button {
 }
 
 .pagination {
-    margin-top: 5vh;
+    margin-top: 5%;
+    max-width: 100%;
     text-align: center;
+    border: solid;
 }
 
 .pagination-button {
+    transform:translateX(-60%);
+    border: solid;
     display: inline-block;
-    padding: 5px 10px;
-    margin: 0 5px;
+    padding: 1% 2%;
+    margin: 0 5%;
     border: none;
     border-radius: 10px;
     background-color: #f1d69d00;
     color: #333;
     text-decoration: none;
     transition: background-color 0.3s, color 0.3s;
+}
+
+.pagination-button1 {
+    padding: 1% 2%;
 }
 
 .pagination-button:hover {
@@ -394,6 +402,8 @@ h1 {
 }
 
 @media screen and (max-width: 768px) {
+    
+    
     .toggle-container{
         display: none;
     }
@@ -403,6 +413,9 @@ h1 {
     }
     th,td{
         font-size: calc(0.2em + 1.3vw)!important;
+    }
+    .pagination-button{
+        padding: 0% 1%;
     }
 
 }
