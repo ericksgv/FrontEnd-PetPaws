@@ -1,11 +1,11 @@
 /*-----------------------*/
-
+.link-menu{
+  font-size: calc(0.2em + 2vw) !important;
+}
 .link-menu:hover{
-
   text-decoration: underline;
   cursor: pointer;
   color: #DD4429;
-
   transition: all 0.3s;
 }
 
@@ -19,7 +19,7 @@
   font-weight: bold;
   color: #E7B10A;
   text-align: center;
-  font-size: 3.4vw !important;
+  font-size: calc(0.2em + 3.4vw) !important;
 }
 
 /*-----------------------*/
@@ -33,9 +33,12 @@
 
 .boton-logout-cliente{
   color: #2D2D2D;
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
   background-color: #DC6A35;
   transition: all 0.5s;
-  font-size: 1.2vw !important;
+  font-size: calc(0.2em + 1.2vw)!important;
 }
 
 
@@ -52,7 +55,7 @@
 }
 
 .selector-lenguaje{
-  font-size: 2vw !important;
+  font-size: calc(0.2em + 2vw) !important;
   font-weight: bold;
 }
 
