@@ -16,7 +16,7 @@
 
 .titulo-tabla-mascotas-usuario{
   font-family: Recoleta, serif;
-  font-size: 2.5vw;
+  font-size: calc(0.2em + 2.5vw);
   font-weight: bold;
   text-align: center;
 }
@@ -37,11 +37,11 @@
 }
 
 .datos-basicos-mascota{
-  font-size: 1vw;
+  font-size: calc(0.2em + 1vw);
 }
 
 .nombre-mascota{
-  font-size: 2.5vw;
+  font-size: calc(0.2em + 2.5vw);
   color: black;
 }
 
