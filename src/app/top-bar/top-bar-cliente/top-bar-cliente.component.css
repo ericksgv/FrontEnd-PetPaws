@@ -19,8 +19,7 @@
   font-weight: bold;
   color: #E7B10A;
   text-align: center;
-  font-size: 3rem;
-
+  font-size: 3.4vw !important;
 }
 
 /*-----------------------*/
@@ -29,16 +28,14 @@
   display: flex;
   justify-content: right;
   align-items: center;
-
   padding-right: 3%;
 }
 
 .boton-logout-cliente{
-
   color: #2D2D2D;
   background-color: #DC6A35;
   transition: all 0.5s;
-
+  font-size: 1.2vw !important;
 }
 
 
@@ -47,4 +44,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.selector-lenguaje-image {
+  width: 8%;
+  height: auto;
+}
+
+.selector-lenguaje{
+  font-size: 2vw !important;
+  font-weight: bold;
 }
