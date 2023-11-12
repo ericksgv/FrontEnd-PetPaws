@@ -4,7 +4,7 @@
 
     <section class="contenedor-tabla-mascotas verdeOlivaPastel-fondo carta-general">
       <h1 class="titulo-tabla-mascotas-usuario">Mascotas Registradas</h1>
-
+      <br>
       <!-- Division generada para cada mascota -->
       <section *ngFor="let mascota of mascotasUsuario; index as i; first as isFirst">
         <div id="listaMascotas" class="layout-entrada-mascota">
@@ -15,27 +15,21 @@
           <div class="seccion-nombre-mascota">
             <a class="recoleta-bold nombre-mascota"> <strong> {{mascota.nombre}} </strong></a>
             <br>
-            <br>
             <span class="datos-basicos-mascota">{{mascota.raza}}</span>
             <br>
-            <br>
             <span class="datos-basicos-mascota">{{mascota.edad}} años</span>
-            <br>
             <br>
             <span class="datos-basicos-mascota">{{mascota.peso}} kg</span>
           </div>
 
           <div class="seccion-clinica-mascota">
-            <span class="worksans-bold datos-basicos-mascota">Enfermedad:</span>
+            <span class="worksans-bold datos-basicos-mascota">Enfermedad:  </span>
             <span class="datos-basicos-mascota">{{mascota.enfermedad}}</span>
             <br>
-            <br>
-            <span class="worksans-bold datos-basicos-mascota">Ultimo Tratamiento:</span>
+            <span class="worksans-bold datos-basicos-mascota">Ultimo Tratamiento:  </span>
             <span class="datos-basicos-mascota">{{mascota.tratamientos?.at(0)}}</span>
             <br>
-            <br>
-            <span class="worksans-bold datos-basicos-mascota">Estado:</span>
-            <br>
+            <span class="worksans-bold datos-basicos-mascota">Estado:  </span>
             <span class="datos-basicos-mascota">{{mascota.estado}}</span>
           </div>
 
