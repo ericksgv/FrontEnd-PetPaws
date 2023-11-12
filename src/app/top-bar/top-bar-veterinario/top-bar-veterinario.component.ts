@@ -11,6 +11,7 @@ import {Router} from "@angular/router";
 export class TopBarVeterinarioComponent {
   cerrarCesion() {
   localStorage.removeItem('token'); // Elimina el token de localStorage
+  localStorage.removeItem('paginaAnterior');
   this.router.navigate(['/']);
   }
 
