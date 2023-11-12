@@ -223,8 +223,8 @@ body {
 
 #boton-flotante {
   position: fixed;
-  bottom: 20px; 
-  right: 20px; 
+  bottom: 1%; 
+  right: 1%; 
   z-index: 1000; 
 }
 
@@ -233,7 +233,7 @@ body {
 }
 
 #boton-flotante img {
-  width: 100px; 
+  width: calc(0.2em + 6.5vw);
   height: auto; 
 }
 
