@@ -13,11 +13,13 @@
       <label for="campoBusqueda" class="busqueda">
         <input type="text" id="campoBusqueda" name="campoBusqueda" placeholder="Busca por cédula" [(ngModel)]="textoBusqueda" (input)="filtrarUsuarios()">
       </label>
+      <!-- 
       <div class="boton-derecha">
         <label for="campoBusqueda" class="busqueda">
           <input type="text" [(ngModel)]="busquedaAvanzada" placeholder="Búsqueda Avanzada">
         </label>
       </div>
+      -->
     </div>
 
     <div class="tres-botones texto-negrilla textoNegro">
@@ -50,8 +52,8 @@
         </div>
         <div class="margenizquierdo"></div>
 
-        <div class="boton-contenedor">
-          <div class="mitad-izquierda acentro-amarillo-fondo">
+        <div class="boton-contenedor1">
+          <div class="mitad-izquierda1 acentro-amarillo-fondo">
             <!-- Lista desplegable para seleccionar la cantidad de mascotas por página -->
             <select class="acentro-amarillo-fondo texto-negrilla no-border" [(ngModel)]="itemsPorPagina"
               (ngModelChange)="cambiarCantidadPorPagina()">
@@ -71,13 +73,12 @@
     <table class="tabla-general2">
       <thead>
         <tr class="texto-negrilla textoNegro letra-normal-grande encabezados-tabla acento-verde-semi-claro-fondo">
-          <th scope="col"></th>
+          <th scope="col" class="custom-checkbox-header"></th>
           <th scope="col">Cédula</th>
           <th scope="col">Nombre</th>
           <th scope="col">Correo</th>
-          <th scope="col">Celular</th>
+          <th scope="col" class="custom-checkbox-header">Celular</th>
           <th scope="col">Estado</th>
-          <th scope="col"></th>
           <th scope="col"></th>
           <th scope="col"></th>
         </tr>
@@ -89,10 +90,10 @@
             <label [for]="'checkbox-' + i" class="custom-checkbox-label"></label>
           </td>
           <th>{{ usuario.cedula }}</th>
-          <td>{{ usuario.nombre }}</td>
-          <td>{{ usuario.correo }}</td>
-          <td>{{ usuario.celular }}</td>
-          
+          <td class="correo-column">{{ usuario.nombre }}</td>
+          <td class="correo-column">{{ usuario.correo }}</td>
+          <td class="custom-checkbox-cell">{{ usuario.celular }}</td>
+          <td>{{ usuario.estado }}</td>
           <td class="acciones-cell acento-transparente">
             <div class="toggle-container" (click)="toggleEstadoUsuario(usuario)">
               <div class="toggle-switch" [ngClass]="{'activo': usuario.estado === 'inactivo'}"></div>
@@ -111,13 +112,13 @@
 
       <button *ngIf="rangoPaginas[0] > 1" (click)="cambiarPagina(1)" class="pagination-button">1</button>
 
-      <span *ngIf="rangoPaginas[0] > 2">...</span>
+      <span  class="pagination-button1" *ngIf="rangoPaginas[0] > 2">...</span>
 
       <button *ngFor="let pagina of rangoPaginas" (click)="cambiarPagina(pagina)" class="pagination-button" [ngClass]="{'current-page': paginaActual === pagina}">
         {{ pagina }}
       </button>
 
-      <span *ngIf="rangoPaginas[rangoPaginas.length - 1] < paginas.length - 1">...</span>
+      <span  class="pagination-button1" *ngIf="rangoPaginas[rangoPaginas.length - 1] < paginas.length - 1">...</span>
 
       <button *ngIf="rangoPaginas[rangoPaginas.length - 1] < paginas.length" (click)="cambiarPagina(paginas.length)" class="pagination-button">{{ paginas.length }}</button>
 
@@ -127,7 +128,7 @@
     <div class="boton-crear">
       <a>
         <button [routerLink]="['/usuario/add']"
-          class="acentro-amarillo-fondo texto-negrilla">Añadir</button>
+          class="acentro-amarillo-fondo texto-negrilla boton-redondo">Añadir</button>
       </a>
     </div>
   </section>

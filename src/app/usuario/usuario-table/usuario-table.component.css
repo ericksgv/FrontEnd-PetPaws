@@ -1,62 +1,62 @@
 /* Colores */
 
-*{
-  font-family: 'Work Sans', sans-serif;
+* {
+    font-family: 'Work Sans', sans-serif;
 }
 
-.contenedor-pagina{
-  padding-top: 15vh;
+.contenedor-pagina {
+    margin-top: 15vh;
 }
 
-.acento-amarillo-semi-claro-fondo{
-    background-color:#F1D79D;
+.acento-amarillo-semi-claro-fondo {
+    background-color: #F1D79D;
 }
 
-.contorno{
-    background-color:#F2EBD2;
+.contorno {
+    background-color: #F2EBD2;
 }
 
-.titulo-recoleta{
-  font-family: Recoleta, serif;
+.titulo-recoleta {
+    font-family: Recoleta, serif;
 }
 
-.texto-negrilla{
+.texto-negrilla {
     font-weight: bold;
 }
 
-.letra-normal-grande{
+.letra-normal-grande {
     font-size: 1.5rem;
 }
 
-.acentro-amarillo-fondo{
+.acentro-amarillo-fondo {
     background-color: #E7B10A;
 }
 
-.textoBlanco{
+.textoBlanco {
     color: white;
 }
 
-.margenizquierdo{
+.margenizquierdo {
     margin-right: 5vh;
 }
 
-.acento-amarillo-claro-fondo{
-    background-color:#F2EBD2;
+.acento-amarillo-claro-fondo {
+    background-color: #F2EBD2;
 }
 
-.no-border{
+.no-border {
     border: none;
 }
 
-.acento-transparente{
+.acento-transparente {
     background-color: transparent;
 }
 
 
 /* Estructura del componente */
 .cuadro-estatico {
-    margin: 0vh 6vh 0 6vh;
-    padding: 2vh 15vh 5vh 15vh;
+    margin: 0 6%;
+    padding: 2% 15% 5% 15%;
     border: none;
     text-align: center;
     border-top-left-radius: 10px;
@@ -64,10 +64,11 @@
 }
 
 
+
 .cuadro-estatico h1 {
     margin-top: 0;
-    margin-bottom: 4vh;
-    font-size: 40px;
+    margin-bottom: 4%;
+    font-size: calc(0.2em + 3vw);
     z-index: 10;
     position: relative;
 }
@@ -76,17 +77,18 @@
 .grupo-elementos {
     display: flex;
     justify-content: space-between;
-    margin-top: 10px;
+    margin-top: 1%;
 }
 
 /* Estilo para la etiqueta label que contiene el campo de búsqueda */
 .busqueda {
     display: flex;
     align-items: center;
-    margin-top: 2vh;
-    margin-right: 2vh;
-    width: 80%;
+    margin-top: 2%;
+    margin-right: 2%;
+    width: 100%;
     position: relative;
+    height: auto;
 }
 
 /* Estilo del campo de búsqueda */
@@ -96,68 +98,67 @@
 
 .busqueda input[type="text"] {
     flex: 1;
-    padding: 10px;
+    padding: 1%;
     border-radius: 50px;
     border: 2px solid #2D2D2D;
     background: #F2EBD2;
-
-  width: 10vw;
+    font-size: calc(0.2em + 1.5vw) !important;
+    width: 10vw;
 }
 
 /* Estilo para la imagen de la lupa */
-.busqueda::before, .boton-derecha button::before {
+.busqueda::before {
     content: "";
     background-image: url('src/assets/elementosheader/search.svg');
     background-size: cover;
-    width: 20px;
-    height: 20px;
+    width: 2vw;
+    height: 1.8vw;
     position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
+    right: 3%;
     cursor: pointer;
-}
-
-.boton-derecha button {
-    display: flex;
-    align-items: center;
-    margin-top: 2vh;
-    margin-right: 2vh;
-    width: 100%;
-    position: relative;
-    border: 2px solid #2D2D2D;
-    background: #F2EBD2;
 }
 
 button {
-    padding: 2vh 4vh;
+    padding: 1% 1.5%;
     border: none;
     cursor: pointer;
-    margin-left: 5vh;
+    margin-left: 5%;
     border-radius: 50px;
+    font-size: calc(0.2em + 1vw) !important;
 }
 
 .tres-botones {
     display: flex;
     align-items: center;
-    margin-top: 3vh;
-    margin-right: 10vh;
+    margin-top: 3%;
     width: 100%;
-    gap: 10px;
+    transform: translateX(-10%);
+    gap: 1%;
+
 }
 
 .boton-contenedor {
-    display: flex; /* Usar flexbox para colocar las dos mitades en línea */
+    display: flex;
+    width: 50%;
     overflow: hidden;
+}
+
+.boton-contenedor1 {
+    width: 20%;
+    overflow: hidden;
+    border-radius: 50px 50px 50px 50px;
+    font-size: calc(0.2em + 1.2vw) !important;
 }
 
 .mitad-izquierda,
 .mitad-derecha {
-    flex: 1; /* Hacer que ambas mitades ocupen el mismo espacio */
+    flex: 1;
     box-sizing: border-box;
-    padding: 10px;
+    flex: 1;
+    padding: 3% 2%;
     text-align: center;
     cursor: pointer;
+    font-size: calc(0.2em + 1vw) !important;
 }
 
 .mitad-izquierda {
@@ -171,9 +172,8 @@ button {
 
 /*tabla*/
 .cuadro-estatico2 {
-    margin: 0vh 6vh 0vh 6vh;
-    padding: 0%;
-    padding-bottom: 6vh;
+    margin: 0vh 3% 0vh 3%;
+    padding-bottom: 6%;
 }
 
 .tabla-general2 {
@@ -182,41 +182,40 @@ button {
     border-collapse: collapse;
 }
 
-.tabla-general2 th{
-  font-family: Recoleta, serif;
+.tabla-general2 th {
+    font-family: Recoleta, serif;
 }
 
-.tabla-general2 td{
-  font-family: 'Work Sans', sans-serif;
-  text-align: center;
+.tabla-general2 td {
+    font-family: 'Work Sans', sans-serif;
+    text-align: center;
 
 }
 
-.tabla-general2 tr{
-  text-align: center;
+.tabla-general2 tr {
+    text-align: center;
 
 }
 
 .tabla-general2 th,
 .tabla-general2 td {
-  padding: 10px; /* Ajusta este valor según el espacio que desees dentro de las celdas */
-  white-space: nowrap; /* Evita que el contenido se rompa en varias líneas */
-  overflow: hidden; /* Ocultar contenido desbordado */
-  text-overflow: ellipsis; /* Agregar puntos suspensivos (...) para indicar desbordamiento */
-  text-align: center;
-
-
+    padding: 1.5%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: calc(0.2em + 1vw) !important;
+    text-align: center;
 }
 
 /* Aplicar fondo a filas impares */
 .tbody2 tr:nth-child(odd) {
-  background-color: #F2EBD2;
+    background-color: #F2EBD2;
 
 }
 
 .custom-checkbox-cell {
     display: flex;
-    align-items: center;
+    margin-left: 20%;
 }
 
 .custom-checkbox {
@@ -224,16 +223,18 @@ button {
 }
 
 .custom-checkbox-label {
-    width: 24px;
-    height: 24px;
+    width: 2vw;
+    height: 2vw;
     border: 3px solid #2D2D2D;
     cursor: pointer;
     position: relative;
 }
 
 .custom-checkbox-label::after {
-    content: '\2713'; /* Código de verificación (✓) */
-    font-size: 16px; /* Tamaño de la fuente */
+    content: '\2713';
+    /* Código de verificación (✓) */
+    font-size: 16px;
+    /* Tamaño de la fuente */
     position: absolute;
     top: 50%;
     left: 50%;
@@ -243,35 +244,36 @@ button {
     transition: opacity 0.3s ease-in-out;
 }
 
-.custom-checkbox:checked + .custom-checkbox-label::after {
+.custom-checkbox:checked+.custom-checkbox-label::after {
     opacity: 1;
 }
 
 .toggle-container {
-    width: 40px;
-    height: 20px;
+    width: 5vw;
+    height: 2vw;
     border: 1px solid #E7B10A;
     border-radius: 20px;
     background-color: #E7B10A;
     position: relative;
     cursor: pointer;
-    margin-left: 35%;
-  }
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2vw;
+}
 
-  .toggle-switch {
-    width: 20px;
-    height: 18px;
+.toggle-switch {
+    width: 2vw;
+    height: auto;
     border-radius: 50%;
     background-color: #fdfdfd;
-    left: 0;
-    top: 0;
-    transition: transform 0.4s ease; 
-  }
+    transition: transform 0.4s ease;
+    order: 1;
+}
 
-  .toggle-switch.activo {
-    transform: translateX(20px); 
+.toggle-switch.activo {
+    transform: translateX(-2.8vw);
     background-color: #000000be;
-  }
+}
 
 
 .acciones-cell {
@@ -282,7 +284,6 @@ button {
 
 /* Estilo para el botón "Modificar" */
 .acciones-cell a {
-    padding: 8px 12px; 
     text-decoration: none;
     color: #333;
     transition: all 0.5s;
@@ -294,20 +295,30 @@ button {
 }
 
 .boton-modificar {
-    display: inline-block; 
-    padding: 10px 20px;
-    background-color: #E7B10A; 
-    color: #000; 
-    text-decoration: none; 
-    border-radius: 5px; 
-    border: none;
-    text-align: center; 
-    cursor: pointer; 
-  }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4% 10% !important;
+    background-color: #E7B10A;
+    color: #000;
+    text-decoration: none;
+    border-radius: 5px;
+    width: fit-content;
+    cursor: pointer;
+    font-size: calc(0.2em + 1.3vw) !important;
+}
 
-  .boton-modificar:hover {
-    background-color: #F2EBD2; 
-  }
+td.correo-column {
+    max-width: 10vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.boton-modificar:hover {
+    background-color: #F2EBD2;
+}
+
 /*Paginacion*/
 .pagination {
     margin-top: 5vh;
@@ -316,7 +327,7 @@ button {
 
 .pagination a {
     display: inline-block;
-    padding: 5px 10px;
+    padding: 5% 10%;
     margin: 0 5px;
     border: none;
     border-radius: 10px;
@@ -326,18 +337,18 @@ button {
     transition: background-color 0.3s, color 0.3s;
 }
 
-.pagination a:hover{
+.pagination a:hover {
     background-color: #F2EBD2;
     color: #333;
 }
 
 .boton-crear {
-  display: flex;
-  margin-top: 1%;
-  justify-content: center; /* Centrado horizontal para todos los elementos dentro del contenedor */
-  align-items: center; /* Centrado vertical para todos los elementos dentro del contenedor */
-
-  font-family: Recoleta, serif;
+    display: flex;
+    margin-top: 1%;
+    justify-content: center;
+    align-items: center;
+    padding: 5% !important;
+    font-family: Recoleta, serif;
 }
 
 .ancho-razas {
@@ -346,21 +357,26 @@ button {
 
 .pagination {
     margin-top: 5vh;
+    max-width: 100%;
     text-align: center;
 }
 
 .pagination-button {
-  display: inline-block;
-  padding: 5px 10px;
-  margin: 0 5px;
-  border: none;
-  border-radius: 10px;
-  background-color: #f1d69d00;
-  color: #333;
-  text-decoration: none;
-  transition: background-color 0.3s, color 0.3s;
+    transform: translateX(-60%);
+    display: inline-block;
+    padding: 1% 2%;
+    margin: 0 5%;
+    border: none;
+    border-radius: 10px;
+    background-color: #f1d69d00;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+    font-family: 'Work Sans', sans-serif;
+}
 
-  font-family: 'Work Sans', sans-serif;
+.pagination-button1 {
+    padding: 1% 2%;
 }
 
 .pagination-button:hover {
@@ -376,4 +392,53 @@ button {
 .filtro-activo {
     background-color: lightyellow;
     color: black;
-  }
+}
+
+.boton-redondo {
+    border-radius: 20px;
+    margin-top: 6%;
+    font-family: Recoleta, serif;
+    padding: 20% 25%;
+    font-size: calc(0.2em + 1.3vw);
+    transition: 0.5s all;
+}
+
+.boton-redondo:hover {
+    cursor: pointer;
+    background-color: #AAC074;
+    color: #2D2D2D;
+    transition: 0.5s all;
+}
+
+h1 {
+    font-family: Recoleta, serif;
+}
+
+a {
+    color: black;
+}
+
+@media screen and (max-width: 768px) {
+    .boton-contenedor {
+        width: 50%;
+    }
+
+    .toggle-container {
+        display: none;
+    }
+
+    th.custom-checkbox-header,
+    td.custom-checkbox-cell {
+        display: none;
+    }
+
+    th,
+    td {
+        font-size: calc(0.2em + 1.3vw) !important;
+    }
+
+    .pagination-button {
+        padding: 0% 1%;
+    }
+
+}
