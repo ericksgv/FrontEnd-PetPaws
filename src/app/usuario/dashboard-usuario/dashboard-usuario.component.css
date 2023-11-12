@@ -1,6 +1,6 @@
 .contenedor-pagina{
-  max-width: 100vw;
-  min-height: 100vh;
+  max-width: 100%;
+  min-height: auto;
   overflow-x: hidden;
   padding: 15vh 2% 2% 2%;
   background-color: #F2EBD2;
