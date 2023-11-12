@@ -31,7 +31,7 @@
 .warning-message {
     color: red;
     margin-top: 0.4vw;
-    font-size: 1vw;
+    font-size: calc(0.2em + 1vw) !important;
   }
   
 .contenedor-derecho {
@@ -54,7 +54,7 @@ input[type="date"] {
     background-color: #F1D79D;
     border: none;
     margin-top: 2vw;
-    font-size: 1.5vw;
+    font-size: calc(0.2em + 1.5vw) !important;
 }
 
 #mascotaInput {
@@ -62,24 +62,22 @@ input[type="date"] {
     border: 0.4vh solid #E7B10A; 
     border-radius: 2vh; 
     padding: 1.5%; 
-    font-size: 1.2vw;
+    font-size: calc(0.2em + 1.2vw) !important;
 }
 
 label {
     color: #2D2D2D;
     font-family: Recoleta;
-    font-size: 2vw;
+    font-size: calc(0.2em + 2vw) !important;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
 }
 
-
-
 p{
     color: #2D2D2D;
     font-family: Recoleta;
-    font-size: 2vw;
+    font-size: calc(0.2em + 2vw) !important; 
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -98,11 +96,6 @@ p{
     font-weight: bold;
     border: none;
   }
-  
-  
-
-  
-  
 
 .horas{
     margin-top: 5%;
@@ -121,7 +114,7 @@ p{
     padding: 5%; 
     background-color: #F2EBD2;
     color: #333;
-    font-size: 1.2vw;
+    font-size: calc(0.2em + 1.2vw) !important;
 }
 
 .horas-disponibles button.selected {
@@ -150,6 +143,6 @@ p{
         padding: 0.2%; 
         background-color: #F2EBD2;
         color: #333;
-        font-size: 1.2vw;
+        font-size: calc(0.2em + 1.2vw) !important;
     }
 }
