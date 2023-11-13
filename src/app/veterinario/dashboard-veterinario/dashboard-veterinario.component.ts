@@ -54,6 +54,12 @@ export class DashboardVeterinarioComponent {
             // or show an error message to the user.
             console.log('Unauthorized error. Redirecting to login page.');
             this.router.navigate(['unauthorized']);
+          } else if (error.status == 403) {
+            // Handle the 401 Unauthorized error here, e.g., navigate to a login page
+            // or show an error message to the user.
+            console.log("Error status: " + error.status)
+            console.log('Unauthorized error. Redirecting to login page.');
+            this.router.navigate(['forbidden']);
           }
           return of(null); // Return an empty observable to avoid further error propagation.
         })

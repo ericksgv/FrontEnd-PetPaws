@@ -54,8 +54,8 @@ export class DashboardAdminComponent implements  OnInit{
         }else if (error.status === 403) {
           // Handle the 401 Unauthorized error here, e.g., navigate to a login page
           // or show an error message to the user.
-          console.log('Unauthorized error. Redirecting to login page.');
-          this.router.navigate(['unauthorized']);
+          console.log('Forbidden error. Redirecting to login page.');
+          this.router.navigate(['forbidden']);
         }
         return of(null); // Return an empty observable to avoid further error propagation.
       })
