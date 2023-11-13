@@ -1,8 +1,8 @@
 @import "src/styles.css";
 
 .layout-contacto{
-  height: 100vh;
-  width: 100vw;
+  height: 80vh;
+  max-width: 100vw;
   display: flex;
 
   background-color: white;
@@ -11,12 +11,15 @@
 /* --------------------------------------- */
 
 .parte-mapa{
-  flex: 5;
+  flex: 6;
   display: flex;
   background-repeat: no-repeat;
   background-position: center;
   justify-content: center;
   vertical-align: center;
+  margin: 3% 5%;
+
+  max-height: 70%;
 }
 
 .parte-mapa img{
@@ -31,7 +34,8 @@
 /* --------------------------------------- */
 
 .parte-informacion-contacto{
-  flex: 5;
+  flex: 4;
+  margin-top: 3%;
 }
 
 .titulo-secundario{
