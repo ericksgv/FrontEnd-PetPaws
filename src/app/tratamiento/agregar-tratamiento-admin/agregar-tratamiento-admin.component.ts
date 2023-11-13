@@ -72,13 +72,10 @@ export class AgregarTratamientoAdminComponent implements OnInit {
           // Por ejemplo, mostrar un mensaje al usuario
           console.error(errorMessage);
           this.router.navigate(['forbidden']);
-        } else {
-          console.error('Ocurrió un error:', error);
-          // Puedes agregar más lógica aquí para manejar otros tipos de errores si es necesario.
-        }
-  
-        // Emitir un valor personalizado que representa el error
-        return of({ error: errorMessage });
+        } 
+
+        return of(null);
+
       })
     ).subscribe((result) => {
         this.veterinarioService.getRol().subscribe((rol) => {
