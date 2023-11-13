@@ -3,6 +3,7 @@ import {MascotaService} from "../Service/mascotaservice.service";
 import {ActivatedRoute} from "@angular/router";
 import {Mascota} from "../../model/mascota";
 import {TratamientoDTO} from "../../model/tratamientoDTO";
+import { VeterinarioService } from 'src/app/veterinario/Service/veterinario-service.service';
 
 @Component({
   selector: 'app-informacion-mascota',
@@ -13,13 +14,17 @@ export class InformacionMascotaComponent implements OnInit {
 
   mascotaActual: Mascota | undefined
   tratamientosMascota: TratamientoDTO[] | undefined
-
+  rol: String = '';
   constructor(private mascotaService: MascotaService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private veterinarioService: VeterinarioService) {
   }
 
   ngOnInit() {
-
+    this.veterinarioService.getRol().subscribe(rol => {
+      this.rol = rol;
+      console.log(this.rol)
+    });
     let stringMascotaId: string | null;
     stringMascotaId = this.route.snapshot.paramMap.get("id")
 
