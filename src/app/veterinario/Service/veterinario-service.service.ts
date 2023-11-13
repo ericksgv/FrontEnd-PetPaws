@@ -49,10 +49,12 @@ export class VeterinarioService {
     return this.http.delete<void>(`${this.apiUrl}/delete/${id}`);
   }
 
-  activarVeterinario(id: number): Observable<void> {
-    console.log(id);
-    return this.http.put<void>(`${this.apiUrl}/activate/${id}`, null);
+  activarVeterinario(cedula: number): Observable<string> {
+    console.log(cedula);
+    return this.http.put(`${this.apiUrl}/activate/${cedula}`, null, { responseType: 'text' });
   }
+  
+  
 
   buscarVeterinarioFiltro(data: string): Observable<Veterinario[]> {
     return this.http.get<Veterinario[]>(`${this.apiUrl}/filtrar/${data}`);

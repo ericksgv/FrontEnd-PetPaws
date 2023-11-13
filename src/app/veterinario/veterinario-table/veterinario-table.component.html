@@ -85,6 +85,7 @@
           <td>{{ veterinario.nombre }}</td>
           <td>{{ veterinario.especialidad }}</td>
           <td>{{ veterinario.numeroAtenciones }}</td>
+          <td>{{ veterinario.estado }}</td>
           <td class="acciones-cell acento-transparente">
             <div class="toggle-container" (click)="toggleEstadoVeterinario(veterinario)">
               <div class="toggle-switch" [ngClass]="{'activo': veterinario.estado === 'inactivo'}"></div>

@@ -168,17 +168,34 @@ export class VeterinarioTableComponent implements OnInit {
   }
 
 
-  activarVeterinario(id: number) {
-    this.veterinarioService.activarVeterinario(id).subscribe(() => {
-      this.getVeterinarios();
-    });
+  activarVeterinario(cedula: number) {
+    this.veterinarioService.activarVeterinario(cedula).subscribe(
+      (data) => {
+        console.log('Respuesta del servidor:', data);
+        if (data === 'Veterinario activado') {
+          // Maneja el caso específico de la respuesta de texto
+          console.log('Veterinario activado correctamente');
+          this.getVeterinarios();
+          // Puedes hacer lógica adicional si es necesario
+        } else {
+          // Maneja otros casos de respuesta JSON si es necesario
+        }
+      },
+      (error) => {
+        console.error('Error en la solicitud:', error);
+        // Lógica para manejar errores
+      }
+    );
   }
+  
+  
 
   toggleEstadoVeterinario(veterinario: any) {
-    if (veterinario.estado === 'activo') {
+    if (veterinario.estado != 'inactivo') {
       this.eliminarVeterinario(veterinario.id);
     } else if (veterinario.estado === 'inactivo') {
-      this.activarVeterinario(veterinario.id);
+      this.activarVeterinario(veterinario.cedula);
+      this.getVeterinarios();
     }
   }
   modificarVeterinario(id: number) {
