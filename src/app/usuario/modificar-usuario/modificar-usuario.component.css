@@ -87,8 +87,8 @@ button {
 }
 
 .contenedor-imagen-perro {
-    width: 95%;
-    height: 100%;
+    width: 25vw;
+    height: 26vw;
     background-size: cover;
     background-image: url('src/assets/modificarusuario/crearusuarioicono.svg');
     border-radius: 10px;

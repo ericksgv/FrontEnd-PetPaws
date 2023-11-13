@@ -91,11 +91,12 @@ button {
 }
 
 .contenedor-imagen-perro {
-    width: 95%;
-    height: 109%;
+    width: 25vw;
+    height: 26vw;
+    border-radius: 10px;
+    margin-bottom: 2vh;
     background-size: cover;
     background-image: url('src/assets/modificarusuario/crearusuarioicono.svg');
-    background-repeat: no-repeat;
 }
 
 
@@ -110,76 +111,116 @@ button {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin-top: 6vh;
+    margin-top: 6%;
 
 }
 
-@media (max-width: 768px) {
-    .columna {
+@media screen and (max-width: 800px) {
+    .buton {
+        margin-top: 10%!important;
+    }
+}
+@media (max-width: 1600px) {
+    .orientation {
         flex-direction: column;
+    }
+    .columna {
+        text-align: right;
+    }
+    .completo {
+        height: 100%;
+    }
+    .contenido-modificar-cliente{
+        height: 100%;
+    }
+}
+
+@media screen and (max-width: 2400px) and (min-width: 1600px) {
+    button{
+        padding: 1% 2%;
+    }
+}@media screen and (max-width: 800px) {
+    .buton {
+        margin-top: 10%!important;
+    }
+}
+@media (max-width: 1600px) {
+    .orientation {
+        flex-direction: column;
+    }
+    .columna {
+        text-align: right;
+    }
+    .completo {
+        height: 100%;
+    }
+    .contenido-modificar-cliente{
+        height: 100%;
+    }
+}
+
+@media screen and (max-width: 2400px) and (min-width: 1600px) {
+    button{
+        padding: 1% 2%;
     }
 }
 
 .uno,
 .dos {
     flex: 1;
-    /* Para que ocupen el mismo espacio */
-    margin-right: 10px;
-    /* Puedes ajustar este valor para controlar el espacio entre ellos */
-
+    margin-right: 1%;
 }
 
 .uno {
-    margin-left: 10vh;
-    margin-right: 5vh;
+    margin-left: 1%;
+    margin-right: 3%;
 }
 
 .dos {
-    margin-right: 10vh;
-    margin-left: 5vh;
+    margin-right: 3%;
+    margin-left: 3%;
 }
 
 .enunciado {
-    font-size: 30px;
+    font-size: calc(0.2em + 1.8vw);
     font-weight: 500;
-
     font-family: Recoleta, serif;
+    text-align: left;
 }
 
 .labelenunciado {
-    width: 100%;
+    width: 90%;
     border-radius: 50px;
     border: solid 1px #2D2D2D;
     background: #F2EBD2;
     margin: 0;
-    font-size: 20px;
+    font-size: calc(0.2em + 1vw);
     border-radius: 1vh;
-    height: 28%;
     padding: 1vh;
 
 }
 
 .selectenunciado {
     height: 50%;
-    width: 47vh;
+    width: 90%;
     border-radius: 50px;
     border: solid 1px #2D2D2D;
     background: #F2EBD2;
     margin: 0;
-    font-size: 20px;
+    font-size: calc(0.2em + 1vw);
     border-radius: 1vh;
-    padding: 1vh;
+    padding: 0.5vh;
 }
 
 
 .buton {
-    margin-top: 5vh;
+    margin-top: 3%;
     border-radius: 20px;
     background: #80563D;
-    padding: 2vh;
+    padding: 2% 4%;
     color: #000000;
     font-family: Recoleta, serif;
-    font-size: 1.2rem;
+    font-size: calc(0.2em + 1.2vw);
     font-style: normal;
     font-weight: 600;
     line-height: normal;
