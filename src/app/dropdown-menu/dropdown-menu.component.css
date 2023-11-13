@@ -1,24 +1,24 @@
-.navigation-menu{
-  padding-top: 5%;
+section{
+  transition: all 0.2s ease-in-out;
+}
+
+.navigation-menu-layout{
+  padding-top: 3vh;
   background-color: #EFC353;
   font-family: Recoleta, serif;
   transition: margin-bottom 2s ease-in-out;
+
   height: 85vh;
+  width: 100vw;
+
+  position: fixed;
+  left: 0;
+  z-index: 9999;
+
   margin-top: 15vh;
 }
 
-.navigation-menu.open {
-  height: 85vh;
-  margin-top: 15vh;
-}
 
-.title-navegacion {
-  height: 20vh;
-  font-size: 4rem;
-  width: 100%;
-  text-align: center;
-
-}
 #myHeader {
   display: flex;
   justify-content: space-between;
@@ -29,17 +29,27 @@
 }
 
 .centrado-enlace {
-  display: block; /* Para que ocupen toda la anchura disponible */
-  text-align: center; /* Centrar el texto horizontalmente */
-  color: black; /* Cambiar el color del texto a negro */
-  font-weight: bold; /* Establecer el texto en negrita */
-  margin-bottom: 10px; /* Agregar espacio entre elementos si es necesario */
-  width: 100%;
-  height: 20vh;
+  display: block;
+  text-align: center;
 
-  font-size: 3rem;
+  color: black;
+
+  font-weight: bold;
+  font-size: 5vh;
+
+  margin-top: 7vh;
+
+  transition: all 0.5s;
 }
 
-svg{
-  margin: 0.5%;
+/* ------- Seccion de redes sociales ------- */
+.social-media-dropdown-menu{
+  display: flex;
+  position: fixed;
+  bottom: 5vh;
+  left: 3vw;
+}
+
+.social-media-image{
+  margin-right: 1vw;
 }

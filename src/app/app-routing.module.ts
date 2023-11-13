@@ -30,18 +30,16 @@ import { CitaComponent } from './cita/cita/cita.component';
 
 const routes: Routes = [
 
+  // Landing page
   {
     path: '',
     component: LandingPageComponent
   },
 
+  // --------------- Mascotas ---------------
   {
     path: 'mascotas/all',
     component: MascotaTableComponent,
-  },
-  {
-    path: 'veterinario/dashboard',
-    component: DashboardVeterinarioComponent,
   },
   {
     path: 'mascotas/add',
@@ -51,12 +49,42 @@ const routes: Routes = [
     path: 'mascotas/modificar/:id',
     component: ModificarMascotaComponent,
   },
-
   {
-    path: 'mascota/informacion',
+    path: 'mascota/informacion/:id',
     component: InformacionMascotaComponent
   },
 
+
+  // --------------- Veterinarios ---------------
+  {
+    path: 'veterinario/dashboard',
+    component: DashboardVeterinarioComponent,
+  },
+
+  {
+    path: 'veterinario/login',
+    component: SesionVeterinarioComponent,
+  },
+
+  {
+    path: 'veterinario/all',
+    component: VeterinarioTableComponent,
+  },
+  {
+    path: 'veterinario/add',
+    component: AgregarVeterinarioComponent,
+  },
+  {
+    path: 'veterinario/update/:id',
+    component: ModificarVeterinarioComponent,
+  },
+
+  /*  {
+    path: 'veterinario/dashboard/:cedula',
+    component: DashboardVeterinarioComponent,
+  },*/
+
+  // --------------- Usuarios ---------------
   {
     path: 'usuario/update/:id',
     component: ModificarUsuarioComponent,
@@ -84,6 +112,8 @@ const routes: Routes = [
     path: 'usuario/login',
     component: SesionUsuarioComponent,
   },
+
+  // --------------- Administrador ---------------
   {
     path: 'administrador/login',
     component: SesionAdministradorComponent,
@@ -94,27 +124,8 @@ const routes: Routes = [
     component: DashboardAdminComponent
   },
 
-  {
-    path: 'veterinario/login',
-    component: SesionVeterinarioComponent,
-  },
+  // --------------- Tratamientos ---------------
 
-  {
-    path: 'veterinario/all',
-    component: VeterinarioTableComponent,
-  },
-  {
-    path: 'veterinario/add',
-    component: AgregarVeterinarioComponent,
-  },
-  {
-    path: 'veterinario/update/:id',
-    component: ModificarVeterinarioComponent,
-  },
-/*  {
-    path: 'veterinario/dashboard/:cedula',
-    component: DashboardVeterinarioComponent,
-  },*/
   {
     path: 'tratamiento/all',
     component: TratamientoTableComponent,
@@ -127,6 +138,8 @@ const routes: Routes = [
     path: 'tratamiento/update/:id',
     component: ModificarTratamientoComponent,
   },
+
+  // --------------- Other ---------------
   {
     path: 'chat',
     component: ChatgptComponent,

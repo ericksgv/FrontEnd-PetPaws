@@ -1,26 +1,21 @@
 import { Component } from '@angular/core';
-import { MenuServiceService } from '../dropdown-menu/menu-service.service';
 import { VeterinarioService } from '../veterinario/Service/veterinario-service.service';
 import { Router } from '@angular/router';
-
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.css'],
 })
 export class LandingPageComponent {
-  visibilidadMenu = this.menuService.getVisibilidadMenu();
   userRole: string | undefined;
 
   constructor(
-    private menuService: MenuServiceService,
     private veterinarioService: VeterinarioService,
     private router: Router
   ) {}
 
   ngOnInit() {
-    this.menuService.menuVisibility$.subscribe((isVisible) => {
-      this.visibilidadMenu = isVisible;
+
 
       // Verificar si hay un token en localStorage
       const token = localStorage.getItem('token');
@@ -44,6 +39,6 @@ export class LandingPageComponent {
           }
         });
       }
-    });
+
   }
 }
