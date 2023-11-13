@@ -1,7 +1,9 @@
 * {
     font-family: 'Work Sans', sans-serif;
 }
-
+.ancho-personalizado {
+    width: 15%;
+}
 .contenedor-pagina {
     padding-top: 15vh;
 }
@@ -178,7 +180,7 @@ button {
 
 /*tabla*/
 .cuadro-estatico2 {
-    margin: 0vh 6% 0vh 6%;
+    margin: 0vh 3% 0vh 3%;
     padding: 0%;
     padding-bottom: 6%;
 }
@@ -279,9 +281,10 @@ button {
 
 .acciones-cell {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    justify-content: center; 
+    align-items: flex-end; 
 }
+
 
 /* Estilo para el botón "Modificar" */
 .acciones-cell a {
