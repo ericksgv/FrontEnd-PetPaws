@@ -30,7 +30,7 @@ export class DashboardVeterinarioComponent {
   tratamientos: Tratamiento[] = [];
   cedula: any;
   nombreUsuario: string | undefined;
-  citasHoy: Cita[] = []
+  citasHoy: CitasDTO[] = [];
 
   constructor(
     private router: Router, // Inyecta el servicio Router
@@ -75,33 +75,19 @@ export class DashboardVeterinarioComponent {
           this.nombreUsuario = this.veterinarioActual.nombre;
 
           this.cargarTratamientos(this.veterinarioActual.id);
-
+          this.cargarCitasDeHoy()
         }
       });
   }
 
-  cargarCitasDeHoy(){
+  cargarCitasDeHoy() {
 
-    let fechaHoy = new Date()
-    let todasCitas: Cita[] = []
+    this.citasService.getCitasDeHoy().subscribe(citas => {
+      console.log(citas);
+        this.citasHoy = citas;
+    });
+}
 
-    this.citasService
-      .getHorasDisponiblesParaDia(fechaHoy)
-      .subscribe(citas => {
-        todasCitas = citas
-
-        // Filtrar las citas de hoy
-        todasCitas.forEach(cita => {
-          let fechaCita = new Date(cita.fechaHora)
-          if (fechaCita.getDate() == fechaHoy.getDate() &&
-              fechaCita.getMonth() == fechaHoy.getMonth() &&
-              fechaCita.getFullYear() == fechaHoy.getFullYear()) {
-            this.citasHoy.push(cita)
-          }
-        })
-      })
-
-  }
 
   cargarTratamientos(idVeterinario: number) {
     this.tratamientoService

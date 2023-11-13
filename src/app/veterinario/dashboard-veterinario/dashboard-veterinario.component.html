@@ -3,31 +3,40 @@
 <section class="contenedor-pagina beige-fondo">
     <h1 class="titulo-nombre-cliente">Bienvenido de nuevo, <span class="nombre-usuario">{{nombreUsuario}}</span></h1>
     <section class="acciones-rapidas">
-        <p> <strong> Acciones rápidas:    </strong></p>
+        <p> <strong> Acciones rápidas: </strong></p>
         <div class="botones-acciones">
-            <button id="agregarTratamiento" [routerLink]="'/tratamiento/add'" class="boton naranja-fondo">Añadir Tratamiento</button>
+            <button id="agregarTratamiento" [routerLink]="'/tratamiento/add'" class="boton naranja-fondo">Añadir
+                Tratamiento</button>
             <button id="agregarMascota" [routerLink]="'/mascotas/add'" class="boton verde-fondo">Añadir Mascota</button>
-            <button id="agregarUsuario" [routerLink]="'/usuario/add'" class="boton amarillo-fondo">Añadir Cliente</button>
+            <button id="agregarUsuario" [routerLink]="'/usuario/add'" class="boton amarillo-fondo">Añadir
+                Cliente</button>
         </div>
     </section>
 
-  <section class="carta-citas naranjaPastel-fondo">
-    <h1 class="recoleta-bold">Citas para hoy:</h1>
-    <br>
-<!--    <table>-->
-<!--      <tr>-->
-<!--        <th class="recoleta-bold">Hora</th>-->
-<!--        <th class="recoleta-bold">Mascota</th>-->
-<!--      </tr>-->
-
-<!--      <tr *ngFor="let cita of citasHoy">-->
-<!--        <td>{{cita.fechaHora}}</td>-->
-<!--        <td>{{cita.idMascota}}</td>-->
-<!--      </tr>-->
-
-<!--    </table>-->
-
-  </section>
+    <section class="carta-citas naranjaPastel-fondo">
+        <h1 class="recoleta-bold">Citas para hoy:</h1>
+        <br>
+        <table class="tabla-general2">
+            <thead>
+            <tr> 
+                <th class="recoleta-bold" style="width: 10%;">Id</th>
+                <th class="recoleta-bold">Hora</th>
+                <th class="recoleta-bold">Mascota</th>
+                <th class="recoleta-bold "style="width: 20%;">Agregar</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody" class="tbody2">
+            <tr *ngFor="let cita of citasHoy">
+                <td>{{cita.id}}</td>
+                <td>{{cita.fechaHora}}</td>
+                <td>{{cita.nombreMascota}}</td>
+                <td class="texto-negrilla centrar-contenido">
+                    <a class="boton-modificar" href="#" data-value="opcion8" [routerLink] = "'/tratamiento/add'">Tratamiento</a>
+                  </td> 
+            </tr>
+        </tbody>
+        </table>
+    </section>
 
 
     <section class="contenedor-cartas">
@@ -81,7 +90,8 @@
                         <ng-container *ngIf="tratamiento.mascota.edad >= 12; else mostrarMeses">
                             <span class="info-parrafo1">
                                 Edad: {{ calcularEdadMascota(tratamiento.mascota.edad).anos }} ano(s)
-                                {{ calcularEdadMascota(tratamiento.mascota.edad).meses > 0 ? calcularEdadMascota(tratamiento.mascota.edad).meses + ' mes(es)' : '' }}
+                                {{ calcularEdadMascota(tratamiento.mascota.edad).meses > 0 ?
+                                calcularEdadMascota(tratamiento.mascota.edad).meses + ' mes(es)' : '' }}
                             </span>
                         </ng-container>
                         <ng-template #mostrarMeses>
@@ -93,7 +103,7 @@
                         <span class="info-parrafo1">Peso: {{ tratamiento.mascota.peso }}</span>
                         <span class="info-parrafo1">{{ tratamiento.mascota.raza }}</span>
                         <span class="info-parrafo1">{{ tratamiento.mascota.estado }}</span>
-                      <hr class="linea-divisor-mascotas">
+                        <hr class="linea-divisor-mascotas">
                     </div>
                 </div>
                 <br>

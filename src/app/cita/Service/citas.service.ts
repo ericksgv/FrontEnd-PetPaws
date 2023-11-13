@@ -26,4 +26,8 @@ export class CitasService {
   getCitasMascotasUsuario(id: number): Observable<CitasDTO[]>{
     return this.http.get<CitasDTO[]>(`${this.apiUrl}/usuario/${id}`) ;
   }
+  getCitasDeHoy(): Observable<CitasDTO[]> {
+    const url = `${this.apiUrl}/today`;
+    return this.http.get<CitasDTO[]>(url);
+  }
 }

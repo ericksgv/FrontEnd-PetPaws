@@ -104,14 +104,32 @@
   margin-left: 5%;
   padding: 2%;
   text-align: center;
+  display: block;
 
-  display: flex;
   justify-content: center;
   align-items: center;
 
   border-radius: 15px;
   margin-bottom: 5%;
 }
+
+.boton-modificar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2% 2% !important;
+  background-color: #DC6A35;
+  color: #000;
+  text-decoration: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: calc(0.2em + 1vw) !important;
+}
+.centrar-contenido {
+  justify-content: center;
+  align-items: center;
+}
+
 
 
 /* ------------------------ */
@@ -351,4 +369,41 @@
     margin-top: 2%;
   }
 
+}
+
+
+.tabla-general2 {
+  width: 100%;
+  overflow: hidden;
+  border-collapse: collapse;
+}
+
+.tabla-general2 th {
+  font-family: Recoleta, serif;
+  text-align: center;
+}
+
+.tabla-general2 td {
+  font-family: 'Work Sans', sans-serif;
+  align-items: center; 
+  text-align: center;
+  justify-content: center;
+}
+
+.tabla-general2 tr {
+  text-align: center;
+}
+
+.tabla-general2 th,
+.tabla-general2 td {
+  padding: 1.5%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: calc(0.2em + 1vw);
+}
+
+/* Aplicar fondo a filas impares */
+.tbody2 tr:nth-child(odd) {
+  background-color: #F2EBD2;
 }
