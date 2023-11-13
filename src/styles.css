@@ -202,6 +202,13 @@ body {
   color: #DC6A35;
 }
 
+.rojo-intenso-acento{
+  color: #F84141;
+}
+
+.rojo-intenso-fondo{
+  background-color: #F84141;
+}
 /* ------------------------- Botones -------------------------*/
 .boton-redondo-global{
   border-radius: 20px;
