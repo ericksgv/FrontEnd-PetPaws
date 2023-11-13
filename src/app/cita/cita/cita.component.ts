@@ -51,7 +51,6 @@ export class CitaComponent {
     )
     .subscribe((data) => {
       if (data) {
-        console.log(data);
 
     this.usuarioService.getMascotasUsuarioCedula(data.cedula).subscribe(
       (mascotasUsuario => {
@@ -60,7 +59,6 @@ export class CitaComponent {
         } else {
           this.mascotas = [];
         }
-        console.log("Mascotas obtenidas del usuario: " + mascotasUsuario?.length)
       }))}
       });
   
@@ -113,11 +111,8 @@ export class CitaComponent {
         fechaHora: this.horaSeleccionada,
         idMascota: Number(this.selectedMascota)
       };
-      console.log("CITA: "+cita.idMascota)
-
       this.servicioSpring.agregarCita(cita).subscribe(
         () => {
-          console.log('Cita guardada exitosamente');
           Swal.fire({
             icon: 'success',
             title: 'Cita agendada con éxito',

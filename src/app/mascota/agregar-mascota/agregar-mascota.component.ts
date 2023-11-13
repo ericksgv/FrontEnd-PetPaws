@@ -67,8 +67,6 @@ export class AgregarMascotaComponent {
         return of({ error: errorMessage });
       })
     ).subscribe((result) => {
-        // La lógica para el caso de éxito
-        console.log('Éxito:', result);
         this.veterinarioService.getRol().subscribe(rol => {
           this.rol = rol;
         });

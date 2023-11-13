@@ -158,7 +158,6 @@ filtrarPorAtributo(atributo: string) {
           return mascota.nombre.toLowerCase().includes(atributoBusqueda);
         case 'edad':
           this.filtroActivoEdad = true;
-          console.log(this.filtroActivoEdad);
           return mascota.edad.toString().includes(atributoBusqueda);
         case 'raza':
           this.filtroActivoRaza = true;

@@ -74,9 +74,6 @@ export class AgregarTratamientoComponent implements OnInit {
       })
     ).subscribe((result) => {
 
-
-        // La lógica para el caso de éxito
-        console.log('Éxito:', result);
         this.veterinarioService.getRol().subscribe((rol) => {
           this.rol = rol;
           console.log(this.rol);
@@ -86,9 +83,7 @@ export class AgregarTratamientoComponent implements OnInit {
       .veterinarioHome()
       .subscribe((data) => {
         if (data) {
-          console.log(data);
           this.tratamientoForm.get('veterinarioId')?.setValue(data.cedula.toString());
-
           this.veterinarioActual = data;
 
         }
@@ -179,8 +174,6 @@ export class AgregarTratamientoComponent implements OnInit {
     
     if (this.tratamientoForm.valid) {
       const tratamiento: TratamientoCrearDTO = this.tratamientoForm.value;
-      console.log('guardando', tratamiento);
-  
       this.tratamientoService.agregarTratamiento(tratamiento).subscribe(() => {
         Swal.fire({
           icon: 'success',

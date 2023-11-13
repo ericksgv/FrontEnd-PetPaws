@@ -26,7 +26,6 @@ export class ModificarMascotaComponent implements OnInit {
       this.rol = rol;
     });
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    console.log("id de la url: ", id)
     if(id){
       this.mascotaService.getMascotaPorId(id)
       .pipe(
@@ -59,7 +58,6 @@ export class ModificarMascotaComponent implements OnInit {
   actualizarMascota() {
     if (this.mascota) {
       const id = this.mascota.id;
-      console.log(this.mascota);
       this.mascotaService.modificarMascota(id, this.mascota).subscribe(() => {
         Swal.fire({
           icon: 'success',

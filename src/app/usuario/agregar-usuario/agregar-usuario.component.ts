@@ -62,16 +62,12 @@ export class AgregarUsuarioComponent {
           console.error(errorMessage);
           this.router.navigate(['forbidden']);
         } else {
-          console.error('Ocurrió un error:', error);
-          // Puedes agregar más lógica aquí para manejar otros tipos de errores si es necesario.
         }
   
         // Emitir un valor personalizado que representa el error
         return of({ error: errorMessage });
       })
     ).subscribe((result) => {
-        // La lógica para el caso de éxito
-        console.log('Éxito:', result);
         this.veterinarioService.getRol().subscribe((rol) => {
           this.rol = rol;
           console.log(this.rol);

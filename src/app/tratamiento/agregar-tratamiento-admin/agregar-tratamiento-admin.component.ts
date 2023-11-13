@@ -81,8 +81,6 @@ export class AgregarTratamientoAdminComponent implements OnInit {
         return of({ error: errorMessage });
       })
     ).subscribe((result) => {
-        // La lógica para el caso de éxito
-        console.log('Éxito:', result);
         this.veterinarioService.getRol().subscribe((rol) => {
           this.rol = rol;
           console.log(this.rol);
@@ -182,7 +180,6 @@ export class AgregarTratamientoAdminComponent implements OnInit {
     // Verifica si el formulario es válido
     if (this.tratamientoForm.valid) {
       const tratamiento: TratamientoCrearDTO = this.tratamientoForm.value;
-      console.log('guardando', tratamiento);
   
       this.tratamientoService.agregarTratamiento(tratamiento).subscribe(() => {
         Swal.fire({

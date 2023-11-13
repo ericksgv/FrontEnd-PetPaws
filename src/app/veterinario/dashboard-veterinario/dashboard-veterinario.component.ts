@@ -66,12 +66,10 @@ export class DashboardVeterinarioComponent {
       )
       .subscribe((data) => {
         if (data) {
-          console.log(data);
           this.veterinarioActual = data;
           this.nombreUsuario = this.veterinarioActual.nombre;
 
           this.cargarTratamientos(this.veterinarioActual.id);
-          console.log(this.veterinarioActual);
 
         }
       });
@@ -79,7 +77,6 @@ export class DashboardVeterinarioComponent {
 
 
   cargarTratamientos(idVeterinario: number) {
-    console.log('ID: ' + this.veterinarioActual.id);
     this.tratamientoService
       .mostrarveterinario(idVeterinario)
       .subscribe((tratamientos) => {

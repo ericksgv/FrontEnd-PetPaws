@@ -51,7 +51,6 @@ export class ModificarUsuarioComponent implements OnInit {
       });
     
 
-    console.log("Cedula de la url: ", this.cedula)
     if (this.cedula) {
       this.usuarioService.getUsuarioPorCedula(this.cedula)
   .pipe(

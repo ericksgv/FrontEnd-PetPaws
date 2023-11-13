@@ -105,7 +105,6 @@ export class UsuarioTableComponent implements OnInit {
     )
     .subscribe((usuarios) => {
       this.usuarios = usuarios ?? [];
-      console.log(this.usuarios);
       this.usuariosFiltrados = this.usuarios;
       this.calcularPaginas();
       this.actualizarRangoPaginas();

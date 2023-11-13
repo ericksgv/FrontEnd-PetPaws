@@ -264,10 +264,8 @@ export class TratamientoTableComponent implements OnInit {
 
   redirigirSegunRol() {
     if(this.rol == 'ADMIN'){
-      console.log("Redirigiendo a ADMIN")
       this.router.navigate(['/agregar-tratamiento']);
     } else{
-      console.log("Redirigiendo a VET")
       this.router.navigate(['/tratamiento/add']);
     }
     }

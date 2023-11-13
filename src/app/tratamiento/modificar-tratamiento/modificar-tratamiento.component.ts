@@ -19,7 +19,6 @@ export class ModificarTratamientoComponent implements OnInit {
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    console.log("ID de la URL: ", id)
     this.tratamientoService.getTratamientoPorId(id).subscribe((tratamiento) => {
       this.tratamiento = tratamiento;
 

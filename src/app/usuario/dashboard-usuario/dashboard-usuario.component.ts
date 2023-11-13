@@ -56,17 +56,14 @@ export class DashboardUsuarioComponent implements OnInit{
     )
     .subscribe((data) => {
       if (data) {
-        console.log(data);
         this.usuarioActual = data;
         this.setInformacionForm(this.usuarioActual.cedula, this.usuarioActual.nombre, this.usuarioActual.correo, this.usuarioActual.celular)
 
     this.usuarioService.getMascotasUsuarioCedula(this.usuarioActual.cedula).subscribe(
       (mascotasUsuario => {
         this.mascotasUsuario = mascotasUsuario
-        console.log("Mascotas obtenidas del usuario: " + mascotasUsuario)
       })
     )
-        console.log(this.usuarioActual);
       }
     });
 
