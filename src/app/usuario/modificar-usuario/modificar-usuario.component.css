@@ -71,8 +71,10 @@ button {
 
 .contenedor-img-modificar-mascota {
     background-color: transparent;
-    width: 22vw;
-    height: 22vw;
+    width: 100%;
+    background-size: cover;
+    width: 60vh;
+    height: 55vh;
     position: absolute;
     top: 30%;
     left: 10%;
