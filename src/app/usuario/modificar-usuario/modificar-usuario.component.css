@@ -230,3 +230,10 @@ button {
     color: #2D2D2D;
     transition: all 0.3s;
 }
+
+.waveimage2 {
+    position: absolute;
+    top: 20%;
+    left: 2%;
+    width: calc(0.2em + 7vw);
+}
