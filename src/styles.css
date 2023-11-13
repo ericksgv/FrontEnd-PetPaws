@@ -205,12 +205,11 @@ body {
 /* ------------------------- Botones -------------------------*/
 .boton-redondo-global{
   border-radius: 20px;
-  border-style: solid;
   margin-top: 3%;
   padding: 2%;
 
   font-family: Recoleta, serif;
-  font-size: 1vw;
+  font-size: 1.3vw;
 
   transition: 0.5s all;
 }

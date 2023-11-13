@@ -12,7 +12,7 @@
       <li class="worksans item-size-informacion-mascota"><span class="recoleta-bold item-size-informacion-mascota">Edad: </span>{{mascotaActual?.edad}} años</li>
       <li class="worksans item-size-informacion-mascota"><span class="recoleta-bold item-size-informacion-mascota">Peso: </span >{{mascotaActual?.peso}}</li>
       <li class="worksans item-size-informacion-mascota"><span class="recoleta-bold item-size-informacion-mascota">Estado: </span >{{mascotaActual?.estado}}</li>
-      <li class="worksans item-size-informacion-mascota"><span class="recoleta-bold item-size-informacion-mascota">Enfermedad :</span>{{mascotaActual?.enfermedad}}</li>
+      <li class="worksans item-size-informacion-mascota"><span class="recoleta-bold item-size-informacion-mascota">Enfermedad:</span>{{mascotaActual?.enfermedad}}</li>
     </ul>
   </section>
 
@@ -23,23 +23,21 @@
 
     <table class="tabla-tratamientos-info-mascota">
       <tr>
-        <th class="recoleta-bold">Enfermedad</th>
-        <th class="recoleta-bold">Droga</th>
+        <th class="recoleta-bold">Medicamento</th>
         <th class="recoleta-bold">Fecha</th>
         <th class="recoleta-bold">Veterinario</th>
-        <th>{{mascotaActual?.tratamientos}}</th>
-        <th>{{mascotaActual?.tratamientos}}</th>
       </tr>
 
 
-      <tr *ngFor="let tratamiento of mascotaActual?.tratamientos">
-        <td>{{tratamiento.descripcion}}</td>
-        <td>{{tratamiento.medicamento}}</td>
+      <tr *ngFor="let tratamiento of tratamientosMascota">
+        <td>{{tratamiento.nombreMedicamento}}</td>
         <td>{{tratamiento.fecha}}</td>
-        <td>{{tratamiento.veterinario}}</td>
+        <td>{{tratamiento.nombreVeterinario}}</td>
       </tr>
 
     </table>
+
+    <button class="boton-redondo-global boton-añadir recoleta naranja-principal-fondo beige-acento" [routerLink]="'/tratamiento/add'"> Añadir tratamiento </button>
 
   </section>
 

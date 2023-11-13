@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {MascotaService} from "../Service/mascotaservice.service";
 import {ActivatedRoute} from "@angular/router";
 import {Mascota} from "../../model/mascota";
+import {TratamientoDTO} from "../../model/tratamientoDTO";
 
 @Component({
   selector: 'app-informacion-mascota',
@@ -11,6 +12,7 @@ import {Mascota} from "../../model/mascota";
 export class InformacionMascotaComponent implements OnInit {
 
   mascotaActual: Mascota | undefined
+  tratamientosMascota: TratamientoDTO[] | undefined
 
   constructor(private mascotaService: MascotaService,
               private route: ActivatedRoute) {
@@ -27,7 +29,12 @@ export class InformacionMascotaComponent implements OnInit {
       this.mascotaService.getMascotaPorId(numberMascotaId).subscribe(
         (mascota) => {
           this.mascotaActual = mascota
-          console.log(this.mascotaActual?.tratamientos)
+
+          this.mascotaService.getTratamientos(numberMascotaId).subscribe(
+            (tratamientos) => {
+              this.tratamientosMascota = tratamientos
+            }
+          )
         }
       )
 

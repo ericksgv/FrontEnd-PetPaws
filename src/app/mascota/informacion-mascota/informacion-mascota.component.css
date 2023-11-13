@@ -60,6 +60,7 @@ li{
   flex: 4;
   min-height: 80vh;
   margin-left: 2.5vw;
+  text-align: center;
 
 }
 
@@ -70,10 +71,32 @@ li{
 th{
   text-align: center;
   font-size: 1.5vw;
+  height: 5vh;
+  margin-bottom: 3%;
 }
 
-td{
+tr{
+  width: 100%;
+  margin-bottom: 3%;
+  height: 7vh;
+}
+
+tr:nth-child(even){
+  background-color: #F2EBD2;
+}
+
+
+td {
   text-align: center;
   font-size: 1.3vw;
   font-family: 'Work Sans', sans-serif;
+}
+
+.boton-añadir{
+  border-style: none;
+}
+
+.boton-añadir:hover{
+  background-color: #F2EBD2;
+  color: #DC6A35;
 }
