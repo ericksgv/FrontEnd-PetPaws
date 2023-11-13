@@ -9,6 +9,7 @@ import { MascotaService } from 'src/app/mascota/Service/mascotaservice.service';
 import { VeterinarioService } from 'src/app/veterinario/Service/veterinario-service.service';
 import { MedicamentoService } from 'src/app/medicamento/Service/medicamento.service';
 import Swal from 'sweetalert2';
+import { TratamientoCrearDTO } from 'src/app/model/tratamientoCrearDTO';
 @Component({
   selector: 'app-agregar-tratamiento',
   templateUrl: './agregar-tratamiento.component.html',
@@ -139,21 +140,33 @@ export class AgregarTratamientoComponent implements OnInit {
   }
 
   guardarTratamiento() {
-    const tratamiento = this.tratamientoForm.value;
-
-    this.tratamientoService.agregarTratamiento(tratamiento).subscribe(() => {
-      Swal.fire({
-        icon: 'success',
-        title: 'CRUD Exitoso',
-        text: 'Tratamiento Agregado exitosamente',
-        timer: 2000,
-        timerProgressBar: true,
-        didOpen: () => {
-          Swal.showLoading();
-        },
-      }).then(() => {
-        this.router.navigate(['tratamiento/all']);
+    // Verifica si el formulario es válido
+    if (this.tratamientoForm.valid) {
+      const tratamiento: TratamientoCrearDTO = this.tratamientoForm.value;
+      console.log('guardando', tratamiento);
+  
+      this.tratamientoService.agregarTratamiento(tratamiento).subscribe(() => {
+        Swal.fire({
+          icon: 'success',
+          title: 'CRUD Exitoso',
+          text: 'Tratamiento Agregado exitosamente',
+          timer: 2000,
+          timerProgressBar: true,
+          didOpen: () => {
+            Swal.showLoading();
+          },
+        }).then(() => {
+          this.router.navigate(['tratamiento/all']);
+        });
       });
-    });
+    } else {
+      // Si el formulario no es válido, muestra un mensaje de error o realiza alguna acción
+      Swal.fire({
+        icon: 'error',
+        title: 'Error de validación',
+        text: 'Por favor, complete todos los campos obligatorios.',
+      });
+    }
   }
+  
 }

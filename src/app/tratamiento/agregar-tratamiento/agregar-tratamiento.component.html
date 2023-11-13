@@ -19,8 +19,9 @@
                     <input type="text" formControlName="mascotaId" class="acento-verde-texto labelenunciado" id="mascotaId"
                         placeholder="Filtrar por Nombre de la mascota" (input)="buscarMascotaPorNombre($event)">
                         <select id="mascotaId" formControlName="mascotaId" class="labelenunciado2">
+                            <option value="">Seleccionar mascota</option> <!-- Opción en blanco -->
                             <option *ngFor="let mascota of mascotas" [value]="mascota.id">{{ mascota.nombre }}</option>
-                        </select>
+                          </select>
 
                     <input type="hidden" id="duenioId" class="letra-poppins campo-input-dashboard form-control">
                 </div>
@@ -29,9 +30,10 @@
                     <br>
                     <input type="text" formControlName="veterinarioId" class="acento-verde-texto labelenunciado" id="veterinarioId"
                     placeholder="Filtrar por Nombre o cédula del veterinario" (input)="buscarVeterinario($event)">
-                    <select id="veterinarioId" formControlName="veterinarioId" class="labelenunciado2">
-                        <option *ngFor="let veterinario of veterinarios" [value]="veterinario.cedula">{{veterinario.nombre }}, {{veterinario.cedula }}</option>
-                    </select>
+                    <select id="veterinarioId" formControlName="veterinarioId" class="labelenunciado2" (change)="buscarVeterinario($event)">
+                        <option value="">Seleccionar veterinario</option> <!-- Opción en blanco -->
+                        <option *ngFor="let veterinario of veterinarios" [value]="veterinario.cedula">{{veterinario.nombre}}, {{veterinario.cedula}}</option>
+                      </select>
                 </div>
             </div>
             <div class="columna">
@@ -41,8 +43,9 @@
                     <input type="text" formControlName="medicamentoId" class="acento-verde-texto labelenunciado3" id="medicamentoId"
                         placeholder="Filtrar por Nombre del medicamento" (input)="buscarMedicamentoPorNombre($event)">
                         <select id="medicamentoId" formControlName="medicamentoId" class="labelenunciado4">
+                            <option value="">Seleccionar medicamento</option> <!-- Opción en blanco -->
                             <option *ngFor="let medicamento of medicamentos" [value]="medicamento.id">{{ medicamento.nombre }}</option>
-                        </select>
+                          </select>
                 </div>
             </div>
             <div class="columna">
