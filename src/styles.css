@@ -253,3 +253,24 @@ body {
   height: 5px;
   margin-top: 5%;
 }
+
+/*------------- Scrollbar customization -------------*/
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #DDA45A;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #E7B10A;
+}
