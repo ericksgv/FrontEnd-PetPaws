@@ -86,7 +86,7 @@
             <input type="checkbox" class="custom-checkbox" [id]="'checkbox-' + i">
             <label [for]="'checkbox-' + i" class="custom-checkbox-label"></label>
           </td>
-          <th>{{ mascota.nombre }}</th>
+          <td> <a [routerLink]="'/mascota/informacion/' + mascota.id" class="recoleta-bold nombre-mascota"> {{ mascota.nombre }}</a> </td>
           <td>{{ mascota.edad }}</td>
           <td class="ancho-razas">{{ mascota.raza }}</td>
           <td>{{ mascota.peso }}</td>
@@ -95,10 +95,10 @@
             <div class="toggle-container" (click)="toggleEstadoMascota(mascota)">
               <div class="toggle-switch" [ngClass]="{'activo': mascota.estado === 'Inactivo'}"></div>
             </div>
-          </td>          
+          </td>
           <td class="texto-negrilla">
             <a class="boton-modificar" href="#" data-value="opcion8" [routerLink]="['/mascotas/modificar', mascota.id]">Modificar</a>
-          </td>  
+          </td>
         </tr>
       </tbody>
     </table>

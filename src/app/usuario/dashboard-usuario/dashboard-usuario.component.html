@@ -38,7 +38,7 @@
       <div *ngFor="let mascota of mascotasUsuario?.slice(0, 3); index as i; first as isFirst">
         <div class="informacionMascota">
           <img class="foto-mascota" [src]="mascota.foto" alt="Foto de la mascota">
-          <a> <strong> {{mascota.nombre}} </strong></a>
+          <a [routerLink]="'/mascota/informacion/' + mascota.id" class="recoleta-bold nombre-mascota"> <strong> {{mascota.nombre}} </strong></a>
           <br>
           <span>{{mascota.raza}}</span>
           <br>

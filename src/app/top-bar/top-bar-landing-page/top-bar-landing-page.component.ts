@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MenuServiceService } from '../../dropdown-menu/menu-service.service'
+
 
 @Component({
   selector: 'app-top-bar-landing-page',
@@ -8,13 +8,13 @@ import { MenuServiceService } from '../../dropdown-menu/menu-service.service'
 })
 export class TopBarLandingPageComponent {
 
-  constructor(private menuService: MenuServiceService) {
-  }
+  visibilidadMenu: boolean = false;
 
-  public MenuServiceService = MenuServiceService;
 
   cambiarVisibilidadMenu(){
-    this.menuService.cambiarVisibilidadMenu()
+    this.visibilidadMenu = !this.visibilidadMenu
+    console.log("in function")
+    console.log(this.visibilidadMenu)
   }
 
 }
