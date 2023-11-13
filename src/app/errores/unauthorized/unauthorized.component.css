@@ -1,0 +1,69 @@
+.error-page-layout{
+  width: 100%;
+  max-width: 100vw;
+  height: 100vh;
+
+  position: relative;
+  z-index: 0;
+  background-color: #F1D79D;
+}
+
+.doodles-background{
+  position: relative;
+  z-index: 1;
+
+  background-image: url("/assets/error-pages/squiggles_and_doodles_background.png");
+  background-size: contain;
+  background-repeat: repeat;
+  background-position: center;
+
+  display: flex;
+
+  width: 100%;
+  height: 100%;
+}
+
+.seccion-texto-error{
+  flex: 6;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+
+  flex-direction: column;
+}
+
+img{
+  max-width: 100%;
+  object-fit: cover;
+}
+
+h1{
+  font-size: 5vw;
+}
+
+h2{
+  font-size: 3vw;
+  text-align: center;
+}
+
+.boton-pagina-error{
+  color: black;
+  border-color: black;
+
+  font-size: 1.5vw;
+}
+
+.boton-pagina-error:hover{
+  background-color: inherit;
+  color: #DD4429;
+}
+
+.seccion-imagen-error{
+  flex: 4;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
