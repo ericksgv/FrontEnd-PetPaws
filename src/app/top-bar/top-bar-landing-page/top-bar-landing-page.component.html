@@ -37,7 +37,7 @@
 
 
 
-<app-dropdown-menu  [@popOverState]="stateName"></app-dropdown-menu>
+<app-dropdown-menu  *ngIf="show" [@fadeInOut]="show ? 'in' : 'void'"></app-dropdown-menu>
 
 
 

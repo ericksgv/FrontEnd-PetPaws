@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { VeterinarioService } from '../veterinario/Service/veterinario-service.service';
 import { Router } from '@angular/router';
+
+
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
