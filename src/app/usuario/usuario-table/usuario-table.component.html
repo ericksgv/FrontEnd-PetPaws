@@ -101,6 +101,9 @@
             </div>
           </td> 
           <td class="texto-negrilla">
+            <a class="boton-modificar" href="#" data-value="opcion8" [routerLink] = "'/usuario/mascotas'" (click)= "listarMascotas(usuario.cedula)">Mascotas</a>
+          </td>  
+          <td class="texto-negrilla">
             <a class="boton-modificar" href="#" data-value="opcion8" [routerLink]="['/usuario/update', usuario.cedula]">Modificar</a>
           </td> 
         </tr>
