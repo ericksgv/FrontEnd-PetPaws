@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Mascota } from 'src/app/model/mascota';
+import { TratamientoDTO } from 'src/app/model/tratamientoDTO';
 
 @Injectable({
   providedIn: 'root',
@@ -41,8 +42,8 @@ export class MascotaService {
     return this.http.get<Mascota[]>(`${this.apiUrl}/filtrar/${nombre}`);
   }
 
-  getTratamientos(id: number): Observable<TratamientoInfoDTO[]>{
-    return this.http.get<TratamientoInfoDTO[]>(`${this.apiUrl}/tratamientos/${id}`);
+  getTratamientos(id: number): Observable<TratamientoDTO[]>{
+    return this.http.get<TratamientoDTO[]>(`${this.apiUrl}/tratamientos/${id}`);
   }
 }
 
