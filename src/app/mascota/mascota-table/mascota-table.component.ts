@@ -14,7 +14,8 @@ export class MascotaTableComponent implements OnInit {
   selectedSortOrder: string = 'asc'; // Valor predeterminado
   textoBusqueda: string = '';
   rol: String = '';
-  
+
+  filtroActivoNombre = false;
   filtroActivoEdad = false;
   filtroActivoRaza = false;
   filtroActivoPeso = false;
@@ -100,6 +101,7 @@ filtrarMascotas() {
 }
 
 restaurarFiltros(){
+  this.filtroActivoNombre = false;
   this.filtroActivoEdad = false;
   this.filtroActivoRaza = false;
   this.filtroActivoPeso = false;
@@ -110,44 +112,20 @@ restaurarFiltros(){
 
 filtrarPorAtributo(atributo: string) {
   this.filtrarMascotas();
+  if(this.filtroActivoNombre  == true){
+    atributo = 'limpiar'
+  } else
   if(this.filtroActivoEdad  == true){
-    this.restaurarFiltros();
-    this.filtroActivoEdad = false;
-    this.filtroActivoRaza = false;
-    this.filtroActivoPeso = false;
-    this.filtroActivoEstado = false;
-    this.busquedaAvanzada = '';
-    return
+    atributo = 'limpiar'
   } else if(this.filtroActivoRaza  == true){
-    this.restaurarFiltros();
-    this.filtroActivoEdad = false;
-    this.filtroActivoRaza = false;
-    this.filtroActivoPeso = false;
-    this.filtroActivoEstado = false;
-    this.busquedaAvanzada = '';
-    return
+    atributo = 'limpiar'
   } else if(this.filtroActivoPeso  == true){
-    this.restaurarFiltros();
-    this.filtroActivoEdad = false;
-    this.filtroActivoRaza = false;
-    this.filtroActivoPeso = false;
-    this.filtroActivoEstado = false;
-    this.busquedaAvanzada = '';
-    return
+    atributo = 'limpiar'
   } else if(this.filtroActivoEstado  == true){
-    this.restaurarFiltros();
-    this.filtroActivoEdad = false;
-    this.filtroActivoRaza = false;
-    this.filtroActivoPeso = false;
-    this.filtroActivoEstado = false;
-    this.busquedaAvanzada = '';
-    return
+    atributo = 'limpiar'
   }
   this.restaurarFiltros();
-  this.filtroActivoEdad = false;
-  this.filtroActivoRaza = false;
-  this.filtroActivoPeso = false;
-  this.filtroActivoEstado = false;
+
 
   if (atributo === 'limpiar') {
     // Limpia el campo de búsqueda avanzada y muestra todas las mascotas.
@@ -157,6 +135,9 @@ filtrarPorAtributo(atributo: string) {
     this.mascotasFiltradas = this.mascotas.filter(mascota => {
       const atributoBusqueda = this.textoBusqueda.toLowerCase();
       switch (atributo) {
+        case 'nombre':
+          this.filtroActivoNombre = true;
+          return mascota.nombre.toLowerCase().includes(atributoBusqueda);
         case 'edad':
           this.filtroActivoEdad = true;
           console.log(this.filtroActivoEdad);
@@ -196,7 +177,7 @@ filtrarPorAtributo(atributo: string) {
   }
 
   toggleEstadoMascota(mascota: any) {
-    if (mascota.estado === 'activo') {
+    if (mascota.estado != 'Inactivo') {
       this.eliminarMascota(mascota.id);
     } else if (mascota.estado === 'Inactivo') {
       this.activarMascota(mascota.id);

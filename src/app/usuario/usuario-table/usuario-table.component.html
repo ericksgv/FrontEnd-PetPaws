@@ -23,11 +23,12 @@
     </div>
 
     <div class="tres-botones texto-negrilla textoNegro">
-          <button [ngClass]="filtroActivoNombre ? 'filtro-activo' : 'acentro-amarillo-fondo texto-negrilla  .filtro-btn'"  class="acentro-amarillo-fondo texto-negrilla  .filtro-btn" (click)="filtrarPorAtributo('nombre')">Nombre</button>
-          <button [ngClass]="filtroActivoCorreo ? 'filtro-activo' : 'acentro-amarillo-fondo texto-negrilla  .filtro-btn'"  class="acentro-amarillo-fondo texto-negrilla  .filtro-btn" (click)="filtrarPorAtributo('correo')">Correo</button>
-          <button [ngClass]="filtroActivoCelular ? 'filtro-activo' : 'acentro-amarillo-fondo texto-negrilla  .filtro-btn'"  class="acentro-amarillo-fondo texto-negrilla  .filtro-btn" (click)="filtrarPorAtributo('celular')">Celular</button>
-          <button [ngClass]="filtroActivoEstado ? 'filtro-activo' : 'acentro-amarillo-fondo texto-negrilla  .filtro-btn'"  class="acentro-amarillo-fondo texto-negrilla  .filtro-btn" (click)="filtrarPorAtributo('estado')">Estado</button>
-          <button  class="acentro-amarillo-fondo texto-negrilla  .filtro-btn" (click)="filtrarPorAtributo('limpiar')">Limpiar búsqueda avanzada</button>
+      <button [ngClass]="filtroActivoCedula ? 'filtro-activo' : 'acentro-amarillo-fondo texto-negrilla  .filtro-btn'"  class="acentro-amarillo-fondo texto-negrilla  .filtro-btn" (click)="filtrarPorAtributo('cedula')">Cédula</button>
+      <button [ngClass]="filtroActivoNombre ? 'filtro-activo' : 'acentro-amarillo-fondo texto-negrilla  .filtro-btn'"  class="acentro-amarillo-fondo texto-negrilla  .filtro-btn" (click)="filtrarPorAtributo('nombre')">Nombre</button>
+      <button [ngClass]="filtroActivoCorreo ? 'filtro-activo' : 'acentro-amarillo-fondo texto-negrilla  .filtro-btn'"  class="acentro-amarillo-fondo texto-negrilla  .filtro-btn" (click)="filtrarPorAtributo('correo')">Correo</button>
+      <button [ngClass]="filtroActivoCelular ? 'filtro-activo' : 'acentro-amarillo-fondo texto-negrilla  .filtro-btn'"  class="acentro-amarillo-fondo texto-negrilla  .filtro-btn" (click)="filtrarPorAtributo('celular')">Celular</button>
+      <button [ngClass]="filtroActivoEstado ? 'filtro-activo' : 'acentro-amarillo-fondo texto-negrilla  .filtro-btn'"  class="acentro-amarillo-fondo texto-negrilla  .filtro-btn" (click)="filtrarPorAtributo('estado')">Estado</button>
+        
       </div>
       <div class="tres-botones texto-negrilla textoNegro">
         <div class="margenizquierdo"></div>

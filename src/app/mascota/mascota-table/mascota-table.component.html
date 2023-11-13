@@ -23,6 +23,7 @@
     </div>
 
     <div class="tres-botones texto-negrilla textoNegro">
+      <button [ngClass]="filtroActivoNombre ? 'filtro-activo' : 'acentro-verde-oscuro-fondo texto-negrilla textoBlanco .filtro-btn'"  class="acentro-verde-oscuro-fondo texto-negrilla textoBlanco .filtro-btn" (click)="filtrarPorAtributo('nombre')">Nombre</button>
       <button [ngClass]="filtroActivoEdad ? 'filtro-activo' : 'acentro-verde-oscuro-fondo texto-negrilla textoBlanco .filtro-btn'"  class="acentro-verde-oscuro-fondo texto-negrilla textoBlanco .filtro-btn" (click)="filtrarPorAtributo('edad')">Edad</button>
       <button [ngClass]="filtroActivoRaza ? 'filtro-activo' : 'acentro-verde-oscuro-fondo texto-negrilla textoBlanco .filtro-btn'" class="acentro-verde-oscuro-fondo texto-negrilla textoBlanco .filtro-btn" (click)="filtrarPorAtributo('raza')">Raza</button>
       <button [ngClass]="filtroActivoPeso ? 'filtro-activo' : 'acentro-verde-oscuro-fondo texto-negrilla textoBlanco .filtro-btn'" class="acentro-verde-oscuro-fondo texto-negrilla textoBlanco .filtro-btn" (click)="filtrarPorAtributo('peso')">Peso</button>
