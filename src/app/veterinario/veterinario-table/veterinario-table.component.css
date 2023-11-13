@@ -2,7 +2,7 @@
     font-family: 'Work Sans', sans-serif;
 }
 .ancho-personalizado {
-    width: 15%;
+    text-align: center;
 }
 .contenedor-pagina {
     padding-top: 15vh;
@@ -285,6 +285,10 @@ button {
     align-items: flex-end; 
 }
 
+.encabezados-tabla {
+    text-align: center;
+}
+
 
 /* Estilo para el botón "Modificar" */
 .acciones-cell a {
@@ -403,6 +407,12 @@ button {
 }
 
 @media screen and (max-width: 768px) {
+    .custom-ancho {
+        width: 16%!important;
+    }
+    .custom-ancho2{
+        width: 10%!important;
+    }
     .boton-contenedor {
         width: 50%;
     }
