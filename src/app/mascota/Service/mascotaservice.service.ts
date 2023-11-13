@@ -40,5 +40,9 @@ export class MascotaService {
   buscarMascotasPorNombre(nombre: string): Observable<Mascota[]> {
     return this.http.get<Mascota[]>(`${this.apiUrl}/filtrar/${nombre}`);
   }
+
+  getTratamientos(id: number): Observable<TratamientoInfoDTO[]>{
+    return this.http.get<TratamientoInfoDTO[]>(`${this.apiUrl}/tratamientos/${id}`);
+  }
 }
 

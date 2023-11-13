@@ -82,7 +82,12 @@ filtrarMascotas() {
     this.mascotasFiltradas = this.mascotas;
   } else {
     // Filtra las mascotas que coinciden con el texto de búsqueda.
-    this.mascotasFiltradas = this.mascotas.filter(mascota => mascota.nombre.toLowerCase().includes(this.textoBusqueda.toLowerCase()));
+    this.mascotasFiltradas = this.mascotas.filter(mascota =>
+      Object.values(mascota).some(valor =>
+        typeof valor === 'string' && valor.toLowerCase().includes(this.textoBusqueda.toLowerCase())
+      )
+    );
+    
     this.calcularPaginas();
     this.actualizarRangoPaginas();
   }
@@ -111,7 +116,7 @@ filtrarPorAtributo(atributo: string) {
   } else {
     // Filtra las mascotas que coinciden con el texto de búsqueda y el atributo de búsqueda avanzada.
     this.mascotasFiltradas = this.mascotas.filter(mascota => {
-      const atributoBusqueda = this.busquedaAvanzada.toLowerCase();
+      const atributoBusqueda = this.textoBusqueda.toLowerCase();
       switch (atributo) {
         case 'edad':
           this.filtroActivoEdad = true;
