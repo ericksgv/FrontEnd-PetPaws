@@ -26,29 +26,38 @@
 
   <hr>
 
+  <section class="datos-financieros">
+    <div  class="doughnut-chart-money">
+      <canvas id="moneyChart" ></canvas>
+    </div>
+
+      <span>
+      <p id="ventasTotales" class="numero-cuadro-estadisticas worksans-bold"> {{ventasTotales | currency:'$':'symbol'}}</p>
+      <p class="texto-cuadro-estadisticas">Ventas <br> Totales</p>
+    </span>
+
+      <span>
+      <p id="gananciasTotales" class="numero-cuadro-estadisticas worksans-bold"> {{gananciasTotales| currency:'USD':'symbol':'1.2-2'}}</p>
+      <p class="texto-cuadro-estadisticas" >Ganancias <br>  Totales</p>
+    </span>
+
+  </section>
+
   <section class="entidadesActivas letra-amarilla">
     <span>
-      <p class="numero-cuadro-estadisticas"> {{mascotasTratamiento}}</p>
+      <p class="numero-cuadro-estadisticas worksans-bold"> {{mascotasTratamiento}}</p>
       <p class="texto-cuadro-estadisticas">Mascotas <br> en Tratamiento</p>
     </span>
 
     <span>
-      <p class="numero-cuadro-estadisticas"> {{veterinariosInactivos}}</p>
+      <p class="numero-cuadro-estadisticas worksans-bold"> {{veterinariosInactivos}}</p>
       <p class="texto-cuadro-estadisticas">Veterinarios  <br> Inactivos</p>
     </span>
 
-    <span>
-      <p id="ventasTotales" class="numero-cuadro-estadisticas"> {{ventasTotales | currency:'$':'symbol'}}</p>
-      <p class="texto-cuadro-estadisticas">Ventas <br> Totales</p>
-    </span>
+
 
     <span>
-      <p id="gananciasTotales" class="numero-cuadro-estadisticas"> {{gananciasTotales| currency:'USD':'symbol':'1.2-2'}}</p>
-      <p class="texto-cuadro-estadisticas">Ganancias <br>  Totales</p>
-    </span>
-
-    <span>
-      <p id="tratamientosUltimoMes" class="numero-cuadro-estadisticas"> {{tratamientosUltimoMes.length}}</p>
+      <p id="tratamientosUltimoMes" class="numero-cuadro-estadisticas worksans-bold"> {{tratamientosUltimoMes.length}}</p>
       <p class="texto-cuadro-estadisticas">Tratamientos <br> dados este mes</p>
     </span>
   </section>
@@ -98,8 +107,6 @@
       </tbody>
     </table>
 </div>
-
-  <canvas id="myChart" width="400" height="200"></canvas>
 
 </section>
 

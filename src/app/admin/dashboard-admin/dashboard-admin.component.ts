@@ -40,7 +40,7 @@ export class DashboardAdminComponent implements  OnInit{
 
   ngOnInit() {
 
-    this.createChart()
+
 
     this.dashboardService
     .usuarioHome()
@@ -113,6 +113,7 @@ export class DashboardAdminComponent implements  OnInit{
           this.dashboardService.getVentasTotales().subscribe(
             (ventasTotales) => {
               this.ventasTotales = ventasTotales!
+              this.createPieChart()
             }
           )
 
@@ -153,16 +154,16 @@ export class DashboardAdminComponent implements  OnInit{
   }
 
 
-  createChart(){
-    const ctx = document.getElementById('myChart') as HTMLCanvasElement;
+  createPieChart(){
+    const ctx = document.getElementById('moneyChart') as HTMLCanvasElement;
 
     this.chart = new Chart(ctx, {
-      type: 'bar',
+      type: 'doughnut',
       data: {
-        labels: ['Label 1', 'Label 2', 'Label 3'],
+        labels: ['Ganancias Totales', 'Ventas Totales'],
         datasets: [{
-          label: 'Sample Data',
-          data: [10, 20, 30],
+          label: 'Datos financieros',
+          data: [this.gananciasTotales, this.ventasTotales],
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
             'rgba(54, 162, 235, 0.2)',
@@ -173,14 +174,12 @@ export class DashboardAdminComponent implements  OnInit{
             'rgba(54, 162, 235, 1)',
             'rgba(255, 206, 86, 1)',
           ],
-          borderWidth: 1
+          hoverOffset: 10
         }]
       },
       options: {
         scales: {
-          y: {
-            beginAtZero: true
-          }
+
         }
       }
     });
