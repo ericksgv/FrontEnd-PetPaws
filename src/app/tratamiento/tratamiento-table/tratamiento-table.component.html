@@ -12,12 +12,9 @@
           <!-- Barras de búsqueda -->
     <div class="grupo-elementos">
       <label for="campoBusqueda" class="busqueda">
-        <input type="text" id="campoBusqueda" name="campoBusqueda" placeholder="Busca por cédula" [(ngModel)]="textoBusqueda" (input)="filtrarTratamientos()">
+        <input type="text" id="campoBusqueda" name="campoBusqueda" placeholder="Buscar por cualquier atributo" [(ngModel)]="textoBusqueda" (input)="filtrarTratamientos()">
       </label>
       <div class="boton-derecha">
-        <label for="campoBusqueda" class="busqueda">
-          <input type="text" [(ngModel)]="busquedaAvanzada" placeholder="Búsqueda Avanzada">
-        </label>
       </div>
     </div>
 
@@ -27,7 +24,6 @@
       <button [ngClass]="filtroActivoVeterinario ? 'filtro-activo texto-negrilla' : 'acentro-amarillo-fondo texto-negrilla filtro-btn'" (click)="filtrarPorAtributo('veterinario')">Veterinario</button>
       <button [ngClass]="filtroActivoFecha ? 'filtro-activo texto-negrilla' : 'acentro-amarillo-fondo texto-negrilla filtro-btn'" (click)="filtrarPorAtributo('fecha')">Fecha</button>
 
-      <button  class="acentro-amarillo-fondo texto-negrilla .filtro-btn" (click)="filtrarPorAtributo('limpiar')">Limpiar búsqueda avanzada</button>
     </div>
 
       <div class="tres-botones texto-negrilla textoNegro">

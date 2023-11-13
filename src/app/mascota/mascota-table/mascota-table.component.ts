@@ -82,11 +82,17 @@ filtrarMascotas() {
     this.mascotasFiltradas = this.mascotas;
   } else {
     // Filtra las mascotas que coinciden con el texto de búsqueda.
-    this.mascotasFiltradas = this.mascotas.filter(mascota =>
-      Object.values(mascota).some(valor =>
-        typeof valor === 'string' && valor.toLowerCase().includes(this.textoBusqueda.toLowerCase())
-      )
-    );
+    this.mascotasFiltradas = this.mascotas.filter((mascota) => {
+      return (
+
+        mascota.nombre.toLowerCase().includes(this.textoBusqueda.toLowerCase()) ||
+        mascota.edad.toString().includes(this.textoBusqueda.toLowerCase()) ||
+        mascota.raza.toLowerCase().includes(this.textoBusqueda.toLowerCase()) ||
+        mascota.peso.toString().includes(this.textoBusqueda.toLowerCase()) ||
+        mascota.estado.toLowerCase().includes(this.textoBusqueda.toLowerCase())        
+      );
+    });
+
     
     this.calcularPaginas();
     this.actualizarRangoPaginas();
@@ -104,6 +110,39 @@ restaurarFiltros(){
 
 filtrarPorAtributo(atributo: string) {
   this.filtrarMascotas();
+  if(this.filtroActivoEdad  == true){
+    this.restaurarFiltros();
+    this.filtroActivoEdad = false;
+    this.filtroActivoRaza = false;
+    this.filtroActivoPeso = false;
+    this.filtroActivoEstado = false;
+    this.busquedaAvanzada = '';
+    return
+  } else if(this.filtroActivoRaza  == true){
+    this.restaurarFiltros();
+    this.filtroActivoEdad = false;
+    this.filtroActivoRaza = false;
+    this.filtroActivoPeso = false;
+    this.filtroActivoEstado = false;
+    this.busquedaAvanzada = '';
+    return
+  } else if(this.filtroActivoPeso  == true){
+    this.restaurarFiltros();
+    this.filtroActivoEdad = false;
+    this.filtroActivoRaza = false;
+    this.filtroActivoPeso = false;
+    this.filtroActivoEstado = false;
+    this.busquedaAvanzada = '';
+    return
+  } else if(this.filtroActivoEstado  == true){
+    this.restaurarFiltros();
+    this.filtroActivoEdad = false;
+    this.filtroActivoRaza = false;
+    this.filtroActivoPeso = false;
+    this.filtroActivoEstado = false;
+    this.busquedaAvanzada = '';
+    return
+  }
   this.restaurarFiltros();
   this.filtroActivoEdad = false;
   this.filtroActivoRaza = false;
