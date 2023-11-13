@@ -48,8 +48,10 @@ section{
   position: fixed;
   bottom: 5vh;
   left: 3vw;
+  transition: all 0.5s;
 }
 
 .social-media-image{
   margin-right: 1vw;
+  transition: all 0.5s;
 }

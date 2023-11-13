@@ -114,6 +114,7 @@ export class DashboardAdminComponent implements  OnInit{
             (ventasTotales) => {
               this.ventasTotales = ventasTotales!
               this.createPieChart()
+
             }
           )
 
@@ -147,6 +148,7 @@ export class DashboardAdminComponent implements  OnInit{
 
           /* -------------- */
         }
+
     })
 
 
