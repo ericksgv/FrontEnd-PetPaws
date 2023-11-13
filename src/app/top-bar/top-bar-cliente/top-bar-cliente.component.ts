@@ -11,6 +11,7 @@ export class TopBarClienteComponent {
   }
   cerrarCesion() {
     localStorage.removeItem('token'); // Elimina el token de localStorage
+    localStorage.removeItem('paginaAnterior');
     this.router.navigate(['/']);
     }
 }

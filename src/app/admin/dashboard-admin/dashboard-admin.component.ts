@@ -40,7 +40,7 @@ export class DashboardAdminComponent implements  OnInit{
 
   ngOnInit() {
 
-
+    localStorage.removeItem('paginaAnterior');
 
     this.dashboardService
     .usuarioHome()

@@ -32,7 +32,7 @@ export class DashboardUsuarioComponent implements OnInit{
   })
 
   ngOnInit(){
-
+    localStorage.removeItem('paginaAnterior');
     // Se recupera el usuario de local storage con la llave "usuarioActual". Esta llave esta quemada con el fin
     // de no tener que enviar más información entre las pantallas.
     this.usuarioService

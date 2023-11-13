@@ -44,6 +44,7 @@ export class DashboardVeterinarioComponent {
       this.mostrarveterinario();
     });
     */
+    localStorage.removeItem('paginaAnterior');
     this.veterinarioService
       .veterinarioHome()
       .pipe(
