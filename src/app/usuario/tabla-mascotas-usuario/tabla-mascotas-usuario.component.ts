@@ -54,11 +54,9 @@ export class TablaMascotasUsuarioComponent implements  OnInit{
         if(cedulaString != null){
           cedula = parseInt(cedulaString)
         }
-        console.log("cedula: " + cedula)
         this.usuarioService.getMascotasUsuarioCedula(cedula).subscribe(
           (mascotasUsuario => {
             this.mascotasUsuario = mascotasUsuario
-            console.log("Mascotas obtenidas del usuario: " + mascotasUsuario)
           })
         )
       }else{
@@ -66,12 +64,10 @@ export class TablaMascotasUsuarioComponent implements  OnInit{
         .usuarioHome()
         .subscribe((data) => {
           if (data) {
-            console.log(data);
             this.usuarioActual = data;
             this.usuarioService.getMascotasUsuarioCedula(this.usuarioActual.cedula).subscribe(
               (mascotasUsuario => {
                 this.mascotasUsuario = mascotasUsuario
-                console.log("Mascotas obtenidas del usuario: " + mascotasUsuario)
               })
             )
           }
