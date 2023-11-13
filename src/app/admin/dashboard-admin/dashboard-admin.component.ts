@@ -6,6 +6,7 @@ import { CurrencyPipe } from '@angular/common';
 import { catchError } from 'rxjs/internal/operators/catchError';
 import { Router } from '@angular/router';
 import { of } from 'rxjs/internal/observable/of';
+import Chart from 'chart.js/auto';
 
 
 @Component({
@@ -29,13 +30,18 @@ export class DashboardAdminComponent implements  OnInit{
   cantidadTratamientosPorMedicamento : Map<Medicamento, number>
 
 
+  chart: any;
 
 
   constructor(private dashboardService: DashboardAdminService,
     private router: Router) {
+
   }
 
   ngOnInit() {
+
+    this.createChart()
+
     this.dashboardService
     .usuarioHome()
     .pipe(
@@ -61,83 +67,83 @@ export class DashboardAdminComponent implements  OnInit{
               this.clientesTotales = totalClientes!
             })
           )
-      
+
           /* -------------- */
-      
+
           this.dashboardService.getTotalMascotas().subscribe(
             (totalMascotas) => {
               this.mascotasRegistradas = totalMascotas!
             }
           )
           /* -------------- */
-      
+
           this.dashboardService.getTotalMascotasTratamiento().subscribe(
             (totalMascotasTratamiento) => {
               this.mascotasTratamiento = totalMascotasTratamiento!
             }
           )
-      
-      
+
+
           /* -------------- */
-      
+
           this.dashboardService.getTotalVeterinariosActivos().subscribe(
             (totalVetsActivos) => {
               this.veterinariosActivos = totalVetsActivos!
             }
           )
-      
+
           /* -------------- */
-      
+
           this.dashboardService.getTotalVeterinariosInactivos().subscribe(
             (totalVetsInactivos) => {
               this.veterinariosInactivos = totalVetsInactivos!
             }
           )
-      
+
           /* -------------- */
-      
+
           this.dashboardService.getGananciasTotales().subscribe(
             (gananciasTotales) => {
               this.gananciasTotales = gananciasTotales!
             }
           )
-      
+
           /* -------------- */
-      
+
           this.dashboardService.getVentasTotales().subscribe(
             (ventasTotales) => {
               this.ventasTotales = ventasTotales!
             }
           )
-      
+
           /* -------------- */
-      
+
           this.dashboardService.getTop3Medicamentos().subscribe(
             (top3Medicamentos) => {
               this.top3Medicamentos = top3Medicamentos
             }
           )
-      
+
           /* -------------- */
-      
+
           this.dashboardService.getTratamientosEsteMes().subscribe(
-      
+
             (tratamientosEsteMes) => {
               console.log(tratamientosEsteMes);
               this.tratamientosUltimoMes = tratamientosEsteMes
             }
           )
-      
+
           /* -------------- */
-      
+
           this.dashboardService.getCantidadTratamientosPorMedicamento().subscribe(
             (mapaTramientos) => {
               console.log(mapaTramientos);
               this.cantidadTratamientosPorMedicamento = mapaTramientos
             }
           )
-      
-      
+
+
           /* -------------- */
         }
     })
@@ -147,6 +153,38 @@ export class DashboardAdminComponent implements  OnInit{
   }
 
 
+  createChart(){
+    const ctx = document.getElementById('myChart') as HTMLCanvasElement;
 
+    this.chart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Label 1', 'Label 2', 'Label 3'],
+        datasets: [{
+          label: 'Sample Data',
+          data: [10, 20, 30],
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+          ],
+          borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+  }
 
 }
