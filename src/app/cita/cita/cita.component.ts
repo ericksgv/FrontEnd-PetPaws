@@ -106,9 +106,12 @@ export class CitaComponent {
     return this.formatDate(maxDate);
   }
   guardarCita() {
+
     if (this.seleccionHora && this.horaSeleccionada && this.selectedMascota) {
+    const fechaCopia = new Date(this.horaSeleccionada)
+    fechaCopia.setDate(fechaCopia.getDate() + 1)
       const cita: Cita = {
-        fechaHora: this.horaSeleccionada,
+        fechaHora: fechaCopia,
         idMascota: Number(this.selectedMascota)
       };
       this.servicioSpring.agregarCita(cita).subscribe(
