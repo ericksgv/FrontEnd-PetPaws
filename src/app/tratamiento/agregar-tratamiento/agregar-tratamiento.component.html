@@ -16,25 +16,16 @@
                 <div class="uno">
                     <label for="mascotaId" class="acento-verde-texto enunciado">Mascota</label>
                     <br>
-                    <input type="text" formControlName="mascotaId" class="acento-verde-texto labelenunciado" id="mascotaId"
+                    <input type="text" formControlName="mascotaId" class="acento-verde-texto labelenunciado3" id="mascotaId"
                         placeholder="Filtrar por Nombre de la mascota" (input)="buscarMascotaPorNombre($event)">
-                        <select id="mascotaId" formControlName="mascotaId" class="labelenunciado2">
+                        <select id="mascotaId" formControlName="mascotaId" class="labelenunciado4">
                             <option value="">Seleccionar mascota</option> <!-- Opción en blanco -->
                             <option *ngFor="let mascota of mascotas" [value]="mascota.id">{{ mascota.nombre }}</option>
                           </select>
 
                     <input type="hidden" id="duenioId" class="letra-poppins campo-input-dashboard form-control">
                 </div>
-                <div class="dos">
-                    <label for="veterinarioId" class="acento-verde-texto enunciado">Veterinario</label>
-                    <br>
-                    <input type="text" formControlName="veterinarioId" class="acento-verde-texto labelenunciado" id="veterinarioId"
-                    placeholder="Filtrar por Nombre o cédula del veterinario" (input)="buscarVeterinario($event)">
-                    <select id="veterinarioId" formControlName="veterinarioId" class="labelenunciado2" (change)="buscarVeterinario($event)">
-                        <option value="">Seleccionar veterinario</option> <!-- Opción en blanco -->
-                        <option *ngFor="let veterinario of veterinarios" [value]="veterinario.cedula">{{veterinario.nombre}}, {{veterinario.cedula}}</option>
-                      </select>
-                </div>
+
             </div>
             <div class="columna">
                 <div class="uno">

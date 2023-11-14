@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Veterinario } from 'src/app/model/veterinario'; // Importa la clase Veterinario adecuada
 import { VeterinarioService } from '../Service/veterinario-service.service'; // Importa el servicio de veterinarios
 import { Router } from '@angular/router';
+import { catchError } from 'rxjs/internal/operators/catchError';
+import { of } from 'rxjs/internal/observable/of';
 
 @Component({
   selector: 'app-veterinario-table',
@@ -35,6 +37,31 @@ export class VeterinarioTableComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.veterinarioService.getVeterinarios()
+    .pipe(
+      catchError((error) => {
+        if (error.status === 401) {
+          console.log('Unauthorized error. Redirecting to login page.');
+          this.router.navigate(['unauthorized']);
+        } else if (error.status === 403) {
+          console.log('Forbidden error. Redirecting to forbidden page.');
+          this.router.navigate(['forbidden']);
+        } else {
+          console.error('An error occurred:', error);
+          // Puedes agregar más lógica aquí para manejar otros tipos de errores si es necesario.
+        }
+        return of(null); // Return an empty observable to avoid further error propagation.
+      })
+    )
+    .subscribe((veterinarios) => {
+      if (veterinarios !== null) {
+        this.veterinarios = veterinarios;
+        console.log(this.veterinarios);
+        this.veterinariosFiltrados = veterinarios;
+        this.calcularPaginas();
+        this.actualizarRangoPaginas();
+      }
+    });
     this.getVeterinarios();
 
   }
@@ -64,13 +91,31 @@ export class VeterinarioTableComponent implements OnInit {
   }
 
   getVeterinarios() {
-    this.veterinarioService.getVeterinarios().subscribe((veterinarios) => {
-      this.veterinarios = veterinarios;
-      console.log(this.veterinarios);
-      this.veterinariosFiltrados = veterinarios;
-      this.calcularPaginas();
-      this.actualizarRangoPaginas();
-    });
+    this.veterinarioService.getVeterinarios()
+      .pipe(
+        catchError((error) => {
+          if (error.status === 401) {
+            console.log('Unauthorized error. Redirecting to login page.');
+            this.router.navigate(['unauthorized']);
+          } else if (error.status === 403) {
+            console.log('Forbidden error. Redirecting to forbidden page.');
+            this.router.navigate(['forbidden']);
+          } else {
+            console.error('An error occurred:', error);
+            // Puedes agregar más lógica aquí para manejar otros tipos de errores si es necesario.
+          }
+          return of(null); // Return an empty observable to avoid further error propagation.
+        })
+      )
+      .subscribe((veterinarios) => {
+        if (veterinarios !== null) {
+          this.veterinarios = veterinarios;
+          console.log(this.veterinarios);
+          this.veterinariosFiltrados = veterinarios;
+          this.calcularPaginas();
+          this.actualizarRangoPaginas();
+        }
+      });
   }
 
   filtrarVeterinarios() {

@@ -3,6 +3,8 @@ import { Mascota } from 'src/app/model/mascota';
 import { MascotaService } from '../Service/mascotaservice.service';
 import { Router } from '@angular/router';
 import { VeterinarioService } from 'src/app/veterinario/Service/veterinario-service.service';
+import { catchError } from 'rxjs/internal/operators/catchError';
+import { of } from 'rxjs/internal/observable/of';
 
 @Component({
   selector: 'app-mascota-table',
@@ -69,9 +71,25 @@ export class MascotaTableComponent implements OnInit {
   
 
   getMascotas() {
-    this.mascotaService.getMascotas().subscribe((mascotas) => {
-      this.mascotas = mascotas;
-      this.mascotasFiltradas = mascotas;
+    this.mascotaService.getMascotas()
+    .pipe(
+      catchError((error) => {
+        if (error.status === 401) {
+          console.log('Unauthorized error. Redirecting to login page.');
+          this.router.navigate(['unauthorized']);
+        } else if (error.status === 403) {
+          console.log('Forbidden error. Redirecting to forbidden page.');
+          this.router.navigate(['forbidden']);
+        } else {
+          console.error('An error occurred:', error);
+          // Puedes agregar más lógica aquí para manejar otros tipos de errores si es necesario.
+        }
+        return of(null); // Return an empty observable to avoid further error propagation.
+      })
+    )
+    .subscribe((mascotas) => {
+      this.mascotas = mascotas ?? [];
+      this.mascotasFiltradas = mascotas ?? [];
       this.calcularPaginas(); 
       this.actualizarRangoPaginas();
     });

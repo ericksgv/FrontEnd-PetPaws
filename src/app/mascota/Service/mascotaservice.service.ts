@@ -45,5 +45,9 @@ export class MascotaService {
   getTratamientos(id: number): Observable<TratamientoDTO[]>{
     return this.http.get<TratamientoDTO[]>(`${this.apiUrl}/tratamientos/${id}`);
   }
+
+  verificarPermisosAdd(): Observable<String>{
+    return this.http.get<String>(`${this.apiUrl}/verificar-permisos/add`)
+  }
 }
 

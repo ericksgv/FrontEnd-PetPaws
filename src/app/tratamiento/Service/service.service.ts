@@ -36,4 +36,7 @@ export class ServiceService {
     return this.http.get<Tratamiento[]>(`${this.apiUrl}/veterinario/${id}`);
   }
 
+  verificarPermisosAdd(): Observable<String>{
+    return this.http.get<String>(`${this.apiUrl}/verificar-permisos/add`)
+  }
 }

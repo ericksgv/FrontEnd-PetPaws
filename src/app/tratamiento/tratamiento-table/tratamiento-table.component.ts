@@ -3,6 +3,8 @@ import { Tratamiento } from 'src/app/model/tratamiento';
 import { ServiceService } from '../Service/service.service';
 import { Router } from '@angular/router';
 import { VeterinarioService } from 'src/app/veterinario/Service/veterinario-service.service';
+import { catchError } from 'rxjs/internal/operators/catchError';
+import { of } from 'rxjs/internal/observable/of';
 
 @Component({
   selector: 'app-tratamiento-table',
@@ -36,7 +38,8 @@ export class TratamientoTableComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.veterinarioService.getRol().subscribe((rol) => {
+    this.veterinarioService.getRol()
+    .subscribe((rol) => {
       this.rol = rol;
       console.log(this.rol);
     });
@@ -44,14 +47,31 @@ export class TratamientoTableComponent implements OnInit {
   }
 
   getTratamientos() {
-    this.tratamientoService.getTratamientos().subscribe((tratamientos) => {
-      // Cambia el nombre del método y la variable
-      this.tratamientos = tratamientos;
-      this.tratamientosFiltrados = this.tratamientos;
-      this.calcularPaginas();
-      this.actualizarRangoPaginas();
-    });
+    this.tratamientoService.getTratamientos()
+      .pipe(
+        catchError((error) => {
+          if (error.status === 401) {
+            console.log('Unauthorized error. Redirecting to login page.');
+            this.router.navigate(['unauthorized']);
+          } else if (error.status === 403) {
+            console.log('Forbidden error. Redirecting to forbidden page.');
+            this.router.navigate(['forbidden']);
+          } else {
+            console.error('An error occurred:', error);
+            // Puedes agregar más lógica aquí para manejar otros tipos de errores si es necesario.
+          }
+          return of(null); // Return an empty observable to avoid further error propagation.
+        })
+      )
+      .subscribe((tratamientos) => {
+        // Usar el operador de coalescencia nula (nullish coalescing operator) para manejar null
+        this.tratamientos = tratamientos ?? [];
+        this.tratamientosFiltrados = this.tratamientos;
+        this.calcularPaginas();
+        this.actualizarRangoPaginas();
+      });
   }
+  
 
   ordenarTratamientos() {
     this.tratamientosSort = this.tratamientosFiltrados;

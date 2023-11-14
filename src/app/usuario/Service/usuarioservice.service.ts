@@ -105,6 +105,9 @@ export class UsuarioService {
     localStorage.setItem("mascotaActual", stringMascota)
 }
 
+verificarPermisosAdd(): Observable<String>{
+  return this.http.get<String>(`${this.apiUrl}/verificar-permisos/add`)
+}
 
 }
 

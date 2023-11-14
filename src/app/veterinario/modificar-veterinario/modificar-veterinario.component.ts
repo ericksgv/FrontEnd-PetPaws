@@ -4,6 +4,8 @@ import { VeterinarioService } from '../Service/veterinario-service.service';
 import { Veterinario } from '../../model/veterinario';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { catchError } from 'rxjs/internal/operators/catchError';
+import { of } from 'rxjs/internal/observable/of';
 @Component({
   selector: 'app-modificar-veterinario',
   templateUrl: './modificar-veterinario.component.html',
@@ -37,9 +39,25 @@ export class ModificarVeterinarioComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.cedula) {
-      this.veterinarioService.getVeterinarioPorCedula(this.cedula).subscribe((veterinario: Veterinario | undefined) => {
-        this.veterinario = veterinario;
-        if (veterinario) {
+      this.veterinarioService.getVeterinarioPorCedula(this.cedula)
+      .pipe(
+        catchError((error) => {
+          if (error.status === 401) {
+            console.log('Unauthorized error. Redirecting to login page.');
+            this.router.navigate(['unauthorized']);
+          } else if (error.status === 403) {
+            console.log('Forbidden error. Redirecting to forbidden page.');
+            this.router.navigate(['forbidden']);
+          } else {
+            console.error('An error occurred:', error);
+            // Puedes agregar más lógica aquí para manejar otros tipos de errores si es necesario.
+          }
+          return of(null); // Return an empty observable to avoid further error propagation.
+        })
+      )
+      .subscribe((veterinario: Veterinario | null) => {
+        if (veterinario !== null && veterinario !== undefined) {
+          this.veterinario = veterinario;
           this.veterinarioForm.setValue({
             id: veterinario.id,
             cedula: veterinario.cedula,
@@ -53,8 +71,11 @@ export class ModificarVeterinarioComponent implements OnInit {
           this.router.navigate(['/veterinario/all']);
         }
       });
-    }
+    
+  } else {
+    this.router.navigate(['/veterinario/all']);
   }
+}
 
   modificarVeterinario() {
     if (this.veterinarioForm.valid && this.veterinario) {

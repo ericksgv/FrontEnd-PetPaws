@@ -63,4 +63,9 @@ export class VeterinarioService {
   veterinarioHome(): Observable<Veterinario>{
     return this.http.get<Veterinario>(`${this.apiUrl}/details`)
   }
+
+
+  verificarPermisosAdd(): Observable<String>{
+    return this.http.get<String>(`${this.apiUrl}/verificar-permisos/add`)
+  }
 }

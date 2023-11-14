@@ -3,6 +3,8 @@ import { Usuario } from 'src/app/model/usuario'; // Asegúrate de importar la cl
 import { UsuarioService } from '../Service/usuarioservice.service'; // Importa el servicio de usuarios
 import { Router } from '@angular/router';
 import { VeterinarioService } from 'src/app/veterinario/Service/veterinario-service.service';
+import { catchError } from 'rxjs/internal/operators/catchError';
+import { of } from 'rxjs/internal/observable/of';
 
 @Component({
   selector: 'app-usuario-table',
@@ -85,8 +87,24 @@ export class UsuarioTableComponent implements OnInit {
   }
   
   getUsuarios() {
-    this.usuarioService.getUsuarios().subscribe((usuarios) => {
-      this.usuarios = usuarios;
+    this.usuarioService.getUsuarios()
+    .pipe(
+      catchError((error) => {
+        if (error.status === 401) {
+          console.log('Unauthorized error. Redirecting to login page.');
+          this.router.navigate(['unauthorized']);
+        } else if (error.status === 403) {
+          console.log('Forbidden error. Redirecting to forbidden page.');
+          this.router.navigate(['forbidden']);
+        } else {
+          console.error('An error occurred:', error);
+          // Puedes agregar más lógica aquí para manejar otros tipos de errores si es necesario.
+        }
+        return of(null); // Return an empty observable to avoid further error propagation.
+      })
+    )
+    .subscribe((usuarios) => {
+      this.usuarios = usuarios ?? [];
       console.log(this.usuarios);
       this.usuariosFiltrados = this.usuarios;
       this.calcularPaginas();

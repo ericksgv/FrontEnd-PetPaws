@@ -10,6 +10,8 @@ import { VeterinarioService } from 'src/app/veterinario/Service/veterinario-serv
 import { MedicamentoService } from 'src/app/medicamento/Service/medicamento.service';
 import Swal from 'sweetalert2';
 import { TratamientoCrearDTO } from 'src/app/model/tratamientoCrearDTO';
+import { catchError } from 'rxjs/internal/operators/catchError';
+import { of } from 'rxjs/internal/observable/of';
 @Component({
   selector: 'app-agregar-tratamiento',
   templateUrl: './agregar-tratamiento.component.html',
@@ -21,6 +23,7 @@ export class AgregarTratamientoComponent implements OnInit {
   medicamentos: Medicamento[] = [];
   tratamientoForm: FormGroup;
   rol: String = '';
+  veterinarioActual: Veterinario | undefined;
 
   constructor(
     private tratamientoService: ServiceService,
@@ -55,32 +58,70 @@ export class AgregarTratamientoComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.veterinarioService.getRol().subscribe((rol) => {
-      this.rol = rol;
-      console.log(this.rol);
-    });
-    this.tratamientoForm = this.formBuilder.group({
-      mascotaId: ['', Validators.required],
-      veterinarioId: ['', Validators.required],
-      medicamentoId: ['', Validators.required],
-      descripcion: ['', Validators.required],
-      fecha: [this.obtenerFechaActual()],
-      // Agrega otros campos del formulario y sus validaciones si es necesario
-    });
+    this.tratamientoService.verificarPermisosAdd().pipe(
+      catchError((error) => {
+        let errorMessage = 'Ocurrió un error.';
+  
+        if (error.status === 401) {
+          errorMessage = 'Error de autorización. Redirigiendo a la página de inicio de sesión.';
+          this.router.navigate(['unauthorized']);
+        } else if (error.status === 403) {
+          errorMessage = 'Acceso prohibido. Redirigiendo a la página prohibida.';
+          // Aquí puedes redirigir o manejar de alguna manera específica para el error 403
+          // Por ejemplo, mostrar un mensaje al usuario
+          console.error(errorMessage);
+          this.router.navigate(['forbidden']);
+        }
+        // Emitir un valor personalizado que representa el error
+        return of(null);
+      })
+    ).subscribe((result) => {
 
-    this.veterinarioService.getVeterinarios().subscribe((veterinarios) => {
-      this.veterinarios = veterinarios;
-    });
 
-    this.mascotaService.getMascotas().subscribe((mascotas) => {
-      this.mascotas = mascotas;
-    });
+        // La lógica para el caso de éxito
+        console.log('Éxito:', result);
+        this.veterinarioService.getRol().subscribe((rol) => {
+          this.rol = rol;
+          console.log(this.rol);
+        });
 
-    this.medicamentoService
-      .getMedicamentosMayorCero()
-      .subscribe((medicamentos) => {
-        this.medicamentos = medicamentos;
+        this.veterinarioService
+      .veterinarioHome()
+      .subscribe((data) => {
+        if (data) {
+          console.log(data);
+          this.tratamientoForm.get('veterinarioId')?.setValue(data.cedula.toString());
+
+          this.veterinarioActual = data;
+
+        }
       });
+
+        this.tratamientoForm = this.formBuilder.group({
+          mascotaId: ['', Validators.required],
+          veterinarioId: ['', Validators.required],
+          medicamentoId: ['', Validators.required],
+          descripcion: ['', Validators.required],
+          fecha: [this.obtenerFechaActual()],
+          // Agrega otros campos del formulario y sus validaciones si es necesario
+        });
+    
+        this.veterinarioService.getVeterinarios().subscribe((veterinarios) => {
+          this.veterinarios = veterinarios;
+        });
+    
+        this.mascotaService.getMascotas().subscribe((mascotas) => {
+          this.mascotas = mascotas;
+        });
+    
+        this.medicamentoService
+          .getMedicamentosMayorCero()
+          .subscribe((medicamentos) => {
+            this.medicamentos = medicamentos;
+          });
+    });
+    
+
   }
 
   buscarMascotaPorNombre(event: any) {
@@ -141,6 +182,7 @@ export class AgregarTratamientoComponent implements OnInit {
 
   guardarTratamiento() {
     // Verifica si el formulario es válido
+    
     if (this.tratamientoForm.valid) {
       const tratamiento: TratamientoCrearDTO = this.tratamientoForm.value;
       console.log('guardando', tratamiento);

@@ -6,6 +6,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {Mascota} from "../../model/mascota";
 import Swal from 'sweetalert2';
 import { VeterinarioService } from 'src/app/veterinario/Service/veterinario-service.service';
+import { catchError } from 'rxjs/internal/operators/catchError';
+import { of } from 'rxjs/internal/observable/of';
 
 @Component({
   selector: 'app-modificar-usuario',
@@ -51,22 +53,41 @@ export class ModificarUsuarioComponent implements OnInit {
 
     console.log("Cedula de la url: ", this.cedula)
     if (this.cedula) {
-      this.usuarioService.getUsuarioPorCedula(this.cedula).subscribe((usuario: Usuario | undefined) => {
-        this.usuario = usuario
-        if (usuario) {
-          // Establece los valores del formulario con los datos del usuario encontrado
-          this.usuarioForm.setValue({
-            id: usuario.id,
-            cedula: usuario.cedula, // Usar el número en lugar de la cadena
-            nombre: usuario.nombre,
-            correo: usuario.correo,
-            celular: usuario.celular.toString(), 
-            estado: usuario.estado,
-          });
-        } else {
-          this.router.navigate(['/usuario/all']);
-        }
-      });
+      this.usuarioService.getUsuarioPorCedula(this.cedula)
+  .pipe(
+    catchError((error) => {
+      if (error.status === 401) {
+        console.log('Unauthorized error. Redirecting to login page.');
+        this.router.navigate(['unauthorized']);
+      } else if (error.status === 403) {
+        console.log('Forbidden error. Redirecting to forbidden page.');
+        this.router.navigate(['forbidden']);
+      } else {
+        console.error('An error occurred:', error);
+        // Puedes agregar más lógica aquí para manejar otros tipos de errores si es necesario.
+      }
+      return of(null); // Return an empty observable to avoid further error propagation.
+    })
+  )
+  .subscribe({
+    next: (usuario: Usuario | null | undefined) => {
+      this.usuario = usuario ?? undefined;
+      if (usuario) {
+        // Establece los valores del formulario con los datos del usuario encontrado
+        this.usuarioForm.setValue({
+          id: usuario.id,
+          cedula: usuario.cedula, // Usar el número en lugar de la cadena
+          nombre: usuario.nombre,
+          correo: usuario.correo,
+          celular: usuario.celular.toString(), 
+          estado: usuario.estado,
+        });
+      } else {
+        this.router.navigate(['/usuario/all']);
+      }
+    }
+  });
+
     }
   }
 

@@ -68,28 +68,15 @@ export class DashboardVeterinarioComponent {
         if (data) {
           console.log(data);
           this.veterinarioActual = data;
-          console.log(this.veterinarioActual);
-          this.mostrarveterinario();
-        }
-      });
-  }
-  mostrarveterinario() {
-    this.veterinarioService
-      .getVeterinarioPorCedula(this.veterinarioActual.cedula)
-      .subscribe((veterinario: Veterinario | undefined) => {
-        console.log(veterinario);
-        if (veterinario) {
-          console.log(veterinario);
-
-          // Guarda el ID del veterinario
-          const idVeterinario = this.veterinarioActual.id;
           this.nombreUsuario = this.veterinarioActual.nombre;
 
-          this.cargarTratamientos(idVeterinario);
-        } else {
+          this.cargarTratamientos(this.veterinarioActual.id);
+          console.log(this.veterinarioActual);
+
         }
       });
   }
+
 
   cargarTratamientos(idVeterinario: number) {
     console.log('ID: ' + this.veterinarioActual.id);
