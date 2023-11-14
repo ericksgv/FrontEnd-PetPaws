@@ -13,6 +13,9 @@ import { Veterinario } from 'src/app/model/veterinario';
 import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { LogicalFileSystem } from '@angular/compiler-cli';
+import {CitasService} from "../../cita/Service/citas.service";
+import {Cita} from "../../model/cita";
+import {CitasDTO} from "../../model/citasDTO";
 
 @Component({
   selector: 'app-dashboard-veterinario',
@@ -27,11 +30,13 @@ export class DashboardVeterinarioComponent {
   tratamientos: Tratamiento[] = [];
   cedula: any;
   nombreUsuario: string | undefined;
+  citasHoy: Cita[] = []
 
   constructor(
     private router: Router, // Inyecta el servicio Router
     private tratamientoService: ServiceService,
     private veterinarioService: VeterinarioService,
+    private citasService: CitasService,
     private route: ActivatedRoute
   ) {}
 
@@ -75,6 +80,28 @@ export class DashboardVeterinarioComponent {
       });
   }
 
+  cargarCitasDeHoy(){
+
+    let fechaHoy = new Date()
+    let todasCitas: Cita[] = []
+
+    this.citasService
+      .getHorasDisponiblesParaDia(fechaHoy)
+      .subscribe(citas => {
+        todasCitas = citas
+
+        // Filtrar las citas de hoy
+        todasCitas.forEach(cita => {
+          let fechaCita = new Date(cita.fechaHora)
+          if (fechaCita.getDate() == fechaHoy.getDate() &&
+              fechaCita.getMonth() == fechaHoy.getMonth() &&
+              fechaCita.getFullYear() == fechaHoy.getFullYear()) {
+            this.citasHoy.push(cita)
+          }
+        })
+      })
+
+  }
 
   cargarTratamientos(idVeterinario: number) {
     this.tratamientoService

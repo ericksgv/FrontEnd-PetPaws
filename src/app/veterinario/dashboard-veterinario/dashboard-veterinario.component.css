@@ -84,6 +84,33 @@
   cursor: pointer;
   font-weight: 600;
   width: 17vw;
+
+  transition: all 0.5s;
+}
+
+.boton:hover{
+  cursor: pointer;
+  background-color: #AAC074;
+
+
+
+  transition: all 0.5s;
+}
+
+/* ------------- Citas ------------ */
+.carta-citas{
+  width: 82%;
+  margin-right: 5%;
+  margin-left: 5%;
+  padding: 2%;
+  text-align: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 15px;
+  margin-bottom: 5%;
 }
 
 
@@ -300,13 +327,13 @@
 
 .mascota-info{
   width: 100%;
-  column-count: 2; 
+  column-count: 2;
   margin-top: 2%;
 }
 
 .tratamiento-info{
   width: 100%;
-  column-count: 2; 
+  column-count: 2;
   margin-top: 2%;
 }
 
@@ -320,7 +347,7 @@
   }
   .mascota-info{
     width: 100%;
-    column-count: 2; 
+    column-count: 2;
     margin-top: 2%;
   }
 
