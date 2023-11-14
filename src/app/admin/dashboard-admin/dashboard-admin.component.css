@@ -1,11 +1,29 @@
+hr{
+  color: #2D2D2D;
+  width: 90%;
+  height: 1px;
+  border: 1px solid;
+  border-radius: 15px;
+
+  margin: auto;
+  opacity: 100%;
+}
+
 .contenido-dashboard{
   padding-top: 15vh;
 
   background-color: #F2EBD2;
-  height: 85vh;
+  min-height: 85vh;
   min-width: 100%;
+  padding-bottom: 5vh;
 }
 
+.titulo-tabla-dashboard-admin{
+  text-align: center;
+  margin-top: 5%
+}
+
+/* -------------------- Cuadros estadisticas principales--------------------*/
 .cuadros-estadisticas-principales{
   display: flex;
   justify-content: space-around;
@@ -19,46 +37,38 @@
   margin-bottom: 3%;
 }
 
-.numero-cuadro-estadisticas{
-  font-family: Recoleta, serif;
-  font-weight: bold;
-  font-size: 2rem;
-
-}
-
-.textp-cuadro-estadisticas{
-  font-family: Recoleta, serif;
-  font-weight: bold;
-  font-size: 1.5rem;
-
-}
-
 .cuadro-estadisticas{
   text-align: center;
-  align-content: center;
   border-radius: 15px;
   border: 2px solid #2D2D2D;
+
   height: 15vh;
 
+  padding: 2vh;
   margin-right: 3%;
   margin-left: 3%;
+}
+
+.numero-cuadro-estadisticas{
+  font-size: 2vw;
+  text-align: center;
 
 }
 
-.letra-amarilla{
-  color: black;
+.texto-cuadro-estadisticas{
+
+  font-size: 1.7vw;
+  text-align: center;
+
 }
 
-.letra-naranja-intensa{
-  color: #DD4429;
-}
 
 .cuadro-clientes{
   background-color:#E7B10A;
   color: #2D2D2D;
   flex: 2.5;
   text-align: center;
-  vertical-align: center;
+
 }
 
 
@@ -91,15 +101,35 @@
 
 }
 
-hr{
-  color: #2D2D2D;
-  width: 90%;
-  border: 1px solid;
+/* -------------------- Datos financieros--------------------*/
+.datos-financieros{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 
+
+  padding-left: 3%;
+  padding-right: 3%;
+
+  margin-top: 3%;
+  margin-bottom: 3%;
+
+  justify-content: space-evenly;
+  align-items: center;
 
 }
 
-/* ------------------- */
+.doughnut-chart-money{
+
+}
+
+.money-data{
+  flex: 5;
+}
+
+
+/* -------------------- Cuadros estadisticas principales--------------------*/
+
 .entidadesActivas{
 
   display: flex;
@@ -131,12 +161,19 @@ th, td {
   padding: 8px;
   text-align: center;
   font-family: Recoleta, serif;
+
+}
+
+td{
+  font-size: 1.3rem;
 }
 
 th {
   background-color: #F1D79D;
+  font-size: 1.8rem;
 }
 
+
 tr:nth-child(even) {
-  background-color: #F2EBD2;
+  background-color: #F1D79D;
 }

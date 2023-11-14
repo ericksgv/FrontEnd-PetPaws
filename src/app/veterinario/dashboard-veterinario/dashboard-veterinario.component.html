@@ -1,15 +1,44 @@
 <app-top-bar-veterinario></app-top-bar-veterinario>
 
 <section class="contenedor-pagina beige-fondo">
-    <h1 class="titulo-nombre-cliente"> Bienvenid@ de nuevo, {{nombreUsuario }}</h1>
+    <h1 class="titulo-nombre-cliente">Bienvenido de nuevo, <span class="nombre-usuario">{{nombreUsuario}}</span></h1>
     <section class="acciones-rapidas">
-        <p> <strong> Acciones rápidas:    </strong></p>
+        <p> <strong> Acciones rápidas: </strong></p>
         <div class="botones-acciones">
-            <button [routerLink]="'/tratamiento/agregar'" class="boton naranja-fondo">Añadir Tratamiento</button>
-            <button class="boton verde-fondo">Añadir Mascota</button>
-            <button class="boton amarillo-fondo">Añadir Cliente</button>
+            <button id="agregarTratamiento" [routerLink]="'/tratamiento/add'" class="boton naranja-fondo">Añadir
+                Tratamiento</button>
+            <button id="agregarMascota" [routerLink]="'/mascotas/add'" class="boton verde-fondo">Añadir Mascota</button>
+            <button id="agregarUsuario" [routerLink]="'/usuario/add'" class="boton amarillo-fondo">Añadir
+                Cliente</button>
         </div>
     </section>
+
+    <section class="carta-citas naranjaPastel-fondo">
+        <h1 class="recoleta-bold">Citas para hoy:</h1>
+        <br>
+        <table class="tabla-general2">
+            <thead>
+            <tr> 
+                <th class="recoleta-bold" style="width: 10%;">Id</th>
+                <th class="recoleta-bold">Hora</th>
+                <th class="recoleta-bold">Mascota</th>
+                <th class="recoleta-bold "style="width: 20%;">Agregar</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody" class="tbody2">
+            <tr *ngFor="let cita of citasHoy">
+                <td>{{cita.id}}</td>
+                <td>{{cita.fechaHora}}</td>
+                <td>{{cita.nombreMascota}}</td>
+                <td class="texto-negrilla centrar-contenido">
+                    <a class="boton-modificar" href="#" data-value="opcion8" [routerLink] = "'/tratamiento/add'">Tratamiento</a>
+                  </td> 
+            </tr>
+        </tbody>
+        </table>
+    </section>
+
+
     <section class="contenedor-cartas">
 
         <section class="carta-datos ">
@@ -22,27 +51,30 @@
                     <img class="mascota-foto" [src]="tratamiento.mascota.foto">
                     <div class="mascota-info">
                         <span class="info-titulo">Nombre:</span>
-                        <span>{{ tratamiento.mascota.nombre }}</span>
+                        <span class="info-parrafo">{{ tratamiento.mascota.nombre }}</span>
                         <span class="info-titulo">Raza:</span>
-                        <span>{{ tratamiento.mascota.raza }}</span>
+                        <span class="info-parrafo">{{ tratamiento.mascota.raza }}</span>
                         <span class="info-titulo">Veterinario:</span>
-                        <span>{{ tratamiento.veterinario.nombre }}</span>
+                        <span class="info-parrafo">{{ tratamiento.veterinario.nombre }}</span>
                         <span class="info-titulo">Estado:</span>
-                        <span>{{ tratamiento.mascota.estado }}</span>
+                        <span class="info-parrafo">{{ tratamiento.mascota.estado }}</span>
                     </div>
                     <div class="tratamiento-info">
                         <span class="info-titulo">Medicamento:</span>
-                        <span>{{ tratamiento.medicamento.nombre }}</span>
-                        <span class="info-titulo">Tratamiento:</span>
-                        <span>{{ tratamiento.descripcion }}</span>
+                        <span class="info-parrafo">{{ tratamiento.medicamento.nombre }}</span>
+                        <hr class="linea-divisor-mascotas2">
                         <span class="info-titulo">Fecha:</span>
-                        <span>{{ tratamiento.fecha }}</span>
+                        <span class="info-parrafo">{{ tratamiento.fecha }}</span>
+                        <hr class="linea-divisor-mascotas2">
                     </div>
+                    <span class="info-titulo">Tratamiento:</span>
+                    <span class="info-parrafo">{{ tratamiento.descripcion }}</span>
+                    <hr class="linea-divisor-mascotas3">
                 </div>
             </div>
             <div class="botones-acciones2">
                 <button class="boton2 naranja-fondo">Todos los tratamientos</button>
-                <button class="boton2 naranja-fondo">Añadir Tratamiento</button>
+                <button class="boton2 naranja-fondo" [routerLink]="'/tratamiento/add'">Añadir Tratamiento</button>
             </div>
         </section>
 
@@ -51,32 +83,34 @@
                 <span class="titulo-carta"> Mascotas Registradas </span>
             </div>
             <div class="informacion-tratamientos scrollable-container2">
-                <div *ngFor="let tratamiento of tratamientos" class="tratamiento-card">
-                    <img class="mascota-foto" [src]="tratamiento.mascota.foto">
-                    <div class="mascota-info">
+                <div *ngFor="let tratamiento of tratamientos" class="tratamiento-card1">
+                    <img class="mascota-foto1" [src]="tratamiento.mascota.foto">
+                    <div class="mascota-info1">
                         <span class="info-titulo2">{{ tratamiento.mascota.nombre }}</span>
                         <ng-container *ngIf="tratamiento.mascota.edad >= 12; else mostrarMeses">
-                            <span class="info-parrafo">
+                            <span class="info-parrafo1">
                                 Edad: {{ calcularEdadMascota(tratamiento.mascota.edad).anos }} ano(s)
-                                {{ calcularEdadMascota(tratamiento.mascota.edad).meses > 0 ? calcularEdadMascota(tratamiento.mascota.edad).meses + ' mes(es)' : '' }}
+                                {{ calcularEdadMascota(tratamiento.mascota.edad).meses > 0 ?
+                                calcularEdadMascota(tratamiento.mascota.edad).meses + ' mes(es)' : '' }}
                             </span>
                         </ng-container>
                         <ng-template #mostrarMeses>
-                            <span class="info-parrafo">
+                            <span class="info-parrafo1">
                                 Edad: {{ tratamiento.mascota.edad }} mes(es)
                             </span>
                         </ng-template>
 
-                        <span class="info-parrafo">Peso: {{ tratamiento.mascota.peso }}</span>
-                        <span class="info-parrafo">{{ tratamiento.mascota.raza }}</span>
-                        <span class="info-parrafo">{{ tratamiento.mascota.estado }}</span>
+                        <span class="info-parrafo1">Peso: {{ tratamiento.mascota.peso }}</span>
+                        <span class="info-parrafo1">{{ tratamiento.mascota.raza }}</span>
+                        <span class="info-parrafo1">{{ tratamiento.mascota.estado }}</span>
+                        <hr class="linea-divisor-mascotas">
                     </div>
                 </div>
                 <br>
             </div>
             <div class="botones-acciones2">
-                <button class="boton2 verde-oscuro-fondo">Todos los tratamientos</button>
-                <button class="boton2 verde-oscuro-fondo">Añadir Tratamiento</button>
+                <button class="boton2 verde-oscuro-fondo">Todeas las mascotas</button>
+                <button class="boton2 verde-oscuro-fondo" [routerLink]="'/mascotas/add'">Añadir Mascota</button>
             </div>
         </section>
 

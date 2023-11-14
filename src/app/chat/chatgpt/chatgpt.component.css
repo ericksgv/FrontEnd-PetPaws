@@ -1,0 +1,71 @@
+.waveimage2 {
+  position: absolute;
+  top: 3%;
+  left: 12%;
+  width: calc(0.2em + 4vw);
+  z-index: 1000;
+}
+
+.chat-container {
+  background-image: url("/assets/bot/fondobot.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+
+  font-family: 'Work Sans', sans-serif;
+
+}
+.chat-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3); /* Añade una capa oscura con opacidad */
+}
+
+.card-header h1 {
+  font-weight: bold;
+  text-align: center;
+}
+
+.espacio-botones {
+  margin-right: 10px;
+}
+
+.chat-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pregunta {
+    background-color: #DC6A30; /* Color de fondo para las preguntas */
+    color: black; /* Color del texto para las preguntas (opcional) */
+    align-self: flex-start; /* Alinear a la izquierda (preguntas) */
+  }
+
+  .chat-entry {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinea a la izquierda (preguntas) */
+    margin-bottom: 10px; /* Espacio entre entradas de chat */
+  }
+
+  .respuesta {
+    align-self: flex-end; /* Alinea a la derecha (respuestas) */
+  }
+
+  .fondonaranja{
+    background-color: #DC6A35;
+  }
+
+
+
+

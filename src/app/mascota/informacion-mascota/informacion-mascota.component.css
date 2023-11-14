@@ -1,0 +1,102 @@
+.layout-informacion-mascota{
+  margin-top: 15vh;
+  padding: 5%;
+  display: flex;
+
+
+  max-width: 100vw;
+  min-height: 85vh;
+
+}
+ /* --------------- */
+.titulo-carta-informacion-mascota{
+  margin-top: 3%
+;
+  font-family: Recoleta, serif;
+  font-size: 2.5vw;
+  font-weight: bold;
+  text-decoration: underline;
+
+  text-align: center;
+
+}
+
+/* --------------- */
+.carta-info-mascota{
+  flex: 4;
+  min-height: 80vh;
+  margin-right: 2.5vw;
+
+  padding: 3% 3% 3% ;
+}
+
+.foto-carta-mascota{
+  width: 100%;
+  height: 25vh;
+
+  object-fit: cover;
+  border-radius: 15px;
+
+}
+
+ul{
+  margin-top: 3%;
+}
+
+li{
+  margin-bottom: 2%;
+}
+
+.item-bold-informacion-mascota{
+  font-weight: bold;
+}
+
+.item-size-informacion-mascota{
+  font-size: 1.7vw;
+}
+
+/* --------------- */
+.carta-tratamientos-mascota{
+  flex: 4;
+  min-height: 80vh;
+  margin-left: 2.5vw;
+  text-align: center;
+
+}
+
+.tabla-tratamientos-info-mascota{
+  width: 100%;
+}
+
+th{
+  text-align: center;
+  font-size: 1.5vw;
+  height: 5vh;
+  margin-bottom: 3%;
+}
+
+tr{
+  width: 100%;
+  margin-bottom: 3%;
+  height: 7vh;
+}
+
+tr:nth-child(even){
+  background-color: #F2EBD2;
+}
+
+
+td {
+  text-align: center;
+  font-size: 1.3vw;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.boton-añadir{
+  border-style: none;
+}
+
+.boton-añadir:hover{
+  background-color: #F2EBD2;
+  color: #DC6A35;
+}

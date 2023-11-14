@@ -2,30 +2,34 @@
     <!-- Seccion para los datos del usuario y los botones-->
     <section class="contenedor-texto-pagina-login">
       <div class="div-superior-texto-login">
-        <h1 class="tituloCentrado acento-verde-claro-texto titulo-login">Iniciar sesión</h1>
+        <h1 class="tituloCentrado acento-verde-claro-texto titulo-login texto-negrilla">Iniciar sesión</h1>
 
-        <form (ngSubmit)="login()" #loginForm="ngForm">
+        <form (ngSubmit)="login()" [formGroup]="camposForm">
           <br>
           <input type="number" id="inputCedula" name="campoInputCedula" placeholder="Ingresa tu Cédula"
-                 class="letra-poppins campo-input-login" [(ngModel)]="cedula">
+                 class="letra-poppins campo-input-login" formControlName="campoCedula">
           <br>
           <input type="password" id="inputPassword" name="campoInputPassword" placeholder="Ingresa tu Contraseña"
-                 class="letra-poppins campo-password-login" [(ngModel)]="password">
+                 class="letra-poppins campo-password-login" formControlName="campoContrasena">
           <br>
-          <button type="submit" class="letra-poppins texto-negrilla boton-redondo boton-login-ingresar
+          <button id="btnIngresarVeterinario" type="submit" class="letra-poppins texto-negrilla boton-redondo boton-login-ingresar
           acento-verde-claro-fondo">Ingresar</button>
+
+          <div *ngIf="camposForm.get('campoCedula')?.invalid && camposForm.get('campoCedula')?.touched" class="error">
+            <p>Debes llenar el campo de la cedula.</p>
+          </div>
+
+          <div *ngIf="camposForm.get('campoContrasena')?.invalid && camposForm.get('campoContrasena')?.touched" class="error">
+            <p>Debes llenar el campo de la contraseña.</p>
+          </div>
         </form>
 
-        <div *ngIf="error" class="error">
-          <p>{{ message }}</p>
+        <div *ngIf="vetInactivo" class="error">
+          <p>El veterinario actualmente se encuentra inactivo. Porfavor comunicate con nuestro personal para activar la cuenta de nuevo.</p>
         </div>
 
-        <div *ngIf="inactive" class="error">
-          <p>{{ message }}</p>
-        </div>
-
-        <div *ngIf="vacio" class="error">
-          <p>Debe ingresar la cédula.</p>
+        <div *ngIf="!encontrado" class="error">
+          <p id="mensajeError">El usuario no fue encontrado. Intenta de nuevo.</p>
         </div>
 
         <div class="espacio-blanco-texto-login"></div>
@@ -44,7 +48,9 @@
           </a>
         </div>
 
-        <p class="registro-mensaje">¿Aún no estás registrado? Únete!</p>
+        <a [routerLink]="['']">
+          <p class="registro-mensaje">Regresar a la página principal</p>
+        </a>
       </div>
     </section>
     <section class="contenedor-imagen-pagina-login" id="imagenLoginClientes">

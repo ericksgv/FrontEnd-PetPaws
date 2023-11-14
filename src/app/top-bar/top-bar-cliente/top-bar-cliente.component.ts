@@ -7,5 +7,11 @@ import {Router} from "@angular/router";
   styleUrls: ['./top-bar-cliente.component.css', '../../../styles.css', '../top-bar.component.css']
 })
 export class TopBarClienteComponent {
-
+  constructor(private router: Router) {
+  }
+  cerrarCesion() {
+    localStorage.removeItem('token'); // Elimina el token de localStorage
+    localStorage.removeItem('paginaAnterior');
+    this.router.navigate(['/']);
+    }
 }

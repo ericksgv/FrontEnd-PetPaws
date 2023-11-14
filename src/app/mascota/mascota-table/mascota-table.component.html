@@ -1,27 +1,33 @@
-<app-top-bar-veterinario></app-top-bar-veterinario>
+<ng-container *ngIf="rol === 'VETERINARIO'; else adminTopBar">
+  <app-top-bar-veterinario></app-top-bar-veterinario>
+</ng-container>
+<ng-template #adminTopBar>
+  <app-top-bar-admin></app-top-bar-admin>
+</ng-template>
+
 
 <div class="contorno acento-amarillo-claro-fondo">
   <div class="cuadro-estatico acento-verde-semi-claro-fondo">
-    <div class="rectangulo"></div>
     <h1>Lista de Mascotas</h1>
     <div class="grupo-elementos">
       <label for="campoBusqueda" class="busqueda">
-        <input type="text" id="campoBusqueda" name="campoBusqueda" placeholder="Busca por nombre de mascota" [(ngModel)]="textoBusqueda" (input)="filtrarMascotas()">
+        <input type="text" id="campoBusqueda" name="campoBusqueda" placeholder="Busca por cualquier atributo de la tabla" [(ngModel)]="textoBusqueda" (input)="filtrarMascotas()">
       </label>
+      <!--
       <div class="boton-derecha ">
         <label for="campoBusqueda" class="busqueda">
           <input type="text" [(ngModel)]="busquedaAvanzada" placeholder="Búsqueda Avanzada">
         </label>
 
-      </div>
+      </div>-->
     </div>
 
     <div class="tres-botones texto-negrilla textoNegro">
+      <button [ngClass]="filtroActivoNombre ? 'filtro-activo' : 'acentro-verde-oscuro-fondo texto-negrilla textoBlanco .filtro-btn'"  class="acentro-verde-oscuro-fondo texto-negrilla textoBlanco .filtro-btn" (click)="filtrarPorAtributo('nombre')">Nombre</button>
       <button [ngClass]="filtroActivoEdad ? 'filtro-activo' : 'acentro-verde-oscuro-fondo texto-negrilla textoBlanco .filtro-btn'"  class="acentro-verde-oscuro-fondo texto-negrilla textoBlanco .filtro-btn" (click)="filtrarPorAtributo('edad')">Edad</button>
       <button [ngClass]="filtroActivoRaza ? 'filtro-activo' : 'acentro-verde-oscuro-fondo texto-negrilla textoBlanco .filtro-btn'" class="acentro-verde-oscuro-fondo texto-negrilla textoBlanco .filtro-btn" (click)="filtrarPorAtributo('raza')">Raza</button>
       <button [ngClass]="filtroActivoPeso ? 'filtro-activo' : 'acentro-verde-oscuro-fondo texto-negrilla textoBlanco .filtro-btn'" class="acentro-verde-oscuro-fondo texto-negrilla textoBlanco .filtro-btn" (click)="filtrarPorAtributo('peso')">Peso</button>
       <button [ngClass]="filtroActivoEstado ? 'filtro-activo' : 'acentro-verde-oscuro-fondo texto-negrilla textoBlanco .filtro-btn'" class="acentro-verde-oscuro-fondo texto-negrilla textoBlanco .filtro-btn" (click)="filtrarPorAtributo('estado')">Estado</button>
-      <button  class="acentro-verde-oscuro-fondo texto-negrilla textoBlanco .filtro-btn" (click)="filtrarPorAtributo('limpiar')">Limpiar búsqueda avanzada</button>
     </div>
     <div class="tres-botones texto-negrilla textoNegro">
       <div class="margenizquierdo"></div>
@@ -45,8 +51,8 @@
         </div>
       </div>
       <div class="margenizquierdo"></div>
-      <div class="boton-contenedor">
-        <div class="mitad-izquierda acentro-verde-oscuro-fondo">
+      <div class="boton-contenedor1">
+        <div class="mitad-izquierda1 acentro-verde-oscuro-fondo">
           <!-- Lista desplegable para seleccionar la cantidad de mascotas por página -->
           <select class="acentro-verde-oscuro-fondo texto-negrilla textoBlanco no-border" [(ngModel)]="itemsPorPagina" (ngModelChange)="cambiarCantidadPorPagina()">
             <option value="5">5</option>
@@ -64,7 +70,7 @@
     <table class="tabla-general2">
       <thead>
         <tr class="texto-negrilla textoNegro letra-normal-grande encabezados-tabla acento-verde-semi-claro-fondo">
-          <th scope="col"></th><!-- box -->
+          <th scope="col" class="custom-checkbox-header"></th><!-- box -->
           <th scope="col">Nombre</th>
           <th scope="col">Edad</th>
           <th scope="col">Raza</th>
@@ -80,19 +86,19 @@
             <input type="checkbox" class="custom-checkbox" [id]="'checkbox-' + i">
             <label [for]="'checkbox-' + i" class="custom-checkbox-label"></label>
           </td>
-          <th>{{ mascota.nombre }}</th>
+          <td> <a [routerLink]="'/mascota/informacion/' + mascota.id" class="recoleta-bold nombre-mascota"> {{ mascota.nombre }}</a> </td>
           <td>{{ mascota.edad }}</td>
           <td class="ancho-razas">{{ mascota.raza }}</td>
           <td>{{ mascota.peso }}</td>
           <td>{{ mascota.estado }}</td>
           <td class="acciones-cell acento-transparente">
             <div class="toggle-container" (click)="toggleEstadoMascota(mascota)">
-              <div class="toggle-switch" [ngClass]="{'SinEstado': mascota.estado === 'inactivo'}"></div>
+              <div class="toggle-switch" [ngClass]="{'activo': mascota.estado === 'Inactivo'}"></div>
             </div>
-          </td>  
+          </td>
           <td class="texto-negrilla">
             <a class="boton-modificar" href="#" data-value="opcion8" [routerLink]="['/mascotas/modificar', mascota.id]">Modificar</a>
-          </td>  
+          </td>
         </tr>
       </tbody>
     </table>
@@ -103,29 +109,21 @@
 
       <button *ngIf="rangoPaginas[0] > 1" (click)="cambiarPagina(1)" class="pagination-button">1</button>
 
-      <span *ngIf="rangoPaginas[0] > 2">...</span>
+      <span class="pagination-button1" *ngIf="rangoPaginas[0] > 2">...</span>
 
       <button *ngFor="let pagina of rangoPaginas" (click)="cambiarPagina(pagina)" class="pagination-button" [ngClass]="{'current-page': paginaActual === pagina}">
         {{ pagina }}
       </button>
 
-      <span *ngIf="rangoPaginas[rangoPaginas.length - 1] < paginas.length - 1">...</span>
+      <span  class="pagination-button1" *ngIf="rangoPaginas[rangoPaginas.length - 1] < paginas.length - 1">...</span>
 
       <button *ngIf="rangoPaginas[rangoPaginas.length - 1] < paginas.length" (click)="cambiarPagina(paginas.length)" class="pagination-button">{{ paginas.length }}</button>
 
       <button [disabled]="paginaActual === paginas.length" (click)="cambiarPagina(paginaActual + 1)" class="pagination-button">Siguiente</button>
     </div>
-
-
-
-
-
-
-
-
     <div class="boton-crear">
       <a>
-        <button [routerLink]="['/mascotas/add']"
+        <button id="agregarMascota" [routerLink]="['/mascotas/add']"
           class="acentro-verde-oscuro-fondo texto-negrilla textoBlanco boton-redondo">Añadir</button>
       </a>
     </div>

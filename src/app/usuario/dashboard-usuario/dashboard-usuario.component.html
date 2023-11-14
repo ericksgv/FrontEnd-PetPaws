@@ -3,6 +3,26 @@
 
   <h1 class="titulo-nombre-cliente"> Bienvenido, <strong>{{usuarioActual?.nombre}}</strong> </h1>
 
+  <section class="carta-citas naranjaPastel-fondo">
+    <h1 class="recoleta-bold">Tus citas:</h1>
+    <br>
+    <table class="tabla-general2">
+      <thead>
+      <tr>
+        <th class="recoleta-bold">Hora</th>
+        <th class="recoleta-bold">Mascota</th>
+      </tr>
+      </thead>
+      <tbody id="tableBody" class="tbody2">
+      <tr *ngFor="let cita of citasUsuario">
+        <td>{{cita.fechaHora}}</td>
+        <td>{{cita.nombreMascota}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </section>
+
+
   <section class="contenedor-cartas">
 
     <section class="carta-datos">
@@ -35,10 +55,10 @@
         <span class="titulo-carta"> Mascotas Registradas </span>
       </div>
 
-      <div *ngFor="let mascota of mascotasUsuario; index as i; first as isFirst">
+      <div *ngFor="let mascota of mascotasUsuario?.slice(0, 3); index as i; first as isFirst">
         <div class="informacionMascota">
           <img class="foto-mascota" [src]="mascota.foto" alt="Foto de la mascota">
-          <span> <strong> {{mascota.nombre}} </strong></span>
+          <a [routerLink]="'/mascota/informacion/' + mascota.id" class="recoleta-bold nombre-mascota"> <strong> {{mascota.nombre}} </strong></a>
           <br>
           <span>{{mascota.raza}}</span>
           <br>
@@ -48,9 +68,10 @@
           <hr class="linea-divisor-mascotas">
         </div>
         <br>
-
       </div>
-<!--      <img ngSrc="{{usuarioActual!.mascotas[0].foto}}" alt="Foto de la mascota">-->
+
+      <button id="verMascotas" class="recoleta-bold boton-redondo-global verde-secundario-fondo beige-acento"
+              [routerLink]="'/usuario/mascotas'">Todas mis Mascotas</button>
 
     </section>
 

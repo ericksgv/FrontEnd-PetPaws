@@ -5,52 +5,60 @@
   <section class="cuadros-estadisticas-principales">
 
     <div  class="cuadro-estadisticas cuadro-clientes">
-      <p class="numero-cuadro-estadisticas"> {{clientesTotales}}</p>
-      <span class="textp-cuadro-estadisticas">Clientes Totales</span>
+      <span class="numero-cuadro-estadisticas recoleta-bold"> {{clientesTotales}}</span>
+      <br>
+      <span class="texto-cuadro-estadisticas recoleta-bold">Clientes Totales</span>
     </div>
 
     <div  class="cuadro-estadisticas cuadro-mascotas">
-      <p class="numero-cuadro-estadisticas"> {{mascotasRegistradas}}</p>
-      <span class="textp-cuadro-estadisticas">Mascotas Registradas</span>
+      <span class="numero-cuadro-estadisticas recoleta-bold"> {{mascotasRegistradas}}</span>
+      <br>
+      <span class="texto-cuadro-estadisticas recoleta-bold">Mascotas Registradas</span>
     </div>
 
-<!--    <div  class="cuadro-estadisticas cuadro-tratamientos">-->
-
-<!--    </div>-->
-
     <div  class="cuadro-estadisticas cuadro-veterinarios">
-      <p class="numero-cuadro-estadisticas"> {{veterinariosActivos}}</p>
-      <span class="textp-cuadro-estadisticas">Veterinarios Activos</span>
+      <span class="numero-cuadro-estadisticas recoleta-bold"> {{veterinariosActivos}}</span>
+      <br>
+      <span class="texto-cuadro-estadisticas recoleta-bold">Veterinarios Activos</span>
     </div>
 
   </section>
 
   <hr>
 
+  <section class="datos-financieros">
+    <div  class="doughnut-chart-money">
+      <canvas id="moneyChart" ></canvas>
+    </div>
+
+      <span>
+      <p id="ventasTotales" class="numero-cuadro-estadisticas worksans-bold"> {{ventasTotales | currency:'$':'symbol'}}</p>
+      <p class="texto-cuadro-estadisticas">Ventas <br> Totales</p>
+    </span>
+
+      <span>
+      <p id="gananciasTotales" class="numero-cuadro-estadisticas worksans-bold"> {{gananciasTotales| currency:'USD':'symbol':'1.2-2'}}</p>
+      <p class="texto-cuadro-estadisticas" >Ganancias <br>  Totales</p>
+    </span>
+
+  </section>
+
   <section class="entidadesActivas letra-amarilla">
     <span>
-      <p class="numero-cuadro-estadisticas"> {{mascotasTratamiento}}</p>
-    <span class="textp-cuadro-estadisticas">Mascotas en Tratamiento</span>
+      <p class="numero-cuadro-estadisticas worksans-bold"> {{mascotasTratamiento}}</p>
+      <p class="texto-cuadro-estadisticas">Mascotas <br> en Tratamiento</p>
     </span>
 
     <span>
-      <p class="numero-cuadro-estadisticas"> {{veterinariosInactivos}}</p>
-    <span class="textp-cuadro-estadisticas">Veterinarios Inactivos</span>
+      <p class="numero-cuadro-estadisticas worksans-bold"> {{veterinariosInactivos}}</p>
+      <p class="texto-cuadro-estadisticas">Veterinarios  <br> Inactivos</p>
     </span>
 
-    <span>
-      <p class="numero-cuadro-estadisticas"> {{ventasTotales}}</p>
-    <span class="textp-cuadro-estadisticas">Ventas Totales</span>
-    </span>
+
 
     <span>
-      <p class="numero-cuadro-estadisticas"> {{gananciasTotales}}</p>
-      <span class="textp-cuadro-estadisticas">Ganancias Totales</span>
-    </span>
-
-    <span>
-      <p class="numero-cuadro-estadisticas"> {{tratamientosUltimoMes.length}}</p>
-      <span class="textp-cuadro-estadisticas">Tratamientos administrados este mes</span>
+      <p id="tratamientosUltimoMes" class="numero-cuadro-estadisticas worksans-bold"> {{tratamientosUltimoMes.length}}</p>
+      <p class="texto-cuadro-estadisticas">Tratamientos <br> dados este mes</p>
     </span>
   </section>
 
@@ -60,22 +68,22 @@
   <section class="entidadesActivas letra-naranja-intensa">
 
     <span>
-      <p class="numero-cuadro-estadisticas"> Top 3 Medicamentos <br> por ventas: </p>
+      <p class="numero-cuadro-estadisticas recoleta-bold"> Top 3 Medicamentos <br> por ventas: </p>
     </span>
 
     <span>
       <p class="numero-cuadro-estadisticas"> {{top3Medicamentos[0].nombre}}</p>
-      <span class="textp-cuadro-estadisticas">{{top3Medicamentos[0].precio}}</span>
+      <span class="texto-cuadro-estadisticas">{{top3Medicamentos[0].precio}}</span>
     </span>
 
     <span>
       <p class="numero-cuadro-estadisticas"> {{top3Medicamentos[1].nombre}}</p>
-      <span class="textp-cuadro-estadisticas">{{top3Medicamentos[1].precio}}</span>
+      <span class="texto-cuadro-estadisticas">{{top3Medicamentos[1].precio}}</span>
     </span>
 
     <span>
-      <p class="numero-cuadro-estadisticas"> {{top3Medicamentos[1].nombre}}</p>
-      <span class="textp-cuadro-estadisticas">{{top3Medicamentos[1].precio}}</span>
+      <p class="numero-cuadro-estadisticas"> {{top3Medicamentos[2].nombre}}</p>
+      <span class="texto-cuadro-estadisticas">{{top3Medicamentos[2].precio}}</span>
     </span>
 
 
@@ -83,6 +91,7 @@
 
   <hr>
 
+  <h1 class="recoleta-bold rojo-intenso-acento titulo-tabla-dashboard-admin">Tratamientos mensuales por cada medicamento.</h1>
   <div class="table-container">
     <table>
       <thead>
@@ -99,8 +108,6 @@
       </tbody>
     </table>
 </div>
-
-
 
 </section>
 

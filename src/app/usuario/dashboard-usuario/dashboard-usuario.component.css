@@ -1,20 +1,16 @@
 .contenedor-pagina{
-  max-width: 100vw;
-  min-height: 100vh;
+  max-width: 100%;
+  min-height: auto;
   overflow-x: hidden;
   padding: 15vh 2% 2% 2%;
-
   background-color: #F2EBD2;
-
 }
 
 .titulo-nombre-cliente{
   text-align: center;
-
   font-family: Recoleta, serif;
-  font-size: 2.8rem;
+  font-size: calc(0.2em + 2.8vw);
   color: #2D2D2D;
-
 }
 
 /* ------------------------ */
@@ -34,11 +30,10 @@
 }
 
 .titulo-carta{
-  background-color: #F2EBD2;
+  background-size: 50%;
   color: #2D2D2D;
   font-family: Recoleta, serif;
-  font-size: 2.4rem;
-
+  font-size: calc(0.2em + 2.4vw);
   font-weight: bold;
   margin: auto;
   margin-bottom: 5%;
@@ -48,7 +43,6 @@
 .carta-datos{
   flex: 4;
   padding: 2%;
-
   background-color: #F1D79D;
   margin-right: 2.5%;
   border-radius: 15px;
@@ -56,28 +50,31 @@
 
 label{
   font-family: Recoleta, serif;
-  font-size: 1.7rem;
-
+  font-size: calc(0.2em + 1.7vw);
 }
 
 input{
   width: 100%;
-  height: 4vh;
+  height: 3vw;
+  border-color: #2D2D2D;
   border-radius: 5px;
+  border-style: solid;
   font-family: 'Work Sans', sans-serif;
-  font-size: 1.3rem;
+  font-size: calc(0.2em + 1.3vw);
   background-color: #F2EBD2;
   color: #2D2D2D;
-  border-color: #2D2D2D;
   margin-bottom: 3vh;
 }
 
+a{
+  color: #000000;
+}
 
 /* ------------------------ */
 .carta-mascotas{
   flex: 4;
   padding: 2%;
-
+  align-items: center;
   background-color: #AAC074;
   margin-left: 2.5%;
   border-radius: 15px;
@@ -86,26 +83,107 @@ input{
 
 .informacionMascota{
   font-family: 'Work Sans', sans-serif;
-  font-size: 1.3rem;
+  font-size: calc(0.2em + 1.3vw);
   margin-bottom: 1%;
 }
 
 .foto-mascota{
-  width: 20%;
+  width: 40%;
+  height: auto;
   float: left;
   margin-right: 5%;
   border-radius: 15px;
-
 }
 
 .linea-divisor-mascotas{
   background-color: #F2EBD2;
+  border-radius: 15px;
   border-color: #F2EBD2;
-
+  border-style: solid;
   box-shadow: none;
   height: 2px;
   margin-top: 5%;
+}
+
+.carta-mascotas button{
+  display: block;
+  margin: auto;
+  border: none;
+  font-size: calc(0.2em + 1vw);
+}
+
+.carta-mascotas button:hover{
+  background-color: #F2EBD2;
+  color: #2D2D2D;
+}
+
+/* ------------- Citas ------------ */
+.carta-citas{
+  width: 82%;
+  margin-right: 5%;
+  margin-left: 5%;
+  padding: 2%;
+  text-align: center;
+  display: block;
+
+  justify-content: center;
+  align-items: center;
+
   border-radius: 15px;
+  margin-bottom: 5%;
+}
+
+.boton-modificar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2% 2% !important;
+  background-color: #DC6A35;
+  color: #000;
+  text-decoration: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: calc(0.2em + 1vw) !important;
+}
+.centrar-contenido {
+  justify-content: center;
+  align-items: center;
+}
 
 
+
+.tabla-general2 {
+  width: 100%;
+  overflow: hidden;
+  border-collapse: collapse;
+}
+
+.tabla-general2 th {
+  font-family: Recoleta, serif;
+  text-align: center;
+}
+
+.tabla-general2 td {
+  font-family: 'Work Sans', sans-serif;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.tabla-general2 tr {
+  text-align: center;
+}
+
+.tabla-general2 th,
+.tabla-general2 td {
+  padding: 1.5%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: calc(0.2em + 1vw);
+}
+
+/* Aplicar fondo a filas impares */
+.tbody2 tr:nth-child(odd) {
+  background-color: #F2EBD2;
 }

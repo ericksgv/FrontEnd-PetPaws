@@ -1,11 +1,11 @@
 /*-----------------------*/
-
+.link-menu{
+  font-size: calc(0.2em + 2vw) !important;
+}
 .link-menu:hover{
-
   text-decoration: underline;
   cursor: pointer;
   color: #DD4429;
-
   transition: all 0.3s;
 }
 
@@ -19,8 +19,7 @@
   font-weight: bold;
   color: #E7B10A;
   text-align: center;
-  font-size: 3rem;
-
+  font-size: calc(0.2em + 3.4vw) !important;
 }
 
 /*-----------------------*/
@@ -29,16 +28,39 @@
   display: flex;
   justify-content: right;
   align-items: center;
-
   padding-right: 3%;
 }
 
 .boton-logout-cliente{
-
   color: #2D2D2D;
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
   background-color: #DC6A35;
   transition: all 0.5s;
-
+  font-size: calc(0.2em + 1.2vw)!important;
 }
 
 
+.topbar-citas-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.selector-lenguaje-image {
+  width: 8%;
+  height: auto;
+}
+
+.selector-lenguaje{
+  font-size: calc(0.2em + 2vw) !important;
+  font-weight: bold;
+}
+
+@media (min-width: 600px) {
+  div {
+    flex-basis: 33%;
+  }
+}

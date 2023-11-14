@@ -11,14 +11,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { HeroSectionComponent } from './landing-page/hero-section/hero-section.component';
-import { MisionComponent } from './landing-page/mision/mision.component';
 import { TestimoniosComponent } from './landing-page/testimonios/testimonios.component';
 import { AboutUsComponent } from './landing-page/about-us/about-us.component';
 import { ContactoComponent } from './landing-page/contacto/contacto.component';
 import { FooterComponent } from './landing-page/footer/footer.component';
 import { DropdownMenuComponent } from './dropdown-menu/dropdown-menu.component';
-import {NgOptimizedImage} from "@angular/common";
-import {HttpClientModule} from "@angular/common/http";
+import { NgOptimizedImage } from "@angular/common";
+import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { ModificarUsuarioComponent } from './usuario/modificar-usuario/modificar-usuario.component';
 import { AgregarUsuarioComponent } from './usuario/agregar-usuario/agregar-usuario.component';
 import { UsuarioTableComponent } from './usuario/usuario-table/usuario-table.component';
@@ -39,8 +38,21 @@ import { DashboardAdminComponent } from './admin/dashboard-admin/dashboard-admin
 import { DashboardVeterinarioComponent } from './veterinario/dashboard-veterinario/dashboard-veterinario.component';
 import { TopBarAdminComponent } from './top-bar/top-bar-admin/top-bar-admin.component';
 import { TopBarOscuroComponent } from './top-bar/top-bar-oscuro/top-bar-oscuro.component';
-
-
+import { TablaMascotasUsuarioComponent } from './usuario/tabla-mascotas-usuario/tabla-mascotas-usuario.component';
+import { InformacionMascotaComponent } from './mascota/informacion-mascota/informacion-mascota.component';
+import { ChatgptComponent } from './chat/chatgpt/chatgpt.component';
+import { AuthInterceptor } from './helpers/auth.interceptor';
+import { UnauthorizedComponent } from './errores/unauthorized/unauthorized.component';
+import { ForbiddenComponent } from './errores/forbidden/forbidden.component';
+import { CitaComponent } from './cita/cita/cita.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {ServiciosComponent} from "./landing-page/servicios/servicios.component";
+import { AgregarTratamientoAdminComponent } from './tratamiento/agregar-tratamiento-admin/agregar-tratamiento-admin.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +64,6 @@ import { TopBarOscuroComponent } from './top-bar/top-bar-oscuro/top-bar-oscuro.c
     LandingPageComponent,
     TopBarComponent,
     HeroSectionComponent,
-    MisionComponent,
     TestimoniosComponent,
     AboutUsComponent,
     ContactoComponent,
@@ -72,22 +83,40 @@ import { TopBarOscuroComponent } from './top-bar/top-bar-oscuro/top-bar-oscuro.c
     ModificarVeterinarioComponent,
     VeterinarioTableComponent,
     AgregarTratamientoComponent,
+    AgregarTratamientoAdminComponent,
     ModificarTratamientoComponent,
     TratamientoTableComponent,
     DashboardAdminComponent,
     DashboardVeterinarioComponent,
     TopBarAdminComponent,
     TopBarOscuroComponent,
+    TablaMascotasUsuarioComponent,
+    InformacionMascotaComponent,
+    ChatgptComponent,
+    UnauthorizedComponent,
+    ForbiddenComponent,
+    CitaComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        FormsModule,
-        ReactiveFormsModule,
-        NgOptimizedImage,
-        HttpClientModule
-    ],
-  providers: [],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgOptimizedImage,
+    HttpClientModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatButtonModule,
+    MatIconModule,
+    BrowserAnimationsModule,
+    ServiciosComponent,
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

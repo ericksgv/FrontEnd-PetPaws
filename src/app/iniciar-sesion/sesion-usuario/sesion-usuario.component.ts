@@ -3,6 +3,9 @@ import { Router } from '@angular/router';
 import {UsuarioService} from "../../usuario/Service/usuarioservice.service";
 import {FormControl, Validators} from "@angular/forms";
 import {catchError} from "rxjs";
+import Swal from 'sweetalert2';
+import { LoginModel } from 'src/app/model/loginModel';
+import { VeterinarioService } from 'src/app/veterinario/Service/veterinario-service.service';
 
 @Component({
   selector: 'app-sesion-usuario',
@@ -10,58 +13,69 @@ import {catchError} from "rxjs";
   styleUrls: ['./sesion-usuario.component.css', '../../../styles.css']
 })
 export class SesionUsuarioComponent {
-  cedula: string = '';
-  numeroCedula : number = -1
-  usuarioEncontrado: boolean = true;
-  usuarioInactivo: boolean = false;
-
-  // Se valida la cedula haciendo uso de los validadores dados por Angular.
-  // El input se especifica como numerico en HTML, por lo que aquí solo se valida que no este vacio.
+  cedula: string = ''
+  usuarioEncontrado: boolean = true
+  usuarioInactivo: boolean = false
+  userRole: string | undefined;
+  cedulaUsuarioString: string = ''
   campoCedula = new FormControl('', [
     Validators.required
   ])
 
 
-  constructor(private router: Router, private usuarioService: UsuarioService) {}
+  constructor(private router: Router, private usuarioService: UsuarioService, private veterinarioService: VeterinarioService) {}
+  ngOnInit() {
 
+
+    // Verificar si hay un token en localStorage
+    const token = localStorage.getItem('token');
+
+    if (token) {
+      this.veterinarioService.getRol().subscribe((rol) => {
+        this.userRole = rol;
+        console.log(this.userRole);
+        // Si es administrador mostrar los botones de agregar y eliminar
+        if (this.userRole == 'ADMIN') {
+          this.router.navigate(['/admin/dashboard']);
+        }
+        // Si es veterinario mostrar los botones de agregar y eliminar
+        else if (this.userRole == 'VETERINARIO') {
+          this.router.navigate(['/veterinario/dashboard']);
+        }
+
+        // Si es usuario mostrar los botones de agregar y eliminar
+        else if (this.userRole == 'CLIENTE') {
+          this.router.navigate(['/usuario/dashboard']);
+        }
+      });
+    }
+
+}
 
   login() {
-
-    // Dado que siempre se va a retornar una valor, buscamos la cedula en los usuarios existentes.
-    const cedulaUsuarioString = this.campoCedula.value!
-
-
-       this.usuarioService.getUsuarioPorCedula(Number(cedulaUsuarioString)).pipe(
-         catchError(error => {
-
-             this.usuarioEncontrado = false
-             console.error('Usuario no encontrado. Error:', error);
-
-           return []; //
-         }
-        )
-       ).subscribe(
-         (datosUsuario) => {
-
-           // Si el usuario es encontrado, pero inactivo, se habilita la flag para mostrar un mensaje.
-           if (datosUsuario != null && datosUsuario.estado === "inactivo"){
-             this.usuarioInactivo = true
-             console.log("here")
-           }
-
-           // Si se encuentra el usuario y esta activo, se hace el login,
-           // y se guardan sus datos en local storage.
-           if (datosUsuario != null && datosUsuario.estado !== "inactivo"){
-             this.usuarioEncontrado = true
-             this.usuarioInactivo = false
-             this.usuarioService.guardaUsuarioEnLocalStorage(datosUsuario)
-             this.router.navigate(['/usuario/dashboard'])
-           }
-
-         }
-       )
-
-
+    const infoLogin = new LoginModel(Number(this.campoCedula.value!), "1");
+    this.usuarioService.login(infoLogin).pipe(
+      catchError((error) => {
+        this.usuarioEncontrado = true;
+        console.error('Vet no encontrado. Error:', error);
+        return [];
+      })
+      )
+      .subscribe((token) => {
+        localStorage.setItem('token', String(token))
+          Swal.fire({
+            icon: 'success',
+            title: 'Inicio de Sesión Exitoso',
+            text: 'Has iniciado sesión correctamente',
+            timer: 1000, 
+            timerProgressBar: true,
+            didOpen: () => {
+              Swal.showLoading();
+            },
+          }).then(() => {
+            this.router.navigate(['/usuario/dashboard']);
+          });
+      });
   }
 
   loginVeterinario() {

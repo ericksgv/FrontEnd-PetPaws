@@ -21,13 +21,23 @@ import { AgregarTratamientoComponent } from './tratamiento/agregar-tratamiento/a
 import { ModificarTratamientoComponent } from './tratamiento/modificar-tratamiento/modificar-tratamiento.component';
 import {DashboardAdminComponent} from "./admin/dashboard-admin/dashboard-admin.component";
 import { DashboardVeterinarioComponent } from './veterinario/dashboard-veterinario/dashboard-veterinario.component';
+import {TablaMascotasUsuarioComponent} from "./usuario/tabla-mascotas-usuario/tabla-mascotas-usuario.component";
+import {InformacionMascotaComponent} from "./mascota/informacion-mascota/informacion-mascota.component";
+import { ChatgptComponent } from './chat/chatgpt/chatgpt.component';
+import { UnauthorizedComponent } from './errores/unauthorized/unauthorized.component';
+import { ForbiddenComponent } from './errores/forbidden/forbidden.component';
+import { CitaComponent } from './cita/cita/cita.component';
+import { AgregarTratamientoAdminComponent } from './tratamiento/agregar-tratamiento-admin/agregar-tratamiento-admin.component';
+
 const routes: Routes = [
 
+  // Landing page
   {
     path: '',
     component: LandingPageComponent
   },
 
+  // --------------- Mascotas ---------------
   {
     path: 'mascotas/all',
     component: MascotaTableComponent,
@@ -41,35 +51,15 @@ const routes: Routes = [
     component: ModificarMascotaComponent,
   },
   {
-    path: 'usuario/update/:id',
-    component: ModificarUsuarioComponent,
-  },
-  {
-    path: 'usuario/add',
-    component: AgregarUsuarioComponent,
-  },
-  {
-    path: 'usuario/all',
-    component: UsuarioTableComponent,
+    path: 'mascota/informacion/:id',
+    component: InformacionMascotaComponent
   },
 
-  {
-    path: 'usuario/dashboard',
-    component: DashboardUsuarioComponent,
-  },
 
+  // --------------- Veterinarios ---------------
   {
-    path: 'usuario/login',
-    component: SesionUsuarioComponent,
-  },
-  {
-    path: 'administrador/login',
-    component: SesionAdministradorComponent,
-  },
-
-  {
-    path: 'admin/dashboard',
-    component: DashboardAdminComponent
+    path: 'veterinario/dashboard',
+    component: DashboardVeterinarioComponent,
   },
 
   {
@@ -89,10 +79,54 @@ const routes: Routes = [
     path: 'veterinario/update/:id',
     component: ModificarVeterinarioComponent,
   },
-  {
+
+  /*  {
     path: 'veterinario/dashboard/:cedula',
     component: DashboardVeterinarioComponent,
+  },*/
+
+  // --------------- Usuarios ---------------
+  {
+    path: 'usuario/update/:id',
+    component: ModificarUsuarioComponent,
   },
+  {
+    path: 'usuario/add',
+    component: AgregarUsuarioComponent,
+  },
+  {
+    path: 'usuario/all',
+    component: UsuarioTableComponent,
+  },
+
+  {
+    path: 'usuario/dashboard',
+    component: DashboardUsuarioComponent,
+  },
+
+  {
+    path: 'usuario/mascotas',
+    component: TablaMascotasUsuarioComponent
+  },
+
+  {
+    path: 'usuario/login',
+    component: SesionUsuarioComponent,
+  },
+
+  // --------------- Administrador ---------------
+  {
+    path: 'administrador/login',
+    component: SesionAdministradorComponent,
+  },
+
+  {
+    path: 'admin/dashboard',
+    component: DashboardAdminComponent
+  },
+
+  // --------------- Tratamientos ---------------
+
   {
     path: 'tratamiento/all',
     component: TratamientoTableComponent,
@@ -104,8 +138,28 @@ const routes: Routes = [
   {
     path: 'tratamiento/update/:id',
     component: ModificarTratamientoComponent,
-  }
+  },
 
+  // --------------- Other ---------------
+  {
+    path: 'chat',
+    component: ChatgptComponent,
+  },
+  {path: 'unauthorized',
+    component: UnauthorizedComponent,
+  },
+    {path: 'forbidden',
+  component: ForbiddenComponent,
+  },
+  {
+    path: 'agregar/cita',
+    component: CitaComponent,
+  },
+  {
+    path: 'agregar-tratamiento',
+    component: AgregarTratamientoAdminComponent,
+
+  }
 
 ];
 

@@ -1,0 +1,69 @@
+.layout-tablaMascotas-usuario{
+  padding-top: 20vh;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 5%;
+  font-family: 'Work Sans', sans-serif;
+  min-height: 85%;
+}
+
+.contenedor-tabla-mascotas{
+  padding-top: 1%;
+  padding-left: 3%;
+  padding-right: 3%;
+  
+}
+
+.titulo-tabla-mascotas-usuario{
+  font-family: Recoleta, serif;
+  font-size: calc(0.2em + 3vw);
+  font-weight: bold;
+  text-align: center;
+}
+
+.layout-entrada-mascota{
+  display: flex;
+  flex-direction: row;
+  gap: 3%;
+  height: 80%;
+}
+
+.seccion-foto-mascota{
+  flex: 3;
+}
+
+.seccion-nombre-mascota{
+  flex: 3;
+}
+
+.datos-basicos-mascota{
+  font-size: calc(0.2em + 2vw);
+}
+
+.nombre-mascota{
+  font-size: calc(0.2em + 2.5vw);
+  color: black;
+}
+
+.seccion-clinica-mascota{
+  flex: 3;
+}
+
+.foto-mascota{
+  height: auto;
+  width: 80%;
+  object-fit: cover;
+  display: block;
+  margin: auto;
+  border-radius: 15px;
+}
+
+.linea-divisor-mascotas{
+  background-color: #F2EBD2;
+  border-radius: 15px;
+  border-color: #F2EBD2;
+  border-style: solid;
+  box-shadow: none;
+  height: 0.3vw;
+  margin-top: 5%;
+}

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Tratamiento } from '../../model/tratamiento'; 
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { TratamientoCrearDTO } from 'src/app/model/tratamientoCrearDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,7 @@ export class ServiceService {
     return this.http.get<Tratamiento>(`${this.apiUrl}/find/${id}`);
   }
 
-  agregarTratamiento(tratamiento: Tratamiento): Observable<Tratamiento> {
+  agregarTratamiento(tratamiento: TratamientoCrearDTO): Observable<Tratamiento> {
     return this.http.post<Tratamiento>(`${this.apiUrl}/agregar`, tratamiento);
   }
 
@@ -35,4 +36,7 @@ export class ServiceService {
     return this.http.get<Tratamiento[]>(`${this.apiUrl}/veterinario/${id}`);
   }
 
+  verificarPermisosAdd(): Observable<String>{
+    return this.http.get<String>(`${this.apiUrl}/verificar-permisos/add`)
+  }
 }

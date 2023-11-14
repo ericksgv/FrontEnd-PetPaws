@@ -7,13 +7,13 @@
 
   <section class="contenedor-texto-pagina-login">
     <div class="div-superior-texto-login">
-      <h1 class="tituloCentrado acento-amarillo-texto titulo-login">Iniciar sesión</h1>
+      <h1 class="tituloCentrado acento-amarillo-texto titulo-login texto-negrilla">Iniciar sesión</h1>
 
       <form (ngSubmit)="login()">
         <br>
         <input type="number" id="inputCedula" name="campoInputCedula" placeholder="Ingresa tu Cédula*" class="letra-poppins campo-input-login" [formControl]="campoCedula">
         <br>
-        <button type="submit" class="letra-poppins texto-negrilla boton-redondo boton-login-ingresar
+        <button id="btnIngresarCliente" type="submit" class="letra-poppins texto-negrilla boton-redondo boton-login-ingresar
         acento-amarillo-fondo">Ingresar</button>
 
         <div *ngIf="campoCedula.invalid && campoCedula.touched" class="error">
@@ -32,14 +32,16 @@
       <div class="espacio-blanco-texto-login"></div>
 
       <div class="div-inferior-texto-login letra-poppins">
-        <button type="button" (click)="loginVeterinario()" class="boton-redondo boton-login-otras-cuentas
+        <button id="loginVeterinario" type="button" (click)="loginVeterinario()" class="boton-redondo boton-login-otras-cuentas
             boton-login-veterinario acento-verde-claro-fondo texto-negrilla">Veterinarios</button>
         <br>
-        <button type="button" (click)="loginAdmin()" class="boton-redondo boton-login-otras-cuentas
+        <button id="loginAdministrador" type="button" (click)="loginAdmin()" class="boton-redondo boton-login-otras-cuentas
         boton-login-admin acento-naranja-claro-fondo texto-negrilla">Administrador</button>
       </div>
 
-      <p class="registro-mensaje">¿Aún no estás registrado? ¡Únete!</p>
+      <a [routerLink]="['']">
+        <p class="registro-mensaje">Regresar a la página principal</p>
+      </a>
     </div>
   </section>
 </div>

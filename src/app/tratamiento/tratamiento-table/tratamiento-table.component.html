@@ -1,126 +1,145 @@
-<app-top-bar-admin></app-top-bar-admin>
+<ng-container *ngIf="rol === 'VETERINARIO'; else adminTopBar">
+  <app-top-bar-veterinario></app-top-bar-veterinario>
+</ng-container>
+<ng-template #adminTopBar>
+  <app-top-bar-admin></app-top-bar-admin>
+</ng-template>
 
-<div class="acento-amarillo-semi-claro-fondo ">
-    <div class="cuadro-estatico acento-verde-semi-claro-fondo">
-      <div class="rectangulo"></div>
-      <h1>Lista de Tratamientos</h1>
+<div class="acento-amarillo-semi-claro-fondo contorno1">
+  <div class="cuadro-estatico acento-verde-semi-claro-fondo">
+    <h1>Lista de Tratamientos</h1>
 
-          <!-- Barras de búsqueda -->
+    <!-- Barras de búsqueda -->
     <div class="grupo-elementos">
       <label for="campoBusqueda" class="busqueda">
-        <input type="text" id="campoBusqueda" name="campoBusqueda" placeholder="Busca por cédula" [(ngModel)]="textoBusqueda" (input)="filtrarTratamientos()">
+        <input type="text" id="campoBusqueda" name="campoBusqueda" placeholder="Busca por cualquier atributo de la tabla" [(ngModel)]="textoBusqueda" (input)="filtrarTratamientos()">
       </label>
+      <!--
       <div class="boton-derecha">
         <label for="campoBusqueda" class="busqueda">
           <input type="text" [(ngModel)]="busquedaAvanzada" placeholder="Búsqueda Avanzada">
         </label>
-      </div>
+      </div>-->
+
     </div>
 
     <div class="tres-botones texto-negrilla textoNegro">
-      <button [ngClass]="filtroActivoIdMascota ? 'filtro-activo texto-negrilla' : 'acentro-amarillo-fondo texto-negrilla filtro-btn'" (click)="filtrarPorAtributo('mascota')">Mascota</button>
-      <button [ngClass]="filtroActivoMedicamento ? 'filtro-activo texto-negrilla' : 'acentro-amarillo-fondo texto-negrilla filtro-btn'" (click)="filtrarPorAtributo('medicamento')">Medicamento</button>
-      <button [ngClass]="filtroActivoVeterinario ? 'filtro-activo texto-negrilla' : 'acentro-amarillo-fondo texto-negrilla filtro-btn'" (click)="filtrarPorAtributo('veterinario')">Veterinario</button>
-      <button [ngClass]="filtroActivoFecha ? 'filtro-activo texto-negrilla' : 'acentro-amarillo-fondo texto-negrilla filtro-btn'" (click)="filtrarPorAtributo('fecha')">Fecha</button>
+      <button
+        [ngClass]="filtroActivoIdMascota ? 'filtro-activo texto-negrilla' : 'acentro-amarillo-fondo texto-negrilla filtro-btn'"
+        (click)="filtrarPorAtributo('mascota')">Mascota</button>
+      <button
+        [ngClass]="filtroActivoMedicamento ? 'filtro-activo texto-negrilla' : 'acentro-amarillo-fondo texto-negrilla filtro-btn'"
+        (click)="filtrarPorAtributo('medicamento')">Medicamento</button>
+      <button
+        [ngClass]="filtroActivoVeterinario ? 'filtro-activo texto-negrilla' : 'acentro-amarillo-fondo texto-negrilla filtro-btn'"
+        (click)="filtrarPorAtributo('veterinario')">Veterinario</button>
+      <button
+        [ngClass]="filtroActivoFecha ? 'filtro-activo texto-negrilla' : 'acentro-amarillo-fondo texto-negrilla filtro-btn'"
+        (click)="filtrarPorAtributo('fecha')">Fecha</button>
 
-      <button  class="acentro-amarillo-fondo texto-negrilla .filtro-btn" (click)="filtrarPorAtributo('limpiar')">Limpiar búsqueda avanzada</button>
     </div>
 
-      <div class="tres-botones texto-negrilla textoNegro">
-        <div class="margenizquierdo"></div>
-        <div class="boton-contenedor">
-          <div class="mitad-izquierda acentro-amarillo-fondo">
-            <!-- Lista desplegable izquierda -->
-            <select class="acentro-amarillo-fondo no-border texto-negrilla" [(ngModel)]="selectedSortBy" (ngModelChange)="ordenarTratamientos()">
-              <option value="id">Id Tratamiento</option>
-              <option value="mascota">Id Mascota</option>
-              <option value="medicamento">Medicamento</option>
-              <option value="veterinario">Veterinario</option>
-              <option value="fecha">Fecha</option>
+    <div class="tres-botones texto-negrilla textoNegro">
+      <div class="margenizquierdo"></div>
+      <div class="boton-contenedor">
+        <div class="mitad-izquierda acentro-amarillo-fondo">
+          <!-- Lista desplegable izquierda -->
+          <select class="acentro-amarillo-fondo no-border texto-negrilla" [(ngModel)]="selectedSortBy"
+            (ngModelChange)="ordenarTratamientos()">
+            <option value="id">Id Tratamiento</option>
+            <option value="mascota">Id Mascota</option>
+            <option value="medicamento">Medicamento</option>
+            <option value="veterinario">Veterinario</option>
+            <option value="fecha">Fecha</option>
 
-            </select>
-          </div>
-          <div class="mitad-derecha">
-            <!-- Lista desplegable derecha -->
-            <select class="acento-amarillo-claro-fondo texto-negrilla no-border" [(ngModel)]="selectedSortOrder" (ngModelChange)="ordenarTratamientos()">
-              <option value="asc">Ascendente</option>
-              <option value="desc">Descendente</option>
-            </select>
-          </div>
+          </select>
         </div>
-        <div class="margenizquierdo"></div>
-        <div class="boton-contenedor">
-          <div class="mitad-izquierda acentro-amarillo-fondo">
-            <!-- Lista desplegable para seleccionar la cantidad de mascotas por página -->
-            <select class="acentro-amarillo-fondo texto-negrilla textoBlanco no-border" [(ngModel)]="itemsPorPagina"
-              (ngModelChange)="cambiarCantidadPorPagina()">
-              <option value="5">5</option>
-              <option value="10">10</option>
-              <option value="30">30</option>
-              <option value="50">50</option>
-              <option value="100">100</option>
-            </select>
-          </div>
+        <div class="mitad-derecha">
+          <!-- Lista desplegable derecha -->
+          <select class="acento-amarillo-claro-fondo texto-negrilla no-border" [(ngModel)]="selectedSortOrder"
+            (ngModelChange)="ordenarTratamientos()">
+            <option value="asc">Ascendente</option>
+            <option value="desc">Descendente</option>
+          </select>
         </div>
-
       </div>
+      <div class="margenizquierdo"></div>
+      <div class="boton-contenedor1">
+        <div class="mitad-izquierda acentro-amarillo-fondo">
+          <!-- Lista desplegable para seleccionar la cantidad de mascotas por página -->
+          <select class="acentro-amarillo-fondo texto-negrilla textoBlanco no-border" [(ngModel)]="itemsPorPagina"
+            (ngModelChange)="cambiarCantidadPorPagina()">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="30">30</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+          </select>
+        </div>
+      </div>
+
     </div>
-
-    <section class="cuadro-estatico2">
-      <table class="tabla-general2">
-        <thead>
-          <tr class="texto-negrilla textoNegro letra-normal-grande encabezados-tabla acento-verde-semi-claro-fondo">
-            <th scope="col"></th>
-            <th scope="col">ID Tratamiento</th>
-            <th scope="col">Mascota ID</th>
-            <th scope="col">Medicamento</th>
-            <th scope="col">Fecha</th>
-            <th scope="col">Veterinario</th>
-            <th scope="col"></th>
-          </tr>
-        </thead>
-        <tbody id="tableBody" class="tbody2">
-            <tr *ngFor="let tratamiento of tratamientosFiltrados.slice(calcularIndicesPagina().inicio, calcularIndicesPagina().fin); let i = index">
-            <td class="custom-checkbox-cell">
-              <input type="checkbox" class="custom-checkbox" [id]="'checkbox-' + i">
-              <label [for]="'checkbox-' + i" class="custom-checkbox-label"></label>
-            </td>
-            <td>{{ tratamiento.id }}</td>
-            <td>{{ tratamiento.mascota.id }}</td>
-            <td>{{ tratamiento.medicamento.nombre }}</td>
-            <td>{{ tratamiento.fecha }}</td>
-            <td>{{ tratamiento.veterinario.nombre }}</td>
-            <td class="acciones-cell acento-transparente">
-              <td class="texto-negrilla">
-                <a class="boton-eliminar" href="#" data-value="opcion8" [routerLink]="['/tratamiento/all']" (click)="eliminarTratamiento(tratamiento.id)">Eliminar</a>
-              </td>                          
-          </tr>
-        </tbody>
-      </table>
-
-      <!-- Agregar la sección de paginación -->
-      <div class="pagination">
-        <button [disabled]="paginaActual === 1" (click)="cambiarPagina(paginaActual - 1)" class="pagination-button">Anterior</button>
-
-        <button *ngIf="rangoPaginas[0] > 1" (click)="cambiarPagina(1)" class="pagination-button">1</button>
-
-        <span *ngIf="rangoPaginas[0] > 2">...</span>
-
-        <button *ngFor="let pagina of rangoPaginas" (click)="cambiarPagina(pagina)" class="pagination-button" [ngClass]="{'current-page': paginaActual === pagina}">
-          {{ pagina }}
-        </button>
-
-        <span *ngIf="rangoPaginas[rangoPaginas.length - 1] < paginas.length - 1">...</span>
-
-        <button *ngIf="rangoPaginas[rangoPaginas.length - 1] < paginas.length" (click)="cambiarPagina(paginas.length)" class="pagination-button">{{ paginas.length }}</button>
-
-        <button [disabled]="paginaActual === paginas.length" (click)="cambiarPagina(paginaActual + 1)" class="pagination-button">Siguiente</button>
-      </div>
-
-      <div class="boton-crear">
-        <a>
-          <button [routerLink]="['/tratamiento/add']" class="acentro-amarillo-fondo texto-negrilla">Añadir</button>
-        </a>
-      </div>
-    </section>
   </div>
+
+  <section class="cuadro-estatico2">
+    <table class="tabla-general2">
+      <thead>
+        <tr class="texto-negrilla textoNegro letra-normal-grande encabezados-tabla acento-verde-semi-claro-fondo">
+          <th scope="col"></th>
+          <th scope="col">ID Tratamiento</th>
+          <th scope="col">Mascota</th>
+          <th scope="col">ID Mascota</th>
+          <th scope="col">Medicamento</th>
+          <th scope="col">Fecha</th>
+          <th scope="col">Veterinario</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody id="tableBody" class="tbody2">
+        <tr
+          *ngFor="let tratamiento of tratamientosFiltrados.slice(calcularIndicesPagina().inicio, calcularIndicesPagina().fin); let i = index">
+          <td class="custom-checkbox-cell">
+            <input type="checkbox" class="custom-checkbox" [id]="'checkbox-' + i">
+            <label [for]="'checkbox-' + i" class="custom-checkbox-label"></label>
+          </td>
+          <td>{{ tratamiento.id }}</td>
+          <td> <a [routerLink]="'/mascota/informacion/' + tratamiento.mascota.id" class="recoleta-bold nombre-mascota"> {{ tratamiento.mascota.nombre }}</a> </td>
+          
+          <td>{{ tratamiento.mascota.id }}</td>
+          <td>{{ tratamiento.medicamento.nombre }}</td>
+          <td>{{ tratamiento.fecha }}</td>
+          <td>{{ tratamiento.veterinario.nombre }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Agregar la sección de paginación -->
+    <div class="pagination">
+      <button [disabled]="paginaActual === 1" (click)="cambiarPagina(paginaActual - 1)"
+        class="pagination-button">Anterior</button>
+
+      <button *ngIf="rangoPaginas[0] > 1" (click)="cambiarPagina(1)" class="pagination-button">1</button>
+
+      <span class="pagination-button1" *ngIf="rangoPaginas[0] > 2">...</span>
+
+      <button *ngFor="let pagina of rangoPaginas" (click)="cambiarPagina(pagina)" class="pagination-button"
+        [ngClass]="{'current-page': paginaActual === pagina}">
+        {{ pagina }}
+      </button>
+
+      <span class="pagination-button1" *ngIf="rangoPaginas[rangoPaginas.length - 1] < paginas.length - 1">...</span>
+
+      <button id="ultimaPagina" *ngIf="rangoPaginas[rangoPaginas.length - 1] < paginas.length"
+        (click)="cambiarPagina(paginas.length)" class="pagination-button">{{ paginas.length }}</button>
+
+      <button [disabled]="paginaActual === paginas.length" (click)="cambiarPagina(paginaActual + 1)"
+        class="pagination-button">Siguiente</button>
+    </div>
+
+    <div class="boton-crear">
+      <a>
+        <button (click)="redirigirSegunRol()" class="acentro-amarillo-fondo texto-negrilla boton-redondo">Añadir</button>
+      </a>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,40 @@
+<div class="main-container">
+    <app-top-bar-cliente></app-top-bar-cliente>
+    <div class="contenedor-padre">
+        <div class="contenedor-izquierdo">
+            <label>Fecha de la cita:</label>
+            <input type="date" [(ngModel)]="selectedDate" (change)="cargarHorasDisponibles()" [min]="getMinDate()"
+                [max]="getMaxDate()">
+
+
+            <div class="horas">
+                <p>Horas disponibles:</p>
+            </div>
+            <div *ngIf="horasDisponibles && horasDisponibles.length > 0">
+                <div class="horas-disponibles">
+                    <button mat-button *ngFor="let hora of horasDisponibles" (click)="seleccionarHora(hora)"
+                        [class.selected]="hora === horaSeleccionada">
+                        {{ hora | date:'HH:mm' }}
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="contenedor-derecho">
+            <p>Seleccionar mascota:</p>
+
+            <input list="mascotas" id="mascotaInput" name="mascota" placeholder="Selecciona una mascota"
+                [(ngModel)]="selectedMascota" required>
+
+            <datalist id="mascotas">
+                <option *ngFor="let mascota of mascotas" [value]="mascota.id">{{ mascota.nombre }}</option>
+
+            </datalist>
+            <div *ngIf="showWarning" class="warning-message">
+                Selecciona una hora y una mascota antes de guardar la cita.
+            </div>
+        </div>
+    </div>
+    <div class="contenedor-inferior">
+        <button class="boton-redondo" (click)="guardarCita()">Guardar Cita</button>
+    </div>
+</div>

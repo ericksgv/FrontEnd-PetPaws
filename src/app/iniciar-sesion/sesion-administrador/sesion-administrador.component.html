@@ -6,7 +6,7 @@
 
   <section class="contenedor-texto-pagina-login">
     <div class="div-superior-texto-login">
-      <h1 class="tituloCentrado acento-rojo-claro-texto titulo-login">Iniciar sesión</h1>
+      <h1 class="tituloCentrado acento-rojo-claro-texto titulo-login texto-negrilla">Iniciar sesión</h1>
 
       <form (ngSubmit)="login()" #loginForm="ngForm">
         <br>
@@ -14,7 +14,7 @@
         <br>
         <input type="password" id="inputPassword" name="campoInputPassword" placeholder="Ingresa tu contraseña" class="letra-poppins campo-password-login" [(ngModel)]="password">
         <br>
-        <button type="submit" class="texto-negrilla boton-redondo boton-login-ingresar
+        <button id="btnIngresarAdministrador" type="submit" class="texto-negrilla boton-redondo boton-login-ingresar
         ">Ingresar</button>
       </form>
 
@@ -23,7 +23,7 @@
       </div>
 
       <div *ngIf="vacio" class="error">
-        <p>Debe ingresar la cédula.</p>
+        <p>Debe ingresar la cédula y contraseña.</p>
       </div>
 
       <div class="espacio-blanco-texto-login"></div>
@@ -43,7 +43,10 @@
           </button>
         </a>
       </div>
-      <p class="registro-mensaje">¿Aún no estás registrado? ¡Únete!</p>
+      <a [routerLink]="['']">
+        <p class="registro-mensaje">Regresar a la página principal</p>
+      </a>
+      
     </div>
   </section>
 </div>

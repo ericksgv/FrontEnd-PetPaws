@@ -1,11 +1,12 @@
 /* Colores */
 
-*{
-  font-family: 'Work Sans', sans-serif;
+* {
+    font-family: 'Work Sans', sans-serif;
 }
 
-.completo{
-  padding-top: 15vh;
+.completo {
+    margin-top: 15vh;
+    width: 100%;
     background-color: #F2EBD2;
 }
 
@@ -25,13 +26,15 @@
 .boton-redondo {
     border-radius: 20px;
     margin-top: 6%;
+    font-size: calc(0.2em + 1.2vw);
+    font-family: Recoleta, serif;
 }
 
 button {
-    padding: 2vh 4vh;
+    padding: 2% 4%;
     border: none;
     cursor: pointer;
-    margin-left: 5vh;
+    margin-left: 5%;
     border-radius: 50px;
 }
 
@@ -44,11 +47,11 @@ button {
 }
 
 .title-creacional {
-  margin-top: 12vh;
-  color: #2D2D2D;
-  font-size: 40px;
-
-font-family: Recoleta, serif;
+    margin-top: 5%;
+    margin-left: 20%;
+    color: #2D2D2D;
+    font-size: calc(0.2em + 2.3vw);
+    font-family: Recoleta, serif;
 }
 
 
@@ -56,7 +59,8 @@ font-family: Recoleta, serif;
     margin-top: 15vh;
     display: flex;
     background-image: url('src/assets/modificarusuario/wave.svg');
-    height: 85vh;
+    height: auto;
+    width: 100%;
     margin: 0;
     z-index: 0;
 }
@@ -76,19 +80,26 @@ font-family: Recoleta, serif;
     left: 10%;
 }
 
+.contenedor-img-modificar-mascota img {
+    max-width: 100%;
+    height: auto;
+    display: block; 
+}
+
 .contenedor-imagen-perro {
-    height: 112%;
-    width: 98%;
+    width: 25vw;
+    height: 26vw;
     background-size: cover;
     background-image: url('src/assets/modificarusuario/crearusuarioicono.svg');
-    background-repeat: no-repeat;
+    border-radius: 10px;
+    margin-bottom: 2vh;
 }
 
 
 .contenedor-campos-modificar-entidad {
     flex: 6;
-    margin-left: 5vw;
-    margin-right: 5vw;
+    margin-left: 5%;
+    margin-right: 5%;
     text-align: center;
 }
 
@@ -96,93 +107,133 @@ font-family: Recoleta, serif;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin-top: 6vh;
-
+    margin-top: 6%;
 }
 
-@media (max-width: 768px) {
-    .columna {
+@media screen and (max-width: 800px) {
+    .buton {
+        margin-top: 10%!important;
+    }
+}
+@media (max-width: 1600px) {
+    .orientation {
         flex-direction: column;
+    }
+    .columna {
+        text-align: right;
+    }
+    .completo {
+        height: 100%;
+    }
+    .contenido-modificar-cliente{
+        height: 100%;
+    }
+}
+
+@media screen and (max-width: 2400px) and (min-width: 1600px) {
+    button{
+        padding: 1% 2%;
+    }
+}@media screen and (max-width: 800px) {
+    .buton {
+        margin-top: 10%!important;
+    }
+}
+@media (max-width: 1600px) {
+    .orientation {
+        flex-direction: column;
+    }
+    .columna {
+        text-align: right;
+    }
+    .completo {
+        height: 100%;
+    }
+    .contenido-modificar-cliente{
+        height: 100%;
+    }
+}
+
+@media screen and (max-width: 2400px) and (min-width: 1600px) {
+    button{
+        padding: 1% 2%;
     }
 }
 
 .uno,
 .dos {
     flex: 1;
-    /* Para que ocupen el mismo espacio */
-    margin-right: 10px;
-    /* Puedes ajustar este valor para controlar el espacio entre ellos */
-
+    margin-right: 1%;
 }
 
 .uno {
-    margin-left: 10vh;
-    margin-right: 5vh;
+    margin-left: 1%;
+    margin-right: 3%;
 }
 
 .dos {
-    margin-right: 10vh;
-    margin-left: 5vh;
+    margin-right: 3%;
+    margin-left: 3%;
 }
 
 .enunciado {
-    font-size: 30px;
+    font-size: calc(0.2em + 1.8vw);
     font-weight: 500;
-
-  font-family: Recoleta, serif;
-  text-align: left;
+    font-family: Recoleta, serif;
+    text-align: left;
 }
 
 .labelenunciado {
-    width: 100%;
+    width: 90%;
     border-radius: 50px;
     border: solid 1px #2D2D2D;
     background: #F2EBD2;
     margin: 0;
-    font-size: 20px;
+    font-size: calc(0.2em + 1vw);
     border-radius: 1vh;
-    height: 28%;
     padding: 1vh;
 }
 
 .selectenunciado {
     height: 50%;
-    width: 47vh;
+    width: 90%;
     border-radius: 50px;
     border: solid 1px #2D2D2D;
     background: #F2EBD2;
     margin: 0;
-    font-size: 20px;
+    font-size: calc(0.2em + 1vw);
     border-radius: 1vh;
-    padding: 1vh;
+    padding: 0.5vh;
 }
 
 
 .buton {
-    margin-top: 10vh;
+    margin-top: 3%;
     border-radius: 20px;
     background: #E7B10A;
-    padding: 2vh;
+    padding: 2% 4%;
     color: #000000;
 
     font-family: Recoleta, serif;
-    font-size: 1.2rem;
+    font-size: calc(0.2em + 1.2vw);
     font-style: normal;
     font-weight: 600;
     line-height: normal;
 
-  transition: all 0.5s;
+    transition: all 0.5s;
 }
 
-.buton:hover{
-
-  text-decoration: none;
-  cursor: pointer;
-  background-color: white;
-
-  transition: all 0.3s;
+.buton:hover {
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #F2EBD2;
+    color: #2D2D2D;
+    transition: all 0.3s;
 }
 
-.margin-bottom {
-    margin-bottom: 9vh;
+.waveimage2 {
+    position: absolute;
+    top: 20%;
+    left: 2%;
+    width: calc(0.2em + 7vw);
 }

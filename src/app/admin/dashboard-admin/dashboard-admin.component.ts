@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {DashboardAdminService} from "../dashboard-admin.service";
 import {Medicamento} from "../../model/medicamento";
 import { Tratamiento } from "../../model/tratamiento";
+import { CurrencyPipe } from '@angular/common';
+import { catchError } from 'rxjs/internal/operators/catchError';
+import { Router } from '@angular/router';
+import { of } from 'rxjs/internal/observable/of';
+import Chart from 'chart.js/auto';
 
 
 @Component({
@@ -25,96 +30,193 @@ export class DashboardAdminComponent implements  OnInit{
   cantidadTratamientosPorMedicamento : Map<Medicamento, number>
 
 
+  chart: any;
 
 
-  constructor(private dashboardService: DashboardAdminService) {
+  constructor(private dashboardService: DashboardAdminService,
+    private router: Router) {
+
   }
 
   ngOnInit() {
-    this.dashboardService.getTotalClientes().subscribe(
-      (totalClientes => {
-        this.clientesTotales = totalClientes!
+
+    localStorage.removeItem('paginaAnterior');
+
+    this.dashboardService
+    .usuarioHome()
+    .pipe(
+      catchError((error) => {
+        if (error.status === 401) {
+          // Handle the 401 Unauthorized error here, e.g., navigate to a login page
+          // or show an error message to the user.
+          console.log('Unauthorized error. Redirecting to login page.');
+          this.router.navigate(['unauthorized']);
+        }else if (error.status === 403) {
+          // Handle the 401 Unauthorized error here, e.g., navigate to a login page
+          // or show an error message to the user.
+          console.log('Forbidden error. Redirecting to login page.');
+          this.router.navigate(['forbidden']);
+        }
+        return of(null); // Return an empty observable to avoid further error propagation.
       })
     )
+    .subscribe((data) => {
+        if(data){
+          this.dashboardService.getTotalClientes().subscribe(
+            (totalClientes => {
+              this.clientesTotales = totalClientes!
+            })
+          )
 
-    /* -------------- */
+          /* -------------- */
 
-    this.dashboardService.getTotalMascotas().subscribe(
-      (totalMascotas) => {
-        this.mascotasRegistradas = totalMascotas!
+          this.dashboardService.getTotalMascotas().subscribe(
+            (totalMascotas) => {
+              this.mascotasRegistradas = totalMascotas!
+            }
+          )
+          /* -------------- */
+
+          this.dashboardService.getTotalMascotasTratamiento().subscribe(
+            (totalMascotasTratamiento) => {
+              this.mascotasTratamiento = totalMascotasTratamiento!
+            }
+          )
+
+
+          /* -------------- */
+
+          this.dashboardService.getTotalVeterinariosActivos().subscribe(
+            (totalVetsActivos) => {
+              this.veterinariosActivos = totalVetsActivos!
+            }
+          )
+
+          /* -------------- */
+
+          this.dashboardService.getTotalVeterinariosInactivos().subscribe(
+            (totalVetsInactivos) => {
+              this.veterinariosInactivos = totalVetsInactivos!
+            }
+          )
+
+          /* -------------- */
+
+          this.dashboardService.getGananciasTotales().subscribe(
+            (gananciasTotales) => {
+              this.gananciasTotales = gananciasTotales!
+              this.dashboardService.getVentasTotales().subscribe(
+                (ventasTotales) => {
+                  this.ventasTotales = ventasTotales!
+                  this.createPieChart()
+                }
+              )
+            }
+          )
+
+          /* -------------- */
+
+
+
+          /* -------------- */
+
+          this.dashboardService.getTop3Medicamentos().subscribe(
+            (top3Medicamentos) => {
+              this.top3Medicamentos = top3Medicamentos
+            }
+          )
+
+          /* -------------- */
+
+          this.dashboardService.getTratamientosEsteMes().subscribe(
+
+            (tratamientosEsteMes) => {
+              console.log(tratamientosEsteMes);
+              this.tratamientosUltimoMes = tratamientosEsteMes
+            }
+          )
+
+          /* -------------- */
+
+          this.dashboardService.getCantidadTratamientosPorMedicamento().subscribe(
+            (mapaTramientos) => {
+              console.log(mapaTramientos);
+              this.cantidadTratamientosPorMedicamento = mapaTramientos
+            }
+          )
+
+
+          /* -------------- */
+        }
+
+    })
+
+
+
+  }
+
+
+  createPieChart(){
+    const ctx = document.getElementById('moneyChart') as HTMLCanvasElement;
+
+    this.chart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+        labels: ['Ganancias Totales', 'Ventas Totales'],
+        datasets: [{
+          label: 'Datos financieros',
+          data: [this.gananciasTotales, this.ventasTotales],
+          backgroundColor: [
+            'rgba(160, 191, 48, 0.2)',
+            'rgba(220, 106, 53, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+          ],
+          borderColor: [
+            'rgba(160, 191, 48, 1)',
+            'rgba(220, 106, 53, 1)',
+            'rgba(255, 206, 86, 1)',
+          ],
+          hoverOffset: 10
+        }]
+      },
+      options: {
+        scales: {
+
+        }
       }
-    )
-    /* -------------- */
+    });
 
-    this.dashboardService.getTotalMascotasTratamiento().subscribe(
-      (totalMascotasTratamiento) => {
-        this.mascotasTratamiento = totalMascotasTratamiento!
+  }
+
+  createBarChart(){
+    const ctx = document.getElementById('moneyChart') as HTMLCanvasElement;
+
+    this.chart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: [this.top3Medicamentos[0], this.top3Medicamentos[1], this.top3Medicamentos[2]],
+        datasets: [{
+          label: 'Top 3 medicamentos mas vendidos',
+          data: [this.gananciasTotales, this.ventasTotales],
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+          ],
+          borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+          ],
+
+        }]
+      },
+      options: {
+        scales: {
+
+        }
       }
-    )
-
-
-    /* -------------- */
-
-    this.dashboardService.getTotalVeterinariosActivos().subscribe(
-      (totalVetsActivos) => {
-        this.veterinariosActivos = totalVetsActivos!
-      }
-    )
-
-    /* -------------- */
-
-    this.dashboardService.getTotalVeterinariosInactivos().subscribe(
-      (totalVetsInactivos) => {
-        this.veterinariosInactivos = totalVetsInactivos!
-      }
-    )
-
-    /* -------------- */
-
-    this.dashboardService.getGananciasTotales().subscribe(
-      (gananciasTotales) => {
-        this.gananciasTotales = gananciasTotales!
-      }
-    )
-
-    /* -------------- */
-
-    this.dashboardService.getVentasTotales().subscribe(
-      (ventasTotales) => {
-        this.ventasTotales = ventasTotales!
-      }
-    )
-
-    /* -------------- */
-
-    this.dashboardService.getTop3Medicamentos().subscribe(
-      (top3Medicamentos) => {
-        this.top3Medicamentos = top3Medicamentos
-      }
-    )
-
-    /* -------------- */
-
-    this.dashboardService.getTratamientosEsteMes().subscribe(
-      
-      (tratamientosEsteMes) => {
-        console.log(tratamientosEsteMes);
-        this.tratamientosUltimoMes = tratamientosEsteMes
-      }
-    )
-
-    /* -------------- */
-
-    this.dashboardService.getCantidadTratamientosPorMedicamento().subscribe(
-      (mapaTramientos) => {
-        console.log(mapaTramientos);
-        this.cantidadTratamientosPorMedicamento = mapaTramientos
-      }
-    )
-
-
-    /* -------------- */
-
+    });
 
   }
 

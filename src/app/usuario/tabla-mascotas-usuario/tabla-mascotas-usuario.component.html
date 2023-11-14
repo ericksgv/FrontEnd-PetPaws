@@ -1,0 +1,55 @@
+<ng-container *ngIf="rol === 'VETERINARIO'; else adminTopBar">
+  <app-top-bar-veterinario></app-top-bar-veterinario>
+</ng-container>
+<ng-template #adminTopBar>
+  <app-top-bar-admin></app-top-bar-admin>
+</ng-template>
+
+<!-- Agrega la siguiente línea para el caso de rol igual a 'CLIENTE' -->
+<app-top-bar-cliente *ngIf="rol === 'CLIENTE'"></app-top-bar-cliente>
+<section class="layout-tablaMascotas-usuario beige-fondo">
+
+    <section class="contenedor-tabla-mascotas verdeOlivaPastel-fondo carta-general">
+      <h1 class="titulo-tabla-mascotas-usuario">Mascotas Registradas</h1>
+      <br>
+      <!-- Division generada para cada mascota -->
+      <section *ngFor="let mascota of mascotasUsuario; index as i; first as isFirst">
+        <div id="listaMascotas" class="layout-entrada-mascota">
+          <div class="seccion-foto-mascota">
+            <img class="foto-mascota" [src]="mascota.foto" alt="Foto de la mascota">
+          </div>
+
+          <div class="seccion-nombre-mascota">
+            <a [routerLink]="'/mascota/informacion/' + mascota.id" class="recoleta-bold nombre-mascota"> <strong> {{mascota.nombre}} </strong></a>
+            <br>
+            <span class="datos-basicos-mascota">{{mascota.raza}}</span>
+            <br>
+            <span class="datos-basicos-mascota">{{mascota.edad}} años</span>
+            <br>
+            <span class="datos-basicos-mascota">{{mascota.peso}} kg</span>
+          </div>
+
+          <div class="seccion-clinica-mascota">
+            <span class="worksans-bold datos-basicos-mascota">Enfermedad:  </span>
+            <br>
+            <span class="datos-basicos-mascota">{{mascota.enfermedad}}</span>
+            <br>
+            <span class="worksans-bold datos-basicos-mascota">Ultimo Tratamiento:  </span>
+            <br>
+            <span class="datos-basicos-mascota">{{mascota.tratamientos?.at(0)}}</span>
+            <br>
+            <span class="worksans-bold datos-basicos-mascota">Estado:  </span>
+            <span class="datos-basicos-mascota">{{mascota.estado}}</span>
+          </div>
+
+        </div>
+
+          <hr class="linea-divisor-mascotas">
+
+        <br>
+      </section>
+
+    </section>
+
+
+</section>

@@ -1,37 +1,43 @@
 <!-- app-veterinario-table.component.html -->
 
-<app-top-bar-oscuro></app-top-bar-oscuro>
+<app-top-bar-admin></app-top-bar-admin>
 
 <div class="acento-amarillo-semi-claro-fondo contenedor-pagina">
   <div class="cuadro-estatico acento-verde-semi-claro-fondo">
-    <div class="rectangulo"></div>
     <h1>Lista de Veterinarios</h1>
 
     <!-- Barras de búsqueda -->
     <div class="grupo-elementos">
       <label for="campoBusqueda" class="busqueda">
-        <input type="text" id="campoBusqueda" name="campoBusqueda" placeholder="Busca por cédula" [(ngModel)]="textoBusqueda" (input)="filtrarVeterinarios()">
+        <input type="text" id="campoBusqueda" name="campoBusqueda"
+          placeholder="Busca por cualquier atributo de la tabla" [(ngModel)]="textoBusqueda"
+          (input)="filtrarVeterinarios()">
       </label>
-      <div class="boton-derecha">
-        <label for="campoBusqueda" class="busqueda">
-          <input type="text" [(ngModel)]="busquedaAvanzada" placeholder="Búsqueda Avanzada">
-        </label>
-      </div>
+
     </div>
 
     <div class="tres-botones texto-negrilla textoNegro">
-      <button [ngClass]="filtroActivoNombre ? 'filtro-activo' : 'acentro-amarillo-fondo texto-negrilla .filtro-btn'"  class="acentro-amarillo-fondo texto-negrilla .filtro-btn" (click)="filtrarPorAtributo('nombre')">Nombre</button>
-      <button [ngClass]="filtroActivoEspecialidad ? 'filtro-activo' : 'acentro-amarillo-fondo texto-negrilla .filtro-btn'"  class="acentro-amarillo-fondo texto-negrilla .filtro-btn" (click)="filtrarPorAtributo('especialidad')">Especialidad</button>
-      <button [ngClass]="filtroActivoNAtenciones ? 'filtro-activo' : 'acentro-amarillo-fondo texto-negrilla .filtro-btn'"  class="acentro-amarillo-fondo texto-negrilla .filtro-btn" (click)="filtrarPorAtributo('atenciones')">Número de Atenciones</button>
-      <button [ngClass]="filtroActivoEstado ? 'filtro-activo' : 'acentro-amarillo-fondo texto-negrilla .filtro-btn'"  class="acentro-amarillo-fondo texto-negrilla .filtro-btn" (click)="filtrarPorAtributo('estado')">Estado</button>
-      <button  class="acentro-amarillo-fondo texto-negrilla .filtro-btn" (click)="filtrarPorAtributo('limpiar')">Limpiar búsqueda avanzada</button>
+      <button [ngClass]="filtroActivoCedula ? 'filtro-activo' : 'acentro-amarillo-fondo texto-negrilla .filtro-btn'"
+        class="acentro-amarillo-fondo texto-negrilla .filtro-btn" (click)="filtrarPorAtributo('cedula')">Cédula</button>
+      <button [ngClass]="filtroActivoNombre ? 'filtro-activo' : 'acentro-amarillo-fondo texto-negrilla .filtro-btn'"
+        class="acentro-amarillo-fondo texto-negrilla .filtro-btn" (click)="filtrarPorAtributo('nombre')">Nombre</button>
+      <button
+        [ngClass]="filtroActivoEspecialidad ? 'filtro-activo' : 'acentro-amarillo-fondo texto-negrilla .filtro-btn'"
+        class="acentro-amarillo-fondo texto-negrilla .filtro-btn"
+        (click)="filtrarPorAtributo('especialidad')">Especialidad</button>
+      <button
+        [ngClass]="filtroActivoNAtenciones ? 'filtro-activo' : 'acentro-amarillo-fondo texto-negrilla .filtro-btn'"
+        class="acentro-amarillo-fondo texto-negrilla .filtro-btn" (click)="filtrarPorAtributo('atenciones')">Número de
+        Atenciones</button>
+      <button [ngClass]="filtroActivoEstado ? 'filtro-activo' : 'acentro-amarillo-fondo texto-negrilla .filtro-btn'"
+        class="acentro-amarillo-fondo texto-negrilla .filtro-btn" (click)="filtrarPorAtributo('estado')">Estado</button>
     </div>
     <div class="tres-botones texto-negrilla textoNegro">
-      <div class="margenizquierdo"></div>
       <div class="boton-contenedor">
         <div class="mitad-izquierda acentro-amarillo-fondo">
           <!-- Lista desplegable izquierda -->
-          <select class="acentro-amarillo-fondo no-border texto-negrilla" [(ngModel)]="selectedSortBy" (ngModelChange)="ordenarVeterinarios()">
+          <select class="acentro-amarillo-fondo no-border texto-negrilla" [(ngModel)]="selectedSortBy"
+            (ngModelChange)="ordenarVeterinarios()">
             <option value="cedula">Cédula</option>
             <option value="nombre">Nombre</option>
             <option value="especialidad">Especialidad</option>
@@ -42,14 +48,15 @@
         </div>
         <div class="mitad-derecha">
           <!-- Lista desplegable derecha -->
-          <select class="acento-amarillo-claro-fondo texto-negrilla no-border" [(ngModel)]="selectedSortOrder" (ngModelChange)="ordenarVeterinarios()">
+          <select class="acento-amarillo-claro-fondo texto-negrilla no-border" [(ngModel)]="selectedSortOrder"
+            (ngModelChange)="ordenarVeterinarios()">
             <option value="asc">Ascendente</option>
             <option value="desc">Descendente</option>
           </select>
         </div>
       </div>
       <div class="margenizquierdo"></div>
-      <div class="boton-contenedor">
+      <div class="boton-contenedor1">
         <div class="mitad-izquierda acentro-amarillo-fondo">
           <!-- Lista desplegable para seleccionar la cantidad de mascotas por página -->
           <select class="acentro-amarillo-fondo texto-negrilla textoBlanco no-border" [(ngModel)]="itemsPorPagina"
@@ -69,13 +76,17 @@
     <table class="tabla-general2">
       <thead>
         <tr class="texto-negrilla textoNegro letra-normal-grande encabezados-tabla acento-verde-semi-claro-fondo">
-          <th scope="col"></th>
-          <th scope="col">Cédula</th>
-          <th scope="col">Nombre</th>
-          <th scope="col">Especialidad</th>
-          <th scope="col">Número Atenciones</th>
-          <th scope="col">Estado</th>
-          <th scope="col"></th>
+          <th scope="col" class="custom-checkbox-header"></th>
+          <th scope="col" style="width: 13%;">Cédula</th>
+          <th scope="col" style="width: 14%;">Nombre</th>
+          <th scope="col" style="width: 14%; ">Especialidad</th>
+          <th scope="col" class="custom-ancho" style="width: 14%; word-wrap: break-word; overflow-wrap: break-word;">
+            Número<br>
+            Atenciones
+          </th>
+          <th scope="col" class="custom-checkbox-header" >Estado</th>
+          <th scope="col" class="custom-checkbox-header"></th>
+          <th scope="col" class="custom-checkbox-header" ></th>
         </tr>
       </thead>
       <tbody id="tableBody" class="tbody2">
@@ -85,25 +96,19 @@
             <input type="checkbox" class="custom-checkbox" [id]="'checkbox-' + i">
             <label [for]="'checkbox-' + i" class="custom-checkbox-label"></label>
           </td>
-          <th>{{ veterinario.cedula }}</th>
+          <th class="ancho-personalizado">{{ veterinario.cedula }}</th>
           <td>{{ veterinario.nombre }}</td>
           <td>{{ veterinario.especialidad }}</td>
           <td>{{ veterinario.numeroAtenciones }}</td>
-          <td>
-            {{ veterinario.estado == 'activo' ? 'Activo' : 'Inactivo' }}
-          </td>
-          <td class="acciones-cell acento-transparente">
-            <div class="dropdown acento-transparente">
-              <button class="dropbtn acento-transparente"></button>
-              <div class="dropdown-content acento-transparente">
-                <a href="#" [routerLink]="['/veterinario/all']" *ngIf="veterinario.estado == 'activo'"
-                  (click)="eliminarVeterinario(veterinario.cedula)">Inactivar</a>
-                <a href="#" [routerLink]="['/veterinario/all']" *ngIf="veterinario.estado == 'inactivo'"
-                  (click)="activarVeterinario(veterinario.cedula)">Activar</a>
-                <a href="#" data-value="opcion8"
-                  [routerLink]="['/veterinario/update', veterinario.cedula]">Modificar</a>
-              </div>
+          <td class="custom-checkbox-cell2">{{ veterinario.estado }}</td>
+          <td class="acciones-cell acento-transparente custom-checkbox-cell2" >
+            <div class="toggle-container custom-checkbox-cell2" (click)="toggleEstadoVeterinario(veterinario)">
+              <div class="toggle-switch custom-checkbox-cell2" [ngClass]="{'activo': veterinario.estado === 'inactivo'}"></div>
             </div>
+          </td>
+          <td class="texto-negrilla" style=" width: 10%;">
+            <a class="boton-modificar" href="#" data-value="opcion8"
+              [routerLink]="['/veterinario/update', veterinario.cedula]">Modificar</a>
           </td>
         </tr>
       </tbody>
@@ -128,7 +133,8 @@
 
     <div class="boton-crear">
       <a>
-        <button [routerLink]="['/veterinario/add']" class="acentro-amarillo-fondo boton-redondo texto-negrilla">Añadir</button>
+        <button [routerLink]="['/veterinario/add']"
+          class="acentro-amarillo-fondo boton-redondo texto-negrilla">Añadir</button>
       </a>
     </div>
   </section>

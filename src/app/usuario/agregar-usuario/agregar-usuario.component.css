@@ -1,59 +1,55 @@
 /* Colores */
 
-*{
-  font-family: 'Work Sans', sans-serif;
+* {
+    font-family: 'Work Sans', sans-serif;
 }
 
-.subrayado{
+.subrayado {
     text-decoration: underline;
 }
 
-.letra-poppins{
+.letra-poppins {
     font-family: 'Poppins', sans-serif;
 }
 
-.no-bordes{
+.no-bordes {
     border: none;
 }
 
-.acento-amarillo-fondo{
+.acento-amarillo-fondo {
     background-color: #E7B10A;
 
 }
 
-.boton-redondo{
-  border-radius: 20px;
-  margin-top: 6%;
-
-  font-family: Recoleta, serif;
-  font-size: 1.2rem;
-  color: #2D2D2D;
-
-  transition: 0.5s all;
-
+.boton-redondo {
+    border-radius: 20px;
+    margin-top: 6%;
+    font-family: Recoleta, serif;
+    font-size: calc(0.2em + 1.2vw);
+    color: #2D2D2D;
+    transition: 0.5s all;
 }
 
-.boton-redondo:hover{
-  cursor: pointer;
-  background-color: white;
-
-  transition: 0.5s all;
-
+.boton-redondo:hover {
+    cursor: pointer;
+    background-color: #F2EBD2;
+    color: #2D2D2D;
+    transition: 0.5s all;
 }
 
 button {
-    padding: 2vh 4vh;
+    padding: 2% 4%;
     border: none;
     cursor: pointer;
-    margin-left: 5vh;
+    margin-left: 5%;
     border-radius: 50px;
 }
 
-.textoBlanco{
+.textoBlanco {
     color: white;
 }
 
-.texto-negrilla{
+.texto-negrilla {
     font-weight: bolder;
 }
 
@@ -61,20 +57,24 @@ button {
 /*Estructura Wave*/
 .wave-container {
     position: absolute;
-    bottom: 0;
+    top: 0;
+    left: 0;
     width: 55%;
-    height: 140vh;
+    height: 100%;
     padding: 0%;
     margin: 0;
-
     z-index: 0;
-    transform: rotate(90deg);
+    background-image: url('src/assets/crearusuario/waveusuario.svg');
+    transform: scaleX(-1);
 }
 
 .container-wave2 {
-    position: relative;
+    position: absolute;
     z-index: 10;
-    height:80vh;
+    margin-left: 5%;
+    top:10%;
+    margin-top: 0;
+    width: 40%;
 }
 
 svg {
@@ -82,27 +82,27 @@ svg {
     height: auto;
 }
 
-form{
-    height: 60%;
+form {
+    height: 80%;
 }
 
-.creacional{
-  margin-right: 50%;
-  background-image: url('src/assets/crearusuario/wave.svg');
+.creacional {
+    margin-right: 50%;
 }
 
-.creacional2{
+.creacional2 {
     margin-left: 40%;
-    margin-top: 10vh;
-    margin-bottom: 10vh;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
 
-.title-creacional{
+.title-creacional {
+    
+    margin-top: 20%;
     margin-left: 35%;
     color: #2D2D2D;
-    font-size: 2.3rem;
-
-  font-family: Recoleta, serif;
+    font-size: calc(0.2em + 2.3vw);
+    font-family: Recoleta, serif;
 }
 
 .columna {
@@ -113,104 +113,136 @@ form{
 
 }
 
-@media (max-width: 768px) {
-    .columna {
+@media (max-width: 800px) {
+    .orientation {
         flex-direction: column;
+    }
+    .columna {
+        text-align: right;
+    }
+    .anchoajustado{
+        width: 60%!important;
+    }
+    .container-wave2 {
+        margin-left: 1%!important;
+    }
+
+}
+
+@media screen and (max-width: 1400px) and (min-width: 801px) {
+    .columna {
+        margin-left: 10%!important;
+    }
+    .labelenunciado,.labelenunciado2, .selectenunciado {
+        width: 95%!important;
     }
 }
 
 .uno,
 .dos {
-    flex: 1; /* Para que ocupen el mismo espacio */
-    margin-right: 10px; /* Puedes ajustar este valor para controlar el espacio entre ellos */
-
-}
-.uno{
-    margin-left: 10vh;
-    margin-right: 5vh;
-}
-.dos{
-    margin-right: 10vh;
-    margin-left: 5vh;
+    flex: 1;
 }
 
-.enunciado{
-    font-size: 1.8rem;
+.uno {
+    margin-left: 2%;
+    margin-right: 1%;
+}
+
+.dos {
+    margin-right: 2%;
+    margin-left: 1%;
+}
+
+.enunciado {
+    font-size: calc(0.2em + 1.8vw);
+    font-family: Recoleta, serif;
     font-weight: bold;
-
-  font-family: Recoleta, serif;
-  color: #2D2D2D;
+    color: #2D2D2D;
 }
 
-.labelenunciado{
-    width: 100%;
+.labelenunciado {
+    width: 80%;
     border-radius: 50px;
     border: solid 1px #2D2D2D;
     background: #F2EBD2;
     margin: 0;
-    font-size: 20px;
+    font-size: calc(0.2em + 1vw);
     border-radius: 1vh;
-    height: 28%;
     padding: 1vh;
 }
 
-.selectenunciado{
+
+
+.selectenunciado {
     height: 50%;
-    width: 100%;
+    width: 80%;
     border-radius: 50px;
     border: solid 1px #2D2D2D;
     background: #F2EBD2;
     margin: 0;
-    font-size: 20px;
+    font-size: calc(0.2em + 1vw);
     border-radius: 1vh;
-    padding: 1vh;
+    padding: 1%;
 }
 
 /* Estilo del select2 */
 .select2-container--default .select2-selection--single {
-    border-radius: 1vh; /* Ajusta el valor según el grado de redondez que desees */
-    background: #F2EBD2; /* Cambia el color de fondo a #F2EBD2 */
+    border-radius: 1vh;
+    /* Ajusta el valor según el grado de redondez que desees */
+    background: #F2EBD2;
+    /* Cambia el color de fondo a #F2EBD2 */
     height: 5vh;
     border: solid 1px #2D2D2D;
 }
 
 /* Estilo de la flecha desplegable */
 .select2-container--default .select2-selection__arrow {
-    border-left: none; /* Elimina la flecha izquierda */
-    border-radius: 50px;  /* Ajusta el valor para redondear solo el lado derecho */
+    border-left: none;
+    /* Elimina la flecha izquierda */
+    border-radius: 50px;
+    /* Ajusta el valor para redondear solo el lado derecho */
     background: #F2EBD2;
     height: 5vh;
 }
 
 /* Estilo del texto seleccionado */
 .select2-container--default .select2-selection__rendered {
-    padding: 1vh; /* Ajusta el espaciado del texto seleccionado */
-    color: #333; /* Cambia el color del texto seleccionado */
+    padding: 1vh;
+    /* Ajusta el espaciado del texto seleccionado */
+    color: #333;
+    /* Cambia el color del texto seleccionado */
     height: 5vh;
     font-size: 20px;
 }
 
-.waveimage{
+.waveimage {
     position: absolute;
     top: 15%;
-    left: 60%;
-    width: 70vh;
+    right: 10%;
+    width: 30%;
 }
 
-.waveimage2{
+.waveimage2 {
     position: absolute;
     top: 20%;
-    left: 5%;
-    width: 8vh;
+    right: 4%;
+    width: calc(0.2em + 8vw);
 }
-.completo{
+
+.completo {
     background-color: #F2EBD2;
-    height: 80vh;
-
-  padding-top: 20vh;
-
+    height: 100%;
+    width: 100%;
+    padding-top: 15%;
 }
 
-.margin-bottom{
+.margin-bottom {
     margin-bottom: 10vh;
+}
+
+
+.error-message {
+    color: red;
+    font-weight: bolder;
+    margin-top: 10px;
 }

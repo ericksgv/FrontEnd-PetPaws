@@ -1,66 +1,102 @@
-import { VeterinarioService } from 'src/app/veterinario/Service/service.service';
-import {Component, OnInit} from '@angular/core';
-import {Usuario} from "../../model/usuario";
-import {FormControl, FormGroup} from "@angular/forms";
-import {Mascota} from "../../model/mascota";
+import { VeterinarioService } from 'src/app/veterinario/Service/veterinario-service.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { Usuario } from '../../model/usuario';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Mascota } from '../../model/mascota';
 import { Tratamiento } from 'src/app/model/tratamiento';
 import { HttpClient } from '@angular/common/http';
-import { ServiceService } from '../../tratamiento/Service/service.service'; 
+
+import { ServiceService } from '../../tratamiento/Service/service.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { Veterinario } from 'src/app/model/veterinario';
+import { catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
+import { LogicalFileSystem } from '@angular/compiler-cli';
+import {CitasService} from "../../cita/Service/citas.service";
+import {Cita} from "../../model/cita";
+import {CitasDTO} from "../../model/citasDTO";
 
 @Component({
   selector: 'app-dashboard-veterinario',
   templateUrl: './dashboard-veterinario.component.html',
-  styleUrls: ['./dashboard-veterinario.component.css']
+  styleUrls: ['./dashboard-veterinario.component.css'],
 })
 export class DashboardVeterinarioComponent {
-  usuarioActual: Usuario | undefined
-  mascotasUsuario: Mascota[] | undefined
-  tratamientos: Tratamiento[] = []; 
+  @Input()
+  veterinarioActual!: Veterinario;
+  usuarioActual: Usuario | undefined;
+  mascotasUsuario: Mascota[] | undefined;
+  tratamientos: Tratamiento[] = [];
   cedula: any;
   nombreUsuario: string | undefined;
+  citasHoy: CitasDTO[] = [];
 
-  constructor(private tratamientoService: ServiceService, private veterinarioService: VeterinarioService, private route: ActivatedRoute) {}
+  constructor(
+    private router: Router, // Inyecta el servicio Router
+    private tratamientoService: ServiceService,
+    private veterinarioService: VeterinarioService,
+    private citasService: CitasService,
+    private route: ActivatedRoute
+  ) {}
 
-
- 
   ngOnInit() {
+    /*
     // Obtener la cédula de la URL
     this.route.params.subscribe((params) => {
       this.cedula = params['cedula'];
       console.log(this.cedula);
       this.mostrarveterinario();
     });
-  }
-  mostrarveterinario() {
-    this.veterinarioService.getVeterinarioPorId(this.cedula).subscribe(
-      (veterinario: Veterinario | undefined) => {
-        if (veterinario) {
-          // Actualizar formulario u otras acciones necesarias
-          // Aquí puedes poner el código para actualizar la vista con los datos del veterinario si es necesario
+    */
+    localStorage.removeItem('paginaAnterior');
+    this.veterinarioService
+      .veterinarioHome()
+      .pipe(
+        catchError((error) => {
+          if (error.status === 401) {
+            // Handle the 401 Unauthorized error here, e.g., navigate to a login page
+            // or show an error message to the user.
+            console.log('Unauthorized error. Redirecting to login page.');
+            this.router.navigate(['unauthorized']);
+          } else if (error.status == 403) {
+            // Handle the 401 Unauthorized error here, e.g., navigate to a login page
+            // or show an error message to the user.
+            console.log("Error status: " + error.status)
+            console.log('Unauthorized error. Redirecting to login page.');
+            this.router.navigate(['forbidden']);
+          }
+          return of(null); // Return an empty observable to avoid further error propagation.
+        })
+      )
+      .subscribe((data) => {
+        if (data) {
+          this.veterinarioActual = data;
+          this.nombreUsuario = this.veterinarioActual.nombre;
 
-          // Guarda el ID del veterinario
-          const idVeterinario = veterinario.id;
-          this.nombreUsuario = veterinario.nombre;
-          // Luego, carga los tratamientos para este veterinario
-          this.cargarTratamientos(idVeterinario);
-        } else {
-          // Manejo de caso donde no se encuentra el veterinario
+          this.cargarTratamientos(this.veterinarioActual.id);
+          this.cargarCitasDeHoy()
         }
-      }
-    );
+      });
   }
+
+  cargarCitasDeHoy() {
+
+    this.citasService.getCitasDeHoy().subscribe(citas => {
+      console.log(citas);
+        this.citasHoy = citas;
+    });
+}
+
 
   cargarTratamientos(idVeterinario: number) {
-    this.tratamientoService.mostrarveterinario(idVeterinario).subscribe(
-      (tratamientos) => {
+    this.tratamientoService
+      .mostrarveterinario(idVeterinario)
+      .subscribe((tratamientos) => {
         this.tratamientos = tratamientos;
-      }
-    );
+      });
   }
-  calcularEdadMascota(edad: number): { anos: number, meses: number } {
+  calcularEdadMascota(edad: number): { anos: number; meses: number } {
     const anos = Math.floor(edad / 12);
     const meses = edad % 12;
     return { anos, meses };
