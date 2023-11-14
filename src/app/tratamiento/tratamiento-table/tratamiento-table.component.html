@@ -87,7 +87,8 @@
         <tr class="texto-negrilla textoNegro letra-normal-grande encabezados-tabla acento-verde-semi-claro-fondo">
           <th scope="col"></th>
           <th scope="col">ID Tratamiento</th>
-          <th scope="col">Mascota ID</th>
+          <th scope="col">Mascota</th>
+          <th scope="col">ID Mascota</th>
           <th scope="col">Medicamento</th>
           <th scope="col">Fecha</th>
           <th scope="col">Veterinario</th>
@@ -102,14 +103,12 @@
             <label [for]="'checkbox-' + i" class="custom-checkbox-label"></label>
           </td>
           <td>{{ tratamiento.id }}</td>
+          <td> <a [routerLink]="'/mascota/informacion/' + tratamiento.mascota.id" class="recoleta-bold nombre-mascota"> {{ tratamiento.mascota.nombre }}</a> </td>
+          
           <td>{{ tratamiento.mascota.id }}</td>
           <td>{{ tratamiento.medicamento.nombre }}</td>
           <td>{{ tratamiento.fecha }}</td>
           <td>{{ tratamiento.veterinario.nombre }}</td>
-          <td class="texto-negrilla boton-eliminar">
-            <a class="boton-eliminar" href="#" data-value="opcion8" [routerLink]="['/tratamiento/all']"
-              (click)="eliminarTratamiento(tratamiento.id)">Eliminar</a>
-          </td>
         </tr>
       </tbody>
     </table>
