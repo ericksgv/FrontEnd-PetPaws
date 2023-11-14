@@ -27,6 +27,7 @@ import { ChatgptComponent } from './chat/chatgpt/chatgpt.component';
 import { UnauthorizedComponent } from './errores/unauthorized/unauthorized.component';
 import { ForbiddenComponent } from './errores/forbidden/forbidden.component';
 import { CitaComponent } from './cita/cita/cita.component';
+import { AgregarTratamientoAdminComponent } from './tratamiento/agregar-tratamiento-admin/agregar-tratamiento-admin.component';
 
 const routes: Routes = [
 
@@ -153,6 +154,11 @@ const routes: Routes = [
   {
     path: 'agregar/cita',
     component: CitaComponent,
+  },
+  {
+    path: 'agregar-tratamiento',
+    component: AgregarTratamientoAdminComponent,
+
   }
 
 ];

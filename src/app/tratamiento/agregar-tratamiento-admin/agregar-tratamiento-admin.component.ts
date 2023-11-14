@@ -13,17 +13,18 @@ import { TratamientoCrearDTO } from 'src/app/model/tratamientoCrearDTO';
 import { catchError } from 'rxjs/internal/operators/catchError';
 import { of } from 'rxjs/internal/observable/of';
 @Component({
-  selector: 'app-agregar-tratamiento',
-  templateUrl: './agregar-tratamiento.component.html',
-  styleUrls: ['./agregar-tratamiento.component.css'],
+  selector: 'app-agregar-tratamiento-admin',
+  templateUrl: './agregar-tratamiento-admin.component.html',
+  styleUrls: ['./agregar-tratamiento-admin.component.css']
 })
-export class AgregarTratamientoComponent implements OnInit {
+
+export class AgregarTratamientoAdminComponent implements OnInit {
+
   mascotas: Mascota[] = [];
   veterinarios: Veterinario[] = [];
   medicamentos: Medicamento[] = [];
   tratamientoForm: FormGroup;
   rol: String = '';
-  veterinarioActual: Veterinario | undefined;
 
   constructor(
     private tratamientoService: ServiceService,
@@ -42,6 +43,9 @@ export class AgregarTratamientoComponent implements OnInit {
       // Agrega otros campos del formulario y sus validaciones si es necesario
     });
 
+    this.veterinarioService.getVeterinarios().subscribe((veterinarios) => {
+      this.veterinarios = veterinarios;
+    });
 
     this.mascotaService.getMascotas().subscribe((mascotas) => {
       this.mascotas = mascotas;
@@ -68,32 +72,21 @@ export class AgregarTratamientoComponent implements OnInit {
           // Por ejemplo, mostrar un mensaje al usuario
           console.error(errorMessage);
           this.router.navigate(['forbidden']);
+        } else {
+          console.error('Ocurrió un error:', error);
+          // Puedes agregar más lógica aquí para manejar otros tipos de errores si es necesario.
         }
+  
         // Emitir un valor personalizado que representa el error
-        return of(null);
+        return of({ error: errorMessage });
       })
     ).subscribe((result) => {
-
-
         // La lógica para el caso de éxito
         console.log('Éxito:', result);
         this.veterinarioService.getRol().subscribe((rol) => {
           this.rol = rol;
           console.log(this.rol);
         });
-
-        this.veterinarioService
-      .veterinarioHome()
-      .subscribe((data) => {
-        if (data) {
-          console.log(data);
-          this.tratamientoForm.get('veterinarioId')?.setValue(data.cedula.toString());
-
-          this.veterinarioActual = data;
-
-        }
-      });
-
         this.tratamientoForm = this.formBuilder.group({
           mascotaId: ['', Validators.required],
           veterinarioId: ['', Validators.required],
@@ -103,6 +96,9 @@ export class AgregarTratamientoComponent implements OnInit {
           // Agrega otros campos del formulario y sus validaciones si es necesario
         });
     
+        this.veterinarioService.getVeterinarios().subscribe((veterinarios) => {
+          this.veterinarios = veterinarios;
+        });
     
         this.mascotaService.getMascotas().subscribe((mascotas) => {
           this.mascotas = mascotas;
@@ -149,22 +145,30 @@ export class AgregarTratamientoComponent implements OnInit {
         });
     }
   }
-
   buscarVeterinario(event: any) {
     const veterinarioData = event.target.value;
-
+  
     if (veterinarioData == '' || veterinarioData == null) {
       this.veterinarioService.getVeterinarios().subscribe((v) => {
         this.veterinarios = v;
       });
     } else {
-      this.veterinarioService
-        .buscarVeterinarioFiltro(veterinarioData)
-        .subscribe((veterinarios) => {
+      // Verificar si veterinarioData es un número (cédula) o letras (nombre)
+      if (!isNaN(Number(veterinarioData))) {
+        // Es un número, filtrar por cédula
+        this.veterinarioService.buscarVeterinarioFiltro(veterinarioData).subscribe((veterinarios) => {
           this.veterinarios = veterinarios;
         });
+      } else {
+        // No es un número, filtrar por nombre
+        this.veterinarioService.buscarVeterinarioFiltroNombre(veterinarioData).subscribe((veterinarios) => {
+          this.veterinarios = veterinarios;
+        });
+      }
     }
   }
+  
+
 
   obtenerFechaActual(): string {
     const fechaActual = new Date();
@@ -176,7 +180,6 @@ export class AgregarTratamientoComponent implements OnInit {
 
   guardarTratamiento() {
     // Verifica si el formulario es válido
-    
     if (this.tratamientoForm.valid) {
       const tratamiento: TratamientoCrearDTO = this.tratamientoForm.value;
       console.log('guardando', tratamiento);

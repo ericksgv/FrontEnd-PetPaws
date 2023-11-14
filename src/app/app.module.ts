@@ -52,6 +52,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {ServiciosComponent} from "./landing-page/servicios/servicios.component";
+import { AgregarTratamientoAdminComponent } from './tratamiento/agregar-tratamiento-admin/agregar-tratamiento-admin.component';
 
 @NgModule({
   declarations: [
@@ -82,6 +83,7 @@ import {ServiciosComponent} from "./landing-page/servicios/servicios.component";
     ModificarVeterinarioComponent,
     VeterinarioTableComponent,
     AgregarTratamientoComponent,
+    AgregarTratamientoAdminComponent,
     ModificarTratamientoComponent,
     TratamientoTableComponent,
     DashboardAdminComponent,

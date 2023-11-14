@@ -60,6 +60,10 @@ export class VeterinarioService {
     return this.http.get<Veterinario[]>(`${this.apiUrl}/filtrar/${data}`);
   }
 
+  buscarVeterinarioFiltroNombre(data: string): Observable<Veterinario[]> {
+    return this.http.get<Veterinario[]>(`${this.apiUrl}/filtrarNombre/${data}`);
+  }
+
   veterinarioHome(): Observable<Veterinario>{
     return this.http.get<Veterinario>(`${this.apiUrl}/details`)
   }

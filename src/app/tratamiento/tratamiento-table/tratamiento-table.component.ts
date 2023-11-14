@@ -12,6 +12,7 @@ import { of } from 'rxjs/internal/observable/of';
   styleUrls: ['./tratamiento-table.component.css'],
 })
 export class TratamientoTableComponent implements OnInit {
+
   busquedaAvanzada: string = ''; // Variable para el atributo de búsqueda avanzada
   textoBusqueda: string = '';
   tratamientosFiltrados: any[] = [];
@@ -260,4 +261,14 @@ export class TratamientoTableComponent implements OnInit {
     this.paginaActual = 1; // Vuelve a la primera página al cambiar la cantidad por página
     this.calcularIndicesPagina(); // Actualiza los índices de página
   }
+
+  redirigirSegunRol() {
+    if(this.rol == 'ADMIN'){
+      console.log("Redirigiendo a ADMIN")
+      this.router.navigate(['/agregar-tratamiento']);
+    } else{
+      console.log("Redirigiendo a VET")
+      this.router.navigate(['/tratamiento/add']);
+    }
+    }
 }
