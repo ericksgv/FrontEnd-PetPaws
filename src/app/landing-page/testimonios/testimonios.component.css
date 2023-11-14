@@ -1,22 +1,33 @@
 @import"src/styles.css";
 
 .layout-testimonios{
-  height: 80vh;
+  min-height: 100vh;
   background-color: #F2EBD2;
 }
 
 /* -------------- Seccion del titulo -------------- */
 .circle{
   border-radius: 50%;
-  height: 50px;
-  width: 50px;
+  height: 120px;
+  width: 120px;
+
+  position: absolute;
+  z-index: 0;
+  margin-left: 8%;
+  margin-top: -3%;
 
 
+}
+
+.tamaño-quotes-grandes{
+  font-size: 5vw;
 }
 
 .titulo-testimonios-izquierda{
   text-align: left;
   margin-left: 10%;
+  position: relative;
+  z-index: 1;
 }
 
 .titulo-testimonios-derecha{
@@ -25,7 +36,6 @@
 }
 
 .highlight-titulo-testimonios{
-  background-image: url("/assets/LandingPage/Testimonios/circleHighlight.png");
   background-position: bottom;
 }
 
@@ -34,37 +44,49 @@
   display: flex;
   width: 100%;
 
-  margin-right: 5%;
-  margin-left: 5%;
+  padding: 5% 8%;
+  margin: auto;
 }
 
 .carta-testimonio{
-  flex: 5;
+  flex: 4;
+  height: 40%;
   border-radius: 15px;
+  border: black solid 3px;
+
+  background-color: #F1D79D;
 }
 
 #carta-izquierda-colored-border{
-  border-right: solid dimgray 1px;
+  margin-right: 5%;
 }
 
 .imagen-carta-testimonio{
   width: 100%;
-  height: 50%;
+  height: 30vh;
   object-fit: cover;
-  border-radius: 15px;
+  border-radius: 15px 15px 0 0 ;
+  margin-bottom: 5%;
 }
 
 .titulo-carta-testimonio{
   text-align: center;
-  font-size: 1.5vw;
+  font-size: 1.8vw;
 }
 
 .texto-carta-testimonio{
+  margin-right: 5%;
+  margin-left: 5%;
 
+  font-size: 1.5vw;
+  display: block;
+  text-align: center;
 }
 
 .autor-carta-testimonio{
-  font-size: 1vw;
+  font-size: 1.3vw;
+  display: block;
+  text-align: center;
 }
 
 
