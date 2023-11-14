@@ -8,7 +8,9 @@
 <div class="completo">
     <div class="wave-container"></div>
     <img class="waveimage" src="./assets/creartratamiento/home.png" alt="perro">
+    <a [routerLink]="'/tratamiento/all'">
     <img class="waveimage2" src="./assets/crearmascota/devolverse.svg" alt="devolverse">
+    </a>
     <section class="container-wave2 creacional">
         <h1 class="title-creacional subrayado">Añadir Tratamiento</h1>
         <form [formGroup]="tratamientoForm" (ngSubmit)="guardarTratamiento()">
