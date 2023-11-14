@@ -46,7 +46,8 @@
 
     </table>
 
-    <button class="boton-redondo-global boton-añadir recoleta naranja-principal-fondo beige-acento" [routerLink]="'/tratamiento/add'"> Añadir tratamiento </button>
+   <button *ngIf="rol !== 'CLIENTE'" class="boton-redondo-global boton-añadir recoleta naranja-principal-fondo beige-acento" [routerLink]="'/tratamiento/add'"> Añadir tratamiento </button>
+
 
   </section>
 
