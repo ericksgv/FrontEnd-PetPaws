@@ -54,6 +54,7 @@ export class UsuarioService {
   }
 
   getMascotasUsuarioCedula(cedula: number) : Observable<Mascota[] | undefined>{
+    console.log(cedula)
     return this.http.get<Mascota[] | undefined>(`${this.apiUrl}/mascotas/${cedula}`)
   }
 

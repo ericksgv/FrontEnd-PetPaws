@@ -5,6 +5,7 @@ import {UsuarioService} from "../Service/usuarioservice.service";
 import { catchError } from 'rxjs/internal/operators/catchError';
 import { Router } from '@angular/router';
 import { of } from 'rxjs/internal/observable/of';
+import { VeterinarioService } from 'src/app/veterinario/Service/veterinario-service.service';
 
 @Component({
   selector: 'app-tabla-mascotas-usuario',
@@ -15,18 +16,17 @@ export class TablaMascotasUsuarioComponent implements  OnInit{
 
   usuarioActual: Usuario | undefined
   mascotasUsuario: Mascota[] | undefined
+  rol: String | undefined
 
-  constructor(private usuarioService: UsuarioService, private router: Router) {
+  constructor(private usuarioService: UsuarioService, private veterinarioService: VeterinarioService, private router: Router) {
   }
 
   ngOnInit(){
 
     // Se recupera el usuario de local storage con la llave "usuarioActual". Esta llave esta quemada con el fin
     // de no tener que enviar más información entre las pantallas.
-    this.usuarioActual = this.usuarioService.getUsuarioLocalStorage("usuarioActual")!
 
-    this.usuarioService
-    .usuarioHome()
+    this.veterinarioService.getRol()
     .pipe(
       catchError((error) => {
         if (error.status === 401) {
@@ -45,18 +45,41 @@ export class TablaMascotasUsuarioComponent implements  OnInit{
         return of(null); // Return an empty observable to avoid further error propagation.
       })
     )
-    .subscribe((data) => {
-      if (data) {
-        console.log(data);
-        this.usuarioActual = data;
-        this.usuarioService.getMascotasUsuarioCedula(this.usuarioActual.cedula).subscribe(
+    .subscribe((rol) => {
+      this.rol = rol?? undefined;
+      if(this.rol !== "CLIENTE"){
+        console.log("ROL: " + this.rol)
+        var cedulaString: string | null = localStorage.getItem('cedula');
+        var cedula: number = 0
+        if(cedulaString != null){
+          cedula = parseInt(cedulaString)
+        }
+        console.log("cedula: " + cedula)
+        this.usuarioService.getMascotasUsuarioCedula(cedula).subscribe(
           (mascotasUsuario => {
             this.mascotasUsuario = mascotasUsuario
             console.log("Mascotas obtenidas del usuario: " + mascotasUsuario)
           })
         )
+      }else{
+        this.usuarioService
+        .usuarioHome()
+        .subscribe((data) => {
+          if (data) {
+            console.log(data);
+            this.usuarioActual = data;
+            this.usuarioService.getMascotasUsuarioCedula(this.usuarioActual.cedula).subscribe(
+              (mascotasUsuario => {
+                this.mascotasUsuario = mascotasUsuario
+                console.log("Mascotas obtenidas del usuario: " + mascotasUsuario)
+              })
+            )
+          }
+        });
       }
     });
+
+
   }
 
 

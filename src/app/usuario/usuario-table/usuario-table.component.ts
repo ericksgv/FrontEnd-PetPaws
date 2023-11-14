@@ -12,6 +12,7 @@ import { of } from 'rxjs/internal/observable/of';
   styleUrls: ['./usuario-table.component.css']
 })
 export class UsuarioTableComponent implements OnInit {
+
   selectedSortBy: string = 'cedula'; // Valor predeterminado
   selectedSortOrder: string = 'asc'; // Valor predeterminado
   usuarios: Usuario[] = [];
@@ -239,5 +240,11 @@ export class UsuarioTableComponent implements OnInit {
     // Crea un arreglo de números de página dentro del rango
     this.rangoPaginas = Array.from({ length: fin - inicio + 1 }, (_, index) => inicio + index);
   }
+
+  listarMascotas(cedula: number) {
+    localStorage.setItem('cedula', cedula.toString());
+}
+
+
 }
 
