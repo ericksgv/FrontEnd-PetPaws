@@ -11,7 +11,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { HeroSectionComponent } from './landing-page/hero-section/hero-section.component';
-import { MisionComponent } from './landing-page/mision/mision.component';
 import { TestimoniosComponent } from './landing-page/testimonios/testimonios.component';
 import { AboutUsComponent } from './landing-page/about-us/about-us.component';
 import { ContactoComponent } from './landing-page/contacto/contacto.component';
@@ -52,6 +51,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {ServiciosComponent} from "./landing-page/servicios/servicios.component";
 
 @NgModule({
   declarations: [
@@ -63,7 +63,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LandingPageComponent,
     TopBarComponent,
     HeroSectionComponent,
-    MisionComponent,
     TestimoniosComponent,
     AboutUsComponent,
     ContactoComponent,
@@ -109,6 +108,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatButtonModule,
     MatIconModule,
     BrowserAnimationsModule,
+    ServiciosComponent,
   ],
   providers: [
     {
