@@ -1,4 +1,4 @@
 export const environment = {
-    apiKey: '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' 
+    apiKey: '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' 
   };
   

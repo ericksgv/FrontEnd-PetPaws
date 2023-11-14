@@ -171,8 +171,9 @@ export class AgregarTratamientoComponent implements OnInit {
 
   guardarTratamiento() {
     // Verifica si el formulario es válido
-    
     if (this.tratamientoForm.valid) {
+      Swal.showLoading();
+
       const tratamiento: TratamientoCrearDTO = this.tratamientoForm.value;
       this.tratamientoService.agregarTratamiento(tratamiento).subscribe(() => {
         Swal.fire({
@@ -181,12 +182,11 @@ export class AgregarTratamientoComponent implements OnInit {
           text: 'Tratamiento Agregado exitosamente',
           timer: 2000,
           timerProgressBar: true,
-          didOpen: () => {
-            Swal.showLoading();
-          },
         }).then(() => {
           this.router.navigate(['tratamiento/all']);
         });
+      }, error => {
+        // Manejar el error si es necesario
       });
     } else {
       // Si el formulario no es válido, muestra un mensaje de error o realiza alguna acción
@@ -197,5 +197,4 @@ export class AgregarTratamientoComponent implements OnInit {
       });
     }
   }
-  
 }

@@ -114,6 +114,7 @@ export class CitaComponent {
         fechaHora: fechaCopia,
         idMascota: Number(this.selectedMascota)
       };
+      Swal.showLoading();
       this.servicioSpring.agregarCita(cita).subscribe(
         () => {
           Swal.fire({

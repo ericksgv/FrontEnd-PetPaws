@@ -34,12 +34,20 @@ export class ChatgptService {
     
     En PetPaws, nuestra prioridad es el bienestar de tu perro. Siempre puedes contar con nosotros para brindar atención experta y compasiva en cualquier situación de emergencia."
     
+    Si se puede agendar citas
+
+    Las citas son cada hora desde las 8 am hasta las 4 pm
+
+    Si preguntan por un perro enfermo, se puede agendar una cita iniciando sesión
+
+    Para unirse, registrarse toca ir a la veterinaria para ser agregado por el veterinario o por el adminitrador
+
     Teniendo en cuenta el contexto proporcionado, responda a la pregunta: ${text}`;
   
     from(this.openai.createCompletion({
       model: 'text-davinci-003',
       prompt: preguntaConInfo, // Usa la pregunta con información de la empresa
-      max_tokens: 256,
+      max_tokens: 300,
       temperature: 0.7
     })).pipe(
       filter(resp => !!resp && !!resp.data),
