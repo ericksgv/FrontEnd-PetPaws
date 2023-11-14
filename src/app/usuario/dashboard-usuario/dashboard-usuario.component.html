@@ -3,6 +3,26 @@
 
   <h1 class="titulo-nombre-cliente"> Bienvenido, <strong>{{usuarioActual?.nombre}}</strong> </h1>
 
+  <section class="carta-citas naranjaPastel-fondo">
+    <h1 class="recoleta-bold">Tus citas:</h1>
+    <br>
+    <table class="tabla-general2">
+      <thead>
+      <tr>
+        <th class="recoleta-bold">Hora</th>
+        <th class="recoleta-bold">Mascota</th>
+      </tr>
+      </thead>
+      <tbody id="tableBody" class="tbody2">
+      <tr *ngFor="let cita of citasUsuario">
+        <td>{{cita.fechaHora}}</td>
+        <td>{{cita.nombreMascota}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </section>
+
+
   <section class="contenedor-cartas">
 
     <section class="carta-datos">

@@ -6,6 +6,8 @@ import {Mascota} from "../../model/mascota";
 import { catchError } from 'rxjs/internal/operators/catchError';
 import { ActivatedRoute, Router } from '@angular/router';
 import { of } from 'rxjs';
+import {CitasService} from "../../cita/Service/citas.service";
+import {CitasDTO} from "../../model/citasDTO";
 
 
 @Component({
@@ -17,9 +19,11 @@ export class DashboardUsuarioComponent implements OnInit{
 
   usuarioActual!: Usuario | undefined
   mascotasUsuario: Mascota[] | undefined
+  citasUsuario: CitasDTO[] | undefined
 
   constructor(private usuarioService: UsuarioService,
-    private router: Router) {
+    private router: Router,
+    private citaService: CitasService) {
   }
 
 
@@ -59,16 +63,25 @@ export class DashboardUsuarioComponent implements OnInit{
         this.usuarioActual = data;
         this.setInformacionForm(this.usuarioActual.cedula, this.usuarioActual.nombre, this.usuarioActual.correo, this.usuarioActual.celular)
 
-    this.usuarioService.getMascotasUsuarioCedula(this.usuarioActual.cedula).subscribe(
+      this.usuarioService.getMascotasUsuarioCedula(this.usuarioActual.cedula).subscribe(
       (mascotasUsuario => {
         this.mascotasUsuario = mascotasUsuario
       })
     )
       }
+
+      this.citaService.getCitasMascotasUsuario(data?.cedula!)
+        .subscribe(
+          (citas => {
+            this.citasUsuario = citas
+          })
+        )
+
     });
 
-    // Se llenan los campos del form con la informacion del usuario.
-    
+
+
+
   }
 
   setInformacionForm(cedula:number, nombre:string, correo:string, celular:number){

@@ -18,6 +18,11 @@ hr{
   padding-bottom: 5vh;
 }
 
+.titulo-tabla-dashboard-admin{
+  text-align: center;
+  margin-top: 5%
+}
+
 /* -------------------- Cuadros estadisticas principales--------------------*/
 .cuadros-estadisticas-principales{
   display: flex;

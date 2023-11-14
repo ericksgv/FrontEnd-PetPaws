@@ -105,18 +105,18 @@ export class DashboardAdminComponent implements  OnInit{
           this.dashboardService.getGananciasTotales().subscribe(
             (gananciasTotales) => {
               this.gananciasTotales = gananciasTotales!
+              this.dashboardService.getVentasTotales().subscribe(
+                (ventasTotales) => {
+                  this.ventasTotales = ventasTotales!
+                  this.createPieChart()
+                }
+              )
             }
           )
 
           /* -------------- */
 
-          this.dashboardService.getVentasTotales().subscribe(
-            (ventasTotales) => {
-              this.ventasTotales = ventasTotales!
-              this.createPieChart()
 
-            }
-          )
 
           /* -------------- */
 
@@ -167,6 +167,38 @@ export class DashboardAdminComponent implements  OnInit{
           label: 'Datos financieros',
           data: [this.gananciasTotales, this.ventasTotales],
           backgroundColor: [
+            'rgba(160, 191, 48, 0.2)',
+            'rgba(220, 106, 53, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+          ],
+          borderColor: [
+            'rgba(160, 191, 48, 1)',
+            'rgba(220, 106, 53, 1)',
+            'rgba(255, 206, 86, 1)',
+          ],
+          hoverOffset: 10
+        }]
+      },
+      options: {
+        scales: {
+
+        }
+      }
+    });
+
+  }
+
+  createBarChart(){
+    const ctx = document.getElementById('moneyChart') as HTMLCanvasElement;
+
+    this.chart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: [this.top3Medicamentos[0], this.top3Medicamentos[1], this.top3Medicamentos[2]],
+        datasets: [{
+          label: 'Top 3 medicamentos mas vendidos',
+          data: [this.gananciasTotales, this.ventasTotales],
+          backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
             'rgba(54, 162, 235, 0.2)',
             'rgba(255, 206, 86, 0.2)',
@@ -176,7 +208,7 @@ export class DashboardAdminComponent implements  OnInit{
             'rgba(54, 162, 235, 1)',
             'rgba(255, 206, 86, 1)',
           ],
-          hoverOffset: 10
+
         }]
       },
       options: {
